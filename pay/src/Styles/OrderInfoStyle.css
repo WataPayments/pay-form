@@ -97,7 +97,9 @@
     flex-direction: column;
     justify-content: center;
     color: #fff;
-    font-family: "TT Firs Neue Black";
+    font-family: 'TTFirsNeue Regular';
+    font-style: normal;
+    font-weight: 400;
 }
 .price-and-number-order{
     width: 100%;

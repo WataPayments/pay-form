@@ -99,7 +99,9 @@
     align-items: center;
     color: #fff;
     margin-top: 1%;
-    font-family: "TT Firs Neue Black";
+    font-family: 'TTFirsNeue Regular';
+    font-style: normal;
+    font-weight: 400;
 }
 .sbp-button{
     width: 100%;

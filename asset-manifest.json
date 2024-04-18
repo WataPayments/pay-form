@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/pay-form/static/css/main.90d24915.css",
+    "main.css": "/pay-form/static/css/main.1aa3e53d.css",
     "main.js": "/pay-form/static/js/main.90a6a47e.js",
     "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
     "static/media/TTFirsNeue-DemiBoldItalic.ttf": "/pay-form/static/media/TTFirsNeue-DemiBoldItalic.d96287c6cf4cd2f5d330.ttf",
@@ -23,11 +23,11 @@
     "static/media/SBP button big.svg": "/pay-form/static/media/SBP button big.4acfe54f8271c73f723bedb3613b2d5d.svg",
     "static/media/Logo.svg": "/pay-form/static/media/Logo.f46aa925597ed7f039230b9d01a03e6f.svg",
     "index.html": "/pay-form/index.html",
-    "main.90d24915.css.map": "/pay-form/static/css/main.90d24915.css.map",
+    "main.1aa3e53d.css.map": "/pay-form/static/css/main.1aa3e53d.css.map",
     "main.90a6a47e.js.map": "/pay-form/static/js/main.90a6a47e.js.map"
   },
   "entrypoints": [
-    "static/css/main.90d24915.css",
+    "static/css/main.1aa3e53d.css",
     "static/js/main.90a6a47e.js"
   ]
 }

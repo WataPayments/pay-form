@@ -1,24 +1,118 @@
-body {
-  margin: 0;
-  padding: 0;
+@font-face {
+    font-family: 'TTFirsNeue Black';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-Black.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'TTFirsNeue Black Italic';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-BlackItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Bold';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Bold Italic';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue DemiBold';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-DemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue DemiBold Italic';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-DemiBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue ExtraBold';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue ExtraBold Italic';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-ExtraBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue ExtraLight';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue ExtraLight Italic';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-ExtraLightItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Italic';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Light';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Light Italic';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Medium';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Medium Italic';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Regular';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Thin';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-Thin.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Thin Italic';
+    src: url('./Fonts/TTFirsNeue/TTFirsNeue-ThinItalic.ttf') format('truetype');
+}
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
 * {
-  box-sizing: border-box;
-  font-family: "TT Firs Neue";
+    box-sizing: border-box;
+    font-family: 'TTFirsNeue Black';
 }
 
 .App {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #262328;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #262328;
 }
-.logo{
-  width: 40%;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
+
+.logo {
+    width: 40%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
 }

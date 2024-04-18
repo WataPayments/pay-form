@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pay-form/static/css/main.d18f045e.css",
-    "main.js": "/pay-form/static/js/main.151fdd36.js",
+    "main.css": "/pay-form/static/css/main.90d24915.css",
+    "main.js": "/pay-form/static/js/main.90a6a47e.js",
     "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
     "static/media/TTFirsNeue-DemiBoldItalic.ttf": "/pay-form/static/media/TTFirsNeue-DemiBoldItalic.d96287c6cf4cd2f5d330.ttf",
     "static/media/TTFirsNeue-BlackItalic.ttf": "/pay-form/static/media/TTFirsNeue-BlackItalic.20e6d72dbbf5628241f0.ttf",
@@ -23,11 +23,11 @@
     "static/media/SBP button big.svg": "/pay-form/static/media/SBP button big.4acfe54f8271c73f723bedb3613b2d5d.svg",
     "static/media/Logo.svg": "/pay-form/static/media/Logo.f46aa925597ed7f039230b9d01a03e6f.svg",
     "index.html": "/pay-form/index.html",
-    "main.d18f045e.css.map": "/pay-form/static/css/main.d18f045e.css.map",
-    "main.151fdd36.js.map": "/pay-form/static/js/main.151fdd36.js.map"
+    "main.90d24915.css.map": "/pay-form/static/css/main.90d24915.css.map",
+    "main.90a6a47e.js.map": "/pay-form/static/js/main.90a6a47e.js.map"
   },
   "entrypoints": [
-    "static/css/main.d18f045e.css",
-    "static/js/main.151fdd36.js"
+    "static/css/main.90d24915.css",
+    "static/js/main.90a6a47e.js"
   ]
 }

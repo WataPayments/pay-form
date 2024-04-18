@@ -6,7 +6,7 @@ export default function OrderInfo(){
     return(
         <div className={"order-info-block"}>
             <div className={"price-and-number-order"}>
-                <p className={"price"}>5790,00 ₽</p>
+                <p className={"price"}>5 790,00 ₽</p>
                 <p className={"number"}>№4125678</p>
             </div>
             <div className={"link-and-info-order"}>

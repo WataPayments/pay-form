@@ -1,15 +1,33 @@
 {
   "files": {
-    "main.css": "/pay-form/static/css/main.29473b66.css",
+    "main.css": "/pay-form/static/css/main.ab08cc86.css",
     "main.js": "/pay-form/static/js/main.151fdd36.js",
+    "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
+    "static/media/TTFirsNeue-DemiBoldItalic.ttf": "/pay-form/static/media/TTFirsNeue-DemiBoldItalic.d96287c6cf4cd2f5d330.ttf",
+    "static/media/TTFirsNeue-BlackItalic.ttf": "/pay-form/static/media/TTFirsNeue-BlackItalic.20e6d72dbbf5628241f0.ttf",
+    "static/media/TTFirsNeue-ExtraBoldItalic.ttf": "/pay-form/static/media/TTFirsNeue-ExtraBoldItalic.c05e8e2ffbe897de6277.ttf",
+    "static/media/TTFirsNeue-BoldItalic.ttf": "/pay-form/static/media/TTFirsNeue-BoldItalic.7101fe6a82872924d9c2.ttf",
+    "static/media/TTFirsNeue-LightItalic.ttf": "/pay-form/static/media/TTFirsNeue-LightItalic.d9587c80fcbd3fc0ba53.ttf",
+    "static/media/TTFirsNeue-Italic.ttf": "/pay-form/static/media/TTFirsNeue-Italic.f199c50d88dcd554ff5e.ttf",
+    "static/media/TTFirsNeue-ExtraLightItalic.ttf": "/pay-form/static/media/TTFirsNeue-ExtraLightItalic.9deec1f72709abf6f30f.ttf",
+    "static/media/TTFirsNeue-ThinItalic.ttf": "/pay-form/static/media/TTFirsNeue-ThinItalic.b9f5800f28ab1c53203d.ttf",
+    "static/media/TTFirsNeue-Thin.ttf": "/pay-form/static/media/TTFirsNeue-Thin.829bbc6cd68163130c70.ttf",
+    "static/media/TTFirsNeue-ExtraLight.ttf": "/pay-form/static/media/TTFirsNeue-ExtraLight.d4804a9d687bd4aaf94d.ttf",
+    "static/media/TTFirsNeue-Medium.ttf": "/pay-form/static/media/TTFirsNeue-Medium.c40de9018ca2adfa67af.ttf",
+    "static/media/TTFirsNeue-Light.ttf": "/pay-form/static/media/TTFirsNeue-Light.fbe65c7a237ab24e25a3.ttf",
+    "static/media/TTFirsNeue-DemiBold.ttf": "/pay-form/static/media/TTFirsNeue-DemiBold.3000b23d43b9567b832f.ttf",
+    "static/media/TTFirsNeue-Bold.ttf": "/pay-form/static/media/TTFirsNeue-Bold.0e5c24bc12f0df7821a9.ttf",
+    "static/media/TTFirsNeue-Black.ttf": "/pay-form/static/media/TTFirsNeue-Black.e2bc93fcfddd4dd2b8dd.ttf",
+    "static/media/TTFirsNeue-Regular.ttf": "/pay-form/static/media/TTFirsNeue-Regular.7925664aab1bc42bbc9b.ttf",
+    "static/media/TTFirsNeue-ExtraBold.ttf": "/pay-form/static/media/TTFirsNeue-ExtraBold.a3be4568fc181a363d94.ttf",
     "static/media/SBP button big.svg": "/pay-form/static/media/SBP button big.4acfe54f8271c73f723bedb3613b2d5d.svg",
     "static/media/Logo.svg": "/pay-form/static/media/Logo.f46aa925597ed7f039230b9d01a03e6f.svg",
     "index.html": "/pay-form/index.html",
-    "main.29473b66.css.map": "/pay-form/static/css/main.29473b66.css.map",
+    "main.ab08cc86.css.map": "/pay-form/static/css/main.ab08cc86.css.map",
     "main.151fdd36.js.map": "/pay-form/static/js/main.151fdd36.js.map"
   },
   "entrypoints": [
-    "static/css/main.29473b66.css",
+    "static/css/main.ab08cc86.css",
     "static/js/main.151fdd36.js"
   ]
 }

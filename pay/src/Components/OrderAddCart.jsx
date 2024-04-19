@@ -7,7 +7,7 @@ export default function OrderAddCart() {
     const [cardType, setCardType] = useState("unknown");
 
     const handleCardNumberChange = (event) => {
-        const inputCardNumber = event.target.value.replace(/\s/g, ""); // Удаляем все пробелы из ввода
+        const inputCardNumber = event.target.value.replace(/\s/g, "");
         setCardNumber(inputCardNumber);
 
         let newCardType = "unknown";

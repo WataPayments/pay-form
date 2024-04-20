@@ -107,15 +107,13 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    background: #262328;
+    background: #211F22;
 }
 
 .logo {
-    position: absolute;
-    left: 0;
-    bottom: 0;
     width: 100%;
     text-align: center;
+    margin-top: 20px;
 }

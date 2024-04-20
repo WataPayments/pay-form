@@ -102,7 +102,23 @@
     font-family: 'TTFirsNeue Regular';
     font-style: normal;
     font-weight: 400;
+    padding: 20px;
 }
+form{
+    width: 100%;
+}
+form > a {
+    cursor: pointer;
+    width: 100%;
+}
+form>a>img{
+    width: 100%;
+}
+
+form>a:hover img{
+    filter: brightness(0.8);
+}
+
 .sbp-button{
     width: 100%;
     text-align: center;
@@ -121,12 +137,24 @@
     width: 100%;
 }
 
-label {
-    display: block;
-    margin-bottom: 5%;
-    color: #E1FF00;
+.label-text{
+    width: 100%;
+    background-color: #ED8C201A;
+    border-radius: 10px;
+    text-align: center;
+    height: 48px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.label-text p {
+    color: #ED8C20;
     font-size: 20px;
-    margin-left: 5%;
+    font-weight: 400;
 }
 .card-number-container{
     width: 100%;
@@ -150,10 +178,9 @@ label {
     color: #000;
 }
 
-input[type="text"], input[type="number"] {
-    width: 90%;
+input[type="text"], input[type="number"] ,input[type="password"]{
+    width: 100%;
     padding: 20px;
-    margin-bottom: 20px;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.20);
     background: #211F22;
@@ -161,22 +188,28 @@ input[type="text"], input[type="number"] {
     font-size: 20px;
 }
 
-input[type=text]:focus, input[type="number"]:focus{
+input[type=text]:focus, input[type="number"]:focus,input[type="password"]:focus{
     outline: 2px solid #E1FF00;
 }
+
+input.error {
+    border:1px solid red;
+
+}
+
 
 .cvv-container {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    margin: 10px 0;
 }
 .cvv-container input {
-    width: 42%;
+    width: 49%;
 
 }
 input[type="submit"] {
-    width: 90%;
+    width: 100%;
     color: #fff;
     border: none;
     padding: 15px 20px;
@@ -193,15 +226,21 @@ input[type="submit"]:hover {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 5%;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .accept-text{
     width: 100%;
     text-align: center;
+    margin-bottom: 0;
 }
 .accept-text p{
     color: rgba(255, 255, 255, 0.40);
     font-size: 18px;
+}
+.accept-text a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.75);
 }
 
 @media screen and (max-width: 1440px) {
@@ -216,8 +255,26 @@ input[type="submit"]:hover {
         align-items: center;
         color: #fff;
         margin-top: 1%;
-        font-family: "TT Firs Neue Black";
+        font-family: 'TTFirsNeue Regular';
+        font-style: normal;
+        font-weight: 400;
+        padding: 20px;
     }
+    form{
+        width: 100%;
+    }
+    form > a {
+        cursor: pointer;
+        width: 100%;
+    }
+    form>a>img{
+        width: 100%;
+    }
+
+    form>a:hover img{
+        filter: brightness(0.8);
+    }
+
     .sbp-button{
         width: 100%;
         text-align: center;
@@ -236,128 +293,24 @@ input[type="submit"]:hover {
         width: 100%;
     }
 
-    label {
-        display: block;
-        margin-bottom: 5%;
-        color: #E1FF00;
-        font-size: 20px;
-        margin-left: 5%;
-    }
-    .card-number-container{
+    .label-text{
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-    }
-
-    .card-number-container::after {
-        content: attr(data-card-type);
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
-        padding: 0 10px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        color: #000;
-    }
-
-    input[type="text"], input[type="number"] {
-        width: 90%;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.20);
-        background: #211F22;
-        color: white;
-        font-size: 20px;
-    }
-
-    input[type=text]:focus, input[type="number"]:focus{
-        outline: 2px solid #E1FF00;
-    }
-
-    .cvv-container {
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-        margin-bottom: 20px;
-    }
-    .cvv-container input {
-        width: 42%;
-
-    }
-    input[type="submit"] {
-        width: 90%;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 8px;
-        background: #8B53E8;
-        cursor: pointer;
-        font-size: 20px;
-        transition: background-color 500ms ease-in-out;
-    }
-    input[type="submit"]:hover {
-        background-color: #522F8B;
-    }
-    .submit-button{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-bottom:1%;
-    }
-    .accept-text{
-        width: 100%;
-        text-align: center;
-    }
-    .accept-text p{
-        color: rgba(255, 255, 255, 0.40);
-        font-size: 18px;
-    }
-}
-
-
-@media screen and (max-width: 1024px){
-    .order-add-cart-block {
-        width: 70%;
+        background-color: #ED8C201A;
         border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.20);
-        background: #262328;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: #fff;
-        margin-top: 1%;
-        font-family: "TT Firs Neue Black";
-    }
-    .sbp-button{
-        width: 100%;
         text-align: center;
-        margin-top: 4%;
-        margin-bottom: 2%;
-    }
-    .sbp-button a{
-        width: 100%;
-        display: block;
-    }
-    .sbp-button a>img{
-        width: 90%;
+        height: 48px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .add-cart-block{
-        width: 100%;
-    }
 
-    label {
-        display: block;
-        margin-bottom: 3%;
-        color: #E1FF00;
+    .label-text p {
+        color: #ED8C20;
         font-size: 20px;
-        margin-left: 5%;
+        font-weight: 400;
     }
     .card-number-container{
         width: 100%;
@@ -382,9 +335,8 @@ input[type="submit"]:hover {
     }
 
     input[type="text"], input[type="number"] {
-        width: 90%;
+        width: 100%;
         padding: 20px;
-        margin-bottom: 20px;
         border-radius: 8px;
         border: 1px solid rgba(255, 255, 255, 0.20);
         background: #211F22;
@@ -399,15 +351,15 @@ input[type="submit"]:hover {
     .cvv-container {
         width: 100%;
         display: flex;
-        justify-content: space-evenly;
-        margin-bottom: 1%;
+        justify-content: space-between;
+        margin: 10px 0;
     }
     .cvv-container input {
-        width: 42%;
+        width: 49%;
 
     }
     input[type="submit"] {
-        width: 90%;
+        width: 100%;
         color: #fff;
         border: none;
         padding: 15px 20px;
@@ -424,15 +376,173 @@ input[type="submit"]:hover {
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-bottom: 1%;
+        margin-bottom: 20px;
+        margin-top: 20px;
     }
     .accept-text{
-        width: 80%;
+        width: 100%;
         text-align: center;
+        margin-bottom: 0;
     }
     .accept-text p{
         color: rgba(255, 255, 255, 0.40);
         font-size: 18px;
+    }
+    .accept-text a{
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.75);
+    }
+}
+
+
+@media screen and (max-width: 1024px){
+    .order-add-cart-block {
+        width: 70%;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.20);
+        background: #262328;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        margin-top: 1%;
+        font-family: 'TTFirsNeue Regular';
+        font-style: normal;
+        font-weight: 400;
+        padding: 20px;
+    }
+    form{
+        width: 100%;
+    }
+    form > a {
+        cursor: pointer;
+        width: 100%;
+    }
+    form>a>img{
+        width: 100%;
+    }
+
+    form>a:hover img{
+        filter: brightness(0.8);
+    }
+
+    .sbp-button{
+        width: 100%;
+        text-align: center;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    .sbp-button a{
+        width: 100%;
+        display: block;
+    }
+    .sbp-button a>img{
+        width: 90%;
+    }
+
+    .add-cart-block{
+        width: 100%;
+    }
+
+    .label-text{
+        width: 100%;
+        background-color: #ED8C201A;
+        border-radius: 10px;
+        text-align: center;
+        height: 48px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .label-text p {
+        color: #ED8C20;
+        font-size: 20px;
+        font-weight: 400;
+    }
+    .card-number-container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .card-number-container::after {
+        content: attr(data-card-type);
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        padding: 0 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        color: #000;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 100%;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.20);
+        background: #211F22;
+        color: white;
+        font-size: 20px;
+    }
+
+    input[type=text]:focus, input[type="number"]:focus{
+        outline: 2px solid #E1FF00;
+    }
+
+    .cvv-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+    }
+    .cvv-container input {
+        width: 49%;
+
+    }
+    input[type="submit"] {
+        width: 100%;
+        color: #fff;
+        border: none;
+        padding: 15px 20px;
+        border-radius: 8px;
+        background: #8B53E8;
+        cursor: pointer;
+        font-size: 20px;
+        transition: background-color 500ms ease-in-out;
+    }
+    input[type="submit"]:hover {
+        background-color: #522F8B;
+    }
+    .submit-button{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .accept-text{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    .accept-text p{
+        color: rgba(255, 255, 255, 0.40);
+        font-size: 18px;
+    }
+    .accept-text a{
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.75);
     }
 }
 
@@ -451,10 +561,28 @@ input[type="submit"]:hover {
         align-items: center;
         color: #fff;
         margin-top: 1%;
-        font-family: "TT Firs Neue Black";
+        font-family: 'TTFirsNeue Regular';
+        font-style: normal;
+        font-weight: 400;
+        padding: 20px;
     }
+    form{
+        width: 100%;
+    }
+    form > a {
+        cursor: pointer;
+        width: 100%;
+    }
+    form>a>img{
+        width: 100%;
+    }
+
+    form>a:hover img{
+        filter: brightness(0.8);
+    }
+
     .sbp-button{
-        width: 85%;
+        width: 100%;
         text-align: center;
         margin-top: 5%;
         margin-bottom: 5%;
@@ -468,15 +596,27 @@ input[type="submit"]:hover {
     }
 
     .add-cart-block{
-        width: 82%;
+        width: 100%;
     }
 
-    label {
-        display: block;
-        margin-bottom: 5%;
-        color: #E1FF00;
-        font-size: 16px;
-        margin-left: 5%;
+    .label-text{
+        width: 100%;
+        background-color: #ED8C201A;
+        border-radius: 10px;
+        text-align: center;
+        height: 48px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .label-text p {
+        color: #ED8C20;
+        font-size: 20px;
+        font-weight: 400;
     }
     .card-number-container{
         width: 100%;
@@ -501,14 +641,13 @@ input[type="submit"]:hover {
     }
 
     input[type="text"], input[type="number"] {
-        width: 90%;
+        width: 100%;
         padding: 20px;
-        margin-bottom: 20px;
         border-radius: 8px;
         border: 1px solid rgba(255, 255, 255, 0.20);
         background: #211F22;
         color: white;
-        font-size: 16px;
+        font-size: 20px;
     }
 
     input[type=text]:focus, input[type="number"]:focus{
@@ -518,22 +657,22 @@ input[type="submit"]:hover {
     .cvv-container {
         width: 100%;
         display: flex;
-        justify-content: space-evenly;
-        margin-bottom: 20px;
+        justify-content: space-between;
+        margin: 10px 0;
     }
     .cvv-container input {
-        width: 42%;
+        width: 49%;
 
     }
     input[type="submit"] {
-        width: 90%;
+        width: 100%;
         color: #fff;
         border: none;
         padding: 15px 20px;
         border-radius: 8px;
         background: #8B53E8;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 20px;
         transition: background-color 500ms ease-in-out;
     }
     input[type="submit"]:hover {
@@ -543,16 +682,21 @@ input[type="submit"]:hover {
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-bottom: 5%;
+        margin-bottom: 20px;
+        margin-top: 20px;
     }
     .accept-text{
         width: 100%;
         text-align: center;
+        margin-bottom: 0;
     }
     .accept-text p{
-
         color: rgba(255, 255, 255, 0.40);
-        font-size: 14px;
+        font-size: 18px;
+    }
+    .accept-text a{
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.75);
     }
 
 }
@@ -566,10 +710,29 @@ input[type="submit"]:hover {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         color: #fff;
         margin-top: 1%;
-        font-family: "TT Firs Neue Black";
+        font-family: 'TTFirsNeue Regular';
+        font-style: normal;
+        font-weight: 400;
+        padding: 20px;
     }
+    form{
+        width: 100%;
+    }
+    form > a {
+        cursor: pointer;
+        width: 100%;
+    }
+    form>a>img{
+        width: 100%;
+    }
+
+    form>a:hover img{
+        filter: brightness(0.8);
+    }
+
     .sbp-button{
         width: 100%;
         text-align: center;
@@ -588,12 +751,24 @@ input[type="submit"]:hover {
         width: 100%;
     }
 
-    label {
-        display: block;
-        margin-bottom: 5%;
-        color: #E1FF00;
+    .label-text{
+        width: 100%;
+        background-color: #ED8C201A;
+        border-radius: 10px;
+        text-align: center;
+        height: 48px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .label-text p {
+        color: #ED8C20;
         font-size: 16px;
-        margin-left: 5%;
+        font-weight: 400;
     }
     .card-number-container{
         width: 100%;
@@ -618,14 +793,13 @@ input[type="submit"]:hover {
     }
 
     input[type="text"], input[type="number"] {
-        width: 90%;
+        width: 100%;
         padding: 20px;
-        margin-bottom: 20px;
         border-radius: 8px;
         border: 1px solid rgba(255, 255, 255, 0.20);
         background: #211F22;
         color: white;
-        font-size: 16px;
+        font-size: 20px;
     }
 
     input[type=text]:focus, input[type="number"]:focus{
@@ -635,22 +809,22 @@ input[type="submit"]:hover {
     .cvv-container {
         width: 100%;
         display: flex;
-        justify-content: space-evenly;
-        margin-bottom: 20px;
+        justify-content: space-between;
+        margin: 10px 0;
     }
     .cvv-container input {
-        width: 42%;
+        width: 49%;
 
     }
     input[type="submit"] {
-        width: 90%;
+        width: 100%;
         color: #fff;
         border: none;
         padding: 15px 20px;
         border-radius: 8px;
         background: #8B53E8;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 20px;
         transition: background-color 500ms ease-in-out;
     }
     input[type="submit"]:hover {
@@ -660,16 +834,21 @@ input[type="submit"]:hover {
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-bottom: 5%;
+        margin-bottom: 20px;
+        margin-top: 20px;
     }
     .accept-text{
         width: 100%;
         text-align: center;
+        margin-bottom: 0;
     }
     .accept-text p{
-
         color: rgba(255, 255, 255, 0.40);
-        font-size: 14px;
+        font-size: 18px;
+    }
+    .accept-text a{
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.75);
     }
 
 }

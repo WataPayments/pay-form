@@ -100,6 +100,23 @@
     font-family: 'TTFirsNeue Regular';
     font-style: normal;
     font-weight: 400;
+    margin-top: 20px;
+    padding: 20px;
+}
+.result-pay{
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    margin-bottom: 20px;
+}
+.result-pay img{
+    width: 10%;
+}
+.result-pay p{
+    font-size: 18px;
 }
 .price-and-number-order{
     width: 100%;
@@ -108,20 +125,22 @@
     align-items: center;
 }
 .price-and-number-order p{
-    width: 26%;
-    text-align: center;
-    margin: 5% 0;
+    width: 20%;
     margin-bottom: 2%;
 }
 .price{
     font-size: 26px;
+    text-align: center;
+    margin-top: 0;
 }
 .number{
     font-size: 20px;
+    text-align: end;
+    margin-top: 0;
 }
 .link-and-info-order{
     width: 95%;
-    margin-left: 4%;
+    margin-left: 3px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -135,7 +154,40 @@
 }
 .link-and-info-order p{
     color: rgba(255, 255, 255, 0.70);
+    margin-top: 10px;
+    margin-bottom: 0;
 }
+
+input[type="submit"] {
+    width: 100%;
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 8px;
+    background: #8B53E8;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 500ms ease-in-out;
+}
+input[type="submit"]:hover {
+    background-color: #522F8B;
+}
+.submit-button-result{
+    width: 100%;
+    display: none;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.result-pay.active {
+    display: flex;
+}
+
+.submit-button-result.active {
+    display: flex;
+}
+
 
 @media screen and (max-width: 1440px) {
     .order-info-block {
@@ -147,7 +199,11 @@
         flex-direction: column;
         justify-content: center;
         color: #fff;
-        font-family: "TT Firs Neue Black";
+        font-family: 'TTFirsNeue Regular';
+        font-style: normal;
+        font-weight: 400;
+        margin-top: 20px;
+        padding: 20px;
     }
     .price-and-number-order{
         width: 100%;
@@ -156,20 +212,22 @@
         align-items: center;
     }
     .price-and-number-order p{
-        width: 32%;
-        text-align: center;
-        margin: 5% 0;
+        width: 27%;
         margin-bottom: 2%;
     }
     .price{
         font-size: 26px;
+        text-align: center;
+        margin-top: 0;
     }
     .number{
         font-size: 20px;
+        text-align: end;
+        margin-top: 0;
     }
     .link-and-info-order{
         width: 95%;
-        margin-left: 4%;
+        margin-left: 3px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -183,7 +241,39 @@
     }
     .link-and-info-order p{
         color: rgba(255, 255, 255, 0.70);
+        margin-top: 10px;
+        margin-bottom: 0;
     }
+    input[type="submit"] {
+        width: 100%;
+        color: #fff;
+        border: none;
+        padding: 15px 20px;
+        border-radius: 8px;
+        background: #8B53E8;
+        cursor: pointer;
+        font-size: 20px;
+        transition: background-color 500ms ease-in-out;
+    }
+    input[type="submit"]:hover {
+        background-color: #522F8B;
+    }
+    .submit-button-result{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .result-pay.active {
+        display: flex;
+    }
+
+    .submit-button-result.active {
+        display: flex;
+    }
+
 }
 
 @media screen and (max-width: 1024px){
@@ -196,7 +286,11 @@
         flex-direction: column;
         justify-content: center;
         color: #fff;
-        font-family: "TT Firs Neue Black";
+        font-family: 'TTFirsNeue Regular';
+        font-style: normal;
+        font-weight: 400;
+        margin-top: 20px;
+        padding: 20px;
     }
     .price-and-number-order{
         width: 100%;
@@ -205,20 +299,22 @@
         align-items: center;
     }
     .price-and-number-order p{
-        width: 28%;
-        text-align: center;
-        margin: 5% 0;
+        width: 21%;
         margin-bottom: 2%;
     }
     .price{
         font-size: 26px;
+        text-align: center;
+        margin-top: 0;
     }
     .number{
         font-size: 20px;
+        text-align: end;
+        margin-top: 0;
     }
     .link-and-info-order{
         width: 95%;
-        margin-left: 5%;
+        margin-left: 3px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -232,7 +328,39 @@
     }
     .link-and-info-order p{
         color: rgba(255, 255, 255, 0.70);
+        margin-top: 10px;
+        margin-bottom: 0;
     }
+    input[type="submit"] {
+        width: 100%;
+        color: #fff;
+        border: none;
+        padding: 15px 20px;
+        border-radius: 8px;
+        background: #8B53E8;
+        cursor: pointer;
+        font-size: 20px;
+        transition: background-color 500ms ease-in-out;
+    }
+    input[type="submit"]:hover {
+        background-color: #522F8B;
+    }
+    .submit-button-result{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .result-pay.active {
+        display: flex;
+    }
+
+    .submit-button-result.active {
+        display: flex;
+    }
+
 }
 
 
@@ -248,6 +376,8 @@
         justify-content: center;
         color: #fff;
         font-family: "TT Firs Neue Black";
+        margin-top: 20px;
+        padding: 20px;
     }
     .price-and-number-order{
         width: 100%;
@@ -256,19 +386,19 @@
         align-items: center;
     }
     .price-and-number-order p{
-        width: 43%;
-        text-align: center;
-        margin: 5% 0;
+        width: 21%;
     }
     .price{
         font-size: 22px;
+        text-align: center;
     }
     .number{
         font-size: 16px;
+        text-align: end;
     }
     .link-and-info-order{
         width: 95%;
-        margin-left: 12%;
+        margin-left: 3px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -283,7 +413,37 @@
     .link-and-info-order p{
         color: rgba(255, 255, 255, 0.70);
     }
-    
+    input[type="submit"] {
+        width: 100%;
+        color: #fff;
+        border: none;
+        padding: 15px 20px;
+        border-radius: 8px;
+        background: #8B53E8;
+        cursor: pointer;
+        font-size: 20px;
+        transition: background-color 500ms ease-in-out;
+    }
+    input[type="submit"]:hover {
+        background-color: #522F8B;
+    }
+    .submit-button-result{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .result-pay.active {
+        display: flex;
+    }
+
+    .submit-button-result.active {
+        display: flex;
+    }
+
+
 }
 
 
@@ -299,6 +459,8 @@
         color: #fff;
         margin-bottom: 5%;
         font-family: "TT Firs Neue Black";
+        margin-top: 20px;
+        padding: 20px;
     }
     .price-and-number-order{
         width: 100%;
@@ -307,19 +469,19 @@
         align-items: center;
     }
     .price-and-number-order p{
-        width: 40%;
-        text-align: center;
-        margin: 5% 0;
+        width: 35%;
     }
     .price{
         font-size: 22px;
+        text-align: center;
     }
     .number{
         font-size: 16px;
+        text-align: end;
     }
     .link-and-info-order{
         width: 95%;
-        margin-left: 5%;
+        margin-left: 3px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -333,6 +495,39 @@
     }
     .link-and-info-order p{
         color: rgba(255, 255, 255, 0.70);
+    }
+    input[type="submit"] {
+        width: 100%;
+        color: #fff;
+        border: none;
+        padding: 15px 20px;
+        border-radius: 8px;
+        background: #8B53E8;
+        cursor: pointer;
+        font-size: 20px;
+        transition: background-color 500ms ease-in-out;
+    }
+    input[type="submit"]:hover {
+        background-color: #522F8B;
+    }
+    .submit-button-result{
+        width: 100%;
+        display: none;
+        justify-content: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+
+    }
+    .result-pay img{
+        width: 20%;
+    }
+
+    .result-pay.active {
+        display: flex;
+    }
+
+    .submit-button-result.active {
+        display: flex;
     }
 
 }

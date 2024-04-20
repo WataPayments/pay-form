@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pay-form/static/css/main.d8382662.css",
-    "main.js": "/pay-form/static/js/main.90a6a47e.js",
+    "main.css": "/pay-form/static/css/main.ec9453b7.css",
+    "main.js": "/pay-form/static/js/main.a86c388d.js",
     "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
     "static/media/TTFirsNeue-DemiBoldItalic.ttf": "/pay-form/static/media/TTFirsNeue-DemiBoldItalic.d96287c6cf4cd2f5d330.ttf",
     "static/media/TTFirsNeue-BlackItalic.ttf": "/pay-form/static/media/TTFirsNeue-BlackItalic.20e6d72dbbf5628241f0.ttf",
@@ -20,14 +20,16 @@
     "static/media/TTFirsNeue-Black.ttf": "/pay-form/static/media/TTFirsNeue-Black.e2bc93fcfddd4dd2b8dd.ttf",
     "static/media/TTFirsNeue-Regular.ttf": "/pay-form/static/media/TTFirsNeue-Regular.7925664aab1bc42bbc9b.ttf",
     "static/media/TTFirsNeue-ExtraBold.ttf": "/pay-form/static/media/TTFirsNeue-ExtraBold.a3be4568fc181a363d94.ttf",
-    "static/media/SBP button big.svg": "/pay-form/static/media/SBP button big.4acfe54f8271c73f723bedb3613b2d5d.svg",
+    "static/media/SBP button.svg": "/pay-form/static/media/SBP button.3fe050e189e78cbb459663b63430679d.svg",
     "static/media/Logo.svg": "/pay-form/static/media/Logo.f46aa925597ed7f039230b9d01a03e6f.svg",
+    "static/media/Alert2 icon.svg": "/pay-form/static/media/Alert2 icon.5657dcf60898d2acf0bb0c2262692175.svg",
+    "static/media/Alert icon.svg": "/pay-form/static/media/Alert icon.ee218e5a9cf521267a725d0ec11320a8.svg",
     "index.html": "/pay-form/index.html",
-    "main.d8382662.css.map": "/pay-form/static/css/main.d8382662.css.map",
-    "main.90a6a47e.js.map": "/pay-form/static/js/main.90a6a47e.js.map"
+    "main.ec9453b7.css.map": "/pay-form/static/css/main.ec9453b7.css.map",
+    "main.a86c388d.js.map": "/pay-form/static/js/main.a86c388d.js.map"
   },
   "entrypoints": [
-    "static/css/main.d8382662.css",
-    "static/js/main.90a6a47e.js"
+    "static/css/main.ec9453b7.css",
+    "static/js/main.a86c388d.js"
   ]
 }

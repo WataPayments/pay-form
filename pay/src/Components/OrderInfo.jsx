@@ -9,7 +9,7 @@ export default function OrderInfo() {
 
     return (
         <div className={"order-info-block"}>
-            <div className={`result-pay ${isActivate ? 'result-pay.active' : ''}`}>
+            <div className={"result-pay"} style={{ display: isActivate ? 'flex' : 'none' }}>
                 <img src={Done} alt="Result-pay" />
                 <p>Вы успешно оплатили счет!</p>
             </div>
@@ -21,7 +21,7 @@ export default function OrderInfo() {
                 <a href={"http://ooo/"}>www.biolife.com</a>
                 <p>Оплата бадов из США</p>
             </div>
-            <div className={`submit-button-result ${isActivate ? 'submit-button-result.active' : ''}`}>
+            <div className={"submit-button-result"} style={{ display: isActivate ? 'flex' : 'none' }}>
                 <input type="submit" value="Поделиться" />
             </div>
         </div>

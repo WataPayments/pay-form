@@ -180,15 +180,6 @@ input[type="submit"]:hover {
     margin-top: 20px;
 }
 
-.result-pay.active {
-    display: flex;
-}
-
-.submit-button-result.active {
-    display: flex;
-}
-
-
 @media screen and (max-width: 1440px) {
     .order-info-block {
         width: 40%;
@@ -265,15 +256,6 @@ input[type="submit"]:hover {
         margin-bottom: 20px;
         margin-top: 20px;
     }
-
-    .result-pay.active {
-        display: flex;
-    }
-
-    .submit-button-result.active {
-        display: flex;
-    }
-
 }
 
 @media screen and (max-width: 1024px){
@@ -352,15 +334,6 @@ input[type="submit"]:hover {
         margin-bottom: 20px;
         margin-top: 20px;
     }
-
-    .result-pay.active {
-        display: flex;
-    }
-
-    .submit-button-result.active {
-        display: flex;
-    }
-
 }
 
 
@@ -434,15 +407,6 @@ input[type="submit"]:hover {
         margin-bottom: 20px;
         margin-top: 20px;
     }
-
-    .result-pay.active {
-        display: flex;
-    }
-
-    .submit-button-result.active {
-        display: flex;
-    }
-
 
 }
 
@@ -521,13 +485,4 @@ input[type="submit"]:hover {
     .result-pay img{
         width: 20%;
     }
-
-    .result-pay.active {
-        display: flex;
-    }
-
-    .submit-button-result.active {
-        display: flex;
-    }
-
 }

@@ -89,19 +89,30 @@
 }
 
 
+:root {
+    --Text-Primary: #FFF;
+}
+:root {
+    --Text-Secondry: rgba(255, 255, 255, 0.75);
+}
+
 
 body {
     margin: 0;
     padding: 0;
     background: #211F22;
     overflow-x: hidden;
+
 }
 
 * {
     box-sizing: border-box;
-    font-family: 'TTFirsNeue Regular';
+    color: var(--Text-Primary, #FFF);
+    font-family: "TTFirsNeue Regular";
+    font-size: 22px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
+    line-height: 28px;
 }
 
 .App {

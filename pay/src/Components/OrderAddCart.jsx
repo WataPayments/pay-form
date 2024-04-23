@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "../Styles/OrderAddCartStyle.css";
-import SBP from "../Images/SBP button.svg";
+import SBPDefault from "../Images/SBP button.svg";
+import SBPSmall from "../Images/SBP button small.svg";
 
 export default function OrderAddCart() {
     const [cardNumber, setCardNumber] = useState("");
@@ -11,7 +12,7 @@ export default function OrderAddCart() {
     const [expiryDateError, setExpiryDateError] = useState("");
     const [cvvError, setCvvError] = useState("");
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [isActivate,setIsActivate]=useState(false);
+    const [isActivate, setIsActivate] = useState(false);
 
     const handleCardNumberChange = (event) => {
         let inputCardNumber = event.target.value.replace(/\s/g, "");
@@ -112,7 +113,8 @@ export default function OrderAddCart() {
                 <div className={"order-add-cart-block"}>
                     <form onSubmit={handleSubmit}>
                         <a>
-                            <img src={SBP} alt="SBP"/>
+                            <img src={SBPDefault} className={"big-image"} alt="Адаптивное изображение"/>
+                            <img src={SBPSmall} alt="Адаптивное изображение" className="small-image"/>
                         </a>
 
                         <div className={"add-cart-block"}>
@@ -163,8 +165,6 @@ export default function OrderAddCart() {
                         <div className={"submit-button"}>
                             <input type="submit" value="Оплатить 5 789,00 ₽"/>
                         </div>
-
-
                     </form>
                     <div className={"accept-text"}>
                         <p>Совершая оплату, вы соглашаетесь с договором <a href="">оферты</a></p>

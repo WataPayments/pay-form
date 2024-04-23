@@ -88,6 +88,15 @@
     src: url('../Fonts/TTFirsNeue/TTFirsNeue-ThinItalic.ttf') format('truetype');
 }
 
+:root {
+    --Text-Primary: #FFF;
+}
+
+:root {
+    --Text-Secondry: rgba(255, 255, 255, 0.75);
+}
+
+
 .order-add-cart-block {
     width: 40%;
     border-radius: 10px;
@@ -104,40 +113,47 @@
     font-weight: 400;
     padding: 20px;
 }
-form{
+
+form {
     width: 100%;
 }
+
 form > a {
     cursor: pointer;
     width: 100%;
 }
-form>a>img{
+
+form > a > img {
     width: 100%;
 }
 
-form>a:hover img{
+form > a:hover img {
     filter: brightness(0.8);
 }
-
-.sbp-button{
+.small-image {
+    display: none;
+}
+.sbp-button {
     width: 100%;
     text-align: center;
     margin-top: 5%;
     margin-bottom: 5%;
 }
-.sbp-button a{
+
+.sbp-button a {
     width: 100%;
     display: block;
 }
-.sbp-button a>img{
+
+.sbp-button a > img {
     width: 90%;
 }
 
-.add-cart-block{
+.add-cart-block {
     width: 100%;
 }
 
-.label-text{
+.label-text {
     width: 100%;
     background-color: #ED8C201A;
     border-radius: 10px;
@@ -156,7 +172,8 @@ form>a:hover img{
     font-size: 20px;
     font-weight: 400;
 }
-.card-number-container{
+
+.card-number-container {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -178,7 +195,7 @@ form>a:hover img{
     color: #000;
 }
 
-input[type="text"], input[type="number"] ,input[type="password"]{
+input[type="text"], input[type="number"], input[type="password"] {
     width: 100%;
     padding: 20px;
     border-radius: 8px;
@@ -188,12 +205,12 @@ input[type="text"], input[type="number"] ,input[type="password"]{
     font-size: 20px;
 }
 
-input[type=text]:focus, input[type="number"]:focus,input[type="password"]:focus{
+input[type=text]:focus, input[type="number"]:focus, input[type="password"]:focus {
     outline: 2px solid #E1FF00;
 }
 
 input.error {
-    border:1px solid red;
+    border: 1px solid red;
 
 }
 
@@ -204,10 +221,12 @@ input.error {
     justify-content: space-between;
     margin: 10px 0;
 }
+
 .cvv-container input {
     width: 49%;
 
 }
+
 input[type="submit"] {
     width: 100%;
     color: #fff;
@@ -219,26 +238,31 @@ input[type="submit"] {
     font-size: 20px;
     transition: background-color 500ms ease-in-out;
 }
+
 input[type="submit"]:hover {
     background-color: #522F8B;
 }
-.submit-button{
+
+.submit-button {
     width: 100%;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
     margin-top: 20px;
 }
-.accept-text{
+
+.accept-text {
     width: 100%;
     text-align: center;
     margin-bottom: 0;
 }
-.accept-text p{
+
+.accept-text p {
     color: rgba(255, 255, 255, 0.40);
     font-size: 18px;
 }
-.accept-text a{
+
+.accept-text a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.75);
 }
@@ -260,40 +284,48 @@ input[type="submit"]:hover {
         font-weight: 400;
         padding: 20px;
     }
-    form{
+
+    form {
         width: 100%;
     }
+
     form > a {
         cursor: pointer;
         width: 100%;
     }
-    form>a>img{
+
+    form > a > img {
         width: 100%;
     }
 
-    form>a:hover img{
+    form > a:hover img {
         filter: brightness(0.8);
     }
 
-    .sbp-button{
+    .small-image {
+        display: none;
+    }
+    .sbp-button {
         width: 100%;
         text-align: center;
         margin-top: 5%;
         margin-bottom: 5%;
     }
-    .sbp-button a{
+
+    .sbp-button a {
         width: 100%;
         display: block;
     }
-    .sbp-button a>img{
+
+    .sbp-button a > img {
         width: 90%;
     }
 
-    .add-cart-block{
+    .add-cart-block {
         width: 100%;
     }
 
-    .label-text{
+    .label-text {
         width: 100%;
         background-color: #ED8C201A;
         border-radius: 10px;
@@ -312,7 +344,8 @@ input[type="submit"]:hover {
         font-size: 20px;
         font-weight: 400;
     }
-    .card-number-container{
+
+    .card-number-container {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -344,7 +377,7 @@ input[type="submit"]:hover {
         font-size: 20px;
     }
 
-    input[type=text]:focus, input[type="number"]:focus{
+    input[type=text]:focus, input[type="number"]:focus {
         outline: 2px solid #E1FF00;
     }
 
@@ -354,10 +387,12 @@ input[type="submit"]:hover {
         justify-content: space-between;
         margin: 10px 0;
     }
+
     .cvv-container input {
         width: 49%;
 
     }
+
     input[type="submit"] {
         width: 100%;
         color: #fff;
@@ -369,33 +404,38 @@ input[type="submit"]:hover {
         font-size: 20px;
         transition: background-color 500ms ease-in-out;
     }
+
     input[type="submit"]:hover {
         background-color: #522F8B;
     }
-    .submit-button{
+
+    .submit-button {
         width: 100%;
         display: flex;
         justify-content: center;
         margin-bottom: 20px;
         margin-top: 20px;
     }
-    .accept-text{
+
+    .accept-text {
         width: 100%;
         text-align: center;
         margin-bottom: 0;
     }
-    .accept-text p{
+
+    .accept-text p {
         color: rgba(255, 255, 255, 0.40);
         font-size: 18px;
     }
-    .accept-text a{
+
+    .accept-text a {
         text-decoration: none;
         color: rgba(255, 255, 255, 0.75);
     }
 }
 
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
     .order-add-cart-block {
         width: 70%;
         border-radius: 10px;
@@ -412,40 +452,49 @@ input[type="submit"]:hover {
         font-weight: 400;
         padding: 20px;
     }
-    form{
+
+    form {
         width: 100%;
     }
+
     form > a {
         cursor: pointer;
         width: 100%;
     }
-    form>a>img{
+
+    form > a > img {
         width: 100%;
     }
 
-    form>a:hover img{
+    form > a:hover img {
         filter: brightness(0.8);
     }
 
-    .sbp-button{
+
+    .small-image {
+        display: none;
+    }
+    .sbp-button {
         width: 100%;
         text-align: center;
         margin-top: 5%;
         margin-bottom: 5%;
     }
-    .sbp-button a{
+
+    .sbp-button a {
         width: 100%;
         display: block;
     }
-    .sbp-button a>img{
+
+    .sbp-button a > img {
         width: 90%;
     }
 
-    .add-cart-block{
+    .add-cart-block {
         width: 100%;
     }
 
-    .label-text{
+    .label-text {
         width: 100%;
         background-color: #ED8C201A;
         border-radius: 10px;
@@ -464,7 +513,8 @@ input[type="submit"]:hover {
         font-size: 20px;
         font-weight: 400;
     }
-    .card-number-container{
+
+    .card-number-container {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -496,7 +546,7 @@ input[type="submit"]:hover {
         font-size: 20px;
     }
 
-    input[type=text]:focus, input[type="number"]:focus{
+    input[type=text]:focus, input[type="number"]:focus {
         outline: 2px solid #E1FF00;
     }
 
@@ -506,10 +556,12 @@ input[type="submit"]:hover {
         justify-content: space-between;
         margin: 10px 0;
     }
+
     .cvv-container input {
         width: 49%;
 
     }
+
     input[type="submit"] {
         width: 100%;
         color: #fff;
@@ -521,35 +573,38 @@ input[type="submit"]:hover {
         font-size: 20px;
         transition: background-color 500ms ease-in-out;
     }
+
     input[type="submit"]:hover {
         background-color: #522F8B;
     }
-    .submit-button{
+
+    .submit-button {
         width: 100%;
         display: flex;
         justify-content: center;
         margin-bottom: 20px;
         margin-top: 20px;
     }
-    .accept-text{
+
+    .accept-text {
         width: 100%;
         text-align: center;
         margin-bottom: 0;
     }
-    .accept-text p{
+
+    .accept-text p {
         color: rgba(255, 255, 255, 0.40);
         font-size: 18px;
     }
-    .accept-text a{
+
+    .accept-text a {
         text-decoration: none;
         color: rgba(255, 255, 255, 0.75);
     }
 }
 
 
-
-
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
     .order-add-cart-block {
         width: 80%;
         border-radius: 10px;
@@ -566,40 +621,49 @@ input[type="submit"]:hover {
         font-weight: 400;
         padding: 20px;
     }
-    form{
+
+    form {
         width: 100%;
     }
+
     form > a {
         cursor: pointer;
         width: 100%;
     }
-    form>a>img{
+
+    form > a > img {
         width: 100%;
     }
 
-    form>a:hover img{
+    form > a:hover img {
         filter: brightness(0.8);
     }
 
-    .sbp-button{
+    .small-image {
+        display: none;
+    }
+
+    .sbp-button {
         width: 100%;
         text-align: center;
         margin-top: 5%;
         margin-bottom: 5%;
     }
-    .sbp-button a{
+
+    .sbp-button a {
         width: 100%;
         display: block;
     }
-    .sbp-button a>img{
+
+    .sbp-button a > img {
         width: 90%;
     }
 
-    .add-cart-block{
+    .add-cart-block {
         width: 100%;
     }
 
-    .label-text{
+    .label-text {
         width: 100%;
         background-color: #ED8C201A;
         border-radius: 10px;
@@ -618,7 +682,8 @@ input[type="submit"]:hover {
         font-size: 20px;
         font-weight: 400;
     }
-    .card-number-container{
+
+    .card-number-container {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -650,7 +715,7 @@ input[type="submit"]:hover {
         font-size: 20px;
     }
 
-    input[type=text]:focus, input[type="number"]:focus{
+    input[type=text]:focus, input[type="number"]:focus {
         outline: 2px solid #E1FF00;
     }
 
@@ -660,10 +725,12 @@ input[type="submit"]:hover {
         justify-content: space-between;
         margin: 10px 0;
     }
+
     .cvv-container input {
         width: 49%;
 
     }
+
     input[type="submit"] {
         width: 100%;
         color: #fff;
@@ -675,26 +742,31 @@ input[type="submit"]:hover {
         font-size: 20px;
         transition: background-color 500ms ease-in-out;
     }
+
     input[type="submit"]:hover {
         background-color: #522F8B;
     }
-    .submit-button{
+
+    .submit-button {
         width: 100%;
         display: flex;
         justify-content: center;
         margin-bottom: 20px;
         margin-top: 20px;
     }
-    .accept-text{
+
+    .accept-text {
         width: 100%;
         text-align: center;
         margin-bottom: 0;
     }
-    .accept-text p{
+
+    .accept-text p {
         color: rgba(255, 255, 255, 0.40);
         font-size: 18px;
     }
-    .accept-text a{
+
+    .accept-text a {
         text-decoration: none;
         color: rgba(255, 255, 255, 0.75);
     }
@@ -711,52 +783,65 @@ input[type="submit"]:hover {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: #fff;
+        color: var(--Text-Secondry, rgba(255, 255, 255, 0.75));
         margin-top: 1%;
         font-family: 'TTFirsNeue Regular';
         font-style: normal;
         font-weight: 400;
         padding: 20px;
     }
-    form{
+
+    form {
         width: 100%;
     }
+
     form > a {
         cursor: pointer;
         width: 100%;
     }
-    form>a>img{
+
+    form > a > img {
         width: 100%;
     }
 
-    form>a:hover img{
+    form > a:hover img {
         filter: brightness(0.8);
     }
 
-    .sbp-button{
+    .big-image{
+        display: none;
+    }
+
+    .small-image {
+        display: block;
+    }
+
+    .sbp-button {
         width: 100%;
         text-align: center;
         margin-top: 5%;
         margin-bottom: 5%;
     }
-    .sbp-button a{
+
+    .sbp-button a {
         width: 100%;
         display: block;
     }
-    .sbp-button a>img{
+
+    .sbp-button a > img {
         width: 90%;
     }
 
-    .add-cart-block{
+    .add-cart-block {
         width: 100%;
     }
 
-    .label-text{
+    .label-text {
         width: 100%;
         background-color: #ED8C201A;
-        border-radius: 10px;
+        border-radius: 4px;
         text-align: center;
-        height: 48px;
+        height: 28px;
         margin-bottom: 10px;
         margin-top: 20px;
         display: flex;
@@ -767,10 +852,11 @@ input[type="submit"]:hover {
 
     .label-text p {
         color: #ED8C20;
-        font-size: 16px;
+        font-size: 12px;
         font-weight: 400;
     }
-    .card-number-container{
+
+    .card-number-container {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -798,11 +884,12 @@ input[type="submit"]:hover {
         border-radius: 8px;
         border: 1px solid rgba(255, 255, 255, 0.20);
         background: #211F22;
-        color: white;
-        font-size: 20px;
+        color:rgba(255, 255, 255, 0.75);
+        font-size: 16px;
+        font-weight: 400;
     }
 
-    input[type=text]:focus, input[type="number"]:focus{
+    input[type=text]:focus, input[type="number"]:focus {
         outline: 2px solid #E1FF00;
     }
 
@@ -812,10 +899,13 @@ input[type="submit"]:hover {
         justify-content: space-between;
         margin: 10px 0;
     }
+
     .cvv-container input {
         width: 49%;
-
+        font-size: 16px;
+        color: var(--Text-Secondry, rgba(255, 255, 255, 0.75));
     }
+
     input[type="submit"] {
         width: 100%;
         color: #fff;
@@ -824,29 +914,34 @@ input[type="submit"]:hover {
         border-radius: 8px;
         background: #8B53E8;
         cursor: pointer;
-        font-size: 20px;
+        font-size: 16px;
         transition: background-color 500ms ease-in-out;
     }
+
     input[type="submit"]:hover {
         background-color: #522F8B;
     }
-    .submit-button{
+
+    .submit-button {
         width: 100%;
         display: flex;
         justify-content: center;
         margin-bottom: 20px;
         margin-top: 20px;
     }
-    .accept-text{
+
+    .accept-text {
         width: 100%;
         text-align: center;
         margin-bottom: 0;
     }
-    .accept-text p{
+
+    .accept-text p {
         color: rgba(255, 255, 255, 0.40);
         font-size: 18px;
     }
-    .accept-text a{
+
+    .accept-text a {
         text-decoration: none;
         color: rgba(255, 255, 255, 0.75);
     }

@@ -887,6 +887,7 @@ input[type="submit"]:hover {
         color:rgba(255, 255, 255, 0.75);
         font-size: 16px;
         font-weight: 400;
+        height: 56px;
     }
 
     input[type=text]:focus, input[type="number"]:focus {
@@ -903,6 +904,7 @@ input[type="submit"]:hover {
     .cvv-container input {
         width: 49%;
         font-size: 16px;
+        height: 56px;
         color: var(--Text-Secondry, rgba(255, 255, 255, 0.75));
     }
 
@@ -934,16 +936,18 @@ input[type="submit"]:hover {
         width: 100%;
         text-align: center;
         margin-bottom: 0;
+
     }
 
     .accept-text p {
         color: rgba(255, 255, 255, 0.40);
-        font-size: 18px;
+        font-size: 12px;
     }
 
     .accept-text a {
         text-decoration: none;
         color: rgba(255, 255, 255, 0.75);
+        font-size: 12px;
     }
 
 }

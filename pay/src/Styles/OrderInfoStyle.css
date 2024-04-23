@@ -140,7 +140,6 @@
 }
 .link-and-info-order{
     width: 95%;
-    margin-left: 3px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -434,33 +433,38 @@ input[type="submit"]:hover {
     }
     .price-and-number-order p{
         width: 40%;
+        margin-bottom: 0;
     }
     .price{
         font-size: 22px;
         text-align: start;
+        margin-bottom: 0;
     }
     .number{
         font-size: 16px;
         text-align: end;
+        margin-bottom: 0;
     }
     .link-and-info-order{
         width: 95%;
-        margin-left: 3px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: flex-start;
         font-size: 16px;
+        margin-left: 0;
     }
     .link-and-info-order a{
         text-decoration: none;
         color: #ffffff;
         text-align: start;
         font-size: 16px;
+        margin-bottom: 10px;
     }
     .link-and-info-order p{
         color: rgba(255, 255, 255, 0.70);
         font-size: 16px;
+        margin-top: 0;
     }
     input[type="submit"] {
         width: 100%;

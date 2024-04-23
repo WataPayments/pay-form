@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/pay-form/static/css/main.2fe12f19.css",
+    "main.css": "/pay-form/static/css/main.accd82ec.css",
     "main.js": "/pay-form/static/js/main.e5ab5dca.js",
     "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
     "static/media/TTFirsNeue-DemiBoldItalic.ttf": "/pay-form/static/media/TTFirsNeue-DemiBoldItalic.d96287c6cf4cd2f5d330.ttf",
@@ -25,11 +25,11 @@
     "static/media/Alert2 icon.svg": "/pay-form/static/media/Alert2 icon.5657dcf60898d2acf0bb0c2262692175.svg",
     "static/media/Alert icon.svg": "/pay-form/static/media/Alert icon.ee218e5a9cf521267a725d0ec11320a8.svg",
     "index.html": "/pay-form/index.html",
-    "main.2fe12f19.css.map": "/pay-form/static/css/main.2fe12f19.css.map",
+    "main.accd82ec.css.map": "/pay-form/static/css/main.accd82ec.css.map",
     "main.e5ab5dca.js.map": "/pay-form/static/js/main.e5ab5dca.js.map"
   },
   "entrypoints": [
-    "static/css/main.2fe12f19.css",
+    "static/css/main.accd82ec.css",
     "static/js/main.e5ab5dca.js"
   ]
 }

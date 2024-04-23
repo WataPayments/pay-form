@@ -141,6 +141,7 @@
 
 .price {
     font-family: "TTFirsNeue Medium";
+    font-weight: 500;
     font-size: 22px;
     text-align: start;
     margin-top: 0;

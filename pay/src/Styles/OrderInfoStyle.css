@@ -88,22 +88,28 @@
     src: url('../Fonts/TTFirsNeue/TTFirsNeue-ThinItalic.ttf') format('truetype');
 }
 
+:root {
+    --Text-Primary: #FFF;
+    --Text-Secondary: rgba(255, 255, 255, 0.75);
+}
+
 .order-info-block {
-    width: 40%;
+    width: 100%;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.20);
     background: #262328;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #fff;
+    color: var(--Text-Primary);
     font-family: 'TTFirsNeue Regular';
     font-style: normal;
     font-weight: 400;
     margin-top: 20px;
     padding: 20px;
 }
-.result-pay{
+
+.result-pay {
     width: 100%;
     display: none;
     flex-direction: column;
@@ -112,49 +118,63 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.10);
     margin-bottom: 20px;
 }
-.result-pay img{
+
+.result-pay img {
     width: 10%;
 }
-.result-pay p{
+
+.result-pay p {
     font-size: 18px;
+    color: var(--Text-Primary);
 }
-.price-and-number-order{
+
+.price-and-number-order {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.price-and-number-order p{
-    width: 30%;
-    margin-bottom: 2%;
+
+.price-and-number-order p {
+    width: 50%;
 }
-.price{
-    font-size: 26px;
+
+.price {
+    font-size: 22px;
     text-align: start;
     margin-top: 0;
+    margin-bottom: 0;
 }
-.number{
-    font-size: 20px;
+
+.number {
+    font-size: 16px;
     text-align: end;
     margin-top: 0;
+    margin-bottom: 0;
 }
-.link-and-info-order{
+
+.link-and-info-order {
     width: 95%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    font-size: 20px;
+    font-size: 16px;
+
 }
-.link-and-info-order a{
+
+.link-and-info-order a {
     text-decoration: none;
-    color: #ffffff;
+    color: var(--Text-Primary);
     text-align: start;
+    font-size: 16px;
 }
-.link-and-info-order p{
-    color: rgba(255, 255, 255, 0.70);
+
+.link-and-info-order p {
+    color: var(--Text-Secondary);
     margin-top: 10px;
     margin-bottom: 0;
+    font-size: 16px;
 }
 
 input[type="submit"] {
@@ -168,10 +188,12 @@ input[type="submit"] {
     font-size: 20px;
     transition: background-color 500ms ease-in-out;
 }
+
 input[type="submit"]:hover {
     background-color: #522F8B;
 }
-.submit-button-result{
+
+.submit-button-result {
     width: 100%;
     display: none;
     justify-content: center;
@@ -179,316 +201,3 @@ input[type="submit"]:hover {
     margin-top: 20px;
 }
 
-@media screen and (max-width: 1440px) {
-    .order-info-block {
-        width: 40%;
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.20);
-        background: #262328;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: #fff;
-        font-family: 'TTFirsNeue Regular';
-        font-style: normal;
-        font-weight: 400;
-        margin-top: 20px;
-        padding: 20px;
-    }
-    .price-and-number-order{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .price-and-number-order p{
-        width: 27%;
-        margin-bottom: 2%;
-    }
-    .price{
-        font-size: 26px;
-        text-align: center;
-        margin-top: 0;
-    }
-    .number{
-        font-size: 20px;
-        text-align: end;
-        margin-top: 0;
-    }
-    .link-and-info-order{
-        width: 95%;
-        margin-left: 3px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        font-size: 20px;
-    }
-    .link-and-info-order a{
-        text-decoration: none;
-        color: #ffffff;
-        text-align: start;
-    }
-    .link-and-info-order p{
-        color: rgba(255, 255, 255, 0.70);
-        margin-top: 10px;
-        margin-bottom: 0;
-    }
-    input[type="submit"] {
-        width: 100%;
-        color: #fff;
-        border: none;
-        padding: 15px 20px;
-        border-radius: 8px;
-        background: #8B53E8;
-        cursor: pointer;
-        font-size: 20px;
-        transition: background-color 500ms ease-in-out;
-    }
-    input[type="submit"]:hover {
-        background-color: #522F8B;
-    }
-    .submit-button-result{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-        margin-top: 20px;
-    }
-}
-
-@media screen and (max-width: 1024px){
-    .order-info-block {
-        width: 70%;
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.20);
-        background: #262328;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: #fff;
-        font-family: 'TTFirsNeue Regular';
-        font-style: normal;
-        font-weight: 400;
-        margin-top: 20px;
-        padding: 20px;
-    }
-    .price-and-number-order{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .price-and-number-order p{
-        width: 21%;
-        margin-bottom: 2%;
-    }
-    .price{
-        font-size: 26px;
-        text-align: center;
-        margin-top: 0;
-    }
-    .number{
-        font-size: 20px;
-        text-align: end;
-        margin-top: 0;
-    }
-    .link-and-info-order{
-        width: 95%;
-        margin-left: 3px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        font-size: 20px;
-    }
-    .link-and-info-order a{
-        text-decoration: none;
-        color: #ffffff;
-        text-align: start;
-    }
-    .link-and-info-order p{
-        color: rgba(255, 255, 255, 0.70);
-        margin-top: 10px;
-        margin-bottom: 0;
-    }
-    input[type="submit"] {
-        width: 100%;
-        color: #fff;
-        border: none;
-        padding: 15px 20px;
-        border-radius: 8px;
-        background: #8B53E8;
-        cursor: pointer;
-        font-size: 20px;
-        transition: background-color 500ms ease-in-out;
-    }
-    input[type="submit"]:hover {
-        background-color: #522F8B;
-    }
-    .submit-button-result{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-        margin-top: 20px;
-    }
-}
-
-
-
-@media screen and (max-width: 768px) {
-    .order-info-block {
-        width: 80%;
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.20);
-        background: #262328;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: #fff;
-        font-family: "TT Firs Neue Black";
-        margin-top: 20px;
-        padding: 20px;
-    }
-    .price-and-number-order{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .price-and-number-order p{
-        width: 21%;
-    }
-    .price{
-        font-size: 22px;
-        text-align: center;
-    }
-    .number{
-        font-size: 16px;
-        text-align: end;
-    }
-    .link-and-info-order{
-        width: 95%;
-        margin-left: 3px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        font-size: 16px;
-    }
-    .link-and-info-order a{
-        text-decoration: none;
-        color: #ffffff;
-        text-align: start;
-    }
-    .link-and-info-order p{
-        color: rgba(255, 255, 255, 0.70);
-    }
-    input[type="submit"] {
-        width: 100%;
-        color: #fff;
-        border: none;
-        padding: 15px 20px;
-        border-radius: 8px;
-        background: #8B53E8;
-        cursor: pointer;
-        font-size: 20px;
-        transition: background-color 500ms ease-in-out;
-    }
-    input[type="submit"]:hover {
-        background-color: #522F8B;
-    }
-    .submit-button-result{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-        margin-top: 20px;
-    }
-
-}
-
-
-@media screen and (max-width: 480px){
-    .order-info-block {
-        width: 90%;
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.20);
-        background: #262328;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: #fff;
-        margin-bottom: 5%;
-        font-family: "TT Firs Neue Black";
-        margin-top: 20px;
-        padding: 20px;
-    }
-    .price-and-number-order{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .price-and-number-order p{
-        width: 40%;
-        margin-bottom: 0;
-    }
-    .price{
-        font-size: 22px;
-        text-align: start;
-        margin-bottom: 0;
-    }
-    .number{
-        font-size: 16px;
-        text-align: end;
-        margin-bottom: 0;
-    }
-    .link-and-info-order{
-        width: 95%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        font-size: 16px;
-        margin-left: 0;
-    }
-    .link-and-info-order a{
-        text-decoration: none;
-        color: #ffffff;
-        text-align: start;
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-    .link-and-info-order p{
-        color: rgba(255, 255, 255, 0.70);
-        font-size: 16px;
-        margin-top: 0;
-    }
-    input[type="submit"] {
-        width: 100%;
-        color: #fff;
-        border: none;
-        padding: 15px 20px;
-        border-radius: 8px;
-        background: #8B53E8;
-        cursor: pointer;
-        font-size: 20px;
-        transition: background-color 500ms ease-in-out;
-    }
-    input[type="submit"]:hover {
-        background-color: #522F8B;
-    }
-    .submit-button-result{
-        width: 100%;
-        display: none;
-        justify-content: center;
-        margin-bottom: 20px;
-        margin-top: 20px;
-
-    }
-    .result-pay img{
-        width: 20%;
-    }
-}

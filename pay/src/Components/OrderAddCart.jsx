@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import "../Styles/OrderAddCartStyle.css";
-import SBPDefault from "../Images/SBP button.svg";
-import SBPSmall from "../Images/SBP button small.svg";
+import SBP from "../Images/Vector.svg"
 
 export default function OrderAddCart() {
     const [cardNumber, setCardNumber] = useState("");
@@ -113,8 +112,7 @@ export default function OrderAddCart() {
                 <div className={"order-add-cart-block"}>
                     <form onSubmit={handleSubmit}>
                         <a>
-                            <img src={SBPDefault} className={"big-image"} alt="Адаптивное изображение"/>
-                            <img src={SBPSmall} alt="Адаптивное изображение" className="small-image"/>
+                            <img src={SBP} className={"big-image"} alt="Адаптивное изображение"/>
                         </a>
 
                         <div className={"add-cart-block"}>

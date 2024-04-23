@@ -166,7 +166,7 @@
 
 .link-and-info-order a {
     text-decoration: none;
-    color: var(--Text-Primary);
+    color: var(--Text-Secondary);
     text-align: start;
     font-size: 16px;
 }

@@ -165,7 +165,7 @@ export default function OrderAddCart() {
                         </div>
                     </form>
                     <div className={"accept-text"}>
-                        <p>Совершая оплату, вы соглашаетесь с договором <a href="">оферты</a></p>
+                        <p>Оплачивая, вы соглашаетесь с договором <a href="">оферты</a></p>
                     </div>
                 </div>
             )}

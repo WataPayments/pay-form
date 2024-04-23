@@ -106,7 +106,7 @@
     font-style: normal;
     font-weight: 400;
     margin-top: 20px;
-    padding: 20px;
+    padding: 20px 20px 15px 20px;
 }
 
 .result-pay {
@@ -149,6 +149,7 @@
 .number {
     font-size: 16px;
     text-align: end;
+    color: var(--Text-Secondary);
     margin-top: 0;
     margin-bottom: 0;
 }

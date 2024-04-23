@@ -237,7 +237,7 @@ input[type="submit"]:hover {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     margin-top: 20px;
 }
 
@@ -250,10 +250,14 @@ input[type="submit"]:hover {
 .accept-text p {
     color: var(--Text-Secondry);
     font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .accept-text a {
     text-decoration: none;
-    color: var(--Text-Secondry);
+    color: var(--Text-Primary);
     font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
 }

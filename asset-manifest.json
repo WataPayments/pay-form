@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pay-form/static/css/main.841a14ee.css",
-    "main.js": "/pay-form/static/js/main.57a42938.js",
+    "main.css": "/pay-form/static/css/main.5a07f0ff.css",
+    "main.js": "/pay-form/static/js/main.059970a2.js",
     "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
     "static/media/TTFirsNeue-DemiBoldItalic.ttf": "/pay-form/static/media/TTFirsNeue-DemiBoldItalic.d96287c6cf4cd2f5d330.ttf",
     "static/media/TTFirsNeue-BlackItalic.ttf": "/pay-form/static/media/TTFirsNeue-BlackItalic.20e6d72dbbf5628241f0.ttf",
@@ -21,15 +21,16 @@
     "static/media/TTFirsNeue-Regular.ttf": "/pay-form/static/media/TTFirsNeue-Regular.7925664aab1bc42bbc9b.ttf",
     "static/media/TTFirsNeue-ExtraBold.ttf": "/pay-form/static/media/TTFirsNeue-ExtraBold.a3be4568fc181a363d94.ttf",
     "static/media/SBP button.svg": "/pay-form/static/media/SBP button.3fe050e189e78cbb459663b63430679d.svg",
+    "static/media/SBP button small.svg": "/pay-form/static/media/SBP button small.69058389b5f81d170cf9776f5d22fa9b.svg",
     "static/media/Logo.svg": "/pay-form/static/media/Logo.f46aa925597ed7f039230b9d01a03e6f.svg",
     "static/media/Alert2 icon.svg": "/pay-form/static/media/Alert2 icon.5657dcf60898d2acf0bb0c2262692175.svg",
     "static/media/Alert icon.svg": "/pay-form/static/media/Alert icon.ee218e5a9cf521267a725d0ec11320a8.svg",
     "index.html": "/pay-form/index.html",
-    "main.841a14ee.css.map": "/pay-form/static/css/main.841a14ee.css.map",
-    "main.57a42938.js.map": "/pay-form/static/js/main.57a42938.js.map"
+    "main.5a07f0ff.css.map": "/pay-form/static/css/main.5a07f0ff.css.map",
+    "main.059970a2.js.map": "/pay-form/static/js/main.059970a2.js.map"
   },
   "entrypoints": [
-    "static/css/main.841a14ee.css",
-    "static/js/main.57a42938.js"
+    "static/css/main.5a07f0ff.css",
+    "static/js/main.059970a2.js"
   ]
 }

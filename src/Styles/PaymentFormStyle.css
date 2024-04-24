@@ -90,10 +90,11 @@
 
 :root {
     --Text-Primary: #FFF;
-    --Text-Secondary: rgba(255, 255, 255, 0.75);
+    --Text-Secondry: rgba(255, 255, 255, 0.75);
+    --Text-Warning: #ED8C20;
 }
 
-.order-info-block {
+.order-add-cart-block {
     width: 100%;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.20);
@@ -101,106 +102,176 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     color: var(--Text-Primary);
+    margin-top: 20px;
     font-family: 'TTFirsNeue Regular';
     font-style: normal;
     font-weight: 400;
-    margin-top: 20px;
-    padding: 20px 20px 15px 20px;
+    padding: 20px 20px 10px 20px;
 }
 
-.result-pay {
+form {
     width: 100%;
-    display: none;
+}
+
+form > a {
+    cursor: pointer;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: black;
+    border-radius: 8px;
+
+}
+
+form > a > img {
+    width: 100%;
+    height: 36px;
+}
+
+
+.add-cart-block {
+    width: 100%;
+}
+
+.label-text {
+    width: 100%;
+    background-color: #ED8C201A;
+    border-radius: 4px;
+    text-align: center;
+    height: 28px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.label-text p {
+    color: var(--Text-Warning);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.card-number-container {
+    width: 100%;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-    margin-bottom: 20px;
+    position: relative;
 }
 
-.result-pay img {
-    width: 10%;
+.card-number-container::after {
+    content: attr(data-card-type);
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    padding: 0 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #000;
 }
 
-.result-pay p {
-    font-size: 18px;
+input[type=text], input[type="number"], input[type="password"] {
+    width: 100%;
+    height: 56px;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    background: #211F22;
     color: var(--Text-Primary);
+    font-size: 16px;
 }
 
-.price-and-number-order {
+input.errorFocused {
+    border: none;
+}
+
+input[type=text]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input.errorFocused:focus {
+    outline: 2px solid #E1FF00;
+}
+
+input.error {
+    border: 1px solid red;
+}
+
+input.error:focus {
+    border-color: #E1FF00;
+}
+.cvv-container {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    margin: 10px 0;
 }
 
-.price-and-number-order p {
-    width: 50%;
+.cvv-container input {
+    width: 100%;
 }
 
-.price {
-    font-family: "TTFirsNeue Medium";
-    font-weight: 500;
-    font-size: 22px;
-    text-align: start;
-    margin-top: 0;
-    margin-bottom: 0;
+.cvv-container input:first-child {
+    margin-right: 5px;
 }
 
-.number {
-    font-size: 16px;
-    text-align: end;
-    color: var(--Text-Secondary);
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.link-and-info-order {
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    font-size: 16px;
-
-}
-
-.link-and-info-order a {
-    text-decoration: none;
-    color: var(--Text-Secondary);
-    text-align: start;
-    font-size: 16px;
-}
-
-.link-and-info-order p {
-    color: var(--Text-Secondary);
-    margin-top: 10px;
-    margin-bottom: 0;
-    font-size: 16px;
+.cvv-container input:last-child {
+    margin-left: 5px;
 }
 
 input[type="submit"] {
     width: 100%;
-    color: #fff;
+    height: 56px;
+    color: var(--Text-Primary);
     border: none;
     padding: 15px 20px;
     border-radius: 8px;
     background: #8B53E8;
     cursor: pointer;
-    font-size: 20px;
-    transition: background-color 500ms ease-in-out;
+    font-size: 16px;
+    transition: background-color 200ms ease-in-out;
 }
 
 input[type="submit"]:hover {
     background-color: #522F8B;
 }
 
-.submit-button-result {
+.submit-button {
     width: 100%;
-    display: none;
+    display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     margin-top: 20px;
 }
 
+.accept-text {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.accept-text p {
+    color: var(--Text-Secondry);
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+    line-height: 16px;
+}
+
+.accept-text a {
+    text-decoration: none;
+    color: var(--Text-Primary);
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+
+}

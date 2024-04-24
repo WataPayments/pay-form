@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
-import "../Styles/OrderInfoStyle.css";
+import "../Styles/PaymentFormDetailsStyle.css";
 import Done from "../Images/Alert icon.svg";
 import Error from "../Images/Alert2 icon.svg";
-import OrderContext from "../OrderCotext";
+import OrderContext from "../PaymentContext";
 
-export default function OrderInfo() {
+export default function PaymentFormDetails() {
     const { isActivate, setIsActivate } = useContext(OrderContext);
 
     return (
         <div className={"order-info-block"}>
-            <div className={"result-pay"} style={{ display: isActivate ? 'flex' : 'none' }}>
+            <div className={"result-pay"}>
                 <img src={Done} alt="Result-pay" />
                 <p>Вы успешно оплатили счет!</p>
             </div>
@@ -18,11 +18,8 @@ export default function OrderInfo() {
                 <p className={"number"}>№4125678</p>
             </div>
             <div className={"link-and-info-order"}>
-                <a href={"http://ooo/"}>www.biolife.com</a>
+                <p>www.biolife.com</p>
                 <p>Оплата бадов из США</p>
-            </div>
-            <div className={"submit-button-result"} style={{ display: isActivate ? 'flex' : 'none' }}>
-                <input type="submit" value="Поделиться" />
             </div>
         </div>
     );

@@ -125,11 +125,16 @@ body {
     justify-content: flex-start;
     align-items: center;
     background: #211F22;
-    padding: 20px;
 }
 
 .logo {
     width: 100%;
     text-align: center;
     margin-top: 20px;
+}
+
+@media screen and (max-width: 480px) {
+    .App{
+        padding: 20px;
+    }
 }

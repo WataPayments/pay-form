@@ -125,6 +125,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     background: #211F22;
+    padding: 20px;
 }
 
 .logo {

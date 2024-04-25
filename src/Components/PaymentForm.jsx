@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, {useState, useRef} from "react";
 import "../Styles/PaymentFormStyle.css";
 import SBP from "../Images/Vector.svg";
 import eyeVisibleIcon from "../Images/Visibility_off.svg";
@@ -161,28 +161,27 @@ export default function PaymentForm() {
                             onBlur={handleInputBlur}
                             className={`${expiryDateError} ${isErrorActive && expiryDateError ? "active" : ""}`}
                         />
-                        <div className={"cvv-input"}>
-                            <input
-                                type={cvvVisible ? "text" : "password"}
-                                id="cvv"
-                                name="cvv"
-                                placeholder="CVV"
-                                inputMode="numeric"
-                                value={cvv}
-                                onChange={handleCvvInput}
-                                maxLength={3}
-                                ref={cvvRef}
-                                onFocus={handleInputFocus}
-                                onBlur={handleInputBlur}
-                                className={`${cvvError} ${isErrorActive && cvvError ? "active" : ""}`}
-                            />
-                            <img
-                                src={cvvVisible ? eyeVisibleIcon : eyeHiddenIcon}
-                                alt="Toggle CVV Visibility"
-                                className="toggle-cvv-visibility"
-                                onClick={toggleCvvVisibility}
-                            />
-                        </div>
+                        <input
+                            type={cvvVisible ? "text" : "password"}
+                            id="cvv"
+                            name="cvv"
+                            placeholder="CVV"
+                            inputMode="numeric"
+                            value={cvv}
+                            onChange={handleCvvInput}
+                            maxLength={3}
+                            ref={cvvRef}
+                            onFocus={handleInputFocus}
+                            onBlur={handleInputBlur}
+                            className={`cvv-input ${cvvError} ${isErrorActive && cvvError ? "active" : ""}`}
+                        />
+                        <img
+                            src={cvvVisible ? eyeVisibleIcon : eyeHiddenIcon}
+                            alt="Toggle CVV Visibility"
+                            className="toggle-cvv-visibility"
+                            style={{position: "absolute", right: "20px", bottom: "15px"}}
+                            onClick={toggleCvvVisibility}
+                        />
                     </div>
                 </div>
 

@@ -123,6 +123,7 @@
 .result-pay p{
     color: var(--Text-Primary);
     font-size: 18px;
+    text-align: center;
 }
 
 input[type="submit"] {

@@ -160,6 +160,7 @@ form > a > img {
     font-weight: 400;
 }
 
+
 .card-number-container {
     width: 100%;
     display: flex;
@@ -168,19 +169,14 @@ form > a > img {
     align-items: center;
     position: relative;
 }
-
-.card-number-container::after {
-    content: attr(data-card-type);
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    padding: 0 10px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    color: #000;
+#cardNumber{
+    width: 100%;
 }
+.card-number-container img{
+    position: absolute;
+    right: 20px;
+}
+
 
 input[type=text], input[type="number"], input[type="password"] {
     width: 100%;

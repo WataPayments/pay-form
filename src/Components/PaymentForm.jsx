@@ -1,8 +1,9 @@
-import React, {useState, useRef} from "react";
+import React, { useState, useRef } from "react";
 import "../Styles/PaymentFormStyle.css";
 import SBP from "../Images/Vector.svg";
 import eyeVisibleIcon from "../Images/Visibility_off.svg";
 import eyeHiddenIcon from "../Images/Visibility.svg";
+import MIR from "../Images/Logo=Mir.svg";
 
 export default function PaymentForm() {
     const [cardNumber, setCardNumber] = useState("");
@@ -13,8 +14,17 @@ export default function PaymentForm() {
     const [cvvError, setCvvError] = useState("");
     const [isErrorActive, setIsErrorActive] = useState(false);
     const [cvvVisible, setCvvVisible] = useState(false);
+    const [cardType, setCardType] = useState("");
     const expiryDateRef = useRef(null);
     const cvvRef = useRef(null);
+
+    const detectCardType = (inputCardNumber) => {
+        if (inputCardNumber.startsWith("2")) {
+            setCardType("mir");
+        } else {
+            setCardType("");
+        }
+    };
 
     const handleCardNumberChange = (event) => {
         let inputCardNumber = event.target.value.replace(/\D/g, '');
@@ -22,6 +32,8 @@ export default function PaymentForm() {
         if (!inputCardNumber.startsWith("2")) {
             inputCardNumber = "";
         }
+
+        detectCardType(inputCardNumber);
 
         inputCardNumber = inputCardNumber.replace(/(\d{4})/g, '$1 ').trim();
 
@@ -59,7 +71,7 @@ export default function PaymentForm() {
     const handleCvvInput = (event) => {
         let inputCvv = event.target.value.replace(/\D/g, '').slice(0, 3);
         setCvv(inputCvv);
-        setCvvError(""); // Clear error when CVV input changes
+        setCvvError("");
     };
 
     const handleInputFocus = (event) => {
@@ -144,6 +156,9 @@ export default function PaymentForm() {
                             onBlur={handleInputBlur}
                             className={`${cardNumberError} ${isErrorActive && cardNumberError ? "active" : ""}`}
                         />
+                        {cardType === "mir" && (
+                            <img src={MIR} className={"card-type-icon"} alt="МИР" />
+                        )}
                     </div>
 
                     <div className={"cvv-container"}>

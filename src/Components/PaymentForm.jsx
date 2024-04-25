@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import "../Styles/PaymentFormStyle.css";
 import SBP from "../Images/Vector.svg";
+import eyeVisibleIcon from "../Images/Visibility_off.svg";
+import eyeHiddenIcon from "../Images/Visibility.svg";
 
 export default function PaymentForm() {
     const [cardNumber, setCardNumber] = useState("");
@@ -10,6 +12,7 @@ export default function PaymentForm() {
     const [expiryDateError, setExpiryDateError] = useState("");
     const [cvvError, setCvvError] = useState("");
     const [isErrorActive, setIsErrorActive] = useState(false);
+    const [cvvVisible, setCvvVisible] = useState(false);
     const expiryDateRef = useRef(null);
     const cvvRef = useRef(null);
 
@@ -25,7 +28,10 @@ export default function PaymentForm() {
         setCardNumber(inputCardNumber);
 
         if (inputCardNumber.length === 19) {
+            setCardNumberError("");
             expiryDateRef.current.focus();
+        } else {
+            setCardNumberError("error");
         }
     };
 
@@ -43,18 +49,17 @@ export default function PaymentForm() {
         setExpiryDate(inputExpiryDate);
 
         if (inputExpiryDate.length === 5) {
+            setExpiryDateError("");
             cvvRef.current.focus();
+        } else {
+            setExpiryDateError("error");
         }
     };
 
-    const handleCvvChange = (event) => {
-        let inputCvv = event.target.value.replace(/\D/g, '');
-
-        if (inputCvv.length > 3) {
-            inputCvv = inputCvv.slice(0, 3);
-        }
-
+    const handleCvvInput = (event) => {
+        let inputCvv = event.target.value.replace(/\D/g, '').slice(0, 3);
         setCvv(inputCvv);
+        setCvvError(""); // Clear error when CVV input changes
     };
 
     const handleInputFocus = (event) => {
@@ -76,6 +81,9 @@ export default function PaymentForm() {
         }
     };
 
+    const toggleCvvVisibility = () => {
+        setCvvVisible(!cvvVisible);
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -128,6 +136,7 @@ export default function PaymentForm() {
                             id="cardNumber"
                             name="cardNumber"
                             placeholder="Введите номер карты"
+                            inputMode="numeric"
                             value={cardNumber}
                             onChange={handleCardNumberChange}
                             maxLength={19}
@@ -143,6 +152,7 @@ export default function PaymentForm() {
                             id="expiryDate"
                             name="expiryDate"
                             placeholder="ММ/ГГ"
+                            inputMode="numeric"
                             value={expiryDate}
                             onChange={handleExpiryDateChange}
                             maxLength={5}
@@ -151,20 +161,28 @@ export default function PaymentForm() {
                             onBlur={handleInputBlur}
                             className={`${expiryDateError} ${isErrorActive && expiryDateError ? "active" : ""}`}
                         />
-                        <input
-                            type="password"
-                            id="cvv"
-                            name="cvv"
-                            placeholder="CVV"
-                            value={cvv}
-                            onChange={handleCvvChange}
-                            maxLength={3}
-                            ref={cvvRef}
-                            onFocus={handleInputFocus}
-                            onBlur={handleInputBlur}
-                            onKeyDown={handleCvvKeyDown}
-                            className={`${cvvError} ${isErrorActive && cvvError ? "active" : ""}`}
-                        />
+                        <div className={"cvv-input"}>
+                            <input
+                                type={cvvVisible ? "text" : "password"}
+                                id="cvv"
+                                name="cvv"
+                                placeholder="CVV"
+                                inputMode="numeric"
+                                value={cvv}
+                                onChange={handleCvvInput}
+                                maxLength={3}
+                                ref={cvvRef}
+                                onFocus={handleInputFocus}
+                                onBlur={handleInputBlur}
+                                className={`${cvvError} ${isErrorActive && cvvError ? "active" : ""}`}
+                            />
+                            <img
+                                src={cvvVisible ? eyeVisibleIcon : eyeHiddenIcon}
+                                alt="Toggle CVV Visibility"
+                                className="toggle-cvv-visibility"
+                                onClick={toggleCvvVisibility}
+                            />
+                        </div>
                     </div>
                 </div>
 

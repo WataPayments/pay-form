@@ -92,12 +92,14 @@
     --Text-Primary: #FFF;
     --Text-Secondry: rgba(255, 255, 255, 0.75);
     --Text-Warning: #ED8C20;
+    --Text-Hint: rgba(255, 255, 255, 0.25);
+    --Border-Default: rgba(255, 255, 255, 0.10);
 }
 
 .order-add-cart-block {
     width: 100%;
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.20);
+    border: 1px solid var(--Border-Default);
     background: #262328;
     display: flex;
     flex-direction: column;
@@ -185,7 +187,7 @@ input[type=text], input[type="number"], input[type="password"] {
     height: 56px;
     padding: 20px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.20);
+    border: 1px solid var(--Border-Default);
     background: #211F22;
     color: var(--Text-Primary);
     font-size: 16px;
@@ -200,6 +202,7 @@ input[type="number"]:focus,
 input[type="password"]:focus,
 input.errorFocused:focus {
     outline: 2px solid #E1FF00;
+    background-color: #262328;
 }
 
 input.error {
@@ -220,6 +223,8 @@ input.error:focus {
     width: 100%;
 }
 
+
+
 .cvv-container input:first-child {
     margin-right: 5px;
 }
@@ -227,6 +232,18 @@ input.error:focus {
 .cvv-container input:last-child {
     margin-left: 5px;
 }
+.cvv-input{
+    width: 100%;
+    margin-left: 5px;
+    position: relative;
+}
+
+.cvv-input img{
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+}
+
 
 input[type="submit"] {
     width: 100%;
@@ -242,7 +259,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #522F8B;
+    background-color: #7346BB;
 }
 
 .submit-button {
@@ -260,7 +277,7 @@ input[type="submit"]:hover {
 }
 
 .accept-text p {
-    color: var(--Text-Secondry);
+    color: var(--Text-Hint);
     font-size: 12px;
     margin-bottom: 0;
     margin-top: 0;
@@ -269,7 +286,7 @@ input[type="submit"]:hover {
 
 .accept-text a {
     text-decoration: none;
-    color: var(--Text-Primary);
+    color: var(--Text-Secondry);
     font-size: 12px;
     margin-bottom: 0;
     margin-top: 0;

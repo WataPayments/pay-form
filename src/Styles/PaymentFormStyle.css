@@ -198,12 +198,13 @@ input.errorFocused {
 }
 
 input[type=text]:focus,
-input[type="number"]:focus,
-input[type="password"]:focus,
-input.errorFocused:focus {
-    outline: 2px solid #E1FF00;
-    background-color: #262328;
+input[type=number]:focus,
+input[type=password]:focus {
+    outline: none;
+    border-color: #E1FF00;
+    box-shadow: 0 0 0 2px #E1FF00;
 }
+
 
 input.error {
     border: 1px solid red;

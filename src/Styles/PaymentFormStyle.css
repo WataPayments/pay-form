@@ -198,7 +198,7 @@ input[type=number]:focus,
 input[type=password]:focus {
     outline: none;
     border-color: #E1FF00;
-    box-shadow: 0 0 0 2px #E1FF00;
+    box-shadow: 0 0 0 1px #E1FF00;
 }
 
 
@@ -235,6 +235,15 @@ input.error:focus {
     position: absolute;
     right: 20px;
     bottom: 15px;
+}
+.eye{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    width: 44px;
+    height: 56px;
 }
 
 input[type="submit"] {

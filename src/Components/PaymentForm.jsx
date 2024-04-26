@@ -206,13 +206,15 @@ export default function PaymentForm() {
                             onBlur={handleInputBlur}
                             className={`cvv-input ${cvvError} ${isErrorActive && cvvError ? "active" : ""}`}
                         />
-                        <img
-                            src={cvvVisible ? eyeVisibleIcon : eyeHiddenIcon}
-                            alt="Toggle CVV Visibility"
-                            className="toggle-cvv-visibility"
-                            style={{position: "absolute", right: "20px", bottom: "15px"}}
-                            onClick={toggleCvvVisibility}
-                        />
+                        <div className={"eye"}>
+                            <img
+                                src={cvvVisible ? eyeVisibleIcon : eyeHiddenIcon}
+                                alt="Toggle CVV Visibility"
+                                className="toggle-cvv-visibility"
+                                style={{position: "absolute", right: "20px", bottom: "15px"}}
+                                onClick={toggleCvvVisibility}
+                            />
+                        </div>
                     </div>
                 </div>
 

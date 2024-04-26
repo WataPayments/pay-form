@@ -4,6 +4,7 @@ import SBP from "../Images/Vector.svg";
 import eyeVisibleIcon from "../Images/Visibility_off.svg";
 import eyeHiddenIcon from "../Images/Visibility.svg";
 import MIR from "../Images/Logo=Mir.svg";
+import loader from "../Images/Loader.png"
 import Overlay from "./Overlay";
 
 export default function PaymentForm() {
@@ -136,29 +137,28 @@ export default function PaymentForm() {
 
         if (isValid) {
             console.log("Данные готовы к отправке:", cardNumber, expiryDate, cvv);
-            // Здесь можете добавить логику отправки данных на сервер или выполнения других действий
 
-            // Имитация задержки для эффекта загрузки
             await new Promise((resolve) => setTimeout(resolve, 2000));
 
             setIsLoading(false);
         } else {
             setIsLoading(false);
         }
+
     };
 
     return (
-        <div className={"order-add-cart-block"}>
+        <div className="order-add-cart-block">
             <form onSubmit={handleSubmit}>
                 <a>
-                    <img src={SBP} className={"big-image"} alt="SBP"/>
+                    <img src={SBP} className="big-image" alt="SBP"/>
                 </a>
 
-                <div className={"add-cart-block"}>
-                    <div className={"label-text"}>
+                <div className="add-cart-block">
+                    <div className="label-text">
                         <p>Для оплаты доступны карты МИР</p>
                     </div>
-                    <div className={"card-number-container"}>
+                    <div className="card-number-container">
                         <input
                             type="text"
                             id="cardNumber"
@@ -173,11 +173,11 @@ export default function PaymentForm() {
                             className={`${cardNumberError} ${isErrorActive && cardNumberError ? "active" : ""}`}
                         />
                         {cardType === "mir" && (
-                            <img src={MIR} className={"card-type-icon"} alt="МИР"/>
+                            <img src={MIR} className="card-type-icon" alt="МИР"/>
                         )}
                     </div>
 
-                    <div className={"cvv-container"}>
+                    <div className="cvv-container">
                         <input
                             type="text"
                             id="expiryDate"
@@ -206,29 +206,29 @@ export default function PaymentForm() {
                             onBlur={handleInputBlur}
                             className={`cvv-input ${cvvError} ${isErrorActive && cvvError ? "active" : ""}`}
                         />
-                        <div className={"eye"}>
+                        <div className="toggle-cvv-visibility-container" onClick={toggleCvvVisibility}>
                             <img
                                 src={cvvVisible ? eyeVisibleIcon : eyeHiddenIcon}
                                 alt="Toggle CVV Visibility"
                                 className="toggle-cvv-visibility"
                                 style={{position: "absolute", right: "20px", bottom: "15px"}}
-                                onClick={toggleCvvVisibility}
                             />
                         </div>
                     </div>
                 </div>
 
-                <div className={"submit-button"}>
-                    {isLoading ? (
-                        <div className="loader-container">
-                            <div className="loader"></div>
-                        </div>
-                    ) : (
-                        <input id="submitButton" type="submit" value="Оплатить 5 789,00 ₽"/>
-                    )}
+                <div className="submit-button">
+                    {/*<input id="submitButton" type="submit" value="Оплатить 5 789,00 ₽"/>*/}
+                    <input
+                        id="submitButton"
+                        type="submit"
+                        value={isLoading ? "\u25A0 \u25A0 \u25A0" : "Оплатить 5 789,00 ₽"}
+                        className={isLoading ? "submit-loading" : ""}
+                    />
+
                 </div>
             </form>
-            <div className={"accept-text"}>
+            <div className="accept-text">
                 <p>
                     Оплачивая, вы соглашаетесь с договором{" "}
                     <a href="#" onClick={handleOverlayToggle}>

@@ -154,7 +154,7 @@
 .number {
     font-size: 16px;
     text-align: end;
-    color: var(--Text-Secondary);
+    color: var(--Text-Secondry);
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -170,13 +170,13 @@
 }
 
 .link-and-info-order p:first-child {
-    color: var(--Text-Secondary);
+    color: var(--Text-Secondry);
     margin-top: 0;
     margin-bottom: 0;
     font-size: 16px;
 }
 .link-and-info-order p:last-child {
-    color: var(--Text-Secondary);
+    color: var(--Text-Secondry);
     margin-top: 10px;
     margin-bottom: 0;
     font-size: 16px;

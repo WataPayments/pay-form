@@ -4,6 +4,7 @@ import SBP from "../Images/Vector.svg";
 import eyeVisibleIcon from "../Images/Visibility_off.svg";
 import eyeHiddenIcon from "../Images/Visibility.svg";
 import MIR from "../Images/Logo=Mir.svg";
+import Overlay from "./Overlay";
 
 export default function PaymentForm() {
     const [cardNumber, setCardNumber] = useState("");
@@ -17,6 +18,12 @@ export default function PaymentForm() {
     const [cardType, setCardType] = useState("");
     const expiryDateRef = useRef(null);
     const cvvRef = useRef(null);
+    const [showOverlay, setShowOverlay] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleOverlayToggle = () => {
+        setShowOverlay(!showOverlay);
+    };
 
     const detectCardType = (inputCardNumber) => {
         if (inputCardNumber.startsWith("2")) {
@@ -97,8 +104,9 @@ export default function PaymentForm() {
         setCvvVisible(!cvvVisible);
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
+        setIsLoading(true);
 
         let isValid = true;
 
@@ -128,6 +136,14 @@ export default function PaymentForm() {
 
         if (isValid) {
             console.log("Данные готовы к отправке:", cardNumber, expiryDate, cvv);
+            // Здесь можете добавить логику отправки данных на сервер или выполнения других действий
+
+            // Имитация задержки для эффекта загрузки
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+
+            setIsLoading(false);
+        } else {
+            setIsLoading(false);
         }
     };
 
@@ -157,7 +173,7 @@ export default function PaymentForm() {
                             className={`${cardNumberError} ${isErrorActive && cardNumberError ? "active" : ""}`}
                         />
                         {cardType === "mir" && (
-                            <img src={MIR} className={"card-type-icon"} alt="МИР" />
+                            <img src={MIR} className={"card-type-icon"} alt="МИР"/>
                         )}
                     </div>
 
@@ -201,12 +217,24 @@ export default function PaymentForm() {
                 </div>
 
                 <div className={"submit-button"}>
-                    <input id="submitButton" type="submit" value="Оплатить 5 789,00 ₽"/>
+                    {isLoading ? (
+                        <div className="loader-container">
+                            <div className="loader"></div>
+                        </div>
+                    ) : (
+                        <input id="submitButton" type="submit" value="Оплатить 5 789,00 ₽"/>
+                    )}
                 </div>
             </form>
             <div className={"accept-text"}>
-                <p>Оплачивая, вы соглашаетесь с договором <a href="">оферты</a></p>
+                <p>
+                    Оплачивая, вы соглашаетесь с договором{" "}
+                    <a href="#" onClick={handleOverlayToggle}>
+                        оферты
+                    </a>
+                </p>
             </div>
+            {showOverlay && <Overlay onClose={handleOverlayToggle}/>}
         </div>
     );
 }

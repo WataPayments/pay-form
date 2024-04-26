@@ -297,8 +297,6 @@ input[type="submit"]:hover {
     }
 }
 
-/* Loader styles */
-
 .loader-container {
     display: flex;
     justify-content: center;
@@ -327,4 +325,24 @@ input[type="submit"]:hover {
         transform: scale(0.5);
         opacity: 0.5;
     }
+}
+
+.loader-container.submit-button::before,
+.loader-container.submit-button::after,
+.loader-container.submit-button .loader {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    margin: 0 5px;
+    border-radius: 2px;
+}
+
+.loader-container.submit-button .loader {
+    animation: loaderAnimation 1s infinite ease-in-out;
+}
+
+.loader-container.submit-button span {
+    display: none;
 }

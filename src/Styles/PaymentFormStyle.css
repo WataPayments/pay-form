@@ -231,10 +231,14 @@ input.error:focus {
     margin-left: 5px;
 }
 
-.cvv-input img {
+.toggle-cvv-visibility-container{
     position: absolute;
-    right: 20px;
-    bottom: 15px;
+    display: flex;
+    right: 0;
+    width: 64px;
+    height: 56px;
+    justify-content: center;
+    align-items: center;
 }
 
 input[type="submit"] {

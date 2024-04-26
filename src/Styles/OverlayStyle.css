@@ -124,7 +124,6 @@
 }
 
 .close-btn {
-    margin-bottom: 10px;
     color: var(--Text-Primary);
     background: none;
     border: none;
@@ -200,7 +199,6 @@ p {
     }
 
     .close-btn {
-        margin-bottom: 10px;
         color: var(--Text-Primary);
         background: none;
         border: none;

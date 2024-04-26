@@ -1,11 +1,12 @@
 import React from "react";
 import "../Styles/OverlayStyle.css";
+import Close from "../Images/Close.svg";
 
 export default function Overlay({onClose}) {
     return (
         <div className="overlay">
             <div className="overlay-content">
-                <button className="close-btn" onClick={onClose}>X</button>
+                <img src={Close} alt="Close" className="close-btn" onClick={onClose}/>
                 <h2>Публичная оферта</h2>
                 <p>Компания WATA Group Limited, именуемая в дальнейшем "Поставщик", предлагает услуги по приёму платежей
                     согласно следующим условиям:</p>

@@ -92,13 +92,14 @@
 :root {
     --Text-Primary: #FFF;
     --Text-Secondry: rgba(255, 255, 255, 0.75);
+    --Background-Key: #FAFAFA;
 }
 
 
 body {
     margin: 0;
     padding: 0;
-    background: #211F22;
+    background: var(--Background-Key);
     overflow-x: hidden;
     display: flex;
     justify-content: center;
@@ -107,8 +108,8 @@ body {
 
 * {
     box-sizing: border-box;
-    color: var(--Text-Primary, #FFF);
-    font-family: "TTFirsNeue Regular";
+    color: var(--Text-Primary);
+    font-family: "TTFirsNeue Regular", serif;
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
@@ -122,7 +123,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background: #211F22;
+    background: var(--Background-Key);
 }
 
 .logo {

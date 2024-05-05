@@ -2,7 +2,7 @@ import React from "react";
 import Error from "../Images/Alert2 icon.svg";
 import '../Styles/ErrorPageStyle.css';
 
-export default function ErrorPage(){
+export default function ErrorPage(props){
     return (
         <div className={"error-block"}>
             <div className={"result-pay"}>
@@ -10,12 +10,12 @@ export default function ErrorPage(){
                 <p>Ошибка оплаты!</p>
             </div>
             <div className={"price-and-number-order"}>
-                <p className={"price"}>5 790,00 ₽</p>
-                <p className={"number"}>№4125678</p>
+                <p className={"price"}>{/*{props.transaction.amount}*/}5000 ₽</p>
+                <p className={"number"}>№{/*{props.transaction.uuid}*/}410001</p>
             </div>
             <div className={"link-and-info-order"}>
-                <p>www.biolife.com</p>
-                <p>Оплата бадов из США</p>
+                <p>{/*{props.transaction.agent_name}*/}biolife.com</p>
+                <p>{/*{props.transaction.description}*/}Оплата бадов из США</p>
             </div>
             <div className={`submit-button-result`}>
                 <input type="submit" value="Оплатить еще раз"/>

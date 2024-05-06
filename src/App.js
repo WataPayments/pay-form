@@ -68,20 +68,16 @@ export default function App() {
             setShowPaymentForm(false);
         }
     }, [redirectUrl]);
-
     return (
         <div className="App">
             {redirectUrl && redirectUrl.includes("success-pay") && <SuccessPage transaction={transactionData}/>}
-
             {redirectUrl && redirectUrl.includes("error-pay") && <ErrorPage transaction={transactionData}/>}
-
             {showPaymentForm && (
                 <>
                     <PaymentFormDetails transaction={transactionData} />
                     <PaymentForm />
                 </>
             )}
-
             <div className="logo">
                 <img src={logo} alt="WATA" />
             </div>

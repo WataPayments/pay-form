@@ -8,6 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.8",
+    "card-validator": "^9.1.0",
     "credit-card-type": "^10.0.0",
     "gh-pages": "^6.1.1",
     "luhn": "^2.4.1",

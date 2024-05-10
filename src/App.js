@@ -14,6 +14,7 @@ export default function App() {
     const [showPaymentForm, setShowPaymentForm] = useState(true);
     const [cardNumber, setCardNumber] = useState('');
     const [cardNumberValid, setCardNumberValid] = useState(false);
+    const [showIframe, setShowIframe] = useState(false);
 
     useEffect(() => {
         const fetchTransaction = async () => {
@@ -32,6 +33,8 @@ export default function App() {
     useEffect(() => {
         if (redirectUrl && (redirectUrl.includes("success-pay") || redirectUrl.includes("error-pay"))) {
             setShowPaymentForm(false);
+        } else {
+            setShowIframe(true);
         }
     }, [redirectUrl]);
 
@@ -45,10 +48,14 @@ export default function App() {
         <div className="App">
             {redirectUrl && redirectUrl.includes("success-pay") && <SuccessPage transaction={transactionData}/>}
             {redirectUrl && redirectUrl.includes("error-pay") && <ErrorPage transaction={transactionData}/>}
+            {showIframe && redirectUrl && (
+                <iframe src={redirectUrl} title="Payment Redirect" />
+            )}
             {showPaymentForm && (
                 <>
                     <PaymentFormDetails transaction={transactionData} />
                     <PaymentForm
+                        transaction={transactionData}
                         cardNumber={cardNumber}
                         onCardNumberChange={handleCardNumberChange}
                         cardNumberValid={cardNumberValid}

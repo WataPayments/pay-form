@@ -7,7 +7,7 @@ import eyeHiddenIcon from "../Images/Visibility.svg";
 import MIR from "../Images/Logo=Mir.svg";
 import Overlay from "./Overlay";
 
-export default function PaymentForm({ onRedirect }) {
+export default function PaymentForm(props) {
     const [cardNumber, setCardNumber] = useState("");
     const [expiryDate, setExpiryDate] = useState("");
     const [cvv, setCvv] = useState("");
@@ -78,6 +78,7 @@ export default function PaymentForm({ onRedirect }) {
         setCvvError(false);
     };
 
+
     const handleCvvKeyDown = (event) => {
         if (event.target.value.length === 3) {
             document.getElementById("submitButton").focus();
@@ -132,7 +133,7 @@ export default function PaymentForm({ onRedirect }) {
                 console.log("Данные успешно отправлены:", response.data);
 
                 if (response.data.url_redirect) {
-                    onRedirect(response.data.url_redirect);
+                    props.onRedirect(response.data.url_redirect);
                 }
             } catch (error) {
                 console.error("Ошибка при отправке данных:", error);
@@ -214,6 +215,7 @@ export default function PaymentForm({ onRedirect }) {
                     <input
                         id="submitButton"
                         type="submit"
+                        // value={isLoading ? "\u25A0 \u25A0 \u25A0" : `Оплатить ${props.transaction.amount} ₽`}
                         value={isLoading ? "\u25A0 \u25A0 \u25A0" : "Оплатить 5 789,00 ₽"}
                         className={isLoading ? "submit-loading" : ""}
                     />

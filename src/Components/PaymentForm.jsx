@@ -62,6 +62,12 @@ export default function PaymentForm(props) {
             inputExpiryDate = inputExpiryDate.slice(0, 2) + '/' + inputExpiryDate.slice(2);
         }
 
+        // Ограничение месяца до максимального значения 12
+        const month = parseInt(inputExpiryDate.slice(0, 2), 10);
+        if (month > 12) {
+            inputExpiryDate = "12" + inputExpiryDate.slice(2);
+        }
+
         setExpiryDate(inputExpiryDate);
 
         if (inputExpiryDate.length === 5) {
@@ -78,9 +84,10 @@ export default function PaymentForm(props) {
         setCvvError(false);
     };
 
-
     const handleCvvKeyDown = (event) => {
-        if (event.target.value.length === 3) {
+        if (event.key === 'Backspace') {
+            setCvv(prevCvv => prevCvv.slice(0, -1));
+        } else if (event.target.value.length === 3) {
             document.getElementById("submitButton").focus();
             document.getElementById("submitButton").blur();
         }
@@ -120,13 +127,17 @@ export default function PaymentForm(props) {
             setCvvError(false);
         }
 
+        // Преобразование года в нужный формат
+        const currentYear = new Date().getFullYear().toString().slice(0, 2);
+        const formattedYear = currentYear + expiryDate.slice(3);
+
         if (isValid) {
             try {
                 const response = await axios.post("https://acquiring.foreignpay.ru/webhook/front/card_into", {
                     uuid: "2119C62-7db5-41c2-a5ec-0051c01705d3",
                     card_number: cardNumber.replace(/\s/g, ''),
                     month: expiryDate.slice(0, 2),
-                    year: expiryDate.slice(3),
+                    year: formattedYear, // Используем отформатированный год
                     cvc: cvv
                 });
 
@@ -215,8 +226,7 @@ export default function PaymentForm(props) {
                     <input
                         id="submitButton"
                         type="submit"
-                        // value={isLoading ? "\u25A0 \u25A0 \u25A0" : `Оплатить ${props.transaction.amount} ₽`}
-                        value={isLoading ? "\u25A0 \u25A0 \u25A0" : "Оплатить 5 789,00 ₽"}
+                        value={isLoading ? "\u25A0 \u25A0 \u25A0" : `Оплатить ${props.transaction.amount} ₽`}
                         className={isLoading ? "submit-loading" : ""}
                     />
                 </div>

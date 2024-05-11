@@ -3,7 +3,7 @@ import "../Styles/PaymentFormDetailsStyle.css";
 export default function PaymentFormDetails(props) {
 
     if (!props.transaction) {
-        return "404 bad request";
+        return "";
     }
     return (
         <div className={"order-info-block"}>

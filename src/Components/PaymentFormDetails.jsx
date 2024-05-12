@@ -13,28 +13,9 @@ export default function PaymentFormDetails(props) {
                 <p className={"number"}>№{props.transaction.order_number}</p>
             </div>
             <div className={"link-and-info-order"}>
-                <p>{/*biolife.com*/}{props.transaction.agent_name}</p>
-                <p>{props.transaction.description}{/*Оплата бадов из США*/}</p>
+                <p>{props.transaction.agent_name}</p>
+                <p>{props.transaction.description}</p>
             </div>
         </div>
     );
 }
-
-
-// <div className={"price-and-number-order"}>
-//     <p className={"price"}>{props.transaction.amount}</p>
-//     <p className={"number"}>№{props.transaction.uuid}</p>
-// </div>
-// <div className={"link-and-info-order"}>
-//     <p>{/*biolife.com*/}{props.transaction.agent_name}</p>
-//     <p>{props.transaction.description}{/*Оплата бадов из США*/}</p>
-// </div>
-
-// <div className={"price-and-number-order"}>
-//     <p className={"price"}>{/*{props.transaction.amount}*/}</p>
-//     <p className={"number"}>№{/*{props.transaction.uuid}*/}</p>
-// </div>
-// <div className={"link-and-info-order"}>
-//     <p>{/*biolife.com*/}{/*{props.transaction.agent_name}*/}</p>
-//     <p>{/*{props.transaction.description}*/}{/*Оплата бадов из США*/}</p>
-// </div>

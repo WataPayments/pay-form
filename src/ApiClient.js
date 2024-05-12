@@ -2,7 +2,7 @@ import axios from "axios";
 
 class ApiClient {
     constructor() {
-        this.baseUrl = process.env.REACT_APP_API_HOST;
+        this.baseUrl = "https://acquiring.foreignpay.ru/webhook/";
     }
 
     async fetchTransactionData(uuid) {
@@ -15,9 +15,9 @@ class ApiClient {
         }
     }
 
-    async sendPaymentData(data) {
+    async sendPaymentData(uuid, data) {
         try {
-            const response = await axios.post(`${this.baseUrl}front/card_into`, data);
+            const response = await axios.post(`${this.baseUrl}front/card_into`, { ...data, uuid });
             return response.data;
         } catch (error) {
             console.error("Error sending payment data:", error);

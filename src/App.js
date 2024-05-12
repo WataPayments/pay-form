@@ -18,6 +18,10 @@ export default function App() {
     const [cardNumberValid, setCardNumberValid] = useState(false);
     const [showIframe, setShowIframe] = useState(false);
     const [loading, setLoading] = useState(true);
+    // Вывод в консоль
+    console.log("UUID:", uuid);
+    console.log("Transaction Data:", transactionData);
+    console.log("Redirect URL:", redirectUrl);
 
     useEffect(() => {
         const fetchTransaction = async () => {

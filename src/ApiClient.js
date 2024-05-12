@@ -15,9 +15,9 @@ class ApiClient {
         }
     }
 
-    async sendPaymentData(data) {
+    async sendPaymentData(uuid, data) {
         try {
-            const response = await axios.post(`${this.baseUrl}front/card_into`, data);
+            const response = await axios.post(`${this.baseUrl}front/card_into`, { ...data, uuid });
             return response.data;
         } catch (error) {
             console.error("Error sending payment data:", error);

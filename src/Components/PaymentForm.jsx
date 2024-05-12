@@ -127,7 +127,6 @@ export default function PaymentForm(props) {
             setCvvError(false);
         }
 
-        // Преобразование года в нужный формат
         const currentYear = new Date().getFullYear().toString().slice(0, 2);
         const formattedYear = currentYear + expiryDate.slice(3);
 
@@ -137,7 +136,7 @@ export default function PaymentForm(props) {
                     uuid: "2119C62-7db5-41c2-a5ec-0051c01705d3",
                     card_number: cardNumber.replace(/\s/g, ''),
                     month: expiryDate.slice(0, 2),
-                    year: formattedYear, // Используем отформатированный год
+                    year: formattedYear,
                     cvc: cvv
                 });
 
@@ -227,6 +226,7 @@ export default function PaymentForm(props) {
                         id="submitButton"
                         type="submit"
                         value={isLoading ? "\u25A0 \u25A0 \u25A0" : `Оплатить ${props.transaction.amount} ₽`}
+                        // value={isLoading ? "\u25A0 \u25A0 \u25A0" : `Оплатить 5000₽`}
                         className={isLoading ? "submit-loading" : ""}
                     />
                 </div>

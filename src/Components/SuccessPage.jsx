@@ -10,12 +10,12 @@ export default function SuccessPage(props){
                 <p>Вы успешно оплатили счет!</p>
             </div>
             <div className={"price-and-number-order"}>
-                <p className={"price"}>{props.transaction.amount} ₽</p>
+                <p className={"price"}>{props.transaction.amount}</p>
                 <p className={"number"}>№{props.transaction.uuid}</p>
             </div>
             <div className={"link-and-info-order"}>
-                <p>{props.transaction.agent_name}</p>
-                <p>{props.transaction.description}</p>
+                <p>{/*biolife.com*/}{props.transaction.agent_name}</p>
+                <p>{props.transaction.description}{/*Оплата бадов из США*/}</p>
             </div>
             <div className={`submit-button-result`}>
                 <input type="submit" value="Поделиться"/>

@@ -8,7 +8,7 @@ const root = createRoot(document.getElementById('root'));
 root.render(
     <Router>
         <Routes>
-            <Route path="https://watapayments.github.io/pay-form/:uuid" element={<App />} />
+            <Route path="/pay-form/:uuid" element={<App />} />
         </Routes>
     </Router>
 );

@@ -2,7 +2,7 @@ import axios from "axios";
 
 class ApiClient {
     constructor() {
-        this.baseUrl = process.env.REACT_APP_API_HOST;
+        this.baseUrl = "https://acquiring.foreignpay.ru/webhook/";
     }
 
     async fetchTransactionData(uuid) {

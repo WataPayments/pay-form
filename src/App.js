@@ -18,9 +18,12 @@ export default function App() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const uuid = urlParams.get('uuid');
+
         const fetchTransaction = async () => {
             try {
-                const data = await ApiClient.fetchTransactionData("872ce593-bf1b-4d4d-8223-e83ead495c14");
+                const data = await ApiClient.fetchTransactionData(uuid);
                 setTransactionData(data);
                 setRedirectUrl(data.url_redirect);
                 setLoading(false);

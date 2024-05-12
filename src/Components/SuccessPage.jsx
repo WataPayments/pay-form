@@ -10,7 +10,7 @@ export default function SuccessPage(props){
                 <p>Вы успешно оплатили счет!</p>
             </div>
             <div className={"price-and-number-order"}>
-                <p className={"price"}>{props.transaction.amount} ₽</p>
+                <p className={"price"}>{props.transaction.amount}</p>
                 <p className={"number"}>№{props.transaction.uuid}</p>
             </div>
             <div className={"link-and-info-order"}>

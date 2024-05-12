@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "./index.css";
 import logo from "./Images/Logo.svg";
 import PaymentFormDetails from "./Components/PaymentFormDetails";
@@ -9,50 +10,37 @@ import { number } from 'card-validator';
 import ApiClient from './ApiClient';
 
 export default function App() {
+    const { uuid } = useParams();
     const [transactionData, setTransactionData] = useState(null);
-    const [paymentStatus, setPaymentStatus] = useState(null); // Статус оплаты: success, error или null
+    const [redirectUrl, setRedirectUrl] = useState(null);
+    const [showPaymentForm, setShowPaymentForm] = useState(true);
     const [cardNumber, setCardNumber] = useState('');
     const [cardNumberValid, setCardNumberValid] = useState(false);
+    const [showIframe, setShowIframe] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchTransaction = async () => {
             try {
-                const data = await ApiClient.fetchTransactionData("872ce593-bf1b-4d4d-8223-e83ead495c14");
+                const data = await ApiClient.fetchTransactionData(uuid);
                 setTransactionData(data);
-                if (data.url_redirect) {
-                    // Если есть url_redirect, отображаем его в iframe
-                    window.location.href = data.url_redirect;
-                } else {
-                    // Если url_redirect null, отображаем ErrorPage
-                    setPaymentStatus("error");
-                }
+                setRedirectUrl(data.url_redirect);
+                setLoading(false);
             } catch (error) {
                 console.error("Error fetching transaction data:", error);
-                // Если произошла ошибка при получении данных, отображаем ErrorPage
-                setPaymentStatus("error");
             }
         };
 
         fetchTransaction();
-    }, []);
+    }, [uuid]);
 
     useEffect(() => {
-        // Обработка изменений URL в iframe
-        const handleIframeNavigation = () => {
-            const currentUrl = window.location.href;
-            if (currentUrl.includes("success-pay")) {
-                setPaymentStatus("success");
-            } else if (currentUrl.includes("error-pay")) {
-                setPaymentStatus("error");
-            }
-        };
-
-        window.addEventListener("popstate", handleIframeNavigation);
-
-        return () => {
-            window.removeEventListener("popstate", handleIframeNavigation);
-        };
-    }, []);
+        if (redirectUrl && (redirectUrl.includes("success-pay") || redirectUrl.includes("error-pay"))) {
+            setShowPaymentForm(false);
+        } else {
+            setShowIframe(true);
+        }
+    }, [redirectUrl]);
 
     const handleCardNumberChange = (e) => {
         const { value } = e.target;
@@ -60,27 +48,28 @@ export default function App() {
         setCardNumberValid(number(value).isValid);
     };
 
-    // Функция для отображения соответствующей страницы в зависимости от статуса оплаты
-    const renderPaymentPage = () => {
-        if (paymentStatus === "success") {
-            return <SuccessPage transaction={transactionData} />;
-        } else if (paymentStatus === "error") {
-            return <ErrorPage transaction={transactionData} />;
-        } else {
-            return null;
-        }
-    };
+    if (loading) {
+        return <div></div>;
+    }
 
     return (
         <div className="App">
-            {renderPaymentPage()}
-            <PaymentFormDetails transaction={transactionData} />
-            <PaymentForm
-                transaction={transactionData}
-                cardNumber={cardNumber}
-                onCardNumberChange={handleCardNumberChange}
-                cardNumberValid={cardNumberValid}
-            />
+            {redirectUrl && redirectUrl.includes("success-pay") && <SuccessPage transaction={transactionData}/>}
+            {redirectUrl && redirectUrl.includes("error-pay") && <ErrorPage transaction={transactionData}/>}
+            {showIframe && redirectUrl && (
+                <iframe src={redirectUrl} title="Payment Redirect" />
+            )}
+            {showPaymentForm && (
+                <>
+                    <PaymentFormDetails transaction={transactionData} />
+                    <PaymentForm
+                        transaction={transactionData}
+                        cardNumber={cardNumber}
+                        onCardNumberChange={handleCardNumberChange}
+                        cardNumberValid={cardNumberValid}
+                    />
+                </>
+            )}
             <div className="logo">
                 <img src={logo} alt="WATA" />
             </div>

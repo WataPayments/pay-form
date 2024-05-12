@@ -1,0 +1,325 @@
+@font-face {
+    font-family: 'TTFirsNeue Black';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Black Italic';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-BlackItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Bold';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Bold Italic';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue DemiBold';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-DemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue DemiBold Italic';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-DemiBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue ExtraBold';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue ExtraBold Italic';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue ExtraLight';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue ExtraLight Italic';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraLightItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Italic';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Light';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Light Italic';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Medium';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Medium Italic';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Regular';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Thin';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Thin.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'TTFirsNeue Thin Italic';
+    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ThinItalic.ttf') format('truetype');
+}
+
+:root {
+    --Text-Primary: #FFF;
+    --Text-Secondry: rgba(255, 255, 255, 0.75);
+    --Text-Warning: #ED8C20;
+    --Text-Hint: rgba(255, 255, 255, 0.25);
+    --Border-Default: #211F221A;
+    --Border-Active: #8B53E8;
+    --Background-Primary-active: #522F8B;
+    --Background-Key: #FAFAFA;
+}
+
+.order-add-cart-block {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--Border-Default);
+    background: var(--Background-Key);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--Text-Primary);
+    margin-top: 20px;
+    font-family: 'TTFirsNeue Regular';
+    font-style: normal;
+    font-weight: 400;
+    padding: 20px 20px 10px 20px;
+}
+
+form {
+    width: 100%;
+}
+
+form > a {
+    cursor: pointer;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background-color: black;
+    border-radius: 8px;
+}
+
+form > a > img {
+    width: 100%;
+    height: 36px;
+}
+
+.add-cart-block {
+    width: 100%;
+}
+
+.label-text {
+    width: 100%;
+    background-color: #ED8C201A;
+    border-radius: 4px;
+    text-align: center;
+    height: 28px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label-text p {
+    color: var(--Text-Warning);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.card-number-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#cardNumber {
+    width: 100%;
+}
+
+.card-number-container img {
+    position: absolute;
+    right: 20px;
+}
+
+input[type=text], input[type="number"], input[type="password"] {
+    width: 100%;
+    height: 56px;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--Border-Default);
+    background: var(--Background-Key);
+    color: var(--Text-Primary);
+    font-size: 16px;
+}
+
+input.errorFocused {
+    border: none;
+}
+
+input[type=text]:focus,
+input[type=number]:focus,
+input[type=password]:focus {
+    outline: none;
+    border-color: var(--Border-Active);
+    box-shadow: 0 0 0 1px var(--Border-Active);
+}
+
+input.error {
+    border: 1px solid red;
+}
+
+input.error:focus {
+    border-color: var(--Border-Active);
+    box-shadow: 0 0 0 1px var(--Border-Active);
+}
+
+.cvv-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    position: relative;
+}
+
+.cvv-container input:first-child {
+    width: 100%;
+    margin-right: 5px;
+}
+
+.cvv-container img {
+    cursor: pointer;
+}
+
+.cvv-input {
+    width: 100%;
+    margin-left: 5px;
+}
+
+.toggle-cvv-visibility-container{
+    position: absolute;
+    display: flex;
+    right: 0;
+    width: 64px;
+    height: 56px;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="submit"] {
+    position: relative;
+    width: 100%;
+    height: 56px;
+    color: var(--Text-Primary);
+    border: none;
+    padding: 15px 20px;
+    border-radius: 8px;
+    background: #8B53E8;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 200ms ease-in-out;
+}
+
+input[type="submit"]:hover {
+    background-color: #7346BB;
+}
+
+
+.submit-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+#submitButton.active {
+    background-color: var(--Background-Primary-active); /* Цвет фона во время загрузки */
+}
+
+.accept-text {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.accept-text p {
+    color: var(--Text-Hint);
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+    line-height: 16px;
+}
+
+.accept-text a {
+    text-decoration: none;
+    color: var(--Text-Secondry);
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.submit-loading {
+    font-family: 'TTFirsNeue Regular', sans-serif; /* Пример шрифта, замените на необходимый */
+    font-size: 16px; /* Пример размера шрифта, замените на необходимый */
+    color: transparent; /* Делаем текст невидимым */
+    background-color: var(--Background-Primary-active); /* Использование переменной */
+    border-radius: 0.75px; /* border-radius для квадратов */
+    padding: 10px 15px; /* Опционально: настройка отступов */
+}
+
+/* Стили для квадратов */
+.submit-loading::before {
+    content: "\25A0"; /* Закрашенный квадрат */
+    border-radius: 0.75px; /* Задаем border-radius */
+    padding-right: 3px; /* Расстояние между квадратами */
+}
+
+
+
+
+@media screen and (max-width: 375px) {
+    .cvv-container input:first-child {
+        width: 100%;
+        margin-right: 10px;
+    }
+    .cvv-input {
+        width: 100%;
+        margin-left: 10px;
+    }
+}
+

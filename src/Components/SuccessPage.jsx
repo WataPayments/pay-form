@@ -1,6 +1,6 @@
 import React from "react";
 import Done from "../Images/Alert icon.svg";
-import '../Styles/SuccsessPageStyle.css';
+import '../Styles/SuccessPageStyle.css';
 
 export default function SuccessPage(props){
     return (

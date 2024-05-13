@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pay-form/:uuid/static/css/main.e854e42d.css",
-    "main.js": "/pay-form/:uuid/static/js/main.7e74aa5d.js",
+    "main.js": "/pay-form/:uuid/static/js/main.4455fc4e.js",
     "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/:uuid/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
     "static/media/TTFirsNeue-DemiBoldItalic.ttf": "/pay-form/:uuid/static/media/TTFirsNeue-DemiBoldItalic.d96287c6cf4cd2f5d330.ttf",
     "static/media/TTFirsNeue-BlackItalic.ttf": "/pay-form/:uuid/static/media/TTFirsNeue-BlackItalic.20e6d72dbbf5628241f0.ttf",
@@ -30,10 +30,10 @@
     "static/media/Visibility.svg": "/pay-form/:uuid/static/media/Visibility.0e2110d8abed7ff9de7f81351f0bd60b.svg",
     "index.html": "/pay-form/:uuid/index.html",
     "main.e854e42d.css.map": "/pay-form/:uuid/static/css/main.e854e42d.css.map",
-    "main.7e74aa5d.js.map": "/pay-form/:uuid/static/js/main.7e74aa5d.js.map"
+    "main.4455fc4e.js.map": "/pay-form/:uuid/static/js/main.4455fc4e.js.map"
   },
   "entrypoints": [
     "static/css/main.e854e42d.css",
-    "static/js/main.7e74aa5d.js"
+    "static/js/main.4455fc4e.js"
   ]
 }

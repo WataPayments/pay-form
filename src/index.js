@@ -12,7 +12,7 @@ ReactDOM.render(
         {/*    <Route path="/pay-form/success-pay/:uuid" element={<SuccessPage />} />*/}
         {/*    <Route path="/pay-form/error-pay/:uuid" element={<ErrorPage />} />*/}
         {/*</Routes>*/}
-        <App />
+        <Route path="/pay-form/:uuid" element={<App />} />
     </HashRouter>,
     document.getElementById('root')
 );

@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /
+
+# Если файл или каталог не существует, перенаправить запрос на index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /pay-form/index.html [L]

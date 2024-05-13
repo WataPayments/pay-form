@@ -1,5 +1,5 @@
 {
-  "homepage": "https://razex0lol.github.io/pay-form/:uuid",
+  "homepage": "https://razex0lol.github.io/pay-form/",
   "name": "pay",
   "version": "0.1.0",
   "private": true,
@@ -10,6 +10,7 @@
     "axios": "^1.6.8",
     "card-validator": "^9.1.0",
     "credit-card-type": "^10.0.0",
+    "firebase": "^10.11.1",
     "gh-pages": "^6.1.1",
     "luhn": "^2.4.1",
     "node-luhn": "^1.0.0",

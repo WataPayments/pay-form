@@ -7,11 +7,12 @@ import ErrorPage from './Components/ErrorPage';
 
 ReactDOM.render(
     <HashRouter>
-        <Routes>
-            <Route path="/pay-form/:uuid" element={<App />} />
-            <Route path="/pay-form/success-pay/:uuid" element={<SuccessPage />} />
-            <Route path="/pay-form/error-pay/:uuid" element={<ErrorPage />} />
-        </Routes>
+        {/*<Routes>*/}
+        {/*    <Route path="/pay-form/:uuid" element={<App />} />*/}
+        {/*    <Route path="/pay-form/success-pay/:uuid" element={<SuccessPage />} />*/}
+        {/*    <Route path="/pay-form/error-pay/:uuid" element={<ErrorPage />} />*/}
+        {/*</Routes>*/}
+        <App/>
     </HashRouter>,
     document.getElementById('root')
 );

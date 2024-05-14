@@ -1,22 +1,18 @@
-import React, {StrictMode} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-    BrowserRouter,
-    BrowserRouter as Router,
     createBrowserRouter,
-    HashRouter,
-    Route,
     RouterProvider,
-    Routes
+    Navigate, createHashRouter
 } from 'react-router-dom';
 import App from './App';
 import SuccessPage from './Components/SuccessPage';
 import ErrorPage from './Components/ErrorPage';
 
-const router=createBrowserRouter([
+const router= createHashRouter([
     {
-      path:"/",
-      element:<ErrorPage/>
+        path:"/",
+        element: <Navigate to="/1"/>
     },
     {
         path:"/error-pay/:uuid",
@@ -24,6 +20,10 @@ const router=createBrowserRouter([
     },
     {
         path:"/:uuid",
+        element:<App/>,
+    },
+    {
+        path:"/pay/:uuid",
         element:<App/>,
     },
     {

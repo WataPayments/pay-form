@@ -8,6 +8,7 @@ import {
 import App from './App';
 import SuccessPage from './Components/SuccessPage';
 import ErrorPage from './Components/ErrorPage';
+import Overlay from "./Components/Overlay";
 
 const router= createHashRouter([
     {
@@ -29,6 +30,10 @@ const router= createHashRouter([
     {
         path:"/success-pay/:uuid",
         element:<SuccessPage/>,
+    },
+    {
+        path: "/overlay",
+        element: <Overlay /> // Добавьте новый маршрут для страницы с офертой
     }
 ])
 

@@ -6,6 +6,7 @@ import eyeVisibleIcon from "../Images/Visibility_off.svg";
 import eyeHiddenIcon from "../Images/Visibility.svg";
 import MIR from "../Images/Logo=Mir.svg";
 import Overlay from "./Overlay";
+import {Link} from "react-router-dom";
 
 const PaymentForm = (props) => {
     const [cardNumber, setCardNumber] = useState("");
@@ -132,7 +133,7 @@ const PaymentForm = (props) => {
 
         if (isValid) {
             try {
-                const response = await axios.post("https://acquiring.foreignpay.ru/webhook/front/card_into", {
+                const response = await axios.post("https://pay.vatapay.ru/api/send-card-info", {
                     uuid: props.uuid, // Передайте ваш UUID здесь
                     card_number: cardNumber.replace(/\s/g, ''),
                     month: expiryDate.slice(0, 2),
@@ -155,87 +156,102 @@ const PaymentForm = (props) => {
         }
     };
 
+    const handleOfferClick = () => {
+        // Навигация на страницу с офертой при клике на ссылку "оферты"
+        window.location.href = "/overlay";
+    };
+
     return (
         <div className="order-add-cart-block">
-            <form onSubmit={handleSubmit}>
-                <a>
-                    <img src={SBP} className="big-image" alt="SBP"/>
-                </a>
+            {props.sbp_url && (
+                <form onSubmit={handleSubmit}>
+                    <a>
+                        <img src={SBP} className="big-image" alt="SBP"/>
+                    </a>
 
-                <div className="add-cart-block">
-                    <div className="label-text">
-                        <p>Для оплаты доступны карты МИР</p>
-                    </div>
-                    <div className="card-number-container">
-                        <input
-                            type="text"
-                            id="cardNumber"
-                            name="cardNumber"
-                            placeholder="Введите номер карты"
-                            inputMode="numeric"
-                            value={cardNumber}
-                            onChange={handleCardNumberChange}
-                            maxLength={19}
-                            className={`${cardNumberError ? "error" : ""}`}
-                        />
-                        {cardType === "mir" && (
-                            <img src={MIR} className="card-type-icon" alt="МИР"/>
-                        )}
-                    </div>
-
-                    <div className="cvv-container">
-                        <input
-                            type="text"
-                            id="expiryDate"
-                            name="expiryDate"
-                            placeholder="ММ/ГГ"
-                            inputMode="numeric"
-                            value={expiryDate}
-                            onChange={handleExpiryDateChange}
-                            maxLength={5}
-                            ref={expiryDateRef}
-                            className={`${expiryDateError ? "error" : ""}`}
-                        />
-                        <input
-                            type={cvvVisible ? "text" : "password"}
-                            id="cvv"
-                            name="cvv"
-                            placeholder="CVV"
-                            inputMode="numeric"
-                            value={cvv}
-                            onChange={handleCvvInput}
-                            maxLength={3}
-                            ref={cvvRef}
-                            onKeyDown={handleCvvKeyDown}
-                            className={`cvv-input ${cvvError ? "error" : ""}`}
-                        />
-                        <div className="toggle-cvv-visibility-container" onClick={toggleCvvVisibility}>
-                            <img
-                                src={cvvVisible ? eyeVisibleIcon : eyeHiddenIcon}
-                                alt="Toggle CVV Visibility"
-                                className="toggle-cvv-visibility"
-                                style={{position: "absolute", right: "20px", bottom: "15px"}}
+                    <div className="add-cart-block">
+                        <div className="label-text">
+                            <p>Для оплаты доступны карты МИР</p>
+                        </div>
+                        <div className="card-number-container">
+                            <input
+                                type="text"
+                                id="cardNumber"
+                                name="cardNumber"
+                                placeholder="Введите номер карты"
+                                inputMode="numeric"
+                                value={cardNumber}
+                                onChange={handleCardNumberChange}
+                                maxLength={19}
+                                className={`${cardNumberError ? "error" : ""}`}
                             />
+                            {cardType === "mir" && (
+                                <img src={MIR} className="card-type-icon" alt="МИР"/>
+                            )}
+                        </div>
+
+                        <div className="cvv-container">
+                            <input
+                                type="text"
+                                id="expiryDate"
+                                name="expiryDate"
+                                placeholder="ММ/ГГ"
+                                inputMode="numeric"
+                                value={expiryDate}
+                                onChange={handleExpiryDateChange}
+                                maxLength={5}
+                                ref={expiryDateRef}
+                                className={`${expiryDateError ? "error" : ""}`}
+                            />
+                            <input
+                                type={cvvVisible ? "text" : "password"}
+                                id="cvv"
+                                name="cvv"
+                                placeholder="CVV"
+                                inputMode="numeric"
+                                value={cvv}
+                                onChange={handleCvvInput}
+                                maxLength={3}
+                                ref={cvvRef}
+                                onKeyDown={handleCvvKeyDown}
+                                className={`cvv-input ${cvvError ? "error" : ""}`}
+                            />
+                            <div className="toggle-cvv-visibility-container" onClick={toggleCvvVisibility}>
+                                <img
+                                    src={cvvVisible ? eyeVisibleIcon : eyeHiddenIcon}
+                                    alt="Toggle CVV Visibility"
+                                    className="toggle-cvv-visibility"
+                                    style={{position: "absolute", right: "20px", bottom: "15px"}}
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="submit-button">
-                    <input
-                        id="submitButton"
-                        type="submit"
-                        value={isLoading ? "\u25A0 \u25A0 \u25A0" : `Оплатить ${props.transaction.amount} ₽`}
-                        // value={isLoading ? "\u25A0 \u25A0 \u25A0" : `Оплатить 5000₽`}
-                        className={isLoading ? "submit-loading" : ""}
-                    />
-                </div>
-            </form>
+                    <div className="submit-button">
+                        <input
+                            id="submitButton"
+                            type="submit"
+                            value={isLoading ? "\u25A0 \u25A0 \u25A0" : `Оплатить ${props.transaction.amount} ₽`}
+                            // value={isLoading ? "\u25A0 \u25A0 \u25A0" : `Оплатить 5000₽`}
+                            className={isLoading ? "submit-loading" : ""}
+                        />
+                    </div>
+                </form>
+            )}
+            {/*<div className="accept-text">*/}
+            {/*    <p>*/}
+            {/*        Оплачивая, вы соглашаетесь с договором{" "}*/}
+            {/*        <a href="#" onClick={handleOverlayToggle}>*/}
+            {/*            оферты*/}
+            {/*        </a>*/}
+            {/*    </p>*/}
+            {/*</div>*/}
             <div className="accept-text">
                 <p>
                     Оплачивая, вы соглашаетесь с договором{" "}
-                    <a href="#" onClick={handleOverlayToggle}>
+                    <Link to="/overlay" onClick={handleOfferClick}>
                         оферты
-                    </a>
+                    </Link>
                 </p>
             </div>
             {showOverlay && <Overlay onClose={handleOverlayToggle}/>}
@@ -244,4 +260,3 @@ const PaymentForm = (props) => {
 };
 
 export default PaymentForm;
-

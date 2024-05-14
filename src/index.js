@@ -15,15 +15,15 @@ import ErrorPage from './Components/ErrorPage';
 
 const router=createBrowserRouter([
     {
-        path:"pay-form/error-pay/:uuid",
+        path:"/error-pay/:uuid",
         element:<ErrorPage/>,
     },
     {
-        path:"pay-form/:uuid",
+        path:"/:uuid",
         element:<App/>,
     },
     {
-        path:"pay-form/success-pay/:uuid",
+        path:"/success-pay/:uuid",
         element:<SuccessPage/>,
     }
 ])

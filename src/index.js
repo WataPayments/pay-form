@@ -31,10 +31,6 @@ const router= createHashRouter([
         path:"/success-pay/:uuid",
         element:<SuccessPage/>,
     },
-    {
-        path: "/overlay",
-        element: <Overlay /> // Добавьте новый маршрут для страницы с офертой
-    }
 ])
 
 ReactDOM.render(

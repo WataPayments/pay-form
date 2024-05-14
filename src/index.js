@@ -19,11 +19,11 @@ const router=createBrowserRouter([
         element:<ErrorPage/>,
     },
     {
-        path:"/pay-form/:uuid",
+        path:"pay-form/:uuid",
         element:<App/>,
     },
     {
-        path:"/pay-form/success-pay/:uuid",
+        path:"pay-form/success-pay/:uuid",
         element:<SuccessPage/>,
     }
 ])

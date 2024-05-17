@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import "./index.css";
 import logo from "./Images/Logo.svg";
 import PaymentFormDetails from "./Components/PaymentFormDetails";
@@ -10,8 +10,8 @@ import { number } from 'card-validator';
 import ApiClient from './ApiClient';
 
 export default function App() {
-    const { uuid } = useParams();
     const location = useLocation();
+    const { uuid } = useParams();
     const [transactionData, setTransactionData] = useState(null);
     const [redirectUrl, setRedirectUrl] = useState(null);
     const [showPaymentForm, setShowPaymentForm] = useState(true);
@@ -37,7 +37,7 @@ export default function App() {
     }, [uuid]);
 
     useEffect(() => {
-        if (redirectUrl&& (redirectUrl.includes("success-pay") || redirectUrl.includes("error-pay"))) {
+        if (redirectUrl && (redirectUrl.includes("success-pay") || redirectUrl.includes("error-pay"))) {
             const urlParams = new URLSearchParams(location.search);
             const transactionUuid = urlParams.get("transaction_uuid");
             setTransactionUuid(transactionUuid);

@@ -3,6 +3,9 @@ import Error from "../Images/Alert2 icon.svg";
 import '../Styles/ErrorPageStyle.css';
 
 export default function ErrorPage(props){
+    const { transaction } = props;
+    const queryParams = new URLSearchParams({ transaction_uuid: transaction.uuid });
+
     return (
         <div className={"error-block"}>
             <div className={"result-pay"}>
@@ -10,15 +13,17 @@ export default function ErrorPage(props){
                 <p>Ошибка оплаты!</p>
             </div>
             <div className={"price-and-number-order"}>
-                <p className={"price"}>{props.transaction.amount}</p>
-                <p className={"number"}>№{props.transaction.uuid}</p>
+                <p className={"price"}>{transaction.amount}</p>
+                <p className={"number"}>№{transaction.uuid}</p>
             </div>
             <div className={"link-and-info-order"}>
-                <p>{props.transaction.agent_name}</p>
-                <p>{props.transaction.description}</p>
+                <p>{transaction.agent_name}</p>
+                <p>{transaction.description}</p>
             </div>
             <div className={`submit-button-result`}>
-                <input type="submit" value="Оплатить еще раз"/>
+                <a href={`/error-pay?${queryParams}`}>
+                    <input type="submit" value="Оплатить еще раз"/>
+                </a>
             </div>
 
         </div>

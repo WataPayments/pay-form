@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import "./index.css";
 import logo from "./Images/Logo.svg";
 import PaymentFormDetails from "./Components/PaymentFormDetails";
@@ -11,6 +11,7 @@ import ApiClient from './ApiClient';
 
 export default function App() {
     const { uuid } = useParams();
+    const location = useLocation();
     const [transactionData, setTransactionData] = useState(null);
     const [redirectUrl, setRedirectUrl] = useState(null);
     const [showPaymentForm, setShowPaymentForm] = useState(true);
@@ -18,10 +19,7 @@ export default function App() {
     const [cardNumberValid, setCardNumberValid] = useState(false);
     const [showIframe, setShowIframe] = useState(false);
     const [loading, setLoading] = useState(true);
-    // Вывод в консоль
-    console.log("UUID:", uuid);
-    console.log("Transaction Data:", transactionData);
-    console.log("Redirect URL:", redirectUrl);
+    const [transactionUuid, setTransactionUuid] = useState(null);
 
     useEffect(() => {
         const fetchTransaction = async () => {
@@ -39,12 +37,15 @@ export default function App() {
     }, [uuid]);
 
     useEffect(() => {
-        if (redirectUrl && (redirectUrl.includes("success-pay") || redirectUrl.includes("error-pay"))) {
+        if (redirectUrl&& (redirectUrl.includes("success-pay") || redirectUrl.includes("error-pay"))) {
+            const urlParams = new URLSearchParams(location.search);
+            const transactionUuid = urlParams.get("transaction_uuid");
+            setTransactionUuid(transactionUuid);
             setShowPaymentForm(false);
         } else {
             setShowIframe(true);
         }
-    }, [redirectUrl]);
+    }, [redirectUrl, location]);
 
     const handleCardNumberChange = (e) => {
         const { value } = e.target;
@@ -58,8 +59,12 @@ export default function App() {
 
     return (
         <div className="App">
-            {redirectUrl && redirectUrl.includes("success-pay") && <SuccessPage transaction={transactionData}/>}
-            {redirectUrl && redirectUrl.includes("error-pay") && <ErrorPage transaction={transactionData}/>}
+            {redirectUrl && redirectUrl.includes("success-pay") && (
+                <SuccessPage transaction={transactionData} transactionUuid={transactionUuid} />
+            )}
+            {redirectUrl && redirectUrl.includes("error-pay") && (
+                <ErrorPage transaction={transactionData} transactionUuid={transactionUuid} />
+            )}
             {showIframe && redirectUrl && (
                 <iframe src={redirectUrl} title="Payment Redirect" />
             )}

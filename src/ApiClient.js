@@ -1,13 +1,22 @@
 import axios from "axios";
 
 class ApiClient {
-    constructor() {
-        this.baseUrl = "https://acquiring.foreignpay.ru/webhook/";
-    }
+
 
     async fetchTransactionData(uuid) {
         try {
-            const response = await axios.get(`${this.baseUrl}transaction?uuid=${uuid}`);
+            const response = await axios.post(
+                'https://acquiring.foreignpay.ru/webhook/check_transaction',
+                {
+                    'transaction_uuid': `${uuid}`
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            );
+            console.log(response);
             return response.data;
         } catch (error) {
             console.error("Error fetching transaction data:", error);

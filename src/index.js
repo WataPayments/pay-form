@@ -1,37 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-    createBrowserRouter,
-    RouterProvider,
-    Navigate, createHashRouter
+    RouterProvider, createHashRouter
 } from 'react-router-dom';
 import App from './App';
 import SuccessPage from './Components/SuccessPage';
 import ErrorPage from './Components/ErrorPage';
-import Overlay from "./Components/Overlay";
 
-const router= createHashRouter([
+const router = createHashRouter([
     {
-        path:"/",
-        element: <Navigate to="/1"/>
+        path: "/",
+        element: <App />,
     },
     {
-        path:"/error-pay/:uuid",
-        element:<ErrorPage/>,
+        path: "/error-pay",
+        element: <ErrorPage />,
     },
     {
-        path:"/:uuid",
-        element:<App/>,
+        path: "/pay/:uuid",
+        element: <App />,
     },
     {
-        path:"/pay/:uuid",
-        element:<App/>,
+        path: "/success-pay",
+        element: <SuccessPage />,
     },
     {
-        path:"/success-pay/:uuid",
-        element:<SuccessPage/>,
+        path: "/fail-pay",
+        element: <ErrorPage />,
     },
-])
+]);
 
 ReactDOM.render(
     <React.StrictMode>

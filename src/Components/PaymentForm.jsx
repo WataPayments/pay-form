@@ -133,8 +133,8 @@ const PaymentForm = (props) => {
 
         if (isValid) {
             try {
-                const response = await axios.post("https://pay.vatapay.ru/api/send-card-info", {
-                    uuid: props.uuid, // Передайте ваш UUID здесь
+                const response = await axios.post("https://acquiring.foreignpay.ru/webhook/front/card_info", {
+                    uuid: props.uuid,
                     card_number: cardNumber.replace(/\s/g, ''),
                     month: expiryDate.slice(0, 2),
                     year: formattedYear,
@@ -163,11 +163,13 @@ const PaymentForm = (props) => {
 
     return (
         <div className="order-add-cart-block">
-            {props.sbp_url && (
+
                 <form onSubmit={handleSubmit}>
+                    {props.sbp_url && (
                     <a>
                         <img src={SBP} className="big-image" alt="SBP"/>
                     </a>
+                    )}
 
                     <div className="add-cart-block">
                         <div className="label-text">
@@ -232,12 +234,10 @@ const PaymentForm = (props) => {
                             id="submitButton"
                             type="submit"
                             value={isLoading ? "\u25A0 \u25A0 \u25A0" : `Оплатить ${props.transaction.amount} ₽`}
-                            // value={isLoading ? "\u25A0 \u25A0 \u25A0" : `Оплатить 5000₽`}
                             className={isLoading ? "submit-loading" : ""}
                         />
                     </div>
                 </form>
-            )}
             {/*<div className="accept-text">*/}
             {/*    <p>*/}
             {/*        Оплачивая, вы соглашаетесь с договором{" "}*/}

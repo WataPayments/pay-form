@@ -27,11 +27,11 @@ const PaymentForm = (props) => {
     };
 
     const detectCardType = (inputCardNumber) => {
-        setCardType(inputCardNumber.startsWith("2") ? "mir" : "");
+        setCardType(inputCardNumber.startsWith("2")? "mir" : "");
     };
 
     const handleCardNumberChange = (event) => {
-        let inputCardNumber = event.target.value.replace(/\D/g, '');
+        let inputCardNumber = event.target.value.replace(/\D/g, "");
 
         if (!inputCardNumber.startsWith("2")) {
             inputCardNumber = "";
@@ -39,7 +39,7 @@ const PaymentForm = (props) => {
 
         detectCardType(inputCardNumber);
 
-        inputCardNumber = inputCardNumber.replace(/(\d{4})/g, '$1 ').trim();
+        inputCardNumber = inputCardNumber.replace(/(\d{4})/g, "$1 ").trim();
 
         setCardNumber(inputCardNumber);
 
@@ -52,14 +52,14 @@ const PaymentForm = (props) => {
     };
 
     const handleExpiryDateChange = (event) => {
-        let inputExpiryDate = event.target.value.replace(/\D/g, '');
+        let inputExpiryDate = event.target.value.replace(/\D/g, "");
 
         if (inputExpiryDate.length > 4) {
             inputExpiryDate = inputExpiryDate.slice(0, 4);
         }
 
         if (inputExpiryDate.length > 2) {
-            inputExpiryDate = inputExpiryDate.slice(0, 2) + '/' + inputExpiryDate.slice(2);
+            inputExpiryDate = inputExpiryDate.slice(0, 2) + "/" + inputExpiryDate.slice(2);
         }
 
         const month = parseInt(inputExpiryDate.slice(0, 2), 10);
@@ -78,14 +78,14 @@ const PaymentForm = (props) => {
     };
 
     const handleCvvInput = (event) => {
-        let inputCvv = event.target.value.replace(/\D/g, '').slice(0, 3);
+        let inputCvv = event.target.value.replace(/\D/g, "").slice(0, 3);
         setCvv(inputCvv);
         setCvvError(false);
     };
 
     const handleCvvKeyDown = (event) => {
-        if (event.key === 'Backspace') {
-            setCvv(prevCvv => prevCvv.slice(0, -1));
+        if (event.key === "Backspace") {
+            setCvv((prevCvv) => prevCvv.slice(0, -1));
         } else if (event.target.value.length === 3) {
             document.getElementById("submitButton").focus();
             document.getElementById("submitButton").blur();
@@ -102,7 +102,7 @@ const PaymentForm = (props) => {
 
         let isValid = true;
 
-        if (!/^2\d{15}$/.test(cardNumber.replace(/\s/g, ''))) {
+        if (!/^2\d{15}$/.test(cardNumber.replace(/\s/g, ""))) {
             setCardNumberError(true);
             setIsErrorActive(true);
             isValid = false;
@@ -131,13 +131,33 @@ const PaymentForm = (props) => {
 
         if (isValid) {
             try {
-                const response = await axios.post("https://acquiring.foreignpay.ru/webhook/front/card_info", {
-                    uuid: props.uuid,
-                    card_number: cardNumber.replace(/\s/g, ''),
-                    month: expiryDate.slice(0, 2),
-                    year: formattedYear,
-                    cvc: cvv
-                });
+                const deviceData = {
+                    browserLanguage: navigator.language,
+                    browserJavaEnabled: navigator.javaEnabled,
+                    browserJavaScriptEnabled: true,
+                    browserColorDepth: window.screen.colorDepth,
+                    browserScreenHeight: window.innerHeight,
+                    browserScreenWidth: window.innerWidth,
+                    browserTZ: new Date().getTimezoneOffset(),
+                    browserTZName: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                    challengeWindowHeight: window.innerHeight,
+                    challengeWindowWidth: window.innerWidth,
+                };
+                console.log(props.uuid);
+
+                const response = await axios.post(
+                    "https://acquiring.foreignpay.ru/webhook/front/card_info",
+                    {
+                        uuid: props.uuid,
+                        card_number: parseInt(cardNumber.replace(/\s/g, ""), 10),
+                        month: expiryDate.slice(0, 2),
+                        year: formattedYear,
+                        cvc: cvv,
+                        email: "stub@stub.com",
+                        name:"STUB STUB",
+                        deviceData,
+                    }
+                );
 
                 console.log("Данные успешно отправлены:", response.data);
 
@@ -154,84 +174,85 @@ const PaymentForm = (props) => {
         }
     };
 
-
     return (
         <div className="order-add-cart-block">
+            {props.sbp_url && (
+                <a>
+                    <img src={SBP} className="big-image" alt="SBP" />
+                </a>
+            )}
 
-                <form onSubmit={handleSubmit}>
-                    {props.sbp_url && (
-                    <a>
-                        <img src={SBP} className="big-image" alt="SBP"/>
-                    </a>
-                    )}
-
-                    <div className="add-cart-block">
-                        <div className="label-text">
-                            <p>Для оплаты доступны карты МИР</p>
-                        </div>
-                        <div className="card-number-container">
-                            <input
-                                type="text"
-                                id="cardNumber"
-                                name="cardNumber"
-                                placeholder="Введите номер карты"
-                                inputMode="numeric"
-                                value={cardNumber}
-                                onChange={handleCardNumberChange}
-                                maxLength={19}
-                                className={`${cardNumberError ? "error" : ""}`}
-                            />
-                            {cardType === "mir" && (
-                                <img src={MIR} className="card-type-icon" alt="МИР"/>
-                            )}
-                        </div>
-
-                        <div className="cvv-container">
-                            <input
-                                type="text"
-                                id="expiryDate"
-                                name="expiryDate"
-                                placeholder="ММ/ГГ"
-                                inputMode="numeric"
-                                value={expiryDate}
-                                onChange={handleExpiryDateChange}
-                                maxLength={5}
-                                ref={expiryDateRef}
-                                className={`${expiryDateError ? "error" : ""}`}
-                            />
-                            <input
-                                type={cvvVisible ? "text" : "password"}
-                                id="cvv"
-                                name="cvv"
-                                placeholder="CVV"
-                                inputMode="numeric"
-                                value={cvv}
-                                onChange={handleCvvInput}
-                                maxLength={3}
-                                ref={cvvRef}
-                                onKeyDown={handleCvvKeyDown}
-                                className={`cvv-input ${cvvError ? "error" : ""}`}
-                            />
-                            <div className="toggle-cvv-visibility-container" onClick={toggleCvvVisibility}>
-                                <img
-                                    src={cvvVisible ? eyeVisibleIcon : eyeHiddenIcon}
-                                    alt="Toggle CVV Visibility"
-                                    className="toggle-cvv-visibility"
-                                    style={{position: "absolute", right: "20px", bottom: "15px"}}
-                                />
-                            </div>
-                        </div>
+            <form onSubmit={handleSubmit}>
+                <div className="add-cart-block">
+                    <div className="label-text">
+                        <p>Для оплаты доступны карты МИР</p>
                     </div>
-
-                    <div className="submit-button">
+                    <div className="card-number-container">
                         <input
-                            id="submitButton"
-                            type="submit"
-                            value={isLoading ? "\u25A0 \u25A0 \u25A0" : `Оплатить ${props.transaction.amount} ₽`}
-                            className={isLoading ? "submit-loading" : ""}
+                            type="text"
+                            id="cardNumber"
+                            name="cardNumber"
+                            placeholder="Введите номер карты"
+                            inputMode="numeric"
+                            value={cardNumber}
+                            onChange={handleCardNumberChange}
+                            maxLength={19}
+                            className={`${cardNumberError ? "error" : ""}`}
                         />
+                        {cardType === "mir" && (
+                            <img src={MIR} className="card-type-icon" alt="МИР" />
+                        )}
                     </div>
-                </form>
+
+                    <div className="cvv-container">
+                        <input
+                            type={cvvVisible ? "text" : "password"}
+                            id="expiryDate"
+                            name="expiryDate"
+                            placeholder="ММ/ГГ"
+                            inputMode="numeric"
+                            value={expiryDate}
+                            onChange={handleExpiryDateChange}
+                            maxLength={5}
+                            ref={expiryDateRef}
+                            className={`${expiryDateError ? "error" : ""}`}
+                        />
+                        <input
+                            type="text"
+                            id="cvv"
+                            name="cvv"
+                            placeholder="CVV"
+                            inputMode="numeric"
+                            value={cvv}
+                            onChange={handleCvvInput}
+                            maxLength={3}
+                            ref={cvvRef}
+                            onKeyDown={handleCvvKeyDown}
+                            className={`cvv-input ${cvvError ? "error" : ""}`}
+                        />
+                        <div
+                            className="toggle-cvv-visibility-container"
+                            onClick={toggleCvvVisibility}
+                        >
+                            <img
+                                src={cvvVisible ? eyeVisibleIcon : eyeHiddenIcon}
+                                alt="Toggle CVV Visibility"
+                                className="toggle-cvv-visibility"
+                                style={{ position: "absolute", right: "20px", bottom: "15px" }}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="submit-button">
+                    <input
+                        id="submitButton"
+                        type="submit"
+                        value={isLoading ? "\u25A0 \u25A0 \u25A0" : `Оплатить ${props.transaction.amount} ₽`}
+                        className={isLoading ? "submit-loading": ""}
+                    />
+                </div>
+            </form>
             <div className="accept-text">
                 <p>
                     Оплачивая, вы соглашаетесь с договором{" "}

@@ -67,6 +67,7 @@ export default function App() {
                 <>
                     <PaymentFormDetails transaction={transactionData} />
                     <PaymentForm
+                        uuid={uuid}
                         transaction={transactionData}
                         cardNumber={cardNumber}
                         onCardNumberChange={handleCardNumberChange}

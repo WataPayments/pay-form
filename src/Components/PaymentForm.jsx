@@ -206,7 +206,7 @@ const PaymentForm = (props) => {
 
                     <div className="cvv-container">
                         <input
-                            type={cvvVisible ? "text" : "password"}
+                            type="text"
                             id="expiryDate"
                             name="expiryDate"
                             placeholder="ММ/ГГ"
@@ -218,7 +218,7 @@ const PaymentForm = (props) => {
                             className={`${expiryDateError ? "error" : ""}`}
                         />
                         <input
-                            type="text"
+                            type={cvvVisible ? "text" : "password"}
                             id="cvv"
                             name="cvv"
                             placeholder="CVV"

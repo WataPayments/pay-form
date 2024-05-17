@@ -6,7 +6,6 @@ import eyeVisibleIcon from "../Images/Visibility_off.svg";
 import eyeHiddenIcon from "../Images/Visibility.svg";
 import MIR from "../Images/Logo=Mir.svg";
 import Overlay from "./Overlay";
-import {Link} from "react-router-dom";
 
 const PaymentForm = (props) => {
     const [cardNumber, setCardNumber] = useState("");
@@ -63,7 +62,6 @@ const PaymentForm = (props) => {
             inputExpiryDate = inputExpiryDate.slice(0, 2) + '/' + inputExpiryDate.slice(2);
         }
 
-        // Ограничение месяца до максимального значения 12
         const month = parseInt(inputExpiryDate.slice(0, 2), 10);
         if (month > 12) {
             inputExpiryDate = "12" + inputExpiryDate.slice(2);
@@ -156,10 +154,6 @@ const PaymentForm = (props) => {
         }
     };
 
-    const handleOfferClick = () => {
-        // Навигация на страницу с офертой при клике на ссылку "оферты"
-        window.location.href = "/overlay";
-    };
 
     return (
         <div className="order-add-cart-block">
@@ -238,23 +232,18 @@ const PaymentForm = (props) => {
                         />
                     </div>
                 </form>
-            {/*<div className="accept-text">*/}
-            {/*    <p>*/}
-            {/*        Оплачивая, вы соглашаетесь с договором{" "}*/}
-            {/*        <a href="#" onClick={handleOverlayToggle}>*/}
-            {/*            оферты*/}
-            {/*        </a>*/}
-            {/*    </p>*/}
-            {/*</div>*/}
             <div className="accept-text">
                 <p>
                     Оплачивая, вы соглашаетесь с договором{" "}
-                    <Link to="/overlay" onClick={handleOfferClick}>
+                    <a href="#" onClick={(e) => {
+                        e.preventDefault();
+                        handleOverlayToggle();
+                    }}>
                         оферты
-                    </Link>
+                    </a>
                 </p>
             </div>
-            {showOverlay && <Overlay onClose={handleOverlayToggle}/>}
+            {showOverlay && <Overlay onClose={handleOverlayToggle} />}
         </div>
     );
 };

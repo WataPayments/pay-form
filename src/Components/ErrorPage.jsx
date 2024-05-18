@@ -3,7 +3,8 @@ import Error from "../Images/Alert2 icon.svg";
 import '../Styles/ErrorPageStyle.css';
 
 export default function ErrorPage(props){
-    const { transaction } = props;
+    const { transaction, onRetry } = props;
+
     const queryParams = new URLSearchParams({ transaction_uuid: transaction.uuid });
 
     return (
@@ -21,11 +22,8 @@ export default function ErrorPage(props){
                 <p>{transaction.description}</p>
             </div>
             <div className={`submit-button-result`}>
-                <a href={`/error-pay?${queryParams}`}>
-                    <input type="submit" value="Оплатить еще раз"/>
-                </a>
+                <input type="submit" value="Оплатить еще раз" onClick={onRetry} />
             </div>
-
         </div>
     );
 }

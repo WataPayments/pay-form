@@ -20,13 +20,15 @@ export default function App() {
     const [showIframe, setShowIframe] = useState(false);
     const [loading, setLoading] = useState(true);
     const [transactionUuid, setTransactionUuid] = useState(null);
+    const [urlRedirectNull, setUrlRedirectNull] = useState(false);
+    const [showErrorPage, setShowErrorPage] = useState(false); // Добавляем состояние для отображения страницы ошибки
 
     useEffect(() => {
         const fetchTransaction = async () => {
             try {
-                const data = await ApiClient.fetchTransactionData(uuid);
-                setTransactionData(data);
-                setRedirectUrl(data.url_redirect);
+                const { transactionData, redirectUrl } = await ApiClient.fetchTransactionData(uuid);
+                setTransactionData(transactionData);
+                setRedirectUrl(redirectUrl);
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching transaction data:", error);
@@ -42,15 +44,34 @@ export default function App() {
             const transactionUuid = urlParams.get("transaction_uuid");
             setTransactionUuid(transactionUuid);
             setShowPaymentForm(false);
-        } else {
+            setShowErrorPage(redirectUrl.includes("error-pay")); // Показываем страницу ошибки, если есть соответствующий URL
+        } else if (redirectUrl) {
+            setUrlRedirectNull(false);
             setShowIframe(true);
+        } else if (urlRedirectNull) {
+            setShowPaymentForm(false);
+            setShowIframe(false);
+            setUrlRedirectNull(false);
+        } else {
+            setShowPaymentForm(true);
+            setShowIframe(false);
         }
-    }, [redirectUrl, location]);
+    }, [redirectUrl, location, urlRedirectNull]);
 
     const handleCardNumberChange = (e) => {
         const { value } = e.target;
         setCardNumber(value);
         setCardNumberValid(number(value).isValid);
+    };
+
+    const handleRedirect = (url) => {
+        setRedirectUrl(url);
+        setUrlRedirectNull(url === null);
+    };
+
+    // Функция для повторной попытки оплаты
+    const handleRetryPayment = () => {
+        setUrlRedirectNull(false); // Устанавливаем urlRedirectNull в false, чтобы вернуться к форме оплаты
     };
 
     if (loading) {
@@ -63,12 +84,16 @@ export default function App() {
                 <SuccessPage transaction={transactionData} transactionUuid={transactionUuid} />
             )}
             {redirectUrl && redirectUrl.includes("error-pay") && (
-                <ErrorPage transaction={transactionData} transactionUuid={transactionUuid} />
+                <ErrorPage
+                    transaction={transactionData}
+                    transactionUuid={transactionUuid}
+                    onRetry={handleRetryPayment}
+                />
             )}
             {showIframe && redirectUrl && (
                 <iframe src={redirectUrl} title="Payment Redirect" />
             )}
-            {showPaymentForm && (
+            {showPaymentForm && !showErrorPage && (
                 <>
                     <PaymentFormDetails transaction={transactionData} />
                     <PaymentForm
@@ -77,6 +102,7 @@ export default function App() {
                         cardNumber={cardNumber}
                         onCardNumberChange={handleCardNumberChange}
                         cardNumberValid={cardNumberValid}
+                        onRedirect={handleRedirect}
                     />
                 </>
             )}

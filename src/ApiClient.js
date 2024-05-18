@@ -17,12 +17,16 @@ class ApiClient {
                 }
             );
             console.log(response);
-            return response.data;
+            return {
+                transactionData: response.data,
+                redirectUrl: response.data.url_redirect
+            };
         } catch (error) {
             console.error("Error fetching transaction data:", error);
             throw error;
         }
     }
+
 
     async sendPaymentData(uuid, data) {
         try {

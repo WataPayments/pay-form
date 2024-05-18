@@ -176,7 +176,7 @@ const PaymentForm = (props) => {
 
     return (
         <div className="order-add-cart-block">
-            {props.sbp_url && (
+            {props.sbp_uuid && (
                 <a>
                     <img src={SBP} className="big-image" alt="SBP" />
                 </a>

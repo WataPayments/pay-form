@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 import "./index.css";
 import logo from "./Images/Logo.svg";
 import PaymentFormDetails from "./Components/PaymentFormDetails";
@@ -11,6 +11,7 @@ import ApiClient from './ApiClient';
 
 export default function App() {
     const location = useLocation();
+    const navigate = useNavigate();
     const { uuid } = useParams();
     const [transactionData, setTransactionData] = useState(null);
     const [redirectUrl, setRedirectUrl] = useState(null);
@@ -21,7 +22,7 @@ export default function App() {
     const [loading, setLoading] = useState(true);
     const [transactionUuid, setTransactionUuid] = useState(null);
     const [urlRedirectNull, setUrlRedirectNull] = useState(false);
-    const [showErrorPage, setShowErrorPage] = useState(false); // Добавляем состояние для отображения страницы ошибки
+    const [showErrorPage, setShowErrorPage] = useState(false);
 
     useEffect(() => {
         const fetchTransaction = async () => {
@@ -44,19 +45,20 @@ export default function App() {
             const transactionUuid = urlParams.get("transaction_uuid");
             setTransactionUuid(transactionUuid);
             setShowPaymentForm(false);
-            setShowErrorPage(redirectUrl.includes("error-pay")); // Показываем страницу ошибки, если есть соответствующий URL
+            setShowErrorPage(redirectUrl.includes("error-pay"));
         } else if (redirectUrl) {
             setUrlRedirectNull(false);
             setShowIframe(true);
         } else if (urlRedirectNull) {
             setShowPaymentForm(false);
             setShowIframe(false);
-            setUrlRedirectNull(false);
+            setShowErrorPage(true);
+            navigate(`/error-pay/${uuid}`);
         } else {
             setShowPaymentForm(true);
             setShowIframe(false);
         }
-    }, [redirectUrl, location, urlRedirectNull]);
+    }, [redirectUrl, location, urlRedirectNull, navigate, uuid]);
 
     const handleCardNumberChange = (e) => {
         const { value } = e.target;
@@ -67,15 +69,22 @@ export default function App() {
     const handleRedirect = (url) => {
         setRedirectUrl(url);
         setUrlRedirectNull(url === null);
+        if (url === null) {
+            setShowPaymentForm(false);
+            setShowIframe(false);
+            setShowErrorPage(true);
+            navigate(`/error-pay/${uuid}`);
+        }
     };
 
-    // Функция для повторной попытки оплаты
     const handleRetryPayment = () => {
-        setUrlRedirectNull(false); // Устанавливаем urlRedirectNull в false, чтобы вернуться к форме оплаты
+        setUrlRedirectNull(false);
+        setShowErrorPage(false);
+        navigate(`/${uuid}`);
     };
 
     if (loading) {
-        return <div></div>;
+        return <div>Loading...</div>;
     }
 
     return (

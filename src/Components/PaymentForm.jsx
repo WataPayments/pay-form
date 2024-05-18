@@ -27,7 +27,7 @@ const PaymentForm = (props) => {
     };
 
     const detectCardType = (inputCardNumber) => {
-        setCardType(inputCardNumber.startsWith("2")? "mir" : "");
+        setCardType(inputCardNumber.startsWith("2") ? "mir" : "");
     };
 
     const handleCardNumberChange = (event) => {
@@ -154,7 +154,7 @@ const PaymentForm = (props) => {
                         year: formattedYear,
                         cvc: cvv,
                         email: "stub@stub.com",
-                        name:"STUB STUB",
+                        name: "STUB STUB",
                         deviceData,
                     }
                 );
@@ -249,7 +249,7 @@ const PaymentForm = (props) => {
                         id="submitButton"
                         type="submit"
                         value={isLoading ? "\u25A0 \u25A0 \u25A0" : `Оплатить ${props.transaction.amount} ₽`}
-                        className={isLoading ? "submit-loading": ""}
+                        className={isLoading ? "submit-loading" : ""}
                     />
                 </div>
             </form>

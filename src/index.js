@@ -17,7 +17,7 @@ const router = createHashRouter([
         element: <ErrorPage />,
     },
     {
-        path: "/pay/:uuid",
+        path: "/:uuid",
         element: <App />,
     },
     {

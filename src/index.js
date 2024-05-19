@@ -13,7 +13,7 @@ const router = createHashRouter([
         element: <App />,
     },
     {
-        path: "/error-pay",
+        path: "/error-pay/:uuid",
         element: <ErrorPage />,
     },
     {
@@ -23,11 +23,7 @@ const router = createHashRouter([
     {
         path: "/success-pay",
         element: <SuccessPage />,
-    },
-    {
-        path: "/fail-pay",
-        element: <ErrorPage />,
-    },
+    }
 ]);
 
 ReactDOM.render(

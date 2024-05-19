@@ -6,8 +6,10 @@ import eyeVisibleIcon from "../Images/Visibility_off.svg";
 import eyeHiddenIcon from "../Images/Visibility.svg";
 import MIR from "../Images/Logo=Mir.svg";
 import Overlay from "./Overlay";
+import {useNavigate} from "react-router-dom";
 
 const PaymentForm = (props) => {
+    const navigate=useNavigate();
     const [cardNumber, setCardNumber] = useState("");
     const [expiryDate, setExpiryDate] = useState("");
     const [cvv, setCvv] = useState("");
@@ -162,10 +164,14 @@ const PaymentForm = (props) => {
                 console.log("Данные успешно отправлены:", response.data);
 
                 if (response.data.url_redirect) {
-                    props.onRedirect(response.data.url_redirect);
+                    navigate(response.data.url_redirect);
+                }
+                else if(response.data.url_redirect===null || response.data.url_redirect===''){
+                    navigate(`/error-pay/${props.uuid}`);
                 }
             } catch (error) {
                 console.error("Ошибка при отправке данных:", error);
+                navigate(`/error-pay/${props.uuid}`);
             }
 
             setIsLoading(false);

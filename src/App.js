@@ -39,26 +39,6 @@ export default function App() {
         fetchTransaction();
     }, [uuid]);
 
-    useEffect(() => {
-        if (redirectUrl && (redirectUrl.includes("success-pay") || redirectUrl.includes("error-pay"))) {
-            const urlParams = new URLSearchParams(location.search);
-            const transactionUuid = urlParams.get("transaction_uuid");
-            setTransactionUuid(transactionUuid);
-            setShowPaymentForm(false);
-            setShowErrorPage(redirectUrl.includes("error-pay"));
-        } else if (redirectUrl) {
-            setUrlRedirectNull(false);
-            setShowIframe(true);
-        } else if (urlRedirectNull) {
-            setShowPaymentForm(false);
-            setShowIframe(false);
-            setShowErrorPage(true);
-            navigate(`/error-pay/${uuid}`);
-        } else {
-            setShowPaymentForm(true);
-            setShowIframe(false);
-        }
-    }, [redirectUrl, location, urlRedirectNull, navigate, uuid]);
 
     const handleCardNumberChange = (e) => {
         const { value } = e.target;
@@ -83,6 +63,10 @@ export default function App() {
         navigate(`/${uuid}`);
     };
 
+    const getUrlRedirect=(urlRedirect)=>{
+        setRedirectUrl(urlRedirect);
+    }
+
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -90,10 +74,11 @@ export default function App() {
     return (
         <div className="App">
             {redirectUrl && redirectUrl.includes("success-pay") && (
-                <SuccessPage transaction={transactionData} transactionUuid={transactionUuid} />
+                <SuccessPage uuid={uuid} transaction={transactionData} transactionUuid={transactionUuid} />
             )}
             {redirectUrl && redirectUrl.includes("error-pay") && (
                 <ErrorPage
+                    uuid={uuid}
                     transaction={transactionData}
                     transactionUuid={transactionUuid}
                     onRetry={handleRetryPayment}
@@ -112,6 +97,7 @@ export default function App() {
                         onCardNumberChange={handleCardNumberChange}
                         cardNumberValid={cardNumberValid}
                         onRedirect={handleRedirect}
+
                     />
                 </>
             )}

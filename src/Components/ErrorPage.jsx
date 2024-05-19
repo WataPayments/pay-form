@@ -1,11 +1,27 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import Error from "../Images/Alert2 icon.svg";
 import '../Styles/ErrorPageStyle.css';
+import ApiClient from "../ApiClient";
 
 export default function ErrorPage(props) {
     const {onRetry } = props;
     const { uuid } = useParams();
+    const [transactionData, setTransactionData] = useState(null);
+
+
+    useEffect(() => {
+        const fetchTransaction = async () => {
+            try {
+                const { transactionData} = await ApiClient.fetchTransactionData(uuid);
+                setTransactionData(transactionData);
+            } catch (error) {
+                console.error("Error fetching transaction data:", error);
+            }
+        };
+
+        fetchTransaction();
+    }, [uuid]);
 
     return (
         <div className={"error-block"}>
@@ -14,12 +30,12 @@ export default function ErrorPage(props) {
                 <p>Ошибка оплаты!</p>
             </div>
             <div className={"price-and-number-order"}>
-                <p className={"price"}>{props.transaction.amount}</p>
-                <p className={"number"}>№{props.transaction.uuid}</p>
+                <p className={"price"}>{transactionData.amount}</p>
+                <p className={"number"}>№{transactionData.order_number}</p>
             </div>
             <div className={"link-and-info-order"}>
-                <p>{props.transaction.agent_name}</p>
-                <p>{props.transaction.description}</p>
+                <p>{transactionData.agent_name}</p>
+                <p>{transactionData.description}</p>
             </div>
             <div className={`submit-button-result`}>
                 <input type="submit" value="Оплатить еще раз" onClick={() => onRetry(uuid)} />

@@ -29,6 +29,10 @@ export default function App() {
                 setTransactionData(transactionData);
                 setRedirectUrl(redirectUrl);
                 setLoading(false);
+
+                if(transactionData.status==="Pending"){
+                    navigate(`/error-pay/${uuid}`);
+                }
             } catch (error) {
                 console.error("Error fetching transaction data:", error);
             }
@@ -36,6 +40,8 @@ export default function App() {
 
         fetchTransaction();
     }, [uuid]);
+
+
 
 
     const handleCardNumberChange = (e) => {

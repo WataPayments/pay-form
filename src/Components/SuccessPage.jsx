@@ -5,7 +5,7 @@ import ApiClient from "../ApiClient";
 import {useParams} from "react-router-dom";
 
 export default function SuccessPage(props) {
-    const [transactionData, setTransactionData] = useState(null);
+    const [transactionData, setTransactionData] = useState("");
     const { uuid } = useParams();
 
 

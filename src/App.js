@@ -57,12 +57,6 @@ export default function App() {
         }
     };
 
-    const handleRetryPayment = () => {
-        setUrlRedirectNull(false);
-        setShowErrorPage(false);
-        navigate(`/${uuid}`);
-    };
-
     const getUrlRedirect=(redirectUrl)=>{
         setRedirectUrl(redirectUrl);
     }
@@ -73,17 +67,6 @@ export default function App() {
 
     return (
         <div className="App">
-            {redirectUrl && redirectUrl.includes("success-pay") && (
-                <SuccessPage uuid={uuid} transaction={transactionData} transactionUuid={transactionUuid} />
-            )}
-            {redirectUrl && redirectUrl.includes("error-pay") && (
-                <ErrorPage
-                    uuid={uuid}
-                    transaction={transactionData}
-                    transactionUuid={transactionUuid}
-                    onRetry={handleRetryPayment}
-                />
-            )}
             {showIframe && redirectUrl && (
                 <iframe src={redirectUrl} title="Payment Redirect" />
             )}

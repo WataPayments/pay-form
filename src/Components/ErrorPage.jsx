@@ -1,13 +1,18 @@
 import React, {useEffect, useState} from "react";
-import { useParams } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import Error from "../Images/Alert2 icon.svg";
 import '../Styles/ErrorPageStyle.css';
 import ApiClient from "../ApiClient";
 
 export default function ErrorPage(props) {
-    const {onRetry } = props;
+    const navigate=useNavigate();
     const { uuid } = useParams();
-    const [transactionData, setTransactionData] = useState(null);
+    const [transactionData, setTransactionData] = useState("");
+
+
+    const handleRetryPayment = (uuid) => {
+        navigate(`/${uuid}`);
+    };
 
 
     useEffect(() => {
@@ -38,7 +43,7 @@ export default function ErrorPage(props) {
                 <p>{transactionData.description}</p>
             </div>
             <div className={`submit-button-result`}>
-                <input type="submit" value="Оплатить еще раз" onClick={() => onRetry(uuid)} />
+                <input type="submit" value="Оплатить еще раз" onClick={() => handleRetryPayment(uuid)} />
             </div>
         </div>
     );

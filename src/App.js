@@ -4,12 +4,11 @@ import "./index.css";
 import logo from "./Images/Logo.svg";
 import PaymentFormDetails from "./Components/PaymentFormDetails";
 import PaymentForm from "./Components/PaymentForm";
-import SuccessPage from "./Components/SuccessPage";
-import ErrorPage from "./Components/ErrorPage";
 import { number } from 'card-validator';
 import ApiClient from './ApiClient';
 
 export default function App() {
+    const location = useLocation();
     const navigate = useNavigate();
     const { uuid } = useParams();
     const [transactionData, setTransactionData] = useState(null);
@@ -55,6 +54,7 @@ export default function App() {
             navigate(`/error-pay/${uuid}`);
         }
     };
+
 
     const getUrlRedirect=(redirectUrl)=>{
         setRedirectUrl(redirectUrl);

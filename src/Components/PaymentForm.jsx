@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, {useState, useRef, useEffect} from "react";
 import axios from "axios";
 import "../Styles/PaymentFormStyle.css";
 import SBP from "../Images/Vector.svg";
@@ -6,7 +6,8 @@ import eyeVisibleIcon from "../Images/Visibility_off.svg";
 import eyeHiddenIcon from "../Images/Visibility.svg";
 import MIR from "../Images/Logo=Mir.svg";
 import Overlay from "./Overlay";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
+import ApiClient from "../ApiClient";
 
 const PaymentForm = (props) => {
     const navigate=useNavigate();
@@ -23,6 +24,23 @@ const PaymentForm = (props) => {
     const cvvRef = useRef(null);
     const [showOverlay, setShowOverlay] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [transactionData, setTransactionData] = useState(null);
+    const [redirectUrl, setRedirectUrl] = useState(null);
+    const { uuid } = useParams();
+
+
+    useEffect(() => {
+        const fetchTransaction = async () => {
+            try {
+                const { transactionData, redirectUrl } = await ApiClient.fetchTransactionData(uuid);
+                setTransactionData(transactionData);
+            } catch (error) {
+                console.error("Error fetching transaction data:", error);
+            }
+        };
+
+        fetchTransaction();
+    }, [uuid]);
 
     const handleOverlayToggle = () => {
         setShowOverlay(!showOverlay);
@@ -166,7 +184,7 @@ const PaymentForm = (props) => {
                 if (response.data.url_redirect) {
                     props.getUrlRedirect(response.data.url_redirect);
                 }
-                else if(!response.data.url_redirect){
+                else if(!response.data.url_redirect || transactionData.status==='Pending'){
                     navigate(`/error-pay/${props.uuid}`);
                 }
             } catch (error) {

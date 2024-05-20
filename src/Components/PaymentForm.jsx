@@ -182,10 +182,13 @@ const PaymentForm = (props) => {
                 console.log("Данные успешно отправлены:", response.data);
 
                 if (response.data.url_redirect) {
-                    props.getUrlRedirect(response.data.url_redirect);
+                    navigate(response.data.url_redirect);
                 }
                 else if(!response.data.url_redirect || transactionData.status==='Pending'){
                     navigate(`/error-pay/${props.uuid}`);
+                }
+                else if(transactionData.status==="Paid"){
+                    navigate(`/success-pay/${props.uuid}`);
                 }
             } catch (error) {
                 console.error("Ошибка при отправке данных:", error);
@@ -200,11 +203,11 @@ const PaymentForm = (props) => {
 
     return (
         <div className="order-add-cart-block">
-            {props.sbp_uuid && (
-                <a>
+            {props.sbp_uuid!==""||props.sbp_uuid!==null? (
+                <a className={"sbp-bg"}>
                     <img src={SBP} className="big-image" alt="SBP" />
                 </a>
-            )}
+            ):("")}
 
             <form onSubmit={handleSubmit}>
                 <div className="add-cart-block">

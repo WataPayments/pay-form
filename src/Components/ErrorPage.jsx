@@ -50,9 +50,9 @@ export default function ErrorPage(props) {
                         <p>{transactionData.agent_name}</p>
                         <p>{transactionData.description}</p>
                     </div>
-                    <div className={`submit-button-result`}>
-                        <input type="submit" value="Оплатить еще раз" onClick={() => handleRetryPayment(uuid)}/>
-                    </div>
+                    {/*<div className={`submit-button-result`}>*/}
+                    {/*    <input type="submit" value="Оплатить еще раз" onClick={() => handleRetryPayment(uuid)}/>*/}
+                    {/*</div>*/}
                 </div>
             )}
         </div>

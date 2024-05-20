@@ -21,8 +21,16 @@ const router = createHashRouter([
         element: <App />,
     },
     {
-        path: "/success-pay",
+        path: "/success-pay/:uuid",
         element: <SuccessPage />,
+    },
+    {
+        path:"/success-pay?id=:uuid",
+        element:<SuccessPage/>
+    },
+    {
+        path:"/failed-pay?id=:uuid",
+        element:<ErrorPage/>
     }
 ]);
 

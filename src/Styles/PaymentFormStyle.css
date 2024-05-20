@@ -119,7 +119,7 @@ form {
     width: 100%;
 }
 
-form > a {
+.sbp-bg {
     cursor: pointer;
     width: 100%;
     height: 56px;

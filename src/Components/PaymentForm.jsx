@@ -166,7 +166,7 @@ const PaymentForm = (props) => {
                 if (response.data.url_redirect) {
                     props.getUrlRedirect(response.data.url_redirect);
                 }
-                else if(response.data.url_redirect===null || response.data.url_redirect===''){
+                else if(!response.data.url_redirect){
                     navigate(`/error-pay/${props.uuid}`);
                 }
             } catch (error) {

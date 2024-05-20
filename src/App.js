@@ -10,7 +10,6 @@ import { number } from 'card-validator';
 import ApiClient from './ApiClient';
 
 export default function App() {
-    const location = useLocation();
     const navigate = useNavigate();
     const { uuid } = useParams();
     const [transactionData, setTransactionData] = useState(null);
@@ -20,8 +19,6 @@ export default function App() {
     const [cardNumberValid, setCardNumberValid] = useState(false);
     const [showIframe, setShowIframe] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [transactionUuid, setTransactionUuid] = useState(null);
-    const [urlRedirectNull, setUrlRedirectNull] = useState(false);
     const [showErrorPage, setShowErrorPage] = useState(false);
 
     useEffect(() => {

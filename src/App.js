@@ -63,8 +63,8 @@ export default function App() {
         navigate(`/${uuid}`);
     };
 
-    const getUrlRedirect=(urlRedirect)=>{
-        setRedirectUrl(urlRedirect);
+    const getUrlRedirect=(redirectUrl)=>{
+        setRedirectUrl(redirectUrl);
     }
 
     if (loading) {
@@ -91,6 +91,7 @@ export default function App() {
                 <>
                     <PaymentFormDetails transaction={transactionData} />
                     <PaymentForm
+                        getUrlRedirect={getUrlRedirect}
                         uuid={uuid}
                         transaction={transactionData}
                         cardNumber={cardNumber}

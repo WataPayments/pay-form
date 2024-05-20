@@ -19,6 +19,8 @@ export default function App() {
     const [cardNumberValid, setCardNumberValid] = useState(false);
     const [showIframe, setShowIframe] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [transactionUuid, setTransactionUuid] = useState(null);
+    const [urlRedirectNull, setUrlRedirectNull] = useState(false);
     const [showErrorPage, setShowErrorPage] = useState(false);
 
     useEffect(() => {

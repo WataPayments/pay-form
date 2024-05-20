@@ -164,7 +164,7 @@ const PaymentForm = (props) => {
                 console.log("Данные успешно отправлены:", response.data);
 
                 if (response.data.url_redirect) {
-                    props.getUrlRedirect(responce.data.url_redirect);
+                    props.getUrlRedirect(response.data.url_redirect);
                 }
                 else if(response.data.url_redirect===null || response.data.url_redirect===''){
                     navigate(`/error-pay/${props.uuid}`);

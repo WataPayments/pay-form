@@ -32,19 +32,29 @@ export default function ErrorPage(props) {
         <div className={"error-block"}>
             <div className={"result-pay"}>
                 <img src={Error} alt="Result-pay"/>
-                <p>Ошибка оплаты!</p>
+                {transactionData.status==="Pending"?(
+                    <p>Транзакции не существует</p>
+                ): (
+                    <p>Ошибка оплаты!</p>
+                )}
             </div>
-            <div className={"price-and-number-order"}>
-                <p className={"price"}>{transactionData.amount}</p>
-                <p className={"number"}>№{transactionData.order_number}</p>
-            </div>
-            <div className={"link-and-info-order"}>
-                <p>{transactionData.agent_name}</p>
-                <p>{transactionData.description}</p>
-            </div>
-            <div className={`submit-button-result`}>
-                <input type="submit" value="Оплатить еще раз" onClick={() => handleRetryPayment(uuid)} />
-            </div>
+            {transactionData.status==="Pending"?(
+                ""
+            ): (
+                <div>
+                    <div className={"price-and-number-order"}>
+                        <p className={"price"}>{transactionData.amount}</p>
+                        <p className={"number"}>№{transactionData.order_number}</p>
+                    </div>
+                    <div className={"link-and-info-order"}>
+                        <p>{transactionData.agent_name}</p>
+                        <p>{transactionData.description}</p>
+                    </div>
+                    <div className={`submit-button-result`}>
+                        <input type="submit" value="Оплатить еще раз" onClick={() => handleRetryPayment(uuid)}/>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

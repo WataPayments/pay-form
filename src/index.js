@@ -22,15 +22,15 @@ const router = createHashRouter([
         element: <App />,
     },
     {
-        path: "/success-pay/:uuid",
+        path: "/success-pay?transaction_uuid=",
         element: <SuccessPage />,
     },
     {
-        path:"/success-pay?id=:uuid",
+        path:"/success-pay/:uuid",
         element:<SuccessPage/>
     },
     {
-        path:"/failed-pay?id=:uuid",
+        path:"/failed-pay?transaction_uuid=:uuid",
         element:<ErrorPage/>
     },
     // {

@@ -88,12 +88,11 @@
     src: url('./Fonts/TTFirsNeue/TTFirsNeue-ThinItalic.ttf') format('truetype');
 }
 
-
 :root {
     --Text-Primary: #FFF;
-    --Text-Secondry: rgba(255, 255, 255, 0.75);
+    --Text-Secondary: rgba(255, 255, 255, 0.75);
+    --Border-Default: rgba(255, 255, 255, 0.10);
 }
-
 
 body {
     margin: 0;
@@ -102,13 +101,12 @@ body {
     overflow-x: hidden;
     display: flex;
     justify-content: center;
-
 }
 
 * {
     box-sizing: border-box;
     color: var(--Text-Primary, #FFF);
-    font-family: "TTFirsNeue Regular";
+    font-family: 'TTFirsNeue Regular';
     font-size: 22px;
     font-style: normal;
     font-weight: 500;
@@ -123,6 +121,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     background: #211F22;
+    padding: 20px;
 }
 
 .logo {
@@ -131,13 +130,30 @@ body {
     margin-top: 20px;
 }
 
+iframe {
+    width: 100%;
+    height: 55vw; /* Используем относительную единицу измерения */
+    max-height: 550px; /* Ограничение по высоте */
+    border-radius: 10px;
+    border: 1px solid var(--Border-Default);
+}
+
 @media screen and (max-width: 480px) {
-    .App{
+    .App {
         padding: 20px;
     }
+
+    iframe {
+        height: 50vw; /* Изменение высоты для маленьких экранов */
+    }
 }
+
 @media screen and (max-width: 320px) {
-    .App{
+    .App {
         padding: 10px;
+    }
+
+    iframe {
+        height: 60vw; /* Еще одно изменение для еще меньших экранов */
     }
 }

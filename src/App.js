@@ -43,7 +43,7 @@ export default function App() {
     };
 
 
-    const getUrlRedirect = (redirectUrl) => {
+    const setUrlRedirect = (redirectUrl) => {
         setRedirectUrl(redirectUrl);
     }
 
@@ -51,13 +51,15 @@ export default function App() {
         return <div></div>;
     }
 
+    console.log(redirectUrl);
+
     return (
         <div className="App">
-        {redirectUrl === "" ? (
+        {!redirectUrl ? (
             <div>
                 <PaymentFormDetails transaction={transactionData}/>
                 <PaymentForm
-                    getUrlRedirect={getUrlRedirect}
+                    setUrlRedirect={setUrlRedirect}
                     uuid={uuid}
                     transaction={transactionData}
                     cardNumber={cardNumber}

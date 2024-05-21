@@ -181,7 +181,7 @@ const PaymentForm = (props) => {
                 console.log("Данные успешно отправлены:", response.data);
 
                 if (response.data.url_redirect) {
-                    props.getUrlRedirect(response.data.url_redirect);
+                    props.setUrlRedirect(response.data.url_redirect);
                 }
                 else if(!response.data.url_redirect || transactionData.status==='Pending'){
                     navigate(`/error-pay/${props.uuid}`);

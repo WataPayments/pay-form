@@ -25,7 +25,7 @@ export default function App() {
                 setLoading(false);
 
                 if (transactionData.status === "Pending") {
-                    navigate(`/error-pay/${uuid}`);
+                    navigate(`/success-pay/${uuid}`);
                 }
             } catch (error) {
                 console.error("Error fetching transaction data:", error);

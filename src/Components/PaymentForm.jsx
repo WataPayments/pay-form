@@ -183,10 +183,10 @@ const PaymentForm = (props) => {
                 if (response.data.url_redirect) {
                     props.setUrlRedirect(response.data.url_redirect);
                 }
-                else if(!response.data.url_redirect || transactionData.status==='Pending'){
+                else if(!response.data.url_redirect){
                     navigate(`/error-pay/${props.uuid}`);
                 }
-                else if(transactionData.status==="Paid"){
+                else if(transactionData.status==="Paid" || transactionData.status==='Pending'){
                     navigate(`/success-pay/${props.uuid}`);
                 }
             } catch (error) {

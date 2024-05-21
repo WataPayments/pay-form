@@ -22,7 +22,7 @@ const router = createHashRouter([
         element: <App />,
     },
     {
-        path: "/success-pay?transaction_uuid=",
+        path: "/success-pay?transaction_uuid=:uuid",
         element: <SuccessPage />,
     },
     {

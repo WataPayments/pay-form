@@ -25,14 +25,13 @@ const PaymentForm = (props) => {
     const [showOverlay, setShowOverlay] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [transactionData, setTransactionData] = useState(null);
-    const [redirectUrl, setRedirectUrl] = useState(null);
     const { uuid } = useParams();
 
 
     useEffect(() => {
         const fetchTransaction = async () => {
             try {
-                const { transactionData, redirectUrl } = await ApiClient.fetchTransactionData(uuid);
+                const { transactionData} = await ApiClient.fetchTransactionData(uuid);
                 setTransactionData(transactionData);
             } catch (error) {
                 console.error("Error fetching transaction data:", error);
@@ -182,7 +181,7 @@ const PaymentForm = (props) => {
                 console.log("Данные успешно отправлены:", response.data);
 
                 if (response.data.url_redirect) {
-                    navigate(response.data.url_redirect);
+                    props.getUrlRedirect(response.data.url_redirect);
                 }
                 else if(!response.data.url_redirect || transactionData.status==='Pending'){
                     navigate(`/error-pay/${props.uuid}`);
@@ -201,10 +200,14 @@ const PaymentForm = (props) => {
         }
     };
 
+    const sbp_payment=()=>{
+        navigate(`/sbp-pay/${uuid}`);
+    }
+
     return (
         <div className="order-add-cart-block">
-            {props.sbp_uuid!==""||props.sbp_uuid!==null? (
-                <a className={"sbp-bg"}>
+            {props.sbp_uuid!=="" || props.sbp_uuid!==null? (
+                <a className={"sbp-bg"} onClick={()=>sbp_payment}>
                     <img src={SBP} className="big-image" alt="SBP" />
                 </a>
             ):("")}

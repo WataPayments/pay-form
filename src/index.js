@@ -1,11 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {
     RouterProvider, createHashRouter
 } from 'react-router-dom';
 import App from './App';
 import SuccessPage from './Components/SuccessPage';
 import ErrorPage from './Components/ErrorPage';
+import {createRoot} from "react-dom/client";
+// import PayQrPage from "./Components/PayQrPage";
 
 const router = createHashRouter([
     {
@@ -31,12 +32,17 @@ const router = createHashRouter([
     {
         path:"/failed-pay?id=:uuid",
         element:<ErrorPage/>
-    }
+    },
+    // {
+    //     path:"/sbp-pay/:uuid",
+    //     element:<PayQrPage/>
+    // }
 ]);
 
-ReactDOM.render(
+const root=createRoot(document.getElementById("root"));
+
+root.render(
     <React.StrictMode>
         <RouterProvider router={router}/>
-    </React.StrictMode>,
-    document.getElementById('root')
+    </React.StrictMode>
 );

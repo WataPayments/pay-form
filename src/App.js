@@ -67,11 +67,12 @@ export default function App() {
     useEffect(() => {
         if (redirectUrl) {
             const iframe = document.getElementById("payment-iframe");
+
             const handleIframeLoad = () => {
                 try {
-                    const iframeUrl = iframe.contentWindow.location.href;
+                    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                    const iframeUrl = iframeDocument.location.href;
                     if (iframeUrl.includes("#/success-pay") || iframeUrl.includes("#/error-pay")) {
-                        iframe.style.display = "none";
                         navigate(iframeUrl);
                     }
                 } catch (error) {

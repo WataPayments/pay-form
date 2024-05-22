@@ -46,27 +46,33 @@ export default function App() {
     };
 
     useEffect(() => {
-        const handleMessage = (event) => {
-            if (event.data === 'redirected') {
-                setRedirectUrl("");  // Закрыть iframe, установив redirectUrl в пустую строку
-            }
-        };
-
-        window.addEventListener('message', handleMessage);
-        return () => {
-            window.removeEventListener('message', handleMessage);
-        };
-    }, []);
+        if (redirectUrl) {
+            const iframe = document.getElementById("payment-iframe");
+            const handleIframeLoad = () => {
+                try {
+                    const iframeUrl = iframe.contentWindow.location.href;
+                    if (iframeUrl.includes("#/success-pay") || iframeUrl.includes("#/error-pay")) {
+                        iframe.style.display = "none";
+                        navigate(iframeUrl);
+                    }
+                } catch (error) {
+                    console.error("Error accessing iframe content:", error);
+                }
+            };
+            iframe.addEventListener("load", handleIframeLoad);
+            return () => iframe.removeEventListener("load", handleIframeLoad);
+        }
+    }, [redirectUrl, navigate]);
 
     if (loading) {
-        return <div></div>;
+        return <div>Loading...</div>;
     }
 
     return (
         <div className="App">
             {!redirectUrl ? (
                 <div>
-                    <PaymentFormDetails transaction={transactionData} />
+                    <PaymentFormDetails transaction={transactionData}/>
                     <PaymentForm
                         setUrlRedirect={setUrlRedirect}
                         uuid={uuid}
@@ -75,13 +81,13 @@ export default function App() {
                         onCardNumberChange={handleCardNumberChange}
                         cardNumberValid={cardNumberValid}
                     />
-                    <div className="logo">
-                        <img src={logo} alt="WATA" />
-                    </div>
                 </div>
             ) : (
-                <iframe src={redirectUrl} title="Payment Redirect" />
+                <iframe id="payment-iframe" src={redirectUrl} title="Payment Redirect"/>
             )}
+            <div className="logo">
+                <img src={logo} alt="WATA"/>
+            </div>
         </div>
     );
 }

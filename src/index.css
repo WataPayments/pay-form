@@ -138,7 +138,7 @@ body {
 
 iframe {
     width: 100%;
-    max-height: 550px;
+    height: 550px;
     border-radius: 10px;
     border: 1px solid var(--Border-Default);
 }

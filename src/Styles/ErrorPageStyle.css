@@ -125,6 +125,28 @@
     color: var(--Text-Primary);
     font-size: 18px;
 }
+.error-reasons{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: var(--Text-Primary);
+}
+.error-reasons p{
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: 400;
+}
+.error-reasons ul{
+    margin-top: 0;
+    padding-left: 20px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+.error-reasons li{
+    font-size: 14px;
+}
 
 input[type="submit"] {
     width: 100%;

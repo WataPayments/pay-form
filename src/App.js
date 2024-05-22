@@ -47,18 +47,40 @@ export default function App() {
 
     useEffect(() => {
         if (redirectUrl) {
-            const iframe = document.getElementById("payment-iframe");
             const handleMessage = (event) => {
-                if (event.origin === window.location.origin) {
+                if (event.origin === new URL(redirectUrl).origin) {
                     const { status, url } = event.data;
                     if (status === 'success' || status === 'error') {
-                        iframe.style.display = "none";
                         navigate(url);
                     }
                 }
             };
+
             window.addEventListener("message", handleMessage);
-            return () => window.removeEventListener("message", handleMessage);
+
+            return () => {
+                window.removeEventListener("message", handleMessage);
+            };
+        }
+    }, [redirectUrl, navigate]);
+
+    useEffect(() => {
+        if (redirectUrl) {
+            const iframe = document.getElementById("payment-iframe");
+            const handleIframeLoad = () => {
+                try {
+                    const iframeUrl = iframe.contentWindow.location.href;
+                    if (iframeUrl.includes("#/success-pay") || iframeUrl.includes("#/error-pay")) {
+                        iframe.style.display = "none";
+                        navigate(iframeUrl);
+                    }
+                } catch (error) {
+                    console.error("Error accessing iframe content:", error);
+                }
+            };
+
+            iframe.addEventListener("load", handleIframeLoad);
+            return () => iframe.removeEventListener("load", handleIframeLoad);
         }
     }, [redirectUrl, navigate]);
 
@@ -70,7 +92,7 @@ export default function App() {
         <div className="App">
             {!redirectUrl ? (
                 <div>
-                    <PaymentFormDetails transaction={transactionData}/>
+                    <PaymentFormDetails transaction={transactionData} />
                     <PaymentForm
                         setUrlRedirect={setUrlRedirect}
                         uuid={uuid}
@@ -81,10 +103,10 @@ export default function App() {
                     />
                 </div>
             ) : (
-                <iframe id="payment-iframe" src={redirectUrl} title="Payment Redirect"/>
+                <iframe id="payment-iframe" src={redirectUrl} title="Payment Redirect" />
             )}
             <div className="logo">
-                <img src={logo} alt="WATA"/>
+                <img src={logo} alt="WATA" />
             </div>
         </div>
     );

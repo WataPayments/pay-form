@@ -85,6 +85,7 @@ export default function App() {
         }
     }, [redirectUrl, navigate]);
 
+
     if (loading) {
         return <div>Loading...</div>;
     }

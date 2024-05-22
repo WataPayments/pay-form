@@ -1,19 +1,18 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Done from "../Images/Alert icon.svg";
 import '../Styles/SuccessPageStyle.css';
 import ApiClient from "../ApiClient";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import logo from "../Images/Logo.svg";
 
 export default function SuccessPage(props) {
     const [transactionData, setTransactionData] = useState("");
     const { uuid } = useParams();
 
-
     useEffect(() => {
         const fetchTransaction = async () => {
             try {
-                const { transactionData} = await ApiClient.fetchTransactionData(uuid);
+                const { transactionData } = await ApiClient.fetchTransactionData(uuid);
                 setTransactionData(transactionData);
             } catch (error) {
                 console.error("Error fetching transaction data:", error);
@@ -22,6 +21,21 @@ export default function SuccessPage(props) {
 
         fetchTransaction();
     }, [uuid]);
+
+    const handleShare = () => {
+        if (navigator.share) {
+            navigator.share({
+                title: 'Success Page',
+                text: 'I successfully paid the bill!',
+                url: window.location.href
+            }).then(() => console.log('Successfully shared')).catch((error) => console.error('Error sharing:', error));
+        } else {
+            navigator.clipboard.writeText(window.location.href)
+                .then(() => console.log('Link copied to clipboard'))
+                .catch((error) => console.error('Error copying link:', error));
+        }
+    };
+
     return (
         <div>
             <div className={"sucsess-block"}>
@@ -38,9 +52,8 @@ export default function SuccessPage(props) {
                     <p>{transactionData.description}</p>
                 </div>
                 <div className={`submit-button-result`}>
-                    <input type="submit" value="Поделиться"/>
+                    <input type="button" value="Поделиться" onClick={handleShare}/>
                 </div>
-
             </div>
             <div className="logo">
                 <img src={logo} alt="WATA"/>

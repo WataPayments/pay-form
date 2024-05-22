@@ -13,5 +13,33 @@
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <div id="root"></div>
+<script>
+  window.addEventListener('load', () => {
+    if (window.top !== window.self) {
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+            window.top.postMessage('redirected', '*');
+          }
+        });
+      });
+
+      const config = { attributes: true, childList: false, subtree: false };
+      observer.observe(document.querySelector('iframe'), config);
+    }
+  });
+
+  window.addEventListener('hashchange', () => {
+    if (window.top !== window.self) {
+      window.top.postMessage('redirected', '*');
+    }
+  });
+
+  window.addEventListener('popstate', () => {
+    if (window.top !== window.self) {
+      window.top.postMessage('redirected', '*');
+    }
+  });
+</script>
 </body>
 </html>

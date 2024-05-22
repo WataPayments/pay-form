@@ -1,15 +1,15 @@
-import React, {useState, useEffect} from "react";
-import {useParams, useNavigate} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import "./index.css";
 import logo from "./Images/Logo.svg";
 import PaymentFormDetails from "./Components/PaymentFormDetails";
 import PaymentForm from "./Components/PaymentForm";
-import {number} from 'card-validator';
+import { number } from 'card-validator';
 import ApiClient from './ApiClient';
 
 export default function App() {
     const navigate = useNavigate();
-    const {uuid} = useParams();
+    const { uuid } = useParams();
     const [transactionData, setTransactionData] = useState(null);
     const [redirectUrl, setRedirectUrl] = useState("");
     const [cardNumber, setCardNumber] = useState('');
@@ -19,7 +19,7 @@ export default function App() {
     useEffect(() => {
         const fetchTransaction = async () => {
             try {
-                const {transactionData, redirectUrl} = await ApiClient.fetchTransactionData(uuid);
+                const { transactionData, redirectUrl } = await ApiClient.fetchTransactionData(uuid);
                 setTransactionData(transactionData);
                 setRedirectUrl(redirectUrl);
                 setLoading(false);
@@ -33,46 +33,54 @@ export default function App() {
         };
 
         fetchTransaction();
-    }, [uuid]);
-
+    }, [uuid, navigate]);
 
     const handleCardNumberChange = (e) => {
-        const {value} = e.target;
+        const { value } = e.target;
         setCardNumber(value);
         setCardNumberValid(number(value).isValid);
     };
 
-
     const setUrlRedirect = (redirectUrl) => {
         setRedirectUrl(redirectUrl);
-    }
+    };
+
+    useEffect(() => {
+        const handleMessage = (event) => {
+            if (event.data === 'redirected') {
+                setRedirectUrl("");  // Закрыть iframe, установив redirectUrl в пустую строку
+            }
+        };
+
+        window.addEventListener('message', handleMessage);
+        return () => {
+            window.removeEventListener('message', handleMessage);
+        };
+    }, []);
 
     if (loading) {
         return <div></div>;
     }
 
-    console.log(redirectUrl);
-
     return (
         <div className="App">
-        {!redirectUrl ? (
-            <div>
-                <PaymentFormDetails transaction={transactionData}/>
-                <PaymentForm
-                    setUrlRedirect={setUrlRedirect}
-                    uuid={uuid}
-                    transaction={transactionData}
-                    cardNumber={cardNumber}
-                    onCardNumberChange={handleCardNumberChange}
-                    cardNumberValid={cardNumberValid}
-
-                />
-                <div className="logo">
-                    <img src={logo} alt="WATA"/>
+            {!redirectUrl ? (
+                <div>
+                    <PaymentFormDetails transaction={transactionData} />
+                    <PaymentForm
+                        setUrlRedirect={setUrlRedirect}
+                        uuid={uuid}
+                        transaction={transactionData}
+                        cardNumber={cardNumber}
+                        onCardNumberChange={handleCardNumberChange}
+                        cardNumberValid={cardNumberValid}
+                    />
+                    <div className="logo">
+                        <img src={logo} alt="WATA" />
+                    </div>
                 </div>
-            </div>):
-            (
-                <iframe src={redirectUrl} title="Payment Redirect"/>
+            ) : (
+                <iframe src={redirectUrl} title="Payment Redirect" />
             )}
         </div>
     );

@@ -9,6 +9,7 @@ export default function ErrorPage(props) {
     // const navigate=useNavigate();
     const { uuid } = useParams();
     const [transactionData, setTransactionData] = useState("");
+    const [loading,setLoading]=useState(true);
 
 
     // const handleRetryPayment = (uuid) => {
@@ -28,6 +29,11 @@ export default function ErrorPage(props) {
 
         fetchTransaction();
     }, [uuid]);
+    if (loading) {
+        return(<div className={"loader-block"}>
+            <span className="loader"></span>
+        </div>);
+    }
 
     return (
         <div>

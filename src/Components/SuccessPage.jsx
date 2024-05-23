@@ -8,6 +8,7 @@ import logo from "../Images/Logo.svg";
 export default function SuccessPage(props) {
     const [transactionData, setTransactionData] = useState("");
     const { uuid } = useParams();
+    const [loading,setLoading]=useState(true);
 
     useEffect(() => {
         const fetchTransaction = async () => {
@@ -35,6 +36,11 @@ export default function SuccessPage(props) {
                 .catch((error) => console.error('Error copying link:', error));
         }
     };
+    if (loading) {
+        return(<div className={"loader-block"}>
+            <span className="loader"></span>
+        </div>);
+    }
 
     return (
         <div>

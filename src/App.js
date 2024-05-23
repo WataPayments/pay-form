@@ -27,6 +27,9 @@ export default function App() {
                 if (transactionData.status === "Pending") {
                     navigate(`/error-pay/${uuid}`);
                 }
+                else if(transactionData.status==="Paid"){
+                    navigate(`/success-pay/${uuid}`);
+                }
             } catch (error) {
                 console.error("Ошибка при получении данных транзакции:", error);
             }

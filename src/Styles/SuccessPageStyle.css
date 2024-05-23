@@ -96,7 +96,7 @@
     --Border-Default: rgba(255, 255, 255, 0.10);
     --Background-Key: #211F22;
 }
-.root{
+.container{
     padding: 0 20px;
 }
 

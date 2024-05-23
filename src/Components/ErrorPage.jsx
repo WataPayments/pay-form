@@ -37,7 +37,7 @@ export default function ErrorPage(props) {
     }
 
     return (
-        <div>
+        <div className={"container"}>
             <div className={"error-block"}>
                 <div className={"result-pay"}>
                     <img src={Error} alt="Result-pay"/>

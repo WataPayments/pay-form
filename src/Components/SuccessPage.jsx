@@ -44,7 +44,7 @@ export default function SuccessPage(props) {
     }
 
     return (
-        <div>
+        <div className={"container"}>
             <div className={"sucsess-block"}>
                 <div className={"result-pay"}>
                     <img src={Done} alt="Result-pay"/>

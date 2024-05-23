@@ -153,6 +153,24 @@
     font-size: 14px;
 }
 
+.label-text {
+    width: 100%;
+    background-color: #ED8C201A;
+    border-radius: 4px;
+    text-align: center;
+    height: 58px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label-text p {
+    color: var(--Text-Warning);
+    font-size: 12px;
+    font-weight: 400;
+}
 .submit-button-result {
     width: 100%;
     display: flex;

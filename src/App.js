@@ -52,6 +52,7 @@ export default function App() {
                     const { status, url } = event.data;
                     if (status === 'success' || status === 'error') {
                         navigate(url);
+                        closeIframe();
                     }
                 }
             };
@@ -64,16 +65,22 @@ export default function App() {
         }
     }, [redirectUrl, navigate]);
 
+    const closeIframe = () => {
+        const iframe = document.getElementById("payment-iframe");
+        const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+        iframeDocument.location.replace("about:blank");
+        iframe.style.display = "none";
+    };
+
     useEffect(() => {
         if (redirectUrl) {
             const iframe = document.getElementById("payment-iframe");
 
             const handleIframeLoad = () => {
                 try {
-                    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
                     const iframeLocation = iframe.contentWindow.location.href;
                     if (iframeLocation.includes("#/success-pay") || iframeLocation.includes("#/error-pay")) {
-                        navigate(iframeLocation);
+                        closeIframe();
                     }
                 } catch (error) {
                     console.error("Ошибка при доступе к содержимому iframe:", error);
@@ -83,7 +90,7 @@ export default function App() {
             iframe.addEventListener("load", handleIframeLoad);
             return () => iframe.removeEventListener("load", handleIframeLoad);
         }
-    }, [redirectUrl, navigate]);
+    }, [redirectUrl]);
 
 
     if (loading) {

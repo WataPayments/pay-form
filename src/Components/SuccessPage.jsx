@@ -15,6 +15,7 @@ export default function SuccessPage(props) {
             try {
                 const { transactionData } = await ApiClient.fetchTransactionData(uuid);
                 setTransactionData(transactionData);
+                setLoading(false)
             } catch (error) {
                 console.error("Error fetching transaction data:", error);
             }

@@ -43,7 +43,7 @@ export default function ErrorPage(props) {
                 <div className={"result-pay"}>
                     {/*<img src={Error} alt="Result-pay"/>*/}
                     <img src={Alert} alt="Result-pay"/>
-                    <p>Ошибка оплаты!</p>
+                    <p>В обработке!</p>
                     <div className={"error-reasons"}>
                         <p>Возможные причины:</p>
                         {/*<ul>*/}

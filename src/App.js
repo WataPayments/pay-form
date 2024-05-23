@@ -49,8 +49,12 @@ export default function App() {
         if (redirectUrl) {
             const handleMessage = (event) => {
                 if (event.origin === new URL(redirectUrl).origin) {
+                    console.log("Received message from iframe:", event.data);
                     const { url } = event.data;
-                    navigate(url);
+                    if (url) {
+                        console.log("Navigating to:", url);
+                        window.location.replace(url);
+                    }
                 }
             };
 
@@ -60,7 +64,7 @@ export default function App() {
                 window.removeEventListener("message", handleMessage);
             };
         }
-    }, [redirectUrl, navigate]);
+    }, [redirectUrl]);
 
     useEffect(() => {
         if (redirectUrl) {
@@ -68,10 +72,10 @@ export default function App() {
 
             const handleIframeLoad = () => {
                 try {
-                    const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
                     const iframeLocation = iframe.contentWindow.location.href;
+                    console.log("Iframe loaded with location:", iframeLocation);
                     if (iframeLocation.includes("#/success-pay") || iframeLocation.includes("#/error-pay")) {
-                        navigate(iframeLocation);
+                        window.location.replace(iframeLocation);
                     }
                 } catch (error) {
                     console.error("Ошибка при доступе к содержимому iframe:", error);
@@ -81,13 +85,14 @@ export default function App() {
             iframe.addEventListener("load", handleIframeLoad);
             return () => iframe.removeEventListener("load", handleIframeLoad);
         }
-    }, [redirectUrl, navigate]);
-
+    }, [redirectUrl]);
 
     if (loading) {
-        return(<div className={"loader-block"}>
-            <span className="loader"></span>
-        </div>);
+        return(
+            <div className={"loader-block"}>
+                <span className="loader"></span>
+            </div>
+        );
     }
 
     return (

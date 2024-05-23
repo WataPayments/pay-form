@@ -28,7 +28,7 @@ export default function App() {
                     navigate(`/error-pay/${uuid}`);
                 }
             } catch (error) {
-                console.error("Error fetching transaction data:", error);
+                console.error("Ошибка при получении данных транзакции:", error);
             }
         };
 
@@ -71,12 +71,12 @@ export default function App() {
             const handleIframeLoad = () => {
                 try {
                     const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-                    const iframeUrl = iframeDocument.location.href;
-                    if (iframeUrl.includes("#/success-pay") || iframeUrl.includes("#/error-pay")) {
-                        navigate(iframeUrl);
+                    const iframeLocation = iframe.contentWindow.location.href;
+                    if (iframeLocation.includes("#/success-pay") || iframeLocation.includes("#/error-pay")) {
+                        navigate(iframeLocation);
                     }
                 } catch (error) {
-                    console.error("Error accessing iframe content:", error);
+                    console.error("Ошибка при доступе к содержимому iframe:", error);
                 }
             };
 
@@ -87,7 +87,9 @@ export default function App() {
 
 
     if (loading) {
-        return <div>Loading...</div>;
+        return(<div className={"loader-block"}>
+            <span className="loader"></span>
+        </div>);
     }
 
     return (

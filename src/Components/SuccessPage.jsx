@@ -45,7 +45,7 @@ export default function SuccessPage(props) {
                 </div>
                 <div className={"price-and-number-order"}>
                     <p className={"price"}>{transactionData.amount}</p>
-                    <p className={"number"}>{transactionData.order_number}</p>
+                    <p className={"number"}>{/*{transactionData.order_number}*/}</p>
                 </div>
                 <div className={"link-and-info-order"}>
                     <p>{transactionData.agent_name}</p>

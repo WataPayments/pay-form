@@ -2,27 +2,35 @@ import React, { useEffect, useState } from "react";
 import Done from "../Images/Alert icon.svg";
 import '../Styles/SuccessPageStyle.css';
 import ApiClient from "../ApiClient";
-import { useParams } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import logo from "../Images/Logo.svg";
 
 export default function SuccessPage(props) {
     const [transactionData, setTransactionData] = useState("");
     const { uuid } = useParams();
+    const navigate=useNavigate();
     const [loading,setLoading]=useState(true);
 
     useEffect(() => {
         const fetchTransaction = async () => {
             try {
-                const { transactionData } = await ApiClient.fetchTransactionData(uuid);
-                setTransactionData(transactionData);
-                setLoading(false)
+                const response = await ApiClient.fetchTransactionData(uuid);
+                setTransactionData(response.transactionData);
+                setLoading(false);
             } catch (error) {
                 console.error("Error fetching transaction data:", error);
+                if (error.response) {
+                    if (error.response.status === 404) {
+                        navigate("/404");
+                    } else if (error.response.status === 500) {
+                        navigate("/500");
+                    }
+                }
             }
         };
 
         fetchTransaction();
-    }, [uuid]);
+    }, [uuid, navigate]);
 
     const handleShare = () => {
         if (navigator.share) {
@@ -48,7 +56,7 @@ export default function SuccessPage(props) {
             <div className={"sucsess-block"}>
                 <div className={"result-pay"}>
                     <img src={Done} alt="Result-pay"/>
-                    <p>Вы успешно оплатили счет!</p>
+                    <p>Успешный платеж!</p>
                 </div>
                 <div className={"price-and-number-order"}>
                     <p className={"price"}>{transactionData.amount}</p>

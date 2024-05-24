@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 // import Error from "../Images/Alert2 icon.svg";
 import Alert from "../Images/Alert.svg";
 import '../Styles/ErrorPageStyle.css';
@@ -7,7 +7,7 @@ import ApiClient from "../ApiClient";
 import logo from "../Images/Logo.svg";
 
 export default function ErrorPage(props) {
-    // const navigate=useNavigate();
+    const navigate=useNavigate();
     const { uuid } = useParams();
     const [transactionData, setTransactionData] = useState("");
     const [loading,setLoading]=useState(true);
@@ -21,16 +21,25 @@ export default function ErrorPage(props) {
     useEffect(() => {
         const fetchTransaction = async () => {
             try {
-                const { transactionData} = await ApiClient.fetchTransactionData(uuid);
-                setTransactionData(transactionData);
+                const response = await ApiClient.fetchTransactionData(uuid);
+                setTransactionData(response.transactionData);
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching transaction data:", error);
+                if (error.response) {
+                    if (error.response.status === 404) {
+                        navigate("/404");
+                    } else if (error.response.status === 500) {
+                        navigate("/500");
+                    }
+                }
             }
         };
 
         fetchTransaction();
-    }, [uuid]);
+    }, [uuid, navigate]);
+
+
     if (loading) {
         return(<div className={"loader-block"}>
             <span className="loader"></span>

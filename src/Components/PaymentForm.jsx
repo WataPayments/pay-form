@@ -31,15 +31,22 @@ const PaymentForm = (props) => {
     useEffect(() => {
         const fetchTransaction = async () => {
             try {
-                const { transactionData} = await ApiClient.fetchTransactionData(uuid);
-                setTransactionData(transactionData);
+                const response = await ApiClient.fetchTransactionData(uuid);
+                setTransactionData(response.data);
             } catch (error) {
                 console.error("Error fetching transaction data:", error);
+                if (error.response) {
+                    if (error.response.status === 404) {
+                        navigate("/404");
+                    } else if (error.response.status === 500) {
+                        navigate("/500");
+                    }
+                }
             }
         };
 
         fetchTransaction();
-    }, [uuid]);
+    }, [uuid, navigate]);
 
     const handleOverlayToggle = () => {
         setShowOverlay(!showOverlay);

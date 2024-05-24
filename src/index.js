@@ -6,6 +6,8 @@ import App from './App';
 import SuccessPage from './Components/SuccessPage';
 import ErrorPage from './Components/ErrorPage';
 import {createRoot} from "react-dom/client";
+import Error404Page from "./Components/Error404Page";
+import Error500Page from "./Components/Error500Page";
 // import PayQrPage from "./Components/PayQrPage";
 
 const router = createHashRouter([
@@ -25,6 +27,14 @@ const router = createHashRouter([
         path:"/success-pay/:uuid",
         element:<SuccessPage/>
     },
+    {
+        path:"/404",
+        element:<Error404Page/>
+    },
+    {
+        path:"/500",
+        element:<Error500Page/>
+    }
     // {
     //     path:"/sbp-pay/:uuid",
     //     element:<PayQrPage/>

@@ -3,6 +3,7 @@ import  "./styles.css";
 import Agreement from "../../agreenent";
 import formatPrice from "./../../../utils/format-price";
 import SbpLogo from "./images/sbp-logo.png";
+import "./react-app-env";
 import { QRCode } from "react-qrcode-logo";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useRouter } from "next/router";

@@ -8,6 +8,7 @@ import ErrorPage from './Components/ErrorPage';
 import {createRoot} from "react-dom/client";
 import Error404Page from "./Components/Error404Page";
 import Error500Page from "./Components/Error500Page";
+import PayQrPage from "./Components/pay-qr/page";
 // import PayQrPage from "./Components/PayQrPage";
 
 const router = createHashRouter([
@@ -34,11 +35,16 @@ const router = createHashRouter([
     {
         path:"/500",
         element:<Error500Page/>
+    },
+    {
+        path:"/sbp-pay/:uuid",
+        element:<PayQrPage/>
     }
     // {
     //     path:"/sbp-pay/:uuid",
     //     element:<PayQrPage/>
     // }
+
 ]);
 
 const root=createRoot(document.getElementById("root"));

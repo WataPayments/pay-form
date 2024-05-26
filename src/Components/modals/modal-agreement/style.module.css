@@ -1,0 +1,121 @@
+.root {
+    position: fixed;
+    width: 100vw;
+    overflow: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(19, 13, 27, 0.4);
+    backdrop-filter: blur(5px);
+}
+
+.modal {
+    width: calc(100% - 28px);
+    max-width: 1280px;
+    margin: 61px auto;
+    padding: 60px;
+    border-radius: 24px;
+    border: 2px solid var(--collection-2-dark-purple, #27005d);
+    background: var(--collection-2-white, #fafafa);
+    position: relative;
+    z-index: 10;
+}
+
+.header {
+    border-bottom: 2px solid #c3aeff;
+    padding-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    color: var(--collection-2-dark-purple, #27005d);
+    font-family: SF Pro Display;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.close {
+    cursor: pointer;
+}
+
+.content {
+    padding-top: 40px;
+    overflow-y: auto;
+    max-height: 500px;
+    scrollbar-color: #2d2c38 #e8e9ea;
+}
+
+.content::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+    border-radius: 24px;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: #2d2c38;
+    border-radius: 24px;
+}
+
+.content::-webkit-scrollbar-track {
+    background: #e8e9ea;
+}
+
+.text {
+    color: var(--collection-2-black, #130d1b);
+    font-family: SF Pro Display;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.footer {
+    padding-top: 40px;
+}
+
+@media (max-width: 767px) {
+    .modal {
+        padding: 30px;
+    }
+
+    .header {
+        padding-bottom: 25px;
+    }
+
+    .content {
+        padding-top: 25px;
+        max-height: calc(100vh - 122px - 225px);
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .text {
+        font-size: 14px;
+    }
+
+    .close SVG {
+        width: 26px;
+        height: 26px;
+    }
+
+    .button {
+        font-size: 16px;
+    }
+}

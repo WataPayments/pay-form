@@ -13,13 +13,19 @@
     "credit-card-type": "^10.0.0",
     "firebase": "^10.11.1",
     "gh-pages": "^6.1.1",
+    "is-mobile": "^4.0.0",
     "luhn": "^2.4.1",
+    "next": "^14.2.3",
     "node-luhn": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-qrcode-logo": "^2.10.0",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-use-websocket": "^4.8.1",
+    "sass": "^1.77.2",
+    "web-vitals": "^2.1.4",
+    "websocket": "^1.0.35"
   },
   "scripts": {
     "start": "react-scripts start",

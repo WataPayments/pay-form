@@ -1,0 +1,32 @@
+.root {
+    border-radius: 12px;
+    border: 2px solid var(--collection-2-purple, #9400ff);
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: SF Pro Display;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: #9400ff;
+    cursor: pointer;
+    transition: 0.4s;
+    user-select: none;
+    text-decoration: none;
+}
+
+.root:not(.root.disabled):hover {
+    background: #9400ff;
+    color: #fff;
+}
+
+.root.disabled {
+    background: #fff;
+    color: var(--collection-2-light-purple, #c3aeff);
+    border: 2px solid var(--collection-2-light-purple, #c3aeff);
+    cursor: default;
+}

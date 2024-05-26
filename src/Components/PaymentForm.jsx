@@ -8,9 +8,10 @@ import MIR from "../Images/Logo=Mir.svg";
 import Overlay from "./Overlay";
 import {useNavigate, useParams} from "react-router-dom";
 import ApiClient from "../ApiClient";
+import Loader from "./Loader";
 
 const PaymentForm = (props) => {
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     const [cardNumber, setCardNumber] = useState("");
     const [expiryDate, setExpiryDate] = useState("");
     const [cvv, setCvv] = useState("");
@@ -25,14 +26,16 @@ const PaymentForm = (props) => {
     const [showOverlay, setShowOverlay] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [transactionData, setTransactionData] = useState(null);
-    const { uuid } = useParams();
+    const [loading, setLoading] = useState(true);
+    const {uuid} = useParams();
 
 
     useEffect(() => {
         const fetchTransaction = async () => {
             try {
                 const response = await ApiClient.fetchTransactionData(uuid);
-                setTransactionData(response.data);
+                setTransactionData(response.transactionData);
+                setLoading(false);
             } catch (error) {
                 console.error("Error fetching transaction data:", error);
                 if (error.response) {
@@ -186,17 +189,15 @@ const PaymentForm = (props) => {
                 );
 
                 console.log("Данные успешно отправлены:", response.data);
-                if(!response.data){
+                if (!response.data) {
                     navigate(`error-pay/${props.uuid}`);
                 }
 
                 if (response.data.url_redirect) {
                     props.setUrlRedirect(response.data.url_redirect);
-                }
-                else if(!response.data.url_redirect){
+                } else if (!response.data.url_redirect) {
                     navigate(`/error-pay/${props.uuid}`);
-                }
-                else if(transactionData.status==="Paid" || transactionData.status==='Pending'){
+                } else if (transactionData.status === "Paid" || transactionData.status === 'Pending') {
                     navigate(`/success-pay/${props.uuid}`);
                 }
             } catch (error) {
@@ -210,21 +211,21 @@ const PaymentForm = (props) => {
         }
     };
 
-    const sbp_payment=()=>{
+    const sbp_payment = () => {
         navigate(`/sbp-pay/${uuid}`);
     }
 
     return (
         <div className="order-add-cart-block">
-            {props.sbp_uuid!=="" || props.sbp_uuid!==null? (
-                <a className={"sbp-bg"} onClick={()=>sbp_payment}>
-                    <img src={SBP} className="big-image" alt="SBP" />
+            {props.sbp_uuid !== "" || props.sbp_uuid !== null ? (
+                <a className={"sbp-bg"} onClick={() => sbp_payment}>
+                    <img src={SBP} className="big-image" alt="SBP"/>
                 </a>
-            ):("")}
+            ) : ("")}
 
             <form onSubmit={handleSubmit}>
                 <div className="add-cart-block">
-                    <div className="label-text">
+                    <div className="label-text-payment">
                         <p>Для оплаты доступны карты МИР</p>
                     </div>
                     <div className="card-number-container">
@@ -240,7 +241,7 @@ const PaymentForm = (props) => {
                             className={`${cardNumberError ? "error" : ""}`}
                         />
                         {cardType === "mir" && (
-                            <img src={MIR} className="card-type-icon" alt="МИР" />
+                            <img src={MIR} className="card-type-icon" alt="МИР"/>
                         )}
                     </div>
 
@@ -278,19 +279,22 @@ const PaymentForm = (props) => {
                                 src={cvvVisible ? eyeVisibleIcon : eyeHiddenIcon}
                                 alt="Toggle CVV Visibility"
                                 className="toggle-cvv-visibility"
-                                style={{ position: "absolute", right: "20px", bottom: "15px" }}
+                                style={{position: "absolute", right: "20px", bottom: "15px"}}
                             />
                         </div>
                     </div>
                 </div>
 
                 <div className="submit-button">
-                    <input
-                        id="submitButton"
-                        type="submit"
-                        value={isLoading ? "\u25A0 \u25A0 \u25A0" : `Оплатить ${props.transaction.amount} ₽`}
-                        className={isLoading ? "submit-loading" : ""}
-                    />
+                    <span>
+                        {isLoading ? <Loader/> : ``}
+                        <input
+                            id="submitButton"
+                            type="submit"
+                            value={isLoading ? "" : `Оплатить ${props.transaction.amount} ₽`}
+                            className={isLoading ? "submit-loading" : ""}
+                        />
+                    </span>
                 </div>
             </form>
             <div className="accept-text">
@@ -304,7 +308,7 @@ const PaymentForm = (props) => {
                     </a>
                 </p>
             </div>
-            {showOverlay && <Overlay onClose={handleOverlayToggle} />}
+            {showOverlay && <Overlay onClose={handleOverlayToggle}/>}
         </div>
     );
 };

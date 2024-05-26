@@ -1,0 +1,18 @@
+.root {
+  color: var(--collection-2-light-purple, #C3AEFF);
+  font-family: SF Pro Display;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.button {
+  color: var(--collection-2-purple, #9400FF);
+  font-family: SF Pro Display;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}

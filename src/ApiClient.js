@@ -5,14 +5,11 @@ class ApiClient {
 
     async fetchTransactionData(uuid) {
         try {
-            const response = await axios.post(
-                `https://acquiring.foreignpay.ru/webhook/front_transaction?uuid=${uuid}`,
-                {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
+            const response = await axios.get('https://acquiring.foreignpay.ru/webhook/front_transaction', {
+                params: {
+                    'uuid': 'uuid'
                 }
-            );
+            });
             console.log(response);
             return {
                 transactionData: response.data,

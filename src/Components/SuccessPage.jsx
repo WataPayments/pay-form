@@ -10,6 +10,7 @@ export default function SuccessPage(props) {
     const { uuid } = useParams();
     const navigate=useNavigate();
     const [loading,setLoading]=useState(true);
+    const [theme,setTheme]=useState('')
 
     useEffect(() => {
         const fetchTransaction = async () => {
@@ -31,6 +32,15 @@ export default function SuccessPage(props) {
 
         fetchTransaction();
     }, [uuid, navigate]);
+
+    useEffect(() => {
+        const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        if (theme === "dark") {
+            import("../Styles/SuccessPageStyle.css");
+        } else {
+            import("../Styles/SuccessPageLightStyle.css");
+        }
+    }, [theme]);
 
     const handleShare = () => {
         if (navigator.share) {

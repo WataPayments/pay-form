@@ -1,57 +1,55 @@
-import InfoItem from "../../info-item";
-import  "./styles.css";
-import Agreement from "../../agreenent";
-import formatPrice from "./../../../utils/format-price";
-import SbpLogo from "./images/sbp-logo.png";
-import "./react-app-env";
+import "./styles.css";
+import sbpLogo from '../../../Images/sbp-logo.png';
 import { QRCode } from "react-qrcode-logo";
 import { useEffect, useLayoutEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { InfoType } from "../../../types";
 import useWebSocket, { ReadyState } from "react-use-websocket";
-import Link from "next/link";
 import isMobile from "is-mobile";
+import Agreement from "../../agreenent";
+import InfoItem from "../../info-item";
+import formatPrice from "../../../utils/format-price";
+import {Link, useNavigate} from "react-router-dom";
 
 const WS_URL = "wss://acquiring.foreignpay.ru/ws/";
 
-type ResponseMessageType = {
-    status: string;
-};
 
 const PayQrPage = () => {
-    const router = useRouter();
-    const [info, setInfo] = useState<InfoType>();
+    const navigate=useNavigate();
+    const [info, setInfo] = useState(null);
     const { sendJsonMessage, lastJsonMessage, readyState } =
-        useWebSocket<ResponseMessageType>(WS_URL);
+        useWebSocket(WS_URL);
 
     useEffect(() => {
         if (readyState === ReadyState.OPEN && info) {
             sendJsonMessage({ transaction_id: info.uuid });
         }
-    }, [readyState]);
+    }, [readyState, info, sendJsonMessage]);
 
     useEffect(() => {
         if (!lastJsonMessage || lastJsonMessage.status === "connected") {
             return;
         }
         if (lastJsonMessage.status) {
-            router.push(`/success-pay?redirect_url=${info?.success_url}`);
+            navigate(`/success-pay?redirect_url=${info?.success_url}`);
         } else {
-            router.push(`/failed-pay`);
+            navigate(`/failed-pay`);
         }
-    }, [lastJsonMessage, router]);
+    }, [lastJsonMessage, navigate, info]);
 
     useLayoutEffect(() => {
         if (localStorage) {
-            const infoData = JSON.parse(localStorage.getItem("info") as string);
-
-            if (!infoData) {
-                router.push("/404?redirected=true");
-            } else {
-                setInfo(infoData);
+            try {
+                const infoData = JSON.parse(localStorage.getItem("info"));
+                if (!infoData) {
+                    navigate("/404?redirected=true");
+                } else {
+                    setInfo(infoData);
+                }
+            } catch (error) {
+                console.error("Failed to parse info from localStorage:", error);
+                navigate("/404?redirected=true");
             }
         }
-    }, [router]);
+    }, [navigate]);
 
     if (!info) return null;
 
@@ -67,7 +65,7 @@ const PayQrPage = () => {
                     <QRCode
                         size={700}
                         value={info.sbp_url}
-                        logoImage={SbpLogo.src}
+                        logoImage={sbpLogo.src}
                         logoWidth={209}
                         logoHeight={209}
                         quietZone={2}
@@ -81,7 +79,7 @@ const PayQrPage = () => {
             <div className={"infoWrapper"}>
                 <h1 className={"title"}>Для оплаты отсканируйте QR-код</h1>
                 <p className={"subTitle"}>
-                    Что бы оплатить, вам нужно отсканировать{" "}
+                    Чтобы оплатить, вам нужно отсканировать{" "}
                     <span className={"bold"}>QR-код</span> в мобильном приложении
                     банка или с помощью камеры вашего телефона.
                 </p>

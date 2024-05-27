@@ -1,12 +1,9 @@
 import { useEffect } from "react"
 
-type Props = {
-    show: boolean
-}
 
-export const useIsModal = ({ show }: Props) => {
+export const useIsModal = ({ show }) => {
     useEffect(() => {
-        const html = document.querySelector("html") as HTMLHtmlElement
+        const html = document.querySelector("html")
         if (show) {
             html.style.overflow = "hidden"
         } else {

@@ -1,14 +1,15 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import "../Styles/PaymentFormStyle.css";
 import SBP from "../Images/Vector.svg";
 import eyeVisibleIcon from "../Images/Visibility_off.svg";
 import eyeHiddenIcon from "../Images/Visibility.svg";
 import MIR from "../Images/Logo=Mir.svg";
 import Overlay from "./Overlay";
-import {useNavigate, useParams} from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ApiClient from "../ApiClient";
 import Loader from "./Loader";
+import "../Styles/PaymentFormLightStyle.css";
+import  "../Styles/PaymentFormStyle.css";
 
 const PaymentForm = (props) => {
     const navigate = useNavigate();
@@ -27,8 +28,8 @@ const PaymentForm = (props) => {
     const [isLoading, setIsLoading] = useState(false);
     const [transactionData, setTransactionData] = useState(null);
     const [loading, setLoading] = useState(true);
-    const {uuid} = useParams();
-
+    const { uuid } = useParams();
+    const [theme,setTheme]=useState('');
 
     useEffect(() => {
         const fetchTransaction = async () => {
@@ -50,6 +51,29 @@ const PaymentForm = (props) => {
 
         fetchTransaction();
     }, [uuid, navigate]);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        setTheme(mediaQuery.matches ? 'dark' : 'light');
+
+        const handleThemeChange = (event) => {
+            setTheme(event.matches ? 'dark' : 'light');
+        };
+
+        mediaQuery.addEventListener('change', handleThemeChange);
+
+        return () => {
+            mediaQuery.removeEventListener('change', handleThemeChange);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (theme === 'dark') {
+            import('../Styles/PaymentFormStyle.css');
+        } else if (theme === 'light') {
+            import('../Styles/PaymentFormLightStyle.css');
+        }
+    }, [theme]);
 
     const handleOverlayToggle = () => {
         setShowOverlay(!showOverlay);
@@ -172,7 +196,6 @@ const PaymentForm = (props) => {
                     challengeWindowHeight: window.innerHeight,
                     challengeWindowWidth: window.innerWidth,
                 };
-                console.log(props.uuid);
 
                 const response = await axios.post(
                     "https://acquiring.foreignpay.ru/webhook/front/card_info",
@@ -188,7 +211,6 @@ const PaymentForm = (props) => {
                     }
                 );
 
-                console.log("Данные успешно отправлены:", response.data);
                 if (!response.data) {
                     navigate(`error-pay/${props.uuid}`);
                 }
@@ -213,15 +235,16 @@ const PaymentForm = (props) => {
 
     const sbp_payment = () => {
         navigate(`/sbp-pay/${uuid}`);
-    }
+    };
 
     return (
         <div className="order-add-cart-block">
-            {props.sbp_uuid !== "" || props.sbp_uuid !== null ? (
-                <a className={"sbp-bg"} onClick={() => sbp_payment}>
-                    <img src={SBP} className="big-image" alt="SBP"/>
+            {transactionData && transactionData.methods.includes("sbp") && (
+                <a className={"sbp-bg"} onClick={sbp_payment}>
+                    <img src={SBP} className="big-image" alt="SBP" />
                 </a>
-            ) : ("")}
+            )}
+
 
             <form onSubmit={handleSubmit}>
                 <div className="add-cart-block">
@@ -241,7 +264,7 @@ const PaymentForm = (props) => {
                             className={`${cardNumberError ? "error" : ""}`}
                         />
                         {cardType === "mir" && (
-                            <img src={MIR} className="card-type-icon" alt="МИР"/>
+                            <img src={MIR} className="card-type-icon" alt="МИР" />
                         )}
                     </div>
 
@@ -279,7 +302,7 @@ const PaymentForm = (props) => {
                                 src={cvvVisible ? eyeVisibleIcon : eyeHiddenIcon}
                                 alt="Toggle CVV Visibility"
                                 className="toggle-cvv-visibility"
-                                style={{position: "absolute", right: "20px", bottom: "15px"}}
+                                style={{ position: "absolute", right: "20px", bottom: "15px" }}
                             />
                         </div>
                     </div>
@@ -287,7 +310,7 @@ const PaymentForm = (props) => {
 
                 <div className="submit-button">
                     <span>
-                        {isLoading ? <Loader/> : ``}
+                        {isLoading ? <Loader /> : ``}
                         <input
                             id="submitButton"
                             type="submit"
@@ -300,15 +323,18 @@ const PaymentForm = (props) => {
             <div className="accept-text">
                 <p>
                     Оплачивая, вы соглашаетесь с договором{" "}
-                    <a href="#" onClick={(e) => {
-                        e.preventDefault();
-                        handleOverlayToggle();
-                    }}>
+                    <a
+                        href="#"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleOverlayToggle();
+                        }}
+                    >
                         оферты
                     </a>
                 </p>
             </div>
-            {showOverlay && <Overlay onClose={handleOverlayToggle}/>}
+            {showOverlay && <Overlay onClose={handleOverlayToggle} />}
         </div>
     );
 };

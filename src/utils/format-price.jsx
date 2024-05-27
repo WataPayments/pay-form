@@ -1,4 +1,4 @@
-const formatPrice = (price: number) => {
+const formatPrice = (price) => {
     let sub = "";
     let newPrice = price;
     if (price % 1 !== 0) {

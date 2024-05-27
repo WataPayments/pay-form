@@ -1,12 +1,7 @@
-import "/styles.css";
+import "./styles.css";
 
-type Props = {
-    title: string
-    value: string
-    className: string
-}
 
-const InfoItem = ({ title, value, className }: Props) => {
+const InfoItem = ({ title, value, className }) => {
     return (
         <div className={"root"}>
             <h3 className={"title"}>{title}</h3>

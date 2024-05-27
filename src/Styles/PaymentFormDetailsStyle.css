@@ -142,7 +142,7 @@
     width: 50%;
 }
 
-.price {
+.price-order {
     font-family: "TTFirsNeue Medium";
     color: var(--Text-Primary);
     font-weight: 500;

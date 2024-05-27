@@ -1,8 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "../Styles/OverlayStyle.css";
 import Close from "../Images/Close.svg";
 
 export default function Overlay({onClose}) {
+
+    useEffect(() => {
+        const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        if (theme === "dark") {
+            import("../Styles/OverlayStyle.css");
+        } else if (theme === "light") {
+            import("../Styles/OverlayLightStyle.css");
+        }
+    }, []);
     return (
         <div className="overlay">
             <div className="overlay-content">

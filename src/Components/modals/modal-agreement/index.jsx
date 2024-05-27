@@ -1,15 +1,11 @@
-import { Dispatch, SetStateAction } from "react"
 import SVG from "../../icons/svg"
 import Button from "../../button"
 import { useIsModal } from "../../hooks/is-modal"
-import "./styles.module.css"
+import "./style.css"
 
-type Props = {
-    show: boolean
-    setShow: Dispatch<SetStateAction<boolean>>
-}
 
-const ModalAgreement = ({ show, setShow }: Props) => {
+
+const ModalAgreement = ({ show, setShow }) => {
     useIsModal({show})
 
     if (!show) return null

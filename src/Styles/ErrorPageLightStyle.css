@@ -89,26 +89,40 @@
 }
 
 :root {
-    --Text-Primary: #FFF;
+    --Text-Primary: #211F22;
     --Text-Secondry: rgba(255, 255, 255, 0.75);
     --Text-Warning: #ED8C20;
     --Text-Hint: rgba(255, 255, 255, 0.25);
-    --Border-Default: rgba(255, 255, 255, 0.10);
+    --Border-Default: rgba(33, 31, 34, 0.10);
 }
 
-.error-block {
+.root{
+    background: #FAFAFA;
+}
+
+.container{
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FAFAFA;
+}
+
+.error-block-page {
     width: 100%;
     border-radius: 10px;
-    border: 1px solid var(--Border-Default);
-    background: #262328;
+    border: 2px solid rgba(33, 31, 34, 0.10);
+    background: #FFF;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     color: var(--Text-Primary);
     font-family: 'TTFirsNeue Regular';
     font-style: normal;
     font-weight: 400;
     margin-top: 20px;
+    margin-bottom: 10px;
     padding: 20px 20px 15px 20px;
 }
 .result-pay{
@@ -121,27 +135,50 @@
     height: 48px;
 }
 .result-pay p{
-    color: var(--Text-Primary);
+    color: #211F22;
     font-size: 18px;
 }
-
-input[type="submit"] {
+.error-reasons{
     width: 100%;
-    height: 56px;
-    color: var(--Text-Primary);
-    border: none;
-    padding: 15px 20px;
-    border-radius: 8px;
-    background: #8B53E8;
-    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: #211F22;;
+}
+.error-reasons p{
+    margin-bottom: 0;
+    margin-top: 0;
     font-size: 16px;
-    transition: background-color 200ms ease-in-out;
+    font-weight: 400;
+}
+.error-reasons ul{
+    margin-top: 0;
+    padding-left: 20px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+.error-reasons li{
+    font-size: 14px;
 }
 
-input[type="submit"]:hover {
-    background-color: #7346BB;
+.label-text {
+    width: 100%;
+    background-color: #ED8C201A;
+    border-radius: 4px;
+    text-align: center;
+    height: 58px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.label-text p {
+    color: var(--Text-Warning);
+    font-size: 12px;
+    font-weight: 400;
+}
 .submit-button-result {
     width: 100%;
     display: flex;
@@ -149,3 +186,34 @@ input[type="submit"]:hover {
     margin-bottom: 10px;
     margin-top: 20px;
 }
+.info{
+    width: 100%;
+}
+
+.price-info {
+    font-family: "TTFirsNeue Medium";
+    color: #211F22;
+    font-weight: 500;
+    font-size: 22px;
+    text-align: start;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+/*input[type="submit"] {*/
+/*    width: 100%;*/
+/*    height: 56px;*/
+/*    color: var(--Text-Primary);*/
+/*    border: none;*/
+/*    padding: 15px 20px;*/
+/*    border-radius: 8px;*/
+/*    background: #8B53E8;*/
+/*    cursor: pointer;*/
+/*    font-size: 16px;*/
+/*    transition: background-color 200ms ease-in-out;*/
+/*}*/
+
+/*input[type="submit"]:hover {*/
+/*    background-color: #7346BB;*/
+/*}*/

@@ -1,8 +1,19 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "../Styles/Error500PageStyle.css";
+import "../Styles/Error500PageLightStyle.css";
 import logo from "../Images/Logo.svg";
 
-export default function Error404Page(){
+export default function Error500Page(){
+
+    useEffect(() => {
+        const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        if (theme === 'dark') {
+            import('../Styles/Error500PageStyle.css');
+        } else if (theme === 'light') {
+            import('../Styles/Error500PageLightStyle.css');
+        }
+    }, []);
+
     return(
         <div className={"container"}>
             <div className={"error-block"}>

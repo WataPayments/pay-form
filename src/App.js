@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "./index.css";
 import logo from "./Images/Logo.svg";
 import PaymentFormDetails from "./Components/PaymentFormDetails";
 import PaymentForm from "./Components/PaymentForm";
@@ -15,6 +14,7 @@ export default function App() {
     const [cardNumber, setCardNumber] = useState('');
     const [cardNumberValid, setCardNumberValid] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [theme,setTheme]=useState('');
 
     useEffect(() => {
         const fetchTransaction = async () => {
@@ -26,8 +26,7 @@ export default function App() {
 
                 if (transactionData.status === "Pending") {
                     navigate(`/error-pay/${uuid}`);
-                }
-                else if(transactionData.status==="Paid"){
+                } else if (transactionData.status === "Paid") {
                     navigate(`/success-pay/${uuid}`);
                 }
             } catch (error) {
@@ -37,6 +36,15 @@ export default function App() {
 
         fetchTransaction();
     }, [uuid, navigate]);
+
+    useEffect(() => {
+        const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        if (theme === "dark") {
+            import("./index.css");
+        } else {
+            import("./indexLight.css");
+        }
+    }, [theme]);
 
     const handleCardNumberChange = (e) => {
         const { value } = e.target;
@@ -113,7 +121,7 @@ export default function App() {
                     />
                 </div>
             ) : (
-                <iframe id="payment-iframe" src={redirectUrl} title="Payment Redirect"/>
+                <iframe id="payment-iframe" src={redirectUrl} title="Payment Redirect" />
             )}
             <div className="logo">
                 <img src={logo} alt="WATA" />

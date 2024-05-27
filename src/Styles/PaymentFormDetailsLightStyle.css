@@ -94,7 +94,7 @@
     --Text-Warning: #ED8C20;
     --Text-Hint: rgba(255, 255, 255, 0.25);
     --Border-Default: rgba(255, 255, 255, 0.10);
-    --Background-Key: #FAFAFA;
+    --Background-Key: #FFF;
 }
 
 .order-info-block {
@@ -145,18 +145,21 @@
 
 .price {
     font-family: "TTFirsNeue Medium";
-    color: var(--Text-Primary);
+    color: #211F22;
     font-weight: 500;
     font-size: 22px;
     text-align: start;
     margin-top: 0;
     margin-bottom: 0;
 }
+.price-order{
+    color: #211F22;
+}
 
 .number {
     font-size: 16px;
     text-align: end;
-    color: var(--Text-Secondry);
+    color: #211F22;
     margin-top: 0;
     margin-bottom: 0;
 }

@@ -3,6 +3,7 @@ import {useNavigate, useParams} from "react-router-dom";
 // import Error from "../Images/Alert2 icon.svg";
 import Alert from "../Images/Alert.svg";
 import '../Styles/ErrorPageStyle.css';
+import  "../Styles/ErrorPageLightStyle.css";
 import ApiClient from "../ApiClient";
 import logo from "../Images/Logo.svg";
 
@@ -39,6 +40,15 @@ export default function ErrorPage(props) {
         fetchTransaction();
     }, [uuid, navigate]);
 
+    useEffect(() => {
+        const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        if (theme === "dark") {
+            import("../Styles/ErrorPageStyle.css");
+        } else if (theme === "light") {
+            import("../Styles/ErrorPageLightStyle.css");
+        }
+    }, []);
+
 
     if (loading) {
         return(<div className={"loader-block"}>
@@ -48,7 +58,7 @@ export default function ErrorPage(props) {
 
     return (
         <div className={"container"}>
-            <div className={"error-block"}>
+            <div className={"error-block-page"}>
                 <div className={"result-pay"}>
                     {/*<img src={Error} alt="Result-pay"/>*/}
                     <img src={Alert} alt="Result-pay"/>
@@ -70,9 +80,9 @@ export default function ErrorPage(props) {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className={"info"}>
                     <div className={"price-and-number-order"}>
-                    <p className={"price"}>{transactionData.amount}</p>
+                    <p className={"price-info"}>{transactionData.amount} ₽</p>
                         <p className={"number"}>{/*{transactionData.order_number}*/}</p>
                     </div>
                     <div className={"link-and-info-order"}>

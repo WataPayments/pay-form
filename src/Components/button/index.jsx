@@ -1,15 +1,5 @@
-import { MouseEvent } from "react";
-import Link from "next/link";
-import "./styles.module.css";
-
-type Props = {
-    title: string;
-    href?: string;
-    disabled?: boolean;
-    className?: string;
-    blank?: boolean;
-    onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-};
+import "./style.css";
+import {Link} from "react-router-dom";
 
 const Button = ({
                     title,
@@ -18,7 +8,7 @@ const Button = ({
                     className,
                     blank,
                     onClick,
-                }: Props) => {
+                }) => {
     if (href) {
         return (
             <Link

@@ -35,22 +35,6 @@ const PayQrPage = () => {
         }
     }, [lastJsonMessage, navigate, info]);
 
-    useLayoutEffect(() => {
-        if (localStorage) {
-            try {
-                const infoData = JSON.parse(localStorage.getItem("info"));
-                if (!infoData) {
-                    navigate("/404");
-                } else {
-                    setInfo(infoData);
-                }
-            } catch (error) {
-                console.error("Failed to parse info from localStorage:", error);
-                navigate("/404");
-            }
-        }
-    }, [navigate]);
-
     if (!info) return null;
 
     return (

@@ -9,7 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import ApiClient from "../ApiClient";
 import Loader from "./Loader";
 import "../Styles/PaymentFormLightStyle.css";
-import  "../Styles/PaymentFormStyle.css";
+import "../Styles/PaymentFormStyle.css";
 
 const PaymentForm = (props) => {
     const navigate = useNavigate();
@@ -29,7 +29,7 @@ const PaymentForm = (props) => {
     const [transactionData, setTransactionData] = useState(null);
     const [loading, setLoading] = useState(true);
     const { uuid } = useParams();
-    const [theme,setTheme]=useState('');
+    const [theme, setTheme] = useState('');
 
     useEffect(() => {
         const fetchTransaction = async () => {
@@ -234,7 +234,7 @@ const PaymentForm = (props) => {
     };
 
     const sbp_payment = () => {
-        navigate(`/sbp-pay/${uuid}`);
+        window.location.href = transactionData.sbp_url;
     };
 
     return (
@@ -244,7 +244,6 @@ const PaymentForm = (props) => {
                     <img src={SBP} className="big-image" alt="SBP" />
                 </a>
             )}
-
 
             <form onSubmit={handleSubmit}>
                 <div className="add-cart-block">

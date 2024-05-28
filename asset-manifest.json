@@ -1,15 +1,7 @@
 {
   "files": {
-    "main.css": "/pay-form/static/css/main.0cd93e2c.css",
-    "main.js": "/pay-form/static/js/main.35c55f5f.js",
-    "static/css/555.3ead3dc1.chunk.css": "/pay-form/static/css/555.3ead3dc1.chunk.css",
-    "static/js/555.63af56ef.chunk.js": "/pay-form/static/js/555.63af56ef.chunk.js",
-    "static/css/983.20978b35.chunk.css": "/pay-form/static/css/983.20978b35.chunk.css",
-    "static/js/983.a48c4f96.chunk.js": "/pay-form/static/js/983.a48c4f96.chunk.js",
-    "static/css/364.c34b6e27.chunk.css": "/pay-form/static/css/364.c34b6e27.chunk.css",
-    "static/js/364.511e166b.chunk.js": "/pay-form/static/js/364.511e166b.chunk.js",
-    "static/css/11.c915823d.chunk.css": "/pay-form/static/css/11.c915823d.chunk.css",
-    "static/js/11.58414e0b.chunk.js": "/pay-form/static/js/11.58414e0b.chunk.js",
+    "main.css": "/pay-form/static/css/main.9a377eb6.css",
+    "main.js": "/pay-form/static/js/main.807545b5.js",
     "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
     "static/media/TTFirsNeue-DemiBoldItalic.ttf": "/pay-form/static/media/TTFirsNeue-DemiBoldItalic.d96287c6cf4cd2f5d330.ttf",
     "static/media/TTFirsNeue-BlackItalic.ttf": "/pay-form/static/media/TTFirsNeue-BlackItalic.20e6d72dbbf5628241f0.ttf",
@@ -37,19 +29,11 @@
     "static/media/Alert icon.svg": "/pay-form/static/media/Alert icon.ee218e5a9cf521267a725d0ec11320a8.svg",
     "static/media/Visibility.svg": "/pay-form/static/media/Visibility.0e2110d8abed7ff9de7f81351f0bd60b.svg",
     "index.html": "/pay-form/index.html",
-    "main.0cd93e2c.css.map": "/pay-form/static/css/main.0cd93e2c.css.map",
-    "main.35c55f5f.js.map": "/pay-form/static/js/main.35c55f5f.js.map",
-    "555.3ead3dc1.chunk.css.map": "/pay-form/static/css/555.3ead3dc1.chunk.css.map",
-    "555.63af56ef.chunk.js.map": "/pay-form/static/js/555.63af56ef.chunk.js.map",
-    "983.20978b35.chunk.css.map": "/pay-form/static/css/983.20978b35.chunk.css.map",
-    "983.a48c4f96.chunk.js.map": "/pay-form/static/js/983.a48c4f96.chunk.js.map",
-    "364.c34b6e27.chunk.css.map": "/pay-form/static/css/364.c34b6e27.chunk.css.map",
-    "364.511e166b.chunk.js.map": "/pay-form/static/js/364.511e166b.chunk.js.map",
-    "11.c915823d.chunk.css.map": "/pay-form/static/css/11.c915823d.chunk.css.map",
-    "11.58414e0b.chunk.js.map": "/pay-form/static/js/11.58414e0b.chunk.js.map"
+    "main.9a377eb6.css.map": "/pay-form/static/css/main.9a377eb6.css.map",
+    "main.807545b5.js.map": "/pay-form/static/js/main.807545b5.js.map"
   },
   "entrypoints": [
-    "static/css/main.0cd93e2c.css",
-    "static/js/main.35c55f5f.js"
+    "static/css/main.9a377eb6.css",
+    "static/js/main.807545b5.js"
   ]
 }

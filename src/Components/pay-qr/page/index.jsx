@@ -25,13 +25,13 @@ const PayQrPage = () => {
     }, [readyState, info, sendJsonMessage]);
 
     useEffect(() => {
-        if (!lastJsonMessage || lastJsonMessage.status === "connected") {
+        if (!lastJsonMessage || lastJsonMessage.status === "Paid") {
             return;
         }
         if (lastJsonMessage.status) {
-            navigate(`/success-pay?redirect_url=${info?.success_url}`);
+            navigate(`/success-pay/${info?.success_url}`);
         } else {
-            navigate(`/failed-pay`);
+            navigate(`/error-pay`);
         }
     }, [lastJsonMessage, navigate, info]);
 
@@ -40,13 +40,13 @@ const PayQrPage = () => {
             try {
                 const infoData = JSON.parse(localStorage.getItem("info"));
                 if (!infoData) {
-                    navigate("/404?redirected=true");
+                    navigate("/404");
                 } else {
                     setInfo(infoData);
                 }
             } catch (error) {
                 console.error("Failed to parse info from localStorage:", error);
-                navigate("/404?redirected=true");
+                navigate("/404");
             }
         }
     }, [navigate]);

@@ -5,6 +5,8 @@ import PaymentFormDetails from "./Components/PaymentFormDetails";
 import PaymentForm from "./Components/PaymentForm";
 import { number } from 'card-validator';
 import ApiClient from './ApiClient';
+import "./index.css";
+import "./indexLight.css";
 
 export default function App() {
     const navigate = useNavigate();

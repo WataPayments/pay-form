@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import "../Styles/OverlayStyle.css";
+import "../Styles/OverlayLightStyle.css";
 import Close from "../Images/Close.svg";
 
 export default function Overlay({onClose}) {

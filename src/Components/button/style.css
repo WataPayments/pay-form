@@ -1,6 +1,6 @@
 .root {
     border-radius: 12px;
-    border: 2px solid var(--collection-2-purple, #9400ff);
+    border: 2px solid #9400ff;
     height: 60px;
     width: 100%;
     display: flex;
@@ -26,7 +26,7 @@
 
 .root.disabled {
     background: #fff;
-    color: var(--collection-2-light-purple, #c3aeff);
-    border: 2px solid var(--collection-2-light-purple, #c3aeff);
+    color: #c3aeff;
+    border: 2px solid #c3aeff;
     cursor: default;
 }

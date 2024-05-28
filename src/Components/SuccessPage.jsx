@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Done from "../Images/Alert icon.svg";
 import '../Styles/SuccessPageStyle.css';
+import "../Styles/SuccessPageLightStyle.css";
 import ApiClient from "../ApiClient";
 import {useNavigate, useParams} from "react-router-dom";
 import logo from "../Images/Logo.svg";

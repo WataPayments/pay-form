@@ -1,10 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../Styles/PaymentFormDetailsStyle.css";
 import "../Styles/PaymentFormDetailsLightStyle.css"
 
 export default function PaymentFormDetails(props) {
-    const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    const [theme, setTheme] = useState(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        const handleChange = (e) => {
+            setTheme(e.matches ? "dark" : "light");
+        };
+
+        mediaQuery.addListener(handleChange);
+
+        return () => {
+            mediaQuery.removeListener(handleChange);
+        };
+    }, []);
 
     useEffect(() => {
         if (theme === "dark") {
@@ -14,11 +26,10 @@ export default function PaymentFormDetails(props) {
         }
     }, [theme]);
 
-
-
     if (!props.transaction) {
         return "";
     }
+
     return (
         <div className={"order-info-block"}>
             <div className={"price-and-number-order"}>

@@ -233,9 +233,24 @@ const PaymentForm = (props) => {
         }
     };
 
-    const sbp_payment = () => {
-        window.location.href = transactionData.sbp_url;
+    const sbp_payment = async () => {
+        try {
+            window.location.href = transactionData.sbp_url;
+
+            const response = await axios.get(transactionData.sbp_url);
+            if (response.data.status === "Paid") {
+                navigate(`/success-pay/${props.uuid}`);
+            } else if (response.data.status === "Pending") {
+                navigate(`/error-pay/${props.uuid}`);
+            } else {
+                navigate(`/error-pay/${props.uuid}`);
+            }
+        } catch (error) {
+            console.error("Ошибка при выполнении оплаты через SBP:", error);
+            navigate(`/error-pay/${props.uuid}`);
+        }
     };
+
 
     return (
         <div className="order-add-cart-block">

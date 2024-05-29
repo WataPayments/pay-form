@@ -188,7 +188,7 @@
 
 .price {
     font-family: "TTFirsNeue Medium";
-    color: #211F22;
+    color: #FFF;
     font-weight: 500;
     font-size: 22px;
     text-align: start;
@@ -199,7 +199,7 @@
 .number {
     font-size: 16px;
     text-align: end;
-    color: #211F22;
+    color: #FFF;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -215,13 +215,13 @@
 }
 
 .link-and-info-order p:first-child {
-    color: #211F22;
+    color: #FFF;
     margin-top: 0;
     margin-bottom: 0;
     font-size: 16px;
 }
 .link-and-info-order p:last-child {
-    color: #211F22;
+    color: #FFF;
     margin-top: 10px;
     margin-bottom: 0;
     font-size: 16px;

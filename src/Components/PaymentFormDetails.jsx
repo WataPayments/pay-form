@@ -3,7 +3,7 @@ import "../Styles/PaymentFormDetailsStyle.css";
 import "../Styles/PaymentFormDetailsLightStyle.css";
 
 export default function PaymentFormDetails(props) {
-    const [theme, setTheme] = useState(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    const [theme, setTheme] = useState('')
 
     useEffect(() => {
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');

@@ -245,7 +245,7 @@ input[type="submit"] {
     position: relative;
     width: 100%;
     height: 56px;
-    color: var(--Text-Primary);
+    color: #FFF;
     border: none;
     padding: 15px 20px;
     border-radius: 8px;

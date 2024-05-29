@@ -85,10 +85,10 @@ export default function SuccessPage(props) {
                     <p>Успешный платеж!</p>
                 </div>
                 <div className={`price-and-number-order ${theme}`}>
-                    <p className={`price ${theme}`}>{transactionData.amount}</p>
-                    <p className={`number ${theme}`}>{/* {transactionData.order_number} */}</p>
+                    <p className={`price-success ${theme}`}>{transactionData.amount}</p>
+                    <p className={`number-success ${theme}`}>{/* {transactionData.order_number} */}</p>
                 </div>
-                <div className={`link-and-info-order ${theme}`}>
+                <div className={`link-and-info-order-success ${theme}`}>
                     <p>{transactionData.agent_name}</p>
                     <p>{transactionData.description}</p>
                 </div>

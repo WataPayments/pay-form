@@ -155,3 +155,44 @@ input[type="button"] {
 input[type="button"]:hover {
     background-color: #7346BB;
 }
+.price-success {
+    font-family: "TTFirsNeue Medium";
+    color: #211F22;
+    font-weight: 500;
+    font-size: 22px;
+    text-align: start;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.number-success {
+    font-size: 16px;
+    text-align: end;
+    color: #211F22;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+.link-and-info-order-success {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 16px;
+
+}
+
+.link-and-info-order-success p:first-child {
+    color: #211F22;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+}
+.link-and-info-order-success p:last-child {
+    color: #211F22;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 16px;
+}

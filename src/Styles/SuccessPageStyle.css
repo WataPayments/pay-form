@@ -89,7 +89,7 @@
 }
 
 :root {
-    --Text-Primary: #211f22;
+    --Text-Primary: #FFF;
     --Text-Secondry: rgba(255, 255, 255, 0.75);
     --Text-Warning: #ED8C20;
     --Text-Hint: rgba(255, 255, 255, 0.25);

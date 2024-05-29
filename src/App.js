@@ -8,10 +8,11 @@ export default function App() {
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
-    const osTheme = window.matchMedia("(prefers-color-scheme: dark)")
+    const osTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
       : "light";
     // setTheme("light");
+    console.log(window.matchMedia("(prefers-color-scheme: dark)"));
     setTheme(osTheme);
   }, []);
 

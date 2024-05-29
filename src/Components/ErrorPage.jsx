@@ -51,7 +51,7 @@ export default function ErrorPage(props) {
     useEffect(() => {
         if (theme === "dark") {
             import("../Styles/ErrorPageStyle.css");
-        } else {
+        } else if(theme==="light") {
             import("../Styles/ErrorPageLightStyle.css");
         }
     }, [theme]);

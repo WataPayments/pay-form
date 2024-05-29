@@ -50,7 +50,7 @@ export default function SuccessPage(props) {
     useEffect(() => {
         if (theme === "dark") {
             import("../Styles/SuccessPageStyle.css");
-        } else {
+        } else if(theme==="light"){
             import("../Styles/SuccessPageLightStyle.css");
         }
     }, [theme]);

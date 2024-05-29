@@ -212,6 +212,29 @@
     margin-bottom: 0;
 }
 
+.link-and-info-order-error {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 16px;
+
+}
+
+.link-and-info-order-error p:first-child {
+    color: #211F22;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+}
+.link-and-info-order-error p:last-child {
+    color: #211F22;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
 
 /*input[type="submit"] {*/
 /*    width: 100%;*/

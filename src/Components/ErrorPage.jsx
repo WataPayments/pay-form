@@ -88,7 +88,7 @@ export default function ErrorPage(props) {
                         <p className="price-info">{transactionData.amount} ₽</p>
                         <p className="number">{/*{transactionData.order_number}*/}</p>
                     </div>
-                    <div className="link-and-info-order">
+                    <div className="link-and-info-order-error">
                         <p>{transactionData.agent_name}</p>
                         <p>{transactionData.description}</p>
                     </div>

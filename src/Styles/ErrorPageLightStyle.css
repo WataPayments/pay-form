@@ -186,6 +186,18 @@
     margin-bottom: 10px;
     margin-top: 20px;
 }
+
+
+.price-and-number-order-error {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-and-number-order-error p {
+    width: 50%;
+}
 .info{
     width: 100%;
 }

@@ -175,14 +175,14 @@
     font-weight: 400;
 }
 
-.price-and-number-order {
+.price-and-number-order-error {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.price-and-number-order p {
+.price-and-number-order-error p {
     width: 50%;
 }
 

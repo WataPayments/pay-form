@@ -143,7 +143,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    color: #211F22;;
+    color: #211F22;
 }
 .error-reasons p{
     margin-bottom: 0;

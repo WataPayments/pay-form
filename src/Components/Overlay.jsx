@@ -22,7 +22,7 @@ export default function Overlay({ onClose }) {
     useEffect(() => {
         if (theme === "dark") {
             import("../Styles/OverlayStyle.css");
-        } else {
+        } else if (theme==="light"){
             import("../Styles/OverlayLightStyle.css");
         }
     }, [theme]);

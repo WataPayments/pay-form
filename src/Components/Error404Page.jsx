@@ -22,7 +22,7 @@ export default function Error404Page() {
     useEffect(() => {
         if (theme === "dark") {
             import("../Styles/Error404PageStyle.css");
-        } else {
+        } else if (theme==="light"){
             import("../Styles/Error404PageLightStyle.css");
         }
     }, [theme]);

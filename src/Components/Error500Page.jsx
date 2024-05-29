@@ -22,7 +22,7 @@ export default function Error500Page() {
     useEffect(() => {
         if (theme === "dark") {
             import("../Styles/Error500PageStyle.css");
-        } else {
+        } else if (theme==="light"){
             import("../Styles/Error500PageLightStyle.css");
         }
     }, [theme]);

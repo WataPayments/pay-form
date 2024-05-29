@@ -80,7 +80,7 @@ export default function SuccessPage(props) {
     return (
         <div className={`container ${theme}`}>
             <div className={`sucsess-block ${theme}`}>
-                <div className={`result-pay ${theme}`}>
+                <div className={`result-pay-success ${theme}`}>
                     <img src={Done} alt="Result-pay" />
                     <p>Успешный платеж!</p>
                 </div>

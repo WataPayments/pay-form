@@ -116,16 +116,16 @@
     margin-top: 20px;
     padding: 20px 20px 15px 20px;
 }
-.result-pay{
+.result-pay-success{
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.result-pay img{
+.result-pay-success img{
     width: 48px;
     height: 48px;
 }
-.result-pay p{
+.result-pay-success p{
     color: var(--Text-Primary);
     font-size: 18px;
     text-align: center;

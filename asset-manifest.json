@@ -1,11 +1,7 @@
 {
   "files": {
-    "main.css": "/pay-form/static/css/main.fb3e4536.css",
-    "main.js": "/pay-form/static/js/main.085fe93f.js",
-    "static/css/29.5f15dbd6.chunk.css": "/pay-form/static/css/29.5f15dbd6.chunk.css",
-    "static/js/29.adb06ee9.chunk.js": "/pay-form/static/js/29.adb06ee9.chunk.js",
-    "static/css/107.1efc3ee9.chunk.css": "/pay-form/static/css/107.1efc3ee9.chunk.css",
-    "static/js/107.5554c726.chunk.js": "/pay-form/static/js/107.5554c726.chunk.js",
+    "main.css": "/pay-form/static/css/main.881d7d8f.css",
+    "main.js": "/pay-form/static/js/main.00f0d817.js",
     "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
     "static/media/TTFirsNeue-DemiBoldItalic.ttf": "/pay-form/static/media/TTFirsNeue-DemiBoldItalic.d96287c6cf4cd2f5d330.ttf",
     "static/media/TTFirsNeue-BlackItalic.ttf": "/pay-form/static/media/TTFirsNeue-BlackItalic.20e6d72dbbf5628241f0.ttf",
@@ -26,22 +22,19 @@
     "static/media/TTFirsNeue-ExtraBold.ttf": "/pay-form/static/media/TTFirsNeue-ExtraBold.a3be4568fc181a363d94.ttf",
     "static/media/Vector.svg": "/pay-form/static/media/Vector.dd27a137ef819fc1853e59d76dde9232.svg",
     "static/media/Logo=Mir.svg": "/pay-form/static/media/Logo=Mir.8864cc9c76ce77a8b1037742ba99002f.svg",
-    "static/media/Alert.svg": "/pay-form/static/media/Alert.69c8d2eb6a6fb173015af1160ea27ffc.svg",
+    "static/media/Alert.svg": "/pay-form/static/media/Alert.632ab4ab4adc51ccfe344ee4461f497a.svg",
+    "static/media/LogoLight.svg": "/pay-form/static/media/LogoLight.4d8e85fb8be196c3dad61d7a4a68e9ba.svg",
     "static/media/Logo.svg": "/pay-form/static/media/Logo.f46aa925597ed7f039230b9d01a03e6f.svg",
     "static/media/Visibility_off.svg": "/pay-form/static/media/Visibility_off.96f9067fef7c0ca2002f84051584c77f.svg",
     "static/media/Close.svg": "/pay-form/static/media/Close.35d6499ccaef1f6fcb3a9e0bd96f3f45.svg",
     "static/media/Alert icon.svg": "/pay-form/static/media/Alert icon.ee218e5a9cf521267a725d0ec11320a8.svg",
     "static/media/Visibility.svg": "/pay-form/static/media/Visibility.0e2110d8abed7ff9de7f81351f0bd60b.svg",
     "index.html": "/pay-form/index.html",
-    "main.fb3e4536.css.map": "/pay-form/static/css/main.fb3e4536.css.map",
-    "main.085fe93f.js.map": "/pay-form/static/js/main.085fe93f.js.map",
-    "29.5f15dbd6.chunk.css.map": "/pay-form/static/css/29.5f15dbd6.chunk.css.map",
-    "29.adb06ee9.chunk.js.map": "/pay-form/static/js/29.adb06ee9.chunk.js.map",
-    "107.1efc3ee9.chunk.css.map": "/pay-form/static/css/107.1efc3ee9.chunk.css.map",
-    "107.5554c726.chunk.js.map": "/pay-form/static/js/107.5554c726.chunk.js.map"
+    "main.881d7d8f.css.map": "/pay-form/static/css/main.881d7d8f.css.map",
+    "main.00f0d817.js.map": "/pay-form/static/js/main.00f0d817.js.map"
   },
   "entrypoints": [
-    "static/css/main.fb3e4536.css",
-    "static/js/main.085fe93f.js"
+    "static/css/main.881d7d8f.css",
+    "static/js/main.00f0d817.js"
   ]
 }

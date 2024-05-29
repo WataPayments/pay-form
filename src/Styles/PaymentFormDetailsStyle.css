@@ -1,210 +1,223 @@
 @font-face {
-    font-family: 'TTFirsNeue Black';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Black.ttf') format('truetype');
+  font-family: "TTFirsNeue Black";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Black.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Black Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-BlackItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Black Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-BlackItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Bold';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Bold.ttf') format('truetype');
+  font-family: "TTFirsNeue Bold";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Bold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Bold Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-BoldItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Bold Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-BoldItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue DemiBold';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-DemiBold.ttf') format('truetype');
+  font-family: "TTFirsNeue DemiBold";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-DemiBold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue DemiBold Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-DemiBoldItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue DemiBold Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-DemiBoldItalic.ttf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraBold';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraBold.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraBold";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-ExtraBold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraBold Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraBoldItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraBold Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-ExtraBoldItalic.ttf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraLight';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraLight.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraLight";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-ExtraLight.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraLight Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraLightItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraLight Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-ExtraLightItalic.ttf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Italic.ttf') format('truetype');
+  font-family: "TTFirsNeue Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Italic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Light';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Light.ttf') format('truetype');
+  font-family: "TTFirsNeue Light";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Light.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Light Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-LightItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Light Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-LightItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Medium';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Medium.ttf') format('truetype');
+  font-family: "TTFirsNeue Medium";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Medium.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Medium Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-MediumItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Medium Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-MediumItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Regular';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Regular.ttf') format('truetype');
+  font-family: "TTFirsNeue Regular";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Thin';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Thin.ttf') format('truetype');
+  font-family: "TTFirsNeue Thin";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Thin.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Thin Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ThinItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Thin Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-ThinItalic.ttf") format("truetype");
 }
 
 :root {
-    --Text-Primary: #FFF;
-    --Text-Secondry: rgba(255, 255, 255, 0.75);
-    --Text-Warning: #ED8C20;
-    --Text-Hint: rgba(255, 255, 255, 0.25);
-    --Border-Default: rgba(255, 255, 255, 0.10);
-    --Background-Key: #262328;
+  --Text-Primary: #fff;
+  --Text-Secondry: rgba(255, 255, 255, 0.75);
+  --Text-Warning: #ed8c20;
+  --Text-Hint: rgba(255, 255, 255, 0.25);
+  --Border-Default: rgba(255, 255, 255, 0.1);
+  --Background-Key: #262328;
 }
 
 .order-info-block {
-    width: 100%;
-    border-radius: 10px;
-    border: 1px solid var(--Border-Default);
-    background: #262328;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: var(--Text-Primary);
-    font-family: 'TTFirsNeue Regular';
-    font-style: normal;
-    font-weight: 400;
-    margin-top: 20px;
-    padding: 20px 20px 15px 20px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--Border-Default);
+  background: #262328;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--Text-Primary);
+  font-family: "TTFirsNeue Regular";
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 40px;
+  padding: 20px 20px 15px 20px;
+}
+
+.order-info-block.light {
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .result-pay {
-    width: 100%;
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-    margin-bottom: 20px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
 }
 
 .result-pay img {
-    width: 10%;
+  width: 10%;
 }
 
 .result-pay p {
-    font-size: 18px;
-    color: var(--Text-Primary);
+  font-size: 18px;
+  color: var(--Text-Primary);
 }
 
 .price-and-number-order {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .price-and-number-order p {
-    width: 50%;
+  width: 50%;
 }
 
 .price-order {
-    font-family: "TTFirsNeue Medium";
-    color: var(--Text-Primary);
-    font-weight: 500;
-    font-size: 22px;
-    text-align: start;
-    margin-top: 0;
-    margin-bottom: 0;
+  font-family: "TTFirsNeue Medium";
+  color: var(--Text-Primary);
+  font-weight: 500;
+  font-size: 22px;
+  text-align: start;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.light .price-order {
+  color: #211f22;
 }
 
 .number {
-    font-size: 16px;
-    text-align: end;
-    color: var(--Text-Secondry);
-    margin-top: 0;
-    margin-bottom: 0;
+  font-size: 16px;
+  text-align: end;
+  color: var(--Text-Secondry);
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .link-and-info-order {
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    font-size: 16px;
-
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 16px;
 }
 
 .link-and-info-order p:first-child {
-    color: var(--Text-Secondry);
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 16px;
+  color: var(--Text-Secondry);
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
 }
 .link-and-info-order p:last-child {
-    color: var(--Text-Secondry);
-    margin-top: 10px;
-    margin-bottom: 0;
-    font-size: 16px;
+  color: var(--Text-Secondry);
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+.light .link-and-info-order p:first-child,
+.light .link-and-info-order p:last-child {
+  color: rgba(33, 31, 34, 0.75);
 }
 
 input[type="submit"] {
-    width: 100%;
-    color: #fff;
-    border: none;
-    padding: 15px 20px;
-    border-radius: 8px;
-    background: #8B53E8;
-    cursor: pointer;
-    font-size: 20px;
-    transition: background-color 500ms ease-in-out;
+  width: 100%;
+  color: #fff;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 8px;
+  background: #8b53e8;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 500ms ease-in-out;
 }
 
 input[type="submit"]:hover {
-    background-color: #522F8B;
+  background-color: #522f8b;
 }
 
 .submit-button-result {
-    width: 100%;
-    display: none;
-    justify-content: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
-

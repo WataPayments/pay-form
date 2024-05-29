@@ -1,149 +1,38 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import logo from "./Images/Logo.svg";
-import PaymentFormDetails from "./Components/PaymentFormDetails";
-import PaymentForm from "./Components/PaymentForm";
-import { number } from 'card-validator';
-import ApiClient from './ApiClient';
+import React, { useState, useEffect, createContext } from "react";
+import { Outlet } from "react-router-dom";
 import "./index.css";
-import "./indexLight.css";
+
+export const ThemeContext = createContext(null);
 
 export default function App() {
-    const navigate = useNavigate();
-    const { uuid } = useParams();
-    const [transactionData, setTransactionData] = useState(null);
-    const [redirectUrl, setRedirectUrl] = useState("");
-    const [cardNumber, setCardNumber] = useState('');
-    const [cardNumberValid, setCardNumberValid] = useState(false);
-    const [loading, setLoading] = useState(true);
-    const [theme, setTheme] = useState(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  const [theme, setTheme] = useState("dark");
 
-    useEffect(() => {
-        const fetchTransaction = async () => {
-            try {
-                const { transactionData, redirectUrl } = await ApiClient.fetchTransactionData(uuid);
-                setTransactionData(transactionData);
-                setRedirectUrl(redirectUrl);
-                setLoading(false);
+  useEffect(() => {
+    const osTheme = window.matchMedia("(prefers-color-scheme: dark)")
+      ? "dark"
+      : "light";
+    // setTheme("light");
+    setTheme(osTheme);
+  }, []);
 
-                if (transactionData.status === "Pending") {
-                    navigate(`/error-pay/${uuid}`);
-                } else if (transactionData.status === "Paid") {
-                    navigate(`/success-pay/${uuid}`);
-                }
-            } catch (error) {
-                console.error("Error fetching transaction data:", error);
-            }
-        };
-
-        fetchTransaction();
-    }, [uuid, navigate]);
-
-    useEffect(() => {
-        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        const handleThemeChange = (event) => {
-            setTheme(event.matches ? 'dark' : 'light');
-        };
-
-        setTheme(mediaQuery.matches ? 'dark' : 'light');
-        mediaQuery.addEventListener('change', handleThemeChange);
-
-        return () => {
-            mediaQuery.removeEventListener('change', handleThemeChange);
-        };
-    }, []);
-
-    useEffect(() => {
-        const applyTheme = async () => {
-            if (theme === 'dark') {
-                await import('./index.css');
-            } else if (theme === 'light') {
-                await import('./indexLight.css');
-            }
-        };
-        applyTheme();
-    }, [theme]);
-
-    const handleCardNumberChange = (e) => {
-        const { value } = e.target;
-        setCardNumber(value);
-        setCardNumberValid(number(value).isValid);
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleThemeChange = (event) => {
+      setTheme(event.matches ? "dark" : "light");
     };
 
-    const setUrlRedirect = (redirectUrl) => {
-        setRedirectUrl(redirectUrl);
+    mediaQuery.addEventListener("change", handleThemeChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleThemeChange);
     };
+  }, []);
 
-    useEffect(() => {
-        if (redirectUrl) {
-            const handleMessage = (event) => {
-                if (event.origin === new URL(redirectUrl).origin) {
-                    console.log("Received message from iframe:", event.data);
-                    const { url } = event.data;
-                    if (url) {
-                        console.log("Navigating to:", url);
-                        window.location.replace(url);
-                    }
-                }
-            };
-
-            window.addEventListener("message", handleMessage);
-
-            return () => {
-                window.removeEventListener("message", handleMessage);
-            };
-        }
-    }, [redirectUrl]);
-
-    useEffect(() => {
-        if (redirectUrl) {
-            const iframe = document.getElementById("payment-iframe");
-
-            const handleIframeLoad = () => {
-                try {
-                    const iframeLocation = iframe.contentWindow.location.href;
-                    console.log("Iframe loaded with location:", iframeLocation);
-                    if (iframeLocation.includes("#/success-pay") || iframeLocation.includes("#/error-pay")) {
-                        window.location.replace(iframeLocation);
-                    }
-                } catch (error) {
-                    console.error("Error accessing iframe content:", error);
-                }
-            };
-
-            iframe.addEventListener("load", handleIframeLoad);
-            return () => iframe.removeEventListener("load", handleIframeLoad);
-        }
-    }, [redirectUrl]);
-
-    if (loading) {
-        return (
-            <div className="loader-block">
-                <span className="loader"></span>
-            </div>
-        );
-    }
-
-    return (
-        <div className="App">
-            {!redirectUrl ? (
-                <div>
-                    <PaymentFormDetails transaction={transactionData} />
-                    <PaymentForm
-                        setUrlRedirect={setUrlRedirect}
-                        uuid={uuid}
-                        transaction={transactionData}
-                        cardNumber={cardNumber}
-                        onCardNumberChange={handleCardNumberChange}
-                        cardNumberValid={cardNumberValid}
-                    />
-                </div>
-            ) : (
-                <iframe id="payment-iframe" src={redirectUrl} title="Payment Redirect" />
-            )}
-            <div className="logo">
-                <img src={logo} alt="WATA" />
-            </div>
-        </div>
-    );
+  return (
+    <ThemeContext.Provider value={theme}>
+      <div className={`wrapper ${theme}`}>
+        <Outlet />
+      </div>
+    </ThemeContext.Provider>
+  );
 }

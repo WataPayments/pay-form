@@ -1,183 +1,183 @@
 @font-face {
-    font-family: 'TTFirsNeue Black';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-Black.ttf') format('truetype');
+  font-family: "TTFirsNeue Black";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-Black.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Black Italic';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-BlackItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Black Italic";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-BlackItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Bold';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-Bold.ttf') format('truetype');
+  font-family: "TTFirsNeue Bold";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-Bold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Bold Italic';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-BoldItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Bold Italic";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-BoldItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue DemiBold';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-DemiBold.ttf') format('truetype');
+  font-family: "TTFirsNeue DemiBold";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-DemiBold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue DemiBold Italic';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-DemiBoldItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue DemiBold Italic";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-DemiBoldItalic.ttf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraBold';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-ExtraBold.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraBold";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-ExtraBold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraBold Italic';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-ExtraBoldItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraBold Italic";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-ExtraBoldItalic.ttf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraLight';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-ExtraLight.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraLight";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-ExtraLight.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraLight Italic';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-ExtraLightItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraLight Italic";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-ExtraLightItalic.ttf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Italic';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-Italic.ttf') format('truetype');
+  font-family: "TTFirsNeue Italic";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-Italic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Light';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-Light.ttf') format('truetype');
+  font-family: "TTFirsNeue Light";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-Light.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Light Italic';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-LightItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Light Italic";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-LightItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Medium';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-Medium.ttf') format('truetype');
+  font-family: "TTFirsNeue Medium";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-Medium.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Medium Italic';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-MediumItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Medium Italic";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-MediumItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Regular';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-Regular.ttf') format('truetype');
+  font-family: "TTFirsNeue Regular";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Thin';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-Thin.ttf') format('truetype');
+  font-family: "TTFirsNeue Thin";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-Thin.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Thin Italic';
-    src: url('./Fonts/TTFirsNeue/TTFirsNeue-ThinItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Thin Italic";
+  src: url("./Fonts/TTFirsNeue/TTFirsNeue-ThinItalic.ttf") format("truetype");
 }
 
 :root {
-    --Text-Primary: #FFF;
-    --Text-Secondary: rgba(255, 255, 255, 0.75);
-    --Border-Default: rgba(255, 255, 255, 0.10);
-    --Background-Key: #211f22;
+  --Text-Primary: #fff;
+  --Text-Secondary: rgba(255, 255, 255, 0.75);
+  --Border-Default: rgba(255, 255, 255, 0.1);
+  --Background-Key: #211f22;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background: #FAFAFA;
-    overflow-x: hidden;
-    display: flex;
-    justify-content: center;
+  margin: 0;
+  padding: 0;
+  background: #fafafa;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 * {
-    box-sizing: border-box;
-    color: var(--Text-Primary, #FFF);
-    font-family: 'TTFirsNeue Regular';
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 28px;
-
+  box-sizing: border-box;
+  color: var(--Text-Primary, #fff);
+  font-family: "TTFirsNeue Regular";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
 }
-#root{
-    width: 100%;
-    max-width: 480px;
-    background: #FAFAFA;
+#root {
+  width: 100%;
+  max-width: 480px;
+  background: #fafafa;
 }
 
 .App {
-    width: 100%;
-    max-width: 480px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #FAFAFA;
-    padding: 20px;
-    box-sizing: border-box;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fafafa;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .logo {
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
 }
 
 iframe {
-    width: 100%;
-    height: 550px;
-    border-radius: 10px;
-    border: 1px solid var(--Border-Default);
+  width: 100%;
+  height: 550px;
+  border-radius: 10px;
+  border: 1px solid var(--Border-Default);
 }
-.loader-block{
-    text-align: center;
-    margin-top: 300px;
+.loader-block {
+  text-align: center;
+  margin-top: 300px;
 }
 
 .loader {
-    width: 30px;
-    height: 30px;
-    border: 5px solid #FFF;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
+  width: 30px;
+  height: 30px;
+  border: 5px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
 }
 
 @keyframes rotation {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 @media screen and (max-width: 480px) {
-    .App {
-        padding: 20px;
-    }
-
+  .App {
+    padding: 20px;
+  }
 }
 
 @media screen and (max-width: 320px) {
-    .App {
-        padding: 10px;
-    }
-
+  .App {
+    padding: 10px;
+  }
 }

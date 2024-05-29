@@ -1,17 +1,16 @@
-
 .root {
   max-width: 1259px;
   border-radius: 24px;
-  border: 2px solid var(--collection-2-dark-purple, #27005D);
-  background: var(--collection-2-white, #FAFAFA);
+  border: 2px solid var(--collection-2-dark-purple, #27005d);
+  background: var(--collection-2-white, #fafafa);
   display: flex;
   margin: 0 auto;
 }
 
 .qrWrapper {
   border-radius: 24px;
-  border: 2px solid var(--collection-2-dark-purple, #27005D);
-  background: var(--collection-2-white, #FAFAFA);
+  border: 2px solid var(--collection-2-dark-purple, #27005d);
+  background: var(--collection-2-white, #fafafa);
   box-shadow: 8px 0px 0px 0px rgba(19, 13, 27, 0.25);
   padding: 60px;
   margin: -2px;
@@ -45,7 +44,7 @@
 }
 
 .QRdescription {
-  color: var(--collection-2-dark-purple, #27005D);
+  color: var(--collection-2-dark-purple, #27005d);
   font-family: SF Pro Display;
   font-size: 16px;
   font-style: normal;
@@ -57,7 +56,7 @@
 }
 
 .title {
-  color: var(--collection-2-dark-purple, #27005D);
+  color: var(--collection-2-dark-purple, #27005d);
   font-family: SF Pro Display;
   font-size: 48px;
   font-style: normal;
@@ -67,7 +66,7 @@
 }
 
 .subTitle {
-  color: var(--collection-2-black, #130D1B);
+  color: var(--collection-2-black, #130d1b);
   font-family: SF Pro Display;
   font-size: 24px;
   font-style: normal;
@@ -89,7 +88,7 @@
 }
 
 .price {
-  color: #9400FF;
+  color: #9400ff;
   font-family: SF Pro Display;
   font-size: 36px;
   font-style: normal;
@@ -98,7 +97,7 @@
 }
 
 .accountNumber {
-  color: var(--collection-2-black, #130D1B);
+  color: var(--collection-2-black, #130d1b);
   font-family: SF Pro Display;
   font-size: 36px;
   font-style: normal;

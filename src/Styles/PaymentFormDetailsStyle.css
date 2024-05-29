@@ -94,13 +94,14 @@
     --Text-Warning: #ED8C20;
     --Text-Hint: rgba(255, 255, 255, 0.25);
     --Border-Default: rgba(255, 255, 255, 0.10);
+    --Background-Key: #262328;
 }
 
 .order-info-block {
     width: 100%;
     border-radius: 10px;
     border: 1px solid var(--Border-Default);
-    background: #262328;
+    background: var(--Background-Key);
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pay-form/static/css/main.02f831f5.css",
-    "main.js": "/pay-form/static/js/main.fd4e6b26.js",
+    "main.js": "/pay-form/static/js/main.d0f59c39.js",
     "static/css/29.5f15dbd6.chunk.css": "/pay-form/static/css/29.5f15dbd6.chunk.css",
     "static/js/29.adb06ee9.chunk.js": "/pay-form/static/js/29.adb06ee9.chunk.js",
     "static/css/107.1efc3ee9.chunk.css": "/pay-form/static/css/107.1efc3ee9.chunk.css",
@@ -34,7 +34,7 @@
     "static/media/Visibility.svg": "/pay-form/static/media/Visibility.0e2110d8abed7ff9de7f81351f0bd60b.svg",
     "index.html": "/pay-form/index.html",
     "main.02f831f5.css.map": "/pay-form/static/css/main.02f831f5.css.map",
-    "main.fd4e6b26.js.map": "/pay-form/static/js/main.fd4e6b26.js.map",
+    "main.d0f59c39.js.map": "/pay-form/static/js/main.d0f59c39.js.map",
     "29.5f15dbd6.chunk.css.map": "/pay-form/static/css/29.5f15dbd6.chunk.css.map",
     "29.adb06ee9.chunk.js.map": "/pay-form/static/js/29.adb06ee9.chunk.js.map",
     "107.1efc3ee9.chunk.css.map": "/pay-form/static/css/107.1efc3ee9.chunk.css.map",
@@ -42,6 +42,6 @@
   },
   "entrypoints": [
     "static/css/main.02f831f5.css",
-    "static/js/main.fd4e6b26.js"
+    "static/js/main.d0f59c39.js"
   ]
 }

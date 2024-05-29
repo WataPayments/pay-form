@@ -3,15 +3,15 @@ import Done from "../Images/Alert icon.svg";
 import '../Styles/SuccessPageStyle.css';
 import "../Styles/SuccessPageLightStyle.css";
 import ApiClient from "../ApiClient";
-import {useNavigate, useParams} from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import logo from "../Images/Logo.svg";
 
 export default function SuccessPage(props) {
     const [transactionData, setTransactionData] = useState("");
     const { uuid } = useParams();
-    const navigate=useNavigate();
-    const [loading,setLoading]=useState(true);
-    const [theme,setTheme]=useState('')
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
+    const [theme, setTheme] = useState(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
     useEffect(() => {
         const fetchTransaction = async () => {
@@ -35,7 +35,19 @@ export default function SuccessPage(props) {
     }, [uuid, navigate]);
 
     useEffect(() => {
-        const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        const handleThemeChange = (e) => {
+            setTheme(e.matches ? "dark" : "light");
+        };
+
+        mediaQuery.addListener(handleThemeChange);
+
+        return () => {
+            mediaQuery.removeListener(handleThemeChange);
+        };
+    }, []);
+
+    useEffect(() => {
         if (theme === "dark") {
             import("../Styles/SuccessPageStyle.css");
         } else {
@@ -56,33 +68,36 @@ export default function SuccessPage(props) {
                 .catch((error) => console.error('Error copying link:', error));
         }
     };
+
     if (loading) {
-        return(<div className={"loader-block"}>
-            <span className="loader"></span>
-        </div>);
+        return (
+            <div className={`loader-block ${theme}`}>
+                <span className="loader"></span>
+            </div>
+        );
     }
 
     return (
-        <div className={"container"}>
-            <div className={"sucsess-block"}>
-                <div className={"result-pay"}>
-                    <img src={Done} alt="Result-pay"/>
+        <div className={`container ${theme}`}>
+            <div className={`sucsess-block ${theme}`}>
+                <div className={`result-pay ${theme}`}>
+                    <img src={Done} alt="Result-pay" />
                     <p>Успешный платеж!</p>
                 </div>
-                <div className={"price-and-number-order"}>
-                    <p className={"price"}>{transactionData.amount}</p>
-                    <p className={"number"}>{/*{transactionData.order_number}*/}</p>
+                <div className={`price-and-number-order ${theme}`}>
+                    <p className={`price ${theme}`}>{transactionData.amount}</p>
+                    <p className={`number ${theme}`}>{/* {transactionData.order_number} */}</p>
                 </div>
-                <div className={"link-and-info-order"}>
+                <div className={`link-and-info-order ${theme}`}>
                     <p>{transactionData.agent_name}</p>
                     <p>{transactionData.description}</p>
                 </div>
-                <div className={`submit-button-result`}>
-                    <input type="button" value="Поделиться" onClick={handleShare}/>
+                <div className={`submit-button-result ${theme}`}>
+                    <input type="button" value="Поделиться" onClick={handleShare} />
                 </div>
             </div>
-            <div className="logo">
-                <img src={logo} alt="WATA"/>
+            <div className={`logo ${theme}`}>
+                <img src={logo} alt="WATA" />
             </div>
         </div>
     );

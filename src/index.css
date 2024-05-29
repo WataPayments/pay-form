@@ -115,6 +115,7 @@ body {
 #root{
     width: 100%;
     max-width: 480px;
+    background: #211F22;
 }
 
 .App {

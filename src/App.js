@@ -16,7 +16,7 @@ export default function App() {
     const [cardNumber, setCardNumber] = useState('');
     const [cardNumberValid, setCardNumberValid] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [theme,setTheme]=useState('');
+    const [theme, setTheme] = useState(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
     useEffect(() => {
         const fetchTransaction = async () => {
@@ -32,7 +32,7 @@ export default function App() {
                     navigate(`/success-pay/${uuid}`);
                 }
             } catch (error) {
-                console.error("Ошибка при получении данных транзакции:", error);
+                console.error("Error fetching transaction data:", error);
             }
         };
 
@@ -40,12 +40,34 @@ export default function App() {
     }, [uuid, navigate]);
 
     useEffect(() => {
-        const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        if (theme === "dark") {
-            import("./index.css");
-        } else {
-            import("./indexLight.css");
-        }
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        const handleThemeChange = (e) => {
+            setTheme(e.matches ? "dark" : "light");
+        };
+
+        mediaQuery.addListener(handleThemeChange);
+
+        return () => {
+            mediaQuery.removeListener(handleThemeChange);
+        };
+    }, []);
+
+    useEffect(() => {
+        const loadCSS = async () => {
+            try {
+                if (theme === "dark") {
+                    await import("./index.css");
+                    document.getElementById("theme-link").setAttribute("href", "");
+                } else {
+                    await import("./indexLight.css");
+                    document.getElementById("theme-link").setAttribute("href", "");
+                }
+            } catch (error) {
+                console.error("Error loading CSS:", error);
+            }
+        };
+
+        loadCSS();
     }, [theme]);
 
     const handleCardNumberChange = (e) => {
@@ -91,7 +113,7 @@ export default function App() {
                         window.location.replace(iframeLocation);
                     }
                 } catch (error) {
-                    console.error("Ошибка при доступе к содержимому iframe:", error);
+                    console.error("Error accessing iframe content:", error);
                 }
             };
 
@@ -101,8 +123,8 @@ export default function App() {
     }, [redirectUrl]);
 
     if (loading) {
-        return(
-            <div className={"loader-block"}>
+        return (
+            <div className="loader-block">
                 <span className="loader"></span>
             </div>
         );
@@ -128,6 +150,7 @@ export default function App() {
             <div className="logo">
                 <img src={logo} alt="WATA" />
             </div>
+            <link id="theme-link" rel="stylesheet" type="text/css" />
         </div>
     );
 }

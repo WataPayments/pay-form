@@ -1,22 +1,36 @@
-import React, {useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import "../Styles/OverlayStyle.css";
 import "../Styles/OverlayLightStyle.css";
 import Close from "../Images/Close.svg";
 
-export default function Overlay({onClose}) {
+export default function Overlay({ onClose }) {
+    const [theme, setTheme] = useState(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
     useEffect(() => {
-        const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        const handleThemeChange = (e) => {
+            setTheme(e.matches ? "dark" : "light");
+        };
+
+        mediaQuery.addListener(handleThemeChange);
+
+        return () => {
+            mediaQuery.removeListener(handleThemeChange);
+        };
+    }, []);
+
+    useEffect(() => {
         if (theme === "dark") {
             import("../Styles/OverlayStyle.css");
-        } else if (theme === "light") {
+        } else {
             import("../Styles/OverlayLightStyle.css");
         }
-    }, []);
+    }, [theme]);
+
     return (
-        <div className="overlay">
-            <div className="overlay-content">
-                <img src={Close} alt="Close" className="close-btn" onClick={onClose}/>
+        <div className={`overlay ${theme}`}>
+            <div className={`overlay-content ${theme}`}>
+                <img src={Close} alt="Close" className="close-btn" onClick={onClose} />
                 <h2>Публичная оферта</h2>
                 <p>Компания WATA Group Limited, именуемая в дальнейшем "Поставщик", предлагает услуги по приёму платежей
                     согласно следующим условиям:</p>
@@ -57,4 +71,3 @@ export default function Overlay({onClose}) {
         </div>
     );
 }
-

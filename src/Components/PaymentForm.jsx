@@ -8,8 +8,6 @@ import Overlay from "./Overlay";
 import { useNavigate, useParams } from "react-router-dom";
 import ApiClient from "../ApiClient";
 import Loader from "./Loader";
-import "../Styles/PaymentFormLightStyle.css";
-import "../Styles/PaymentFormStyle.css";
 import isMobile from "is-mobile";
 
 const PaymentForm = (props) => {
@@ -55,12 +53,12 @@ const PaymentForm = (props) => {
 
     useEffect(() => {
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        setTheme(mediaQuery.matches ? 'dark' : 'light');
-
         const handleThemeChange = (event) => {
             setTheme(event.matches ? 'dark' : 'light');
         };
 
+        // Set initial theme
+        setTheme(mediaQuery.matches ? 'dark' : 'light');
         mediaQuery.addEventListener('change', handleThemeChange);
 
         return () => {
@@ -69,11 +67,14 @@ const PaymentForm = (props) => {
     }, []);
 
     useEffect(() => {
-        if (theme === 'dark') {
-            import('../Styles/PaymentFormStyle.css');
-        } else if (theme === 'light') {
-            import('../Styles/PaymentFormLightStyle.css');
-        }
+        const applyTheme = async () => {
+            if (theme === 'dark') {
+                await import('../Styles/PaymentFormStyle.css');
+            } else if (theme === 'light') {
+                await import('../Styles/PaymentFormLightStyle.css');
+            }
+        };
+        applyTheme();
     }, [theme]);
 
     const handleOverlayToggle = () => {
@@ -256,10 +257,8 @@ const PaymentForm = (props) => {
         }
     };
 
-
-
     return (
-        <div className="order-add-cart-block">
+        <div className={`order-add-cart-block ${theme}`}>
             {transactionData && transactionData.methods.includes("sbp") && (
                 <a className={"sbp-bg"} onClick={sbp_payment}>
                     <img src={SBP} className="big-image" alt="SBP" />
@@ -329,15 +328,15 @@ const PaymentForm = (props) => {
                 </div>
 
                 <div className="submit-button">
-                    <span>
-                        {isLoading ? <Loader /> : ``}
-                        <input
-                            id="submitButton"
-                            type="submit"
-                            value={isLoading ? "" : `Оплатить ${props.transaction.amount} ₽`}
-                            className={isLoading ? "submit-loading" : ""}
-                        />
-                    </span>
+                <span>
+                    {isLoading ? <Loader /> : ``}
+                    <input
+                        id="submitButton"
+                        type="submit"
+                        value={isLoading ? "" : `Оплатить ${props.transaction.amount} ₽`}
+                        className={isLoading ? "submit-loading" : ""}
+                    />
+                </span>
                 </div>
             </form>
             <div className="accept-text">
@@ -360,3 +359,5 @@ const PaymentForm = (props) => {
 };
 
 export default PaymentForm;
+
+

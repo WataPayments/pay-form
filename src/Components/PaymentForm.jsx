@@ -56,8 +56,6 @@ const PaymentForm = (props) => {
         const handleThemeChange = (event) => {
             setTheme(event.matches ? 'dark' : 'light');
         };
-
-        // Set initial theme
         setTheme(mediaQuery.matches ? 'dark' : 'light');
         mediaQuery.addEventListener('change', handleThemeChange);
 

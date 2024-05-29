@@ -40,34 +40,28 @@ export default function App() {
     }, [uuid, navigate]);
 
     useEffect(() => {
-        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-        const handleThemeChange = (e) => {
-            setTheme(e.matches ? "dark" : "light");
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const handleThemeChange = (event) => {
+            setTheme(event.matches ? 'dark' : 'light');
         };
 
-        mediaQuery.addListener(handleThemeChange);
+        setTheme(mediaQuery.matches ? 'dark' : 'light');
+        mediaQuery.addEventListener('change', handleThemeChange);
 
         return () => {
-            mediaQuery.removeListener(handleThemeChange);
+            mediaQuery.removeEventListener('change', handleThemeChange);
         };
     }, []);
 
     useEffect(() => {
-        const loadCSS = async () => {
-            try {
-                if (theme === "dark") {
-                    await import("./index.css");
-                    document.getElementById("theme-link").setAttribute("href", "");
-                } else {
-                    await import("./indexLight.css");
-                    document.getElementById("theme-link").setAttribute("href", "");
-                }
-            } catch (error) {
-                console.error("Error loading CSS:", error);
+        const applyTheme = async () => {
+            if (theme === 'dark') {
+                await import('./index.css');
+            } else if (theme === 'light') {
+                await import('./indexLight.css');
             }
         };
-
-        loadCSS();
+        applyTheme();
     }, [theme]);
 
     const handleCardNumberChange = (e) => {
@@ -150,7 +144,6 @@ export default function App() {
             <div className="logo">
                 <img src={logo} alt="WATA" />
             </div>
-            <link id="theme-link" rel="stylesheet" type="text/css" />
         </div>
     );
 }

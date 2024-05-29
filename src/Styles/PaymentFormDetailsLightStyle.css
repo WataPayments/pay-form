@@ -101,7 +101,7 @@
     width: 100%;
     border-radius: 10px;
     border: 1px solid var(--Border-Default);
-    background: var(--Background-Key);
+    background: #FFF;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -175,13 +175,13 @@
 }
 
 .link-and-info-order p:first-child {
-    color: var(--Text-Secondry);
+    color: #211F22;
     margin-top: 0;
     margin-bottom: 0;
     font-size: 16px;
 }
 .link-and-info-order p:last-child {
-    color: var(--Text-Secondry);
+    color: #211F22;
     margin-top: 10px;
     margin-bottom: 0;
     font-size: 16px;

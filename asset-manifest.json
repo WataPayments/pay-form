@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pay-form/static/css/main.e1896f2a.css",
-    "main.js": "/pay-form/static/js/main.02fe4b47.js",
+    "main.css": "/pay-form/static/css/main.6723334d.css",
+    "main.js": "/pay-form/static/js/main.2ec7b907.js",
     "static/css/915.42e88e28.chunk.css": "/pay-form/static/css/915.42e88e28.chunk.css",
     "static/js/915.cb7723e3.chunk.js": "/pay-form/static/js/915.cb7723e3.chunk.js",
     "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
@@ -35,13 +35,13 @@
     "static/media/Visibility.svg": "/pay-form/static/media/Visibility.0e2110d8abed7ff9de7f81351f0bd60b.svg",
     "static/media/RefundedPay.svg": "/pay-form/static/media/RefundedPay.599a52fefb146725ce6592b2f9dcda9d.svg",
     "index.html": "/pay-form/index.html",
-    "main.e1896f2a.css.map": "/pay-form/static/css/main.e1896f2a.css.map",
-    "main.02fe4b47.js.map": "/pay-form/static/js/main.02fe4b47.js.map",
+    "main.6723334d.css.map": "/pay-form/static/css/main.6723334d.css.map",
+    "main.2ec7b907.js.map": "/pay-form/static/js/main.2ec7b907.js.map",
     "915.42e88e28.chunk.css.map": "/pay-form/static/css/915.42e88e28.chunk.css.map",
     "915.cb7723e3.chunk.js.map": "/pay-form/static/js/915.cb7723e3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1896f2a.css",
-    "static/js/main.02fe4b47.js"
+    "static/css/main.6723334d.css",
+    "static/js/main.2ec7b907.js"
   ]
 }

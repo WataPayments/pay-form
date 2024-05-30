@@ -3,7 +3,8 @@ import Done from "../Images/Alert icon.svg";
 import "../Styles/SuccessPageStyle.css";
 import ApiClient from "../ApiClient";
 import { useNavigate, useParams } from "react-router-dom";
-import logo from "../Images/Logo.svg";
+import logoDark from "../Images/Logo.svg";
+import logoLight from "../Images/LogoLight.svg";
 import { ThemeContext } from "../App";
 
 export default function SuccessPage(props) {
@@ -83,7 +84,7 @@ export default function SuccessPage(props) {
         </div>
       </div>
       <div className={`logo ${theme}`}>
-        <img src={logo} alt="WATA" />
+        <img src={theme === "dark" ? logoDark : logoLight} alt="WATA" />
       </div>
     </div>
   );

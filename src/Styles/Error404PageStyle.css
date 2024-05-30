@@ -1,130 +1,154 @@
 @font-face {
-    font-family: 'TTFirsNeue Black';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Black.ttf') format('truetype');
+  font-family: "TTFirsNeue Black";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Black.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Black Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-BlackItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Black Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-BlackItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Bold';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Bold.ttf') format('truetype');
+  font-family: "TTFirsNeue Bold";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Bold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Bold Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-BoldItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Bold Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-BoldItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue DemiBold';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-DemiBold.ttf') format('truetype');
+  font-family: "TTFirsNeue DemiBold";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-DemiBold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue DemiBold Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-DemiBoldItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue DemiBold Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-DemiBoldItalic.ttf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraBold';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraBold.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraBold";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-ExtraBold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraBold Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraBoldItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraBold Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-ExtraBoldItalic.ttf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraLight';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraLight.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraLight";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-ExtraLight.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraLight Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraLightItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraLight Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-ExtraLightItalic.ttf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Italic.ttf') format('truetype');
+  font-family: "TTFirsNeue Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Italic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Light';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Light.ttf') format('truetype');
+  font-family: "TTFirsNeue Light";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Light.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Light Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-LightItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Light Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-LightItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Medium';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Medium.ttf') format('truetype');
+  font-family: "TTFirsNeue Medium";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Medium.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Medium Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-MediumItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Medium Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-MediumItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Regular';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Regular.ttf') format('truetype');
+  font-family: "TTFirsNeue Regular";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Thin';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Thin.ttf') format('truetype');
+  font-family: "TTFirsNeue Thin";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Thin.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Thin Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ThinItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Thin Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-ThinItalic.ttf") format("truetype");
 }
 
 :root {
-    --Text-Primary: #FFF;
-    --Text-Secondry: rgba(255, 255, 255, 0.75);
-    --Text-Warning: #ED8C20;
-    --Text-Hint: rgba(255, 255, 255, 0.25);
-    --Border-Default: rgba(255, 255, 255, 0.10);
-    --Border-Active: #8B53E8;
-    --Background-Primary-active: #522F8B;
+  --Text-Primary: #fff;
+  --Text-Secondry: rgba(255, 255, 255, 0.75);
+  --Text-Warning: #ed8c20;
+  --Text-Hint: rgba(255, 255, 255, 0.25);
+  --Border-Default: rgba(255, 255, 255, 0.1);
+  --Border-Active: #8b53e8;
+  --Background-Primary-active: #522f8b;
+}
+
+.error-contaier {
+  width: 100%;
+  max-width: 480px;
 }
 
 .error-block {
-    width: 100%;
-    max-width: 480px;
-    border-radius: 10px;
-    border: 1px solid var(--Border-Default);
-    background: #262328;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: var(--Text-Primary);
-    font-family: 'TTFirsNeue Regular';
-    font-style: normal;
-    font-weight: 400;
-    margin-top: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--Border-Default);
+  background: #262328;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--Text-Primary);
+  font-family: "TTFirsNeue Regular";
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 20px;
 
-    padding: 20px 20px 20px 20px;
+  padding: 20px;
 }
-.error-info{
-    width: 100%;
+
+.light .error-block {
+  background-color: rgba(255, 255, 255, 1);
+  border-color: rgba(33, 31, 34, 0.1);
 }
-.type-error{
-    font-size: 36px;
-    margin-top: 5px;
-    margin-bottom: 0;
-    text-align: center;
+
+.error-title {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
 }
-.name-error{
-    font-size: 18px;
-    text-align: center;
+
+.error-message {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.light .error-title {
+  color: rgba(33, 31, 34, 1);
+}
+
+.light .error-message {
+  color: rgba(33, 31, 34, 1);
 }

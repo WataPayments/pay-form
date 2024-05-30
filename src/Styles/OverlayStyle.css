@@ -1,117 +1,212 @@
 @font-face {
-    font-family: 'TTFirsNeue Black';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Black.ttf') format('truetype');
+  font-family: "TTFirsNeue Black";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Black.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Black Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-BlackItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Black Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-BlackItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Bold';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Bold.ttf') format('truetype');
+  font-family: "TTFirsNeue Bold";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Bold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Bold Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-BoldItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Bold Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-BoldItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue DemiBold';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-DemiBold.ttf') format('truetype');
+  font-family: "TTFirsNeue DemiBold";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-DemiBold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue DemiBold Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-DemiBoldItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue DemiBold Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-DemiBoldItalic.ttf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraBold';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraBold.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraBold";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-ExtraBold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraBold Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraBoldItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraBold Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-ExtraBoldItalic.ttf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraLight';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraLight.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraLight";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-ExtraLight.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue ExtraLight Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ExtraLightItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue ExtraLight Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-ExtraLightItalic.ttf")
+    format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Italic.ttf') format('truetype');
+  font-family: "TTFirsNeue Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Italic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Light';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Light.ttf') format('truetype');
+  font-family: "TTFirsNeue Light";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Light.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Light Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-LightItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Light Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-LightItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Medium';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Medium.ttf') format('truetype');
+  font-family: "TTFirsNeue Medium";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Medium.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Medium Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-MediumItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Medium Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-MediumItalic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Regular';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Regular.ttf') format('truetype');
+  font-family: "TTFirsNeue Regular";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Thin';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-Thin.ttf') format('truetype');
+  font-family: "TTFirsNeue Thin";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-Thin.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'TTFirsNeue Thin Italic';
-    src: url('../Fonts/TTFirsNeue/TTFirsNeue-ThinItalic.ttf') format('truetype');
+  font-family: "TTFirsNeue Thin Italic";
+  src: url("../Fonts/TTFirsNeue/TTFirsNeue-ThinItalic.ttf") format("truetype");
 }
 
 :root {
-    --Text-Primary: #FFF;
-    --Text-Secondry: rgba(255, 255, 255, 0.75);
-    --Text-Warning: #ED8C20;
-    --Text-Hint: rgba(255, 255, 255, 0.25);
-    --Border-Default: rgba(255, 255, 255, 0.10);
-    --Background-Card: #262328;
+  --Text-Primary: #fff;
+  --Text-Secondry: rgba(255, 255, 255, 0.75);
+  --Text-Warning: #ed8c20;
+  --Text-Hint: rgba(255, 255, 255, 0.25);
+  --Border-Default: rgba(255, 255, 255, 0.1);
+  --Background-Card: #262328;
 }
 
-
 .overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-height: 99%;
+  overflow-y: auto;
+  z-index: 1000;
+  border-radius: 8px;
+  font-weight: 400;
+}
+
+.overlay-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  background: var(--Background-Card);
+  height: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.light .overlay-content {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.overlay-content {
+  text-align: start;
+}
+
+.close-btn {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+.overlay-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overlay-content::-webkit-scrollbar-thumb {
+  background-color: var(--Text-Hint);
+  border-radius: 4px;
+}
+
+.p2,
+.p2First {
+  margin-bottom: 0;
+}
+
+.block {
+  margin-bottom: 20px;
+}
+
+.light .p2 {
+  color: rgba(33, 31, 34, 0.75);
+}
+
+h2 {
+  text-align: center;
+  font-size: 18px;
+  color: var(--Text-Primary);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.light h2 {
+  color: rgba(33, 31, 34, 1);
+}
+
+p {
+  font-size: 14px;
+  color: var(--Text-Secondry);
+  line-height: 20px;
+}
+
+.accept-text a {
+  color: var(--Text-Primary);
+}
+
+.accept-text a:hover {
+  text-decoration: underline;
+}
+::-webkit-scrollbar {
+  width: 0px; /* Ширина скроллбара */
+  background: transparent; /* Цвет фона */
+}
+
+@media screen and (max-width: 480px) {
+  .overlay {
     position: fixed;
     display: flex;
     justify-content: center;
     bottom: 0;
     left: 0;
     width: 100%;
-    max-height: 99%;
+    max-height: 80%;
     overflow-y: auto;
     z-index: 1000;
     border-radius: 8px;
-}
+  }
 
-.overlay-content {
+  .overlay-content {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -121,131 +216,54 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
+  }
 
-.close-btn {
+  .close-btn {
     width: 20px;
     height: 20px;
+    color: var(--Text-Primary);
+    background: none;
+    border: none;
+    font-size: 20px;
     cursor: pointer;
     align-self: flex-end;
-}
-.overlay-content::-webkit-scrollbar {
+  }
+  .overlay-content::-webkit-scrollbar {
     width: 8px;
-}
+  }
 
-.overlay-content::-webkit-scrollbar-thumb {
+  .overlay-content::-webkit-scrollbar-thumb {
     background-color: var(--Text-Hint);
     border-radius: 4px;
-}
+  }
 
-
-.p2,
-.p2First {
+  .p2,
+  .p2First {
     margin-bottom: 0;
-}
+  }
 
-h2 {
+  h2 {
     text-align: center;
     font-size: 18px;
     color: var(--Text-Primary);
     margin-top: 20px;
-}
+  }
 
-p {
+  p {
     font-size: 14px;
     color: var(--Text-Secondry);
     line-height: 20px;
-}
+  }
 
-.accept-text a {
+  .accept-text a {
     color: var(--Text-Primary);
-}
+  }
 
-.accept-text a:hover {
+  .accept-text a:hover {
     text-decoration: underline;
+  }
+  ::-webkit-scrollbar {
+    width: 0px; /* Ширина скроллбара */
+    background: transparent; /* Цвет фона */
+  }
 }
-::-webkit-scrollbar {
-    width: 0px;  /* Ширина скроллбара */
-    background: transparent;  /* Цвет фона */
-}
-
-
-
-@media screen and (max-width: 480px) {
-    .overlay {
-        position: fixed;
-        display: flex;
-        justify-content: center;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        max-height: 80%;
-        overflow-y: auto;
-        z-index: 1000;
-        border-radius: 8px;
-    }
-
-    .overlay-content {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        max-width: 480px;
-        background: var(--Background-Card);
-        height: 100%;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-
-    .close-btn {
-        width: 20px;
-        height: 20px;
-        color: var(--Text-Primary);
-        background: none;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        align-self: flex-end;
-    }
-    .overlay-content::-webkit-scrollbar {
-        width: 8px;
-    }
-
-    .overlay-content::-webkit-scrollbar-thumb {
-        background-color: var(--Text-Hint);
-        border-radius: 4px;
-    }
-
-
-    .p2,
-    .p2First {
-        margin-bottom: 0;
-    }
-
-    h2 {
-        text-align: center;
-        font-size: 18px;
-        color: var(--Text-Primary);
-        margin-top: 20px;
-    }
-
-    p {
-        font-size: 14px;
-        color: var(--Text-Secondry);
-        line-height: 20px;
-    }
-
-    .accept-text a {
-        color: var(--Text-Primary);
-    }
-
-    .accept-text a:hover {
-        text-decoration: underline;
-    }
-    ::-webkit-scrollbar {
-        width: 0px;  /* Ширина скроллбара */
-        background: transparent;  /* Цвет фона */
-    }
-
-}
-

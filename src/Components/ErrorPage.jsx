@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-// import Error from "../Images/Alert2 icon.svg";
 import Alert from "../Images/Alert.svg";
 import "../Styles/ErrorPageStyle.css";
 import ApiClient from "../ApiClient";

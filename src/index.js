@@ -1,8 +1,6 @@
 import React from "react";
 import { RouterProvider, createHashRouter } from "react-router-dom";
 import App from "./App";
-import SuccessPage from "./Components/SuccessPage";
-import ErrorPage from "./Components/ErrorPage";
 import { createRoot } from "react-dom/client";
 import Error404Page from "./Components/Error404Page";
 import Error500Page from "./Components/Error500Page";
@@ -15,16 +13,8 @@ const router = createHashRouter([
     element: <App />,
     children: [
       {
-        path: "/error-pay/:uuid",
-        element: <ErrorPage />,
-      },
-      {
         path: "/:uuid",
         element: <MainPage />,
-      },
-      {
-        path: "/success-pay/:uuid",
-        element: <SuccessPage />,
       },
       {
         path: "/404",
@@ -37,6 +27,15 @@ const router = createHashRouter([
       {
         path: "/sbp-pay/:uuid",
         element: <PayQrPage />,
+      },
+      {
+        path: "/result-pay/:uuid",
+        async lazy() {
+          let { ResultPage } = await import(
+            "./Components/ResultPage/ResultPage"
+          );
+          return { Component: ResultPage };
+        },
       },
     ],
   },

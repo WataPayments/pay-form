@@ -1,0 +1,51 @@
+.price-info {
+  display: flex;
+  justify-content: space-between;
+  font-family: "TTFirsNeue Medium";
+}
+
+.price-number {
+  font-weight: 500;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 1);
+  line-height: 28px;
+}
+
+.light .price-number {
+  color: rgba(33, 31, 34, 1);
+}
+
+.transaction-number {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
+}
+
+.light .transaction-number {
+  color: rgba(33, 31, 34, 0.75);
+}
+
+.light .result-container .price-number {
+  color: rgba(33, 31, 34, 1);
+}
+
+.agent-name {
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.light .agent-name {
+  color: rgba(33, 31, 34, 0.75);
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.light .description {
+  color: rgba(33, 31, 34, 0.75);
+}

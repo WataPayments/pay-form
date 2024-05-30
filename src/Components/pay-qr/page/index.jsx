@@ -1,87 +1,106 @@
 import "./styles.css";
 import sbpLogo from "../../../Images/sbp-logo.png";
 import { QRCode } from "react-qrcode-logo";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext, useCallback } from "react";
 import useWebSocket, { ReadyState } from "react-use-websocket";
-import isMobile from "is-mobile";
-import Agreement from "../../agreenent";
-import InfoItem from "../../info-item";
-import formatPrice from "../../../utils/format-price";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { DataContext } from "../../../App";
+import { TransactionInfo } from "../../TransactionInfo/TransactionInfo";
+import Overlay from "../../Overlay";
 
 const WS_URL = "wss://acquiring.foreignpay.ru/ws/";
 
 const PayQrPage = () => {
   const navigate = useNavigate();
-  const [info, setInfo] = useState(null);
+  const { transactionData, loading, setTransactionData } =
+    useContext(DataContext);
   const { sendJsonMessage, lastJsonMessage, readyState } = useWebSocket(WS_URL);
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  const handleOverlayToggle = () => {
+    setShowOverlay(!showOverlay);
+  };
 
   useEffect(() => {
-    console.log("SBP");
-  }, []);
-
-  useEffect(() => {
-    if (readyState === ReadyState.OPEN && info) {
-      sendJsonMessage({ transaction_id: info.uuid });
+    if (readyState === ReadyState.OPEN && transactionData) {
+      sendJsonMessage({ transaction_id: transactionData.uuid });
     }
-  }, [readyState, info, sendJsonMessage]);
+  }, [readyState, transactionData, sendJsonMessage]);
 
   useEffect(() => {
+    console.log(lastJsonMessage);
     if (!lastJsonMessage || lastJsonMessage.status === "Paid") {
       return;
     }
-    if (lastJsonMessage.status) {
-      navigate(`/success-pay/${info?.success_url}`);
-    } else {
-      navigate(`/error-pay`);
-    }
-  }, [lastJsonMessage, navigate, info]);
 
-  if (!info) return null;
+    if (lastJsonMessage.status && lastJsonMessage.status !== "connected") {
+      if (lastJsonMessage.status === "true") {
+        setTransactionData((prev) => ({
+          ...prev,
+          status: "Paid",
+        }));
+      }
+
+      navigate(`/result-pay/${transactionData.uuid}`);
+    }
+  }, [lastJsonMessage, navigate, transactionData]);
+
+  const handleCancelClick = useCallback(() => {
+    if (transactionData) {
+      navigate(`/${transactionData.uuid}`);
+    }
+  }, [transactionData, navigate]);
+
+  if (loading) {
+    return (
+      <div className="loader-block">
+        <span className="loader"></span>
+      </div>
+    );
+  }
 
   return (
-    <div className={"root"}>
-      <div className={"qrWrapper"}>
-        <Link
-          href={info.sbp_url}
-          target="_blank"
-          className={"qrCode"}
-          onClick={(event) => !isMobile() && event.preventDefault()}
-        >
-          <QRCode
-            size={700}
-            value={info.sbp_url}
-            logoImage={sbpLogo.src}
-            logoWidth={209}
-            logoHeight={209}
-            quietZone={2}
-            fgColor="#170038"
-            ecLevel="H"
-            removeQrCodeBehindLogo
-          />
-          <p className={"QRdescription"}>нажмите на QR</p>
-        </Link>
+    <div className="qr-page-wrapper">
+      <div className="order-info-block">
+        <TransactionInfo transactionData={transactionData} />
       </div>
-      <div className={"infoWrapper"}>
-        <h1 className={"title"}>Для оплаты отсканируйте QR-код</h1>
-        <p className={"subTitle"}>
-          Чтобы оплатить, вам нужно отсканировать{" "}
-          <span className={"bold"}>QR-код</span> в мобильном приложении банка
-          или с помощью камеры вашего телефона.
-        </p>
-        <div className={"infoItemsWrapper"}>
-          <InfoItem
-            title="К оплате:"
-            value={`${formatPrice(info.amount)}₽`}
-            className={"price"}
-          />
-          <InfoItem
-            title="Назначение платежа:"
-            value={info.description}
-            className={"accountNumber"}
-          />
+      <div className="qr-block">
+        <QRCode
+          size={180}
+          value={transactionData.sbp_url}
+          logoImage={sbpLogo}
+          logoHeight={50}
+          logoWidth={50}
+          quietZone={20}
+          fgColor="#170038"
+          ecLevel="H"
+          removeQrCodeBehindLogo
+        />
+        <div className="qr-title">Для оплаты отсканируйте QR-код</div>
+        <div className="qr-description">
+          Что бы оплатить, вам нужно отсканировать QR-код в мобильном приложении
+          банка или с помощью камеры вашего телефона.
         </div>
-        <Agreement className={"agreement"} />
+        <div className="accept-text" style={{ marginTop: "20px" }}>
+          <p>
+            Оплачивая, вы соглашаетесь с договором{" "}
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                handleOverlayToggle();
+              }}
+            >
+              оферты
+            </a>
+          </p>
+        </div>
+        <div className="submit-button" onClick={handleCancelClick}>
+          <span>
+            <input id="submitButton" type="submit" value="Отменить" />
+          </span>
+        </div>
+        {showOverlay && <Overlay onClose={handleOverlayToggle} />}
       </div>
     </div>
   );

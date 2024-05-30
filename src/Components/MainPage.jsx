@@ -1,71 +1,20 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import logoDark from "../Images/Logo.svg";
 import logoLight from "../Images/LogoLight.svg";
-import PaymentFormDetails from "../Components/PaymentFormDetails";
 import PaymentForm from "../Components/PaymentForm";
 import { number } from "card-validator";
-import ApiClient from "../ApiClient";
 import "../index.css";
-import { ThemeContext } from "../App";
+import { DataContext, ThemeContext } from "../App";
+import { TransactionInfo } from "./TransactionInfo/TransactionInfo";
 
 export default function MainPage() {
-  const navigate = useNavigate();
   const { uuid } = useParams();
-  const [transactionData, setTransactionData] = useState(null);
-  const [redirectUrl, setRedirectUrl] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [cardNumberValid, setCardNumberValid] = useState(false);
-  const [loading, setLoading] = useState(true);
   const theme = useContext(ThemeContext);
-
-  useEffect(() => {
-    const fetchTransaction = async () => {
-      try {
-        const { transactionData, redirectUrl } =
-          await ApiClient.fetchTransactionData(uuid);
-        setTransactionData(transactionData);
-        setRedirectUrl(redirectUrl);
-        setLoading(false);
-
-        if (transactionData.status === "Pending") {
-          navigate(`/error-pay/${uuid}`);
-        } else if (transactionData.status === "Paid") {
-          navigate(`/success-pay/${uuid}`);
-        }
-      } catch (error) {
-        console.error("Error fetching transaction data:", error);
-      }
-    };
-
-    fetchTransaction();
-  }, [uuid, navigate]);
-
-  // useEffect(() => {
-  //   const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-  //   const handleThemeChange = (event) => {
-  //     setTheme(event.matches ? "dark" : "light");
-  //   };
-
-  //   setTheme(mediaQuery.matches ? "dark" : "light");
-  //   mediaQuery.addEventListener("change", handleThemeChange);
-
-  //   return () => {
-  //     mediaQuery.removeEventListener("change", handleThemeChange);
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log(theme);
-  //   const applyTheme = async () => {
-  //     if (theme === "dark") {
-  //       await import("../index.css");
-  //     } else if (theme === "light") {
-  //       await import("../indexLight.css");
-  //     }
-  //   };
-  //   applyTheme();
-  // }, [theme]);
+  const { transactionData, redirectUrl, setRedirectUrl, loading } =
+    useContext(DataContext);
 
   const handleCardNumberChange = (e) => {
     const { value } = e.target;
@@ -106,10 +55,7 @@ export default function MainPage() {
         try {
           const iframeLocation = iframe.contentWindow.location.href;
           console.log("Iframe loaded with location:", iframeLocation);
-          if (
-            iframeLocation.includes("#/success-pay") ||
-            iframeLocation.includes("#/error-pay")
-          ) {
+          if (iframeLocation.includes("#/result-pay")) {
             window.location.replace(iframeLocation);
           }
         } catch (error) {
@@ -135,7 +81,9 @@ export default function MainPage() {
       <div className="App">
         {!redirectUrl ? (
           <div>
-            <PaymentFormDetails transaction={transactionData} />
+            <div className="order-info-block">
+              <TransactionInfo transactionData={transactionData} />
+            </div>
             <PaymentForm
               setUrlRedirect={setUrlRedirect}
               uuid={uuid}

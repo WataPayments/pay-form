@@ -324,6 +324,10 @@ input[type="submit"]:hover {
   margin-top: 0;
 }
 
+.accept-text a:hover {
+  text-decoration: none;
+}
+
 .light .accept-text p {
   color: rgba(33, 31, 34, 0.25);
 }

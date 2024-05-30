@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef, useContext } from "react";
 import axios from "axios";
 import SBP from "../Images/Vector.svg";
 import eyeVisibleIcon from "../Images/Visibility_off.svg";
@@ -171,17 +171,12 @@ const PaymentForm = (props) => {
 
         if (response.data.url_redirect) {
           props.setUrlRedirect(response.data.url_redirect);
-        } else if (!response.data.url_redirect) {
-          navigate(`/error-pay/${props.uuid}`);
-        } else if (
-          props.transaction.status === "Paid" ||
-          props.transaction.status === "Pending"
-        ) {
-          navigate(`/success-pay/${props.uuid}`);
+        } else {
+          navigate(`/result-pay/${props.uuid}`);
         }
       } catch (error) {
         console.error("Ошибка при отправке данных:", error);
-        navigate(`/error-pay/${props.uuid}`);
+        navigate(`/result-pay/${props.uuid}`);
       }
 
       setIsLoading(false);
@@ -196,16 +191,19 @@ const PaymentForm = (props) => {
         window.location.href = props.transaction.sbp_url;
       } else {
         navigate(`/sbp-pay/${props.uuid}`);
+        return;
       }
 
       const response = await axios.get(props.transaction.sbp_url);
-      if (response.data.status === "Paid") {
-        navigate(`/success-pay/${props.uuid}`);
-      } else if (response.data.status === "Pending") {
-        navigate(`/error-pay/${props.uuid}`);
-      } else {
-        navigate(`/error-pay/${props.uuid}`);
-      }
+      // if (response.data.status === "Paid") {
+      //   navigate(`/success-pay/${props.uuid}`);
+      // } else if (response.data.status === "Pending") {
+      //   navigate(`/error-pay/${props.uuid}`);
+      // } else {
+      //   navigate(`/error-pay/${props.uuid}`);
+      // }
+
+      navigate(`/result-pay/${props.uuid}`);
     } catch (error) {
       console.error("Ошибка при выполнении оплаты:", error);
       navigate(`/error-pay/${props.uuid}`);

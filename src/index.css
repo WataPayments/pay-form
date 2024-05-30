@@ -97,15 +97,6 @@
   --Border-Default: rgba(255, 255, 255, 0.1);
 }
 
-/* body {
-  margin: 0;
-  padding: 0;
-  background: #211f22;
-  overflow-x: hidden;
-  display: flex;
-  justify-content: center;
-} */
-
 * {
   box-sizing: border-box;
   color: var(--Text-Primary, #fff);
@@ -167,6 +158,19 @@ iframe {
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
+}
+
+.order-info-block {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: rgba(38, 35, 40, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.light .order-info-block {
+  background-color: rgba(255, 255, 255, 1);
+  border-color: rgba(33, 31, 34, 0.1);
 }
 
 @keyframes rotation {

@@ -1,0 +1,138 @@
+:root {
+  --Text-Primary: #fff;
+  --Text-Secondry: rgba(255, 255, 255, 0.75);
+  --Text-Warning: #ed8c20;
+  --Text-Hint: rgba(255, 255, 255, 0.25);
+  --Border-Default: rgba(255, 255, 255, 0.1);
+  --Background-Key: #262328;
+}
+
+.result-container {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.result-block {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 10px;
+  border: 1px solid var(--Border-Default);
+  background: var(--Background-Key);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--Text-Primary);
+  font-family: "TTFirsNeue Regular";
+  font-style: normal;
+  font-weight: 400;
+  padding: 20px 20px 15px 20px;
+}
+
+.page-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.page-title > p {
+  font-size: 18px;
+  font-weight: 24px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.light .page-title > p {
+  color: rgba(33, 31, 34, 1);
+}
+
+.light .result-block {
+  background-color: rgba(255, 255, 255, 1);
+  border-color: rgba(33, 31, 34, 0.1);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 20px 0;
+}
+
+.light .divider {
+  border-color: rgba(33, 31, 34, 0.1);
+}
+
+.submit-button-result {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+input[type="button"] {
+  width: 100%;
+  height: 56px;
+  color: var(--Text-Primary);
+  border: none;
+  padding: 15px 20px;
+  border-radius: 8px;
+  background: #8b53e8;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 200ms ease-in-out;
+}
+
+input[type="button"]:hover {
+  background-color: #7346bb;
+}
+
+.pending-transaction {
+  margin-top: 20px;
+}
+
+.pending-title {
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+}
+
+.light .pending-title {
+  color: rgba(33, 31, 34, 1);
+}
+
+.reasons {
+  margin-top: 6px;
+  padding-left: 10px;
+}
+
+.reasons > li {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 20px;
+}
+
+.light .reasons > li {
+  color: rgba(33, 31, 34, 0.75);
+}
+
+li::marker {
+  font-size: 10px;
+}
+
+.alert {
+  margin-top: 20px;
+  background-color: rgba(237, 140, 32, 0.1);
+  color: rgba(237, 140, 32, 1);
+  border: 1px solid rgba(237, 140, 32, 0.1);
+  border-radius: 5px;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 8px 6px;
+  text-align: center;
+}

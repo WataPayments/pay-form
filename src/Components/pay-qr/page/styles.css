@@ -1,178 +1,49 @@
-.root {
-  max-width: 1259px;
-  border-radius: 24px;
-  border: 2px solid var(--collection-2-dark-purple, #27005d);
-  background: var(--collection-2-white, #fafafa);
-  display: flex;
-  margin: 0 auto;
-}
-
-.qrWrapper {
-  border-radius: 24px;
-  border: 2px solid var(--collection-2-dark-purple, #27005d);
-  background: var(--collection-2-white, #fafafa);
-  box-shadow: 8px 0px 0px 0px rgba(19, 13, 27, 0.25);
-  padding: 60px;
-  margin: -2px;
-  width: 668px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.qrWrapper .qrCode {
-  max-width: 540px;
-  max-height: 540px;
-  color: #170038;
-  text-decoration: none;
-  cursor: default;
-}
-
-.qrWrapper canvas {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-.infoWrapper {
-  max-width: 629px;
+.qr-page-wrapper {
   width: 100%;
-  flex-shrink: 0;
-  padding: 60px;
-  display: flex;
-  flex-direction: column;
+  max-width: 480px;
 }
 
-.QRdescription {
-  color: var(--collection-2-dark-purple, #27005d);
-  font-family: SF Pro Display;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  margin-bottom: 12px;
+.qr-block {
+  background-color: rgba(38, 35, 40, 1);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  display: none;
 }
 
-.title {
-  color: var(--collection-2-dark-purple, #27005d);
-  font-family: SF Pro Display;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  margin-bottom: 12px;
+.light .qr-block {
+  background-color: rgba(255, 255, 255, 1);
+  border-color: rgba(33, 31, 34, 0.1);
 }
 
-.subTitle {
-  color: var(--collection-2-black, #130d1b);
-  font-family: SF Pro Display;
-  font-size: 24px;
-  font-style: normal;
+#react-qrcode-logo {
+  border-radius: 10px;
+}
+
+.qr-title {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 1);
   font-weight: 400;
-  line-height: normal;
-  margin-bottom: 40px;
 }
 
-.bold {
-  font-weight: 600;
+.light .qr-title {
+  color: rgba(33, 31, 34, 1);
 }
 
-.infoItemsWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  flex: 1 1 auto;
-  margin-bottom: 20px;
+.qr-description {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
 }
 
-.price {
-  color: #9400ff;
-  font-family: SF Pro Display;
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-}
-
-.accountNumber {
-  color: var(--collection-2-black, #130d1b);
-  font-family: SF Pro Display;
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-
-@media (max-width: 1330px) {
-  .root {
-    flex-direction: column;
-    max-width: 668px;
-    margin: 150px auto 40px auto;
-  }
-
-  .qrWrapper {
-    box-shadow: 0px 4px 0px 0px rgba(19, 13, 27, 0.25);
-  }
-}
-
-@media (max-width: 767px) {
-  .root {
-    margin: 0 auto;
-  }
-
-  .qrWrapper {
-    position: relative;
-    width: calc(100% + 4px);
-    padding: 0;
-    padding-top: 100%;
-  }
-
-  .qrWrapper .qrCode {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    right: 30px;
-    bottom: 30px;
-    max-width: none;
-    max-height: none;
-  }
-
-  .infoWrapper {
-    padding: 30px;
-  }
-
-  .title {
-    font-size: 28px;
-    margin-bottom: 6px;
-  }
-
-  .subTitle {
-    font-size: 14px;
-    margin-bottom: 18px;
-  }
-
-  .price {
-    font-size: 22px;
-  }
-
-  .accountNumber {
-    font-size: 22px;
-  }
-
-  .infoItemsWrapper {
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-
-  p.agreement,
-  .agreement span {
-    font-size: 14px;
-    text-align: center;
-  }
-
-  .QRdescription {
-    display: block;
-  }
+.light .qr-description {
+  color: rgba(33, 31, 34, 0.75);
 }

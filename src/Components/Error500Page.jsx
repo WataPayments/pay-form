@@ -1,46 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
+import logoDark from "../Images/Logo.svg";
+import logoLight from "../Images/LogoLight.svg";
 import "../Styles/Error500PageStyle.css";
-import "../Styles/Error500PageLightStyle.css";
-import logo from "../Images/Logo.svg";
+import { ThemeContext } from "../App";
 
 export default function Error500Page() {
-    const [theme, setTheme] = useState(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-
-    useEffect(() => {
-        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-        const handleThemeChange = (e) => {
-            setTheme(e.matches ? "dark" : "light");
-        };
-
-        mediaQuery.addListener(handleThemeChange);
-
-        return () => {
-            mediaQuery.removeListener(handleThemeChange);
-        };
-    }, []);
-
-    useEffect(() => {
-        if (theme === "dark") {
-            import("../Styles/Error500PageStyle.css");
-        } else if (theme==="light"){
-            import("../Styles/Error500PageLightStyle.css");
-        }
-    }, [theme]);
-
-    return (
-        <div className={`container ${theme}`}>
-            <div className={`error-block ${theme}`}>
-                <div className="error-info">
-                    <p className="type-error">500</p>
-                    <p className="name-error">Ошибка сервера</p>
-                </div>
-                <form action="">
-                    <input type="submit" value="На главную" />
-                </form>
-            </div>
-            <div className="logo">
-                <img src={logo} alt="WATA" />
-            </div>
-        </div>
-    );
+  const theme = useContext(ThemeContext);
+  return (
+    <div className="error-contaier">
+      <div className="error-block">
+        <div className="error-title">500</div>
+        <div className="error-message">Ошибка сервера</div>
+        <form action="">
+          <input type="submit" value="На главную" />
+        </form>
+      </div>
+      <div className="logo">
+        <img src={theme === "dark" ? logoDark : logoLight} alt="WATA" />
+      </div>
+    </div>
+  );
 }

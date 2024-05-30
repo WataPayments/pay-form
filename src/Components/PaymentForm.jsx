@@ -25,7 +25,7 @@ const PaymentForm = (props) => {
   const expiryDateRef = useRef(null);
   const cvvRef = useRef(null);
   const [showOverlay, setShowOverlay] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const theme = useContext(ThemeContext);
 
   const handleOverlayToggle = () => {

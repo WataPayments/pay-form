@@ -6,13 +6,18 @@ import { ThemeContext } from "../App";
 
 export default function Error500Page() {
   const theme = useContext(ThemeContext);
+  const handleClick = (e) => {
+    e.preventDefault();
+    window.location.href = "https://wata.pro/";
+  };
+
   return (
     <div className="error-contaier">
       <div className="error-block">
         <div className="error-title">500</div>
         <div className="error-message">Ошибка сервера</div>
         <form action="">
-          <input type="submit" value="На главную" />
+          <input type="submit" value="На главную" onClick={handleClick} />
         </form>
       </div>
       <div className="logo">

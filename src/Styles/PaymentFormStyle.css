@@ -136,7 +136,7 @@ form {
   align-items: center;
   padding: 0;
   background-color: black;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 form > a > img {
@@ -192,7 +192,7 @@ input[type="password"] {
   width: 100%;
   height: 56px;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid var(--Border-Default);
   background: #211f22;
   color: var(--Text-Primary);
@@ -267,7 +267,7 @@ input[type="submit"] {
   color: var(--Text-Primary);
   border: none;
   padding: 15px 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   background: #8b53e8;
   cursor: pointer;
   font-size: 16px;

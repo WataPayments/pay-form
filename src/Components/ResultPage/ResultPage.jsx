@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useMemo, useState } from "react";
 
 import logoDark from "../../Images/Logo.svg";
 import logoLight from "../../Images/LogoLight.svg";
@@ -37,7 +37,9 @@ const pageInfo = {
 
 export const ResultPage = () => {
   const theme = useContext(ThemeContext);
+  const [showTooltip, toggleTooltip] = useState(false);
   const { transactionData, loading } = useContext(DataContext);
+
   const handleShare = () => {
     if (navigator.share) {
       navigator
@@ -54,6 +56,11 @@ export const ResultPage = () => {
         .then(() => console.log("Link copied to clipboard"))
         .catch((error) => console.error("Error copying link:", error));
     }
+
+    toggleTooltip((prev) => !prev);
+    setTimeout(() => {
+      toggleTooltip((prev) => !prev);
+    }, 2000);
   };
 
   const pageLogo = useMemo(() => {
@@ -104,8 +111,11 @@ export const ResultPage = () => {
         <div className="divider"></div>
         <TransactionInfo transactionData={transactionData} />
         {transactionData && transactionData.status === "Paid" && (
-          <div className={`submit-button-result ${theme}`}>
-            <input type="button" value="Поделиться" onClick={handleShare} />
+          <div className="button-container">
+            <div className={`submit-button-result ${theme}`}>
+              <input type="button" value="Поделиться" onClick={handleShare} />
+            </div>
+            {showTooltip && <div className="tooltip">Ссылка скопирована</div>}
           </div>
         )}
       </div>

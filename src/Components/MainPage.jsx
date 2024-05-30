@@ -7,6 +7,7 @@ import { number } from "card-validator";
 import "../index.css";
 import { DataContext, ThemeContext } from "../App";
 import { TransactionInfo } from "./TransactionInfo/TransactionInfo";
+import isMobile from "is-mobile";
 
 export default function MainPage() {
   const { uuid } = useParams();
@@ -81,7 +82,10 @@ export default function MainPage() {
       <div className="App">
         {!redirectUrl ? (
           <div>
-            <div className="order-info-block">
+            <div
+              className="order-info-block"
+              style={isMobile() ? { marginTop: "20px" } : { marginTop: "40px" }}
+            >
               <TransactionInfo transactionData={transactionData} />
             </div>
             <PaymentForm

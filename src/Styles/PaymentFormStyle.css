@@ -286,16 +286,6 @@ input[type="submit"]:hover {
   position: relative;
 }
 
-.submit-loading > span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 #submitButton.active {
   background-color: var(
     --Background-Primary-active
@@ -337,19 +327,17 @@ input[type="submit"]:hover {
 }
 
 .submit-loading {
+  background-color: rgba(82, 47, 139, 1) !important;
+}
+
+/* .submit-loading {
   font-family: "TTFirsNeue Regular", sans-serif;
   font-size: 16px;
   color: transparent;
   background-color: var(--Background-Primary-active);
   border-radius: 0.75px;
   padding: 10px 15px;
-}
-
-.submit-loading::before {
-  content: "\25A0";
-  border-radius: 0.75px;
-  padding-right: 3px;
-}
+} */
 
 @media screen and (max-width: 375px) {
   .cvv-container input:first-child {

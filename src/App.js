@@ -48,6 +48,7 @@ export default function App() {
       ? "dark"
       : "light";
     // setTheme("light");
+    document.body.classList.add(osTheme);
     setTheme(osTheme);
   }, []);
 

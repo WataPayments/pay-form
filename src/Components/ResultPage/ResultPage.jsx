@@ -120,7 +120,9 @@ export const ResultPage = () => {
             <div className={`submit-button-result ${theme}`}>
               <input type="button" value="Поделиться" onClick={handleShare} />
             </div>
-            {showTooltip && <div className="tooltip">Ссылка скопирована</div>}
+            {showTooltip && !isMobile() && (
+              <div className="tooltip">Ссылка скопирована</div>
+            )}
           </div>
         )}
       </div>

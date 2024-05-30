@@ -281,15 +281,13 @@ const PaymentForm = (props) => {
         </div>
 
         <div className="submit-button">
-          <span>
-            {isLoading ? <Loader /> : ``}
-            <input
-              id="submitButton"
-              type="submit"
-              value={isLoading ? "" : `Оплатить ${props.transaction.amount} ₽`}
-              className={isLoading ? "submit-loading" : ""}
-            />
-          </span>
+          {isLoading && <Loader />}
+          <input
+            id="submitButton"
+            type="submit"
+            value={isLoading ? "" : `Оплатить ${props.transaction.amount} ₽`}
+            className={isLoading ? "submit-loading" : ""}
+          />
         </div>
       </form>
       <div className="accept-text">

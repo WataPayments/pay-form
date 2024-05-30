@@ -5,6 +5,7 @@ import logoLight from "../../Images/LogoLight.svg";
 import SuccessPay from "../../Images/SuccessPay.svg";
 import PendingPay from "../../Images/PendingPay.svg";
 import RefundedPay from "../../Images/RefundedPay.svg";
+import FailPay from "../../Images/FailPay.svg";
 
 import { ThemeContext, DataContext } from "../../App";
 
@@ -28,6 +29,10 @@ const pageInfo = {
   Refunded: {
     title: "Возврат осуществлен",
     icon: RefundedPay,
+  },
+  Fail: {
+    title: "Ошибка",
+    icon: FailPay,
   },
   Created: {
     title: "",

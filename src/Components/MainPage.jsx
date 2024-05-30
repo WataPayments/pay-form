@@ -81,7 +81,7 @@ export default function MainPage() {
     <ThemeContext.Provider value={theme}>
       <div className="App">
         {!redirectUrl ? (
-          <div>
+          <>
             <div
               className="order-info-block"
               style={isMobile() ? { marginTop: "0" } : {}}
@@ -96,7 +96,7 @@ export default function MainPage() {
               onCardNumberChange={handleCardNumberChange}
               cardNumberValid={cardNumberValid}
             />
-          </div>
+          </>
         ) : (
           <iframe
             id="payment-iframe"

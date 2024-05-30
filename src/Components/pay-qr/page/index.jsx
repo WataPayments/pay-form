@@ -8,7 +8,9 @@ import { DataContext } from "../../../App";
 import { TransactionInfo } from "../../TransactionInfo/TransactionInfo";
 import Overlay from "../../Overlay";
 import isMobile from "is-mobile";
-
+import { ThemeContext } from "../../../App";
+import logoDark from "../../../Images/Logo.svg";
+import logoLight from "../../../Images/LogoLight.svg";
 const WS_URL = "wss://acquiring.foreignpay.ru/ws/";
 
 const PayQrPage = () => {
@@ -17,6 +19,7 @@ const PayQrPage = () => {
     useContext(DataContext);
   const { sendJsonMessage, lastJsonMessage, readyState } = useWebSocket(WS_URL);
   const [showOverlay, setShowOverlay] = useState(false);
+  const theme = useContext(ThemeContext);
 
   const handleOverlayToggle = () => {
     setShowOverlay(!showOverlay);
@@ -105,6 +108,9 @@ const PayQrPage = () => {
           </span>
         </div>
         {showOverlay && <Overlay onClose={handleOverlayToggle} />}
+      </div>
+      <div className="logo">
+        <img src={theme === "dark" ? logoDark : logoLight} alt="WATA" />
       </div>
     </div>
   );

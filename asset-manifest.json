@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/pay-form/static/css/main.32fb0ea1.css",
-    "main.js": "/pay-form/static/js/main.50d8b8c0.js",
-    "static/css/592.a033cc1d.chunk.css": "/pay-form/static/css/592.a033cc1d.chunk.css",
-    "static/js/592.b6bcd219.chunk.js": "/pay-form/static/js/592.b6bcd219.chunk.js",
+    "main.css": "/pay-form/static/css/main.eedb010b.css",
+    "main.js": "/pay-form/static/js/main.b48f9613.js",
+    "static/css/592.599b92b4.chunk.css": "/pay-form/static/css/592.599b92b4.chunk.css",
+    "static/js/592.9a5a38df.chunk.js": "/pay-form/static/js/592.9a5a38df.chunk.js",
     "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
     "static/media/TTFirsNeue-DemiBoldItalic.ttf": "/pay-form/static/media/TTFirsNeue-DemiBoldItalic.d96287c6cf4cd2f5d330.ttf",
     "static/media/TTFirsNeue-BlackItalic.ttf": "/pay-form/static/media/TTFirsNeue-BlackItalic.20e6d72dbbf5628241f0.ttf",
@@ -34,13 +34,13 @@
     "static/media/Visibility.svg": "/pay-form/static/media/Visibility.0e2110d8abed7ff9de7f81351f0bd60b.svg",
     "static/media/RefundedPay.svg": "/pay-form/static/media/RefundedPay.599a52fefb146725ce6592b2f9dcda9d.svg",
     "index.html": "/pay-form/index.html",
-    "main.32fb0ea1.css.map": "/pay-form/static/css/main.32fb0ea1.css.map",
-    "main.50d8b8c0.js.map": "/pay-form/static/js/main.50d8b8c0.js.map",
-    "592.a033cc1d.chunk.css.map": "/pay-form/static/css/592.a033cc1d.chunk.css.map",
-    "592.b6bcd219.chunk.js.map": "/pay-form/static/js/592.b6bcd219.chunk.js.map"
+    "main.eedb010b.css.map": "/pay-form/static/css/main.eedb010b.css.map",
+    "main.b48f9613.js.map": "/pay-form/static/js/main.b48f9613.js.map",
+    "592.599b92b4.chunk.css.map": "/pay-form/static/css/592.599b92b4.chunk.css.map",
+    "592.9a5a38df.chunk.js.map": "/pay-form/static/js/592.9a5a38df.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.32fb0ea1.css",
-    "static/js/main.50d8b8c0.js"
+    "static/css/main.eedb010b.css",
+    "static/js/main.b48f9613.js"
   ]
 }

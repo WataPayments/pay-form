@@ -3,6 +3,7 @@ import logoDark from "../Images/Logo.svg";
 import logoLight from "../Images/LogoLight.svg";
 import "../Styles/Error500PageStyle.css";
 import { ThemeContext } from "../App";
+import isMobile from "is-mobile";
 
 export default function Error500Page() {
   const theme = useContext(ThemeContext);
@@ -12,7 +13,10 @@ export default function Error500Page() {
   };
 
   return (
-    <div className="error-contaier">
+    <div
+      className="error-contaier"
+      style={isMobile() ? { marginTop: "20px" } : {}}
+    >
       <div className="error-block">
         <div className="error-title">500</div>
         <div className="error-message">Ошибка сервера</div>

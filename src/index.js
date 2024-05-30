@@ -17,14 +17,6 @@ const router = createHashRouter([
         element: <MainPage />,
       },
       {
-        path: "/404",
-        element: <Error404Page />,
-      },
-      {
-        path: "/500",
-        element: <Error500Page />,
-      },
-      {
         path: "/sbp-pay/:uuid",
         element: <PayQrPage />,
       },
@@ -36,6 +28,18 @@ const router = createHashRouter([
           );
           return { Component: ResultPage };
         },
+      },
+      {
+        path: "/404",
+        element: <Error404Page />,
+      },
+      {
+        path: "/500",
+        element: <Error500Page />,
+      },
+      {
+        path: "*",
+        element: <Error404Page />,
       },
     ],
   },

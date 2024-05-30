@@ -104,6 +104,8 @@
 .error-contaier {
   width: 100%;
   max-width: 480px;
+  margin-top: 40px;
+  padding: 0 20px;
 }
 
 .error-block {
@@ -117,7 +119,6 @@
   font-family: "TTFirsNeue Regular";
   font-style: normal;
   font-weight: 400;
-  margin-top: 20px;
 
   padding: 20px;
 }

@@ -18,13 +18,6 @@ class ApiClient {
       };
     } catch (error) {
       console.error("Error fetching transaction data:", error);
-      if (error.response) {
-        if (error.response.status === 500) {
-          window.location.href = "/500";
-        } else if (error.response.status === 404) {
-          window.location.href = "/404";
-        }
-      }
       throw error;
     }
   }

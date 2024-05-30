@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { DataContext } from "../../../App";
 import { TransactionInfo } from "../../TransactionInfo/TransactionInfo";
 import Overlay from "../../Overlay";
+import isMobile from "is-mobile";
 
 const WS_URL = "wss://acquiring.foreignpay.ru/ws/";
 
@@ -61,7 +62,10 @@ const PayQrPage = () => {
 
   return (
     <div className="qr-page-wrapper">
-      <div className="order-info-block">
+      <div
+        className="order-info-block"
+        style={isMobile() ? { marginTop: "20px" } : {}}
+      >
         <TransactionInfo transactionData={transactionData} />
       </div>
       <div className="qr-block">

@@ -84,7 +84,7 @@ export default function MainPage() {
           <div>
             <div
               className="order-info-block"
-              style={isMobile() ? { marginTop: "20px" } : { marginTop: "40px" }}
+              style={isMobile() ? { marginTop: "0" } : {}}
             >
               <TransactionInfo transactionData={transactionData} />
             </div>

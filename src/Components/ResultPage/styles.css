@@ -158,3 +158,17 @@ li::marker {
   color: rgba(33, 31, 34, 1);
   background-color: rgba(255, 255, 255, 1);
 }
+
+.countdown {
+  padding: 6px;
+  background-color: rgba(237, 140, 32, 0.1);
+  border: 1px solid rgba(237, 140, 32, 0.1);
+  color: rgba(237, 140, 32, 1);
+  font-size: 12px;
+  line-height: 14px;
+  border-radius: 5px;
+  text-align: center;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 10px;
+}

@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 
 import logoDark from "../../Images/Logo.svg";
 import logoLight from "../../Images/LogoLight.svg";
@@ -44,6 +44,8 @@ export const ResultPage = () => {
   const theme = useContext(ThemeContext);
   const [showTooltip, toggleTooltip] = useState(false);
   const { transactionData, loading } = useContext(DataContext);
+  const [countdownValue, setCountdownValue] = useState(5);
+  const [intervalId, setIntervalId] = useState(null);
 
   const handleShare = () => {
     if (navigator.share) {
@@ -80,6 +82,44 @@ export const ResultPage = () => {
     }
   }, [transactionData]);
 
+  useEffect(() => {
+    if (
+      transactionData &&
+      transactionData.status === "Paid" &&
+      transactionData.success_url &&
+      intervalId === null
+    ) {
+      const intervalId = setInterval(() => {
+        setCountdownValue((prev) => prev - 1);
+      }, 1000);
+
+      setIntervalId(intervalId);
+    }
+  }, [transactionData, intervalId]);
+
+  useEffect(() => {
+    if (
+      countdownValue === 0 &&
+      transactionData &&
+      transactionData.success_url
+    ) {
+      clearInterval(intervalId);
+      window.location.href = transactionData.success_url;
+    }
+  }, [countdownValue, intervalId, transactionData]);
+
+  const pluralazied = useMemo(() => {
+    if (countdownValue === 0 || countdownValue === 5) {
+      return "секунд";
+    }
+
+    if (countdownValue === 1) {
+      return "секунду";
+    }
+
+    return "секунды";
+  }, [countdownValue]);
+
   if (loading) {
     return (
       <div className={`loader-block ${theme}`}>
@@ -115,7 +155,14 @@ export const ResultPage = () => {
         )}
         <div className="divider"></div>
         <TransactionInfo transactionData={transactionData} />
-        {transactionData && transactionData.status === "Paid" && (
+        {transactionData &&
+        transactionData.status === "Paid" &&
+        transactionData.success_url ? (
+          <div className="countdown">
+            Вы будете перенаправлены обратно в магазин через {countdownValue}{" "}
+            {pluralazied}...
+          </div>
+        ) : (
           <div className="button-container">
             <div className={`submit-button-result ${theme}`}>
               <input type="button" value="Поделиться" onClick={handleShare} />

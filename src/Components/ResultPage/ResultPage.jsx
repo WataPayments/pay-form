@@ -30,7 +30,7 @@ const pageInfo = {
     title: "Возврат осуществлен",
     icon: RefundedPay,
   },
-  Fail: {
+  Failed: {
     title: "Ошибка",
     icon: FailPay,
   },
@@ -155,23 +155,23 @@ export const ResultPage = () => {
         )}
         <div className="divider"></div>
         <TransactionInfo transactionData={transactionData} />
-        {transactionData &&
-        transactionData.status === "Paid" &&
-        transactionData.success_url ? (
-          <div className="countdown">
-            Вы будете перенаправлены обратно в магазин через {countdownValue}{" "}
-            {pluralazied}...
-          </div>
-        ) : (
-          <div className="button-container">
-            <div className={`submit-button-result ${theme}`}>
-              <input type="button" value="Поделиться" onClick={handleShare} />
+        {transactionData && transactionData.status === "Paid" ? (
+          transactionData.success_url ? (
+            <div className="countdown">
+              Вы будете перенаправлены обратно в магазин через {countdownValue}{" "}
+              {pluralazied}...
             </div>
-            {showTooltip && !isMobile() && (
-              <div className="tooltip">Ссылка скопирована</div>
-            )}
-          </div>
-        )}
+          ) : (
+            <div className="button-container">
+              <div className={`submit-button-result ${theme}`}>
+                <input type="button" value="Поделиться" onClick={handleShare} />
+              </div>
+              {showTooltip && !isMobile() && (
+                <div className="tooltip">Ссылка скопирована</div>
+              )}
+            </div>
+          )
+        ) : null}
       </div>
       <div className={`logo ${theme}`}>
         <img src={theme === "dark" ? logoDark : logoLight} alt="WATA" />

@@ -4,6 +4,7 @@ import ApiClient from "./ApiClient";
 import { useParams, useNavigate } from "react-router-dom";
 
 import "./index.css";
+import { isAxiosError } from "axios";
 
 export const ThemeContext = createContext(null);
 export const DataContext = createContext(null);
@@ -25,16 +26,26 @@ export default function App() {
         setRedirectUrl(redirectUrl);
         setLoading(false);
 
+        if (!transactionData.uuid) {
+          navigate("/500");
+          return;
+        }
+
         if (transactionData.status !== "Created") {
           navigate(`/result-pay/${uuid}`);
         }
       } catch (error) {
         console.error("Error fetching transaction data:", error);
-        if (error.response) {
-          if (error.response.status === 404) {
+        if (isAxiosError(error) && error.request) {
+          console.log(error.request.status);
+          if (error.request.status === 404) {
             navigate("/404");
-          } else if (error.response.status === 500) {
+            return;
+          }
+
+          if (error.request.status === 500) {
             navigate("/500");
+            return;
           }
         }
       }

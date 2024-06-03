@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef, useContext, useMemo } from "react";
 import axios from "axios";
 import SBP from "../Images/Vector.svg";
 import eyeVisibleIcon from "../Images/Visibility_off.svg";
@@ -193,22 +193,6 @@ const PaymentForm = (props) => {
       navigate(`/sbp-pay/${props.uuid}`);
       return;
     }
-
-    //   const response = await axios.get(props.transaction.sbp_url);
-    //   debugger;
-    //   // if (response.data.status === "Paid") {
-    //   //   navigate(`/success-pay/${props.uuid}`);
-    //   // } else if (response.data.status === "Pending") {
-    //   //   navigate(`/error-pay/${props.uuid}`);
-    //   // } else {
-    //   //   navigate(`/error-pay/${props.uuid}`);
-    //   // }
-
-    //   navigate(`/result-pay/${props.uuid}`);
-    // } catch (error) {
-    //   console.error("Ошибка при выполнении оплаты:", error);
-    //   navigate(`/error-pay/${props.uuid}`);
-    // }
   };
 
   return (
@@ -219,78 +203,84 @@ const PaymentForm = (props) => {
         </a>
       )}
 
-      <form onSubmit={handleSubmit}>
-        <div className="add-cart-block">
-          <div className="label-text-payment">
-            <p>Для оплаты доступны карты МИР</p>
-          </div>
-          <div className="card-number-container">
-            <input
-              type="text"
-              id="cardNumber"
-              name="cardNumber"
-              placeholder="Введите номер карты"
-              inputMode="numeric"
-              value={cardNumber}
-              onChange={handleCardNumberChange}
-              maxLength={19}
-              className={`${cardNumberError ? "error" : ""}`}
-            />
-            {cardType === "mir" && (
-              <img src={MIR} className="card-type-icon" alt="МИР" />
-            )}
-          </div>
-
-          <div className="cvv-container">
-            <input
-              type="text"
-              id="expiryDate"
-              name="expiryDate"
-              placeholder="ММ/ГГ"
-              inputMode="numeric"
-              value={expiryDate}
-              onChange={handleExpiryDateChange}
-              maxLength={5}
-              ref={expiryDateRef}
-              className={`${expiryDateError ? "error" : ""}`}
-            />
-            <input
-              type={cvvVisible ? "text" : "password"}
-              id="cvv"
-              name="cvv"
-              placeholder="CVV"
-              inputMode="numeric"
-              value={cvv}
-              onChange={handleCvvInput}
-              maxLength={3}
-              ref={cvvRef}
-              onKeyDown={handleCvvKeyDown}
-              className={`cvv-input ${cvvError ? "error" : ""}`}
-            />
-            <div
-              className="toggle-cvv-visibility-container"
-              onClick={toggleCvvVisibility}
-            >
-              <img
-                src={cvvVisible ? eyeVisibleIcon : eyeHiddenIcon}
-                alt="Toggle CVV Visibility"
-                className="toggle-cvv-visibility"
-                style={{ position: "absolute", right: "20px", bottom: "15px" }}
+      {props.transaction && props.transaction.methods.includes("card") && (
+        <form onSubmit={handleSubmit}>
+          <div className="add-cart-block">
+            <div className="label-text-payment">
+              <p>Для оплаты доступны карты МИР</p>
+            </div>
+            <div className="card-number-container">
+              <input
+                type="text"
+                id="cardNumber"
+                name="cardNumber"
+                placeholder="Введите номер карты"
+                inputMode="numeric"
+                value={cardNumber}
+                onChange={handleCardNumberChange}
+                maxLength={19}
+                className={`${cardNumberError ? "error" : ""}`}
               />
+              {cardType === "mir" && (
+                <img src={MIR} className="card-type-icon" alt="МИР" />
+              )}
+            </div>
+
+            <div className="cvv-container">
+              <input
+                type="text"
+                id="expiryDate"
+                name="expiryDate"
+                placeholder="ММ/ГГ"
+                inputMode="numeric"
+                value={expiryDate}
+                onChange={handleExpiryDateChange}
+                maxLength={5}
+                ref={expiryDateRef}
+                className={`${expiryDateError ? "error" : ""}`}
+              />
+              <input
+                type={cvvVisible ? "text" : "password"}
+                id="cvv"
+                name="cvv"
+                placeholder="CVV"
+                inputMode="numeric"
+                value={cvv}
+                onChange={handleCvvInput}
+                maxLength={3}
+                ref={cvvRef}
+                onKeyDown={handleCvvKeyDown}
+                className={`cvv-input ${cvvError ? "error" : ""}`}
+              />
+              <div
+                className="toggle-cvv-visibility-container"
+                onClick={toggleCvvVisibility}
+              >
+                <img
+                  src={cvvVisible ? eyeVisibleIcon : eyeHiddenIcon}
+                  alt="Toggle CVV Visibility"
+                  className="toggle-cvv-visibility"
+                  style={{
+                    position: "absolute",
+                    right: "20px",
+                    bottom: "15px",
+                  }}
+                />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="submit-button">
-          {isLoading && <Loader />}
-          <input
-            id="submitButton"
-            type="submit"
-            value={isLoading ? "" : `Оплатить ${props.transaction.amount} ₽`}
-            className={isLoading ? "submit-loading" : ""}
-          />
-        </div>
-      </form>
+          <div className="submit-button">
+            {isLoading && <Loader />}
+            <input
+              id="submitButton"
+              type="submit"
+              value={isLoading ? "" : `Оплатить ${props.transaction.amount} ₽`}
+              className={isLoading ? "submit-loading" : ""}
+            />
+          </div>
+        </form>
+      )}
       <div className="accept-text">
         <p>
           Оплачивая, вы соглашаетесь с договором{" "}

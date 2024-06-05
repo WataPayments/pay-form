@@ -5,14 +5,17 @@ import CloseLight from "../Images/CloseLight.svg";
 
 import { DataContext, ThemeContext } from "../App";
 
+const offerToNameMap = {
+  Wata: "WATA Group Limited",
+  FYLS: "Finvoka Yazilim Limited Şirketi",
+};
+
 export default function Overlay({ onClose }) {
   const theme = useContext(ThemeContext);
   const { transactionData } = useContext(DataContext);
 
   const companyName = useMemo(() => {
-    return transactionData.offer === "Wata"
-      ? "WATA Group Limited"
-      : "Finvoka Yazilim Limited Şirketi";
+    return offerToNameMap[transactionData.offer];
   }, [transactionData]);
 
   return (

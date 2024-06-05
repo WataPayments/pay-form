@@ -188,7 +188,8 @@ const PaymentForm = (props) => {
   const sbp_payment = async () => {
     // try {
     if (isMobile()) {
-      window.location.href = props.transaction.sbp_url;
+      // window.location.href = props.transaction.sbp_url;
+      window.open(props.transaction.sbp_url, "_blank");
     } else {
       navigate(`/sbp-pay/${props.uuid}`);
       return;

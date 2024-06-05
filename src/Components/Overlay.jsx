@@ -1,12 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import "../Styles/OverlayStyle.css";
 import Close from "../Images/Close.svg";
 import CloseLight from "../Images/CloseLight.svg";
 
-import { ThemeContext } from "../App";
+import { DataContext, ThemeContext } from "../App";
 
 export default function Overlay({ onClose }) {
   const theme = useContext(ThemeContext);
+  const { transactionData } = useContext(DataContext);
+
+  const companyName = useMemo(() => {
+    return transactionData.offer === "Wata"
+      ? "WATA Group Limited"
+      : "Finvoka Yazilim Limited Şirketi";
+  }, [transactionData]);
 
   return (
     <div className={`overlay ${theme}`}>
@@ -20,7 +27,7 @@ export default function Overlay({ onClose }) {
         <h2>Публичная оферта</h2>
         <div className="block">
           <p className="p2">
-            Компания WATA Group Limited, именуемая в дальнейшем "Поставщик",
+            Компания {companyName}, именуемая в дальнейшем "Поставщик",
             предлагает услуги по приёму платежей согласно следующим условиям:
           </p>
         </div>

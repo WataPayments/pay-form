@@ -11,7 +11,6 @@ class ApiClient {
           },
         }
       );
-      console.log(response);
       return {
         transactionData: response.data,
         redirectUrl: response.data.url_redirect,

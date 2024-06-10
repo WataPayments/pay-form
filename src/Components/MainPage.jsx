@@ -8,6 +8,7 @@ import "../index.css";
 import { DataContext, ThemeContext } from "../App";
 import { TransactionInfo } from "./TransactionInfo/TransactionInfo";
 import isMobile from "is-mobile";
+import { sendGaEvent } from "../utils/ga";
 
 export default function MainPage() {
   const { uuid } = useParams();
@@ -26,6 +27,12 @@ export default function MainPage() {
   const setUrlRedirect = (redirectUrl) => {
     setRedirectUrl(redirectUrl);
   };
+
+  useEffect(() => {
+    if (transactionData) {
+      sendGaEvent("PaymentPageView", { transaction_id: transactionData.uuid });
+    }
+  }, [transactionData]);
 
   useEffect(() => {
     if (redirectUrl) {

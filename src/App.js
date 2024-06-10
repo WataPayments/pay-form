@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import "./index.css";
 import { isAxiosError } from "axios";
+import { initGa, sendGaEvent } from "./utils/ga";
 
 export const ThemeContext = createContext(null);
 export const DataContext = createContext(null);
@@ -61,6 +62,10 @@ export default function App() {
     // setTheme("light");
     document.body.classList.add(osTheme);
     setTheme(osTheme);
+  }, []);
+
+  useEffect(() => {
+    initGa();
   }, []);
 
   useEffect(() => {

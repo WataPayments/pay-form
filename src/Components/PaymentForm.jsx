@@ -1,4 +1,10 @@
-import React, { useState, useRef, useContext, useMemo } from "react";
+import React, {
+  useState,
+  useRef,
+  useContext,
+  useMemo,
+  useCallback,
+} from "react";
 import axios from "axios";
 import SBP from "../Images/Vector.svg";
 import eyeVisibleIcon from "../Images/Visibility_off.svg";
@@ -10,6 +16,7 @@ import Loader from "./Loader";
 import isMobile from "is-mobile";
 import "../Styles/PaymentFormStyle.css";
 import { ThemeContext } from "../App";
+import { sendGaEvent } from "../utils/ga";
 
 const PaymentForm = (props) => {
   const navigate = useNavigate();
@@ -28,9 +35,15 @@ const PaymentForm = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const theme = useContext(ThemeContext);
 
-  const handleOverlayToggle = () => {
+  const handleOverlayToggle = useCallback(() => {
+    if (!showOverlay) {
+      sendGaEvent("OfertaView_PaymentPage", {
+        transaction_id: props.transaction.uuid,
+        payment_method: props.transaction.methods,
+      });
+    }
     setShowOverlay(!showOverlay);
-  };
+  }, [showOverlay]);
 
   const detectCardType = (inputCardNumber) => {
     setCardType(inputCardNumber.startsWith("2") ? "mir" : "");
@@ -104,6 +117,8 @@ const PaymentForm = (props) => {
   };
 
   const handleSubmit = async (event) => {
+    sendGaEvent("PaymentStart_CC", { transaction_id: props.transaction.uuid });
+
     event.preventDefault();
     setIsLoading(true);
 
@@ -181,14 +196,16 @@ const PaymentForm = (props) => {
 
       setIsLoading(false);
     } else {
+      sendGaEvent("PaymentValidationFail", {
+        transaction_id: props.transaction.uuid,
+      });
       setIsLoading(false);
     }
   };
 
   const sbp_payment = async () => {
-    // try {
+    sendGaEvent("PaymentStart_SBP", { transaction_id: props.transaction.uuid });
     if (isMobile()) {
-      // window.location.href = props.transaction.sbp_url;
       window.open(props.transaction.sbp_url, "_blank");
     } else {
       navigate(`/sbp-pay/${props.uuid}`);

@@ -12,6 +12,7 @@ import { ThemeContext, DataContext } from "../../App";
 import "./styles.css";
 import isMobile from "is-mobile";
 import { TransactionInfo } from "../TransactionInfo/TransactionInfo";
+import { sendGaEvent } from "../../utils/ga";
 
 const pageInfo = {
   Paid: {
@@ -96,6 +97,15 @@ export const ResultPage = () => {
       setIntervalId(intervalId);
     }
   }, [transactionData, intervalId]);
+
+  useEffect(() => {
+    if (transactionData) {
+      sendGaEvent(`PaymentComplete_${transactionData.status.toLowerCase()}`, {
+        transaction_id: transactionData.uuid,
+        payment_method: transactionData.methods,
+      });
+    }
+  }, [transactionData]);
 
   useEffect(() => {
     if (

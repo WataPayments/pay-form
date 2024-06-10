@@ -11,6 +11,7 @@ import isMobile from "is-mobile";
 import { ThemeContext } from "../../../App";
 import logoDark from "../../../Images/Logo.svg";
 import logoLight from "../../../Images/LogoLight.svg";
+import { sendGaEvent } from "../../../utils/ga";
 const WS_URL = "wss://acquiring.foreignpay.ru/ws/";
 
 const PayQrPage = () => {
@@ -21,9 +22,15 @@ const PayQrPage = () => {
   const [showOverlay, setShowOverlay] = useState(false);
   const theme = useContext(ThemeContext);
 
-  const handleOverlayToggle = () => {
+  const handleOverlayToggle = useCallback(() => {
+    if (!showOverlay) {
+      sendGaEvent("OfertaView_SBP", {
+        transaction_id: transactionData.uuid,
+        payment_method: transactionData.methods,
+      });
+    }
     setShowOverlay(!showOverlay);
-  };
+  }, [showOverlay, transactionData]);
 
   useEffect(() => {
     if (readyState === ReadyState.OPEN && transactionData) {

@@ -225,14 +225,14 @@ const PaymentForm = (props) => {
         <form onSubmit={handleSubmit}>
           <div className="add-cart-block">
             <div className="label-text-payment">
-              <p>Для оплаты доступны карты МИР</p>
+              <p>Оплата картой МИР</p>
             </div>
             <div className="card-number-container">
               <input
                 type="text"
                 id="cardNumber"
                 name="cardNumber"
-                placeholder="Введите номер карты"
+                placeholder="Введите номер карты МИР"
                 inputMode="numeric"
                 value={cardNumber}
                 onChange={handleCardNumberChange}

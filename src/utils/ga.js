@@ -2,7 +2,7 @@ import detect from "detect.js";
 import ReactGA4 from "react-ga4";
 
 export const initGa = () => {
-  ReactGA4.initialize("G-EDK7GXR1TY", { testMode: true });
+  ReactGA4.initialize("G-EDK7GXR1TY");
 
   console.log("GA INITIALIZED");
 };

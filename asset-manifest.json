@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/pay-form/static/css/main.6723334d.css",
-    "main.js": "/pay-form/static/js/main.9ddc4887.js",
-    "static/css/915.366aa87e.chunk.css": "/pay-form/static/css/915.366aa87e.chunk.css",
-    "static/js/915.6e5b293c.chunk.js": "/pay-form/static/js/915.6e5b293c.chunk.js",
+    "main.css": "/pay-form/static/css/main.a72af26e.css",
+    "main.js": "/pay-form/static/js/main.b2891aed.js",
+    "static/css/394.b1d80992.chunk.css": "/pay-form/static/css/394.b1d80992.chunk.css",
+    "static/js/394.cd070d3b.chunk.js": "/pay-form/static/js/394.cd070d3b.chunk.js",
     "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
     "static/media/TTFirsNeue-DemiBoldItalic.ttf": "/pay-form/static/media/TTFirsNeue-DemiBoldItalic.d96287c6cf4cd2f5d330.ttf",
     "static/media/TTFirsNeue-BlackItalic.ttf": "/pay-form/static/media/TTFirsNeue-BlackItalic.20e6d72dbbf5628241f0.ttf",
@@ -34,14 +34,10 @@
     "static/media/CloseLight.svg": "/pay-form/static/media/CloseLight.5131786014d18fa1d3a377086dcdf6e2.svg",
     "static/media/Visibility.svg": "/pay-form/static/media/Visibility.0e2110d8abed7ff9de7f81351f0bd60b.svg",
     "static/media/RefundedPay.svg": "/pay-form/static/media/RefundedPay.599a52fefb146725ce6592b2f9dcda9d.svg",
-    "index.html": "/pay-form/index.html",
-    "main.6723334d.css.map": "/pay-form/static/css/main.6723334d.css.map",
-    "main.9ddc4887.js.map": "/pay-form/static/js/main.9ddc4887.js.map",
-    "915.366aa87e.chunk.css.map": "/pay-form/static/css/915.366aa87e.chunk.css.map",
-    "915.6e5b293c.chunk.js.map": "/pay-form/static/js/915.6e5b293c.chunk.js.map"
+    "index.html": "/pay-form/index.html"
   },
   "entrypoints": [
-    "static/css/main.6723334d.css",
-    "static/js/main.9ddc4887.js"
+    "static/css/main.a72af26e.css",
+    "static/js/main.b2891aed.js"
   ]
 }

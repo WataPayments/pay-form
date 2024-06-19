@@ -5,7 +5,8 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import "./index.css";
 import { isAxiosError } from "axios";
-import { initGa, sendGaEvent } from "./utils/ga";
+import { initGa } from "./utils/ga";
+import { BanksProvider } from "./hooks/banksListProvider";
 
 export const ThemeContext = createContext(null);
 export const DataContext = createContext(null);
@@ -38,7 +39,6 @@ export default function App() {
       } catch (error) {
         console.error("Error fetching transaction data:", error);
         if (isAxiosError(error) && error.request) {
-          console.log(error.request.status);
           if (error.request.status === 404) {
             navigate("/404");
             return;
@@ -59,8 +59,8 @@ export default function App() {
     const osTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
       : "light";
-    // setTheme("light");
     document.body.classList.add(osTheme);
+    // setTheme("light");
     setTheme(osTheme);
   }, []);
 
@@ -82,20 +82,22 @@ export default function App() {
   }, []);
 
   return (
-    <ThemeContext.Provider value={theme}>
-      <DataContext.Provider
-        value={{
-          transactionData,
-          loading,
-          setRedirectUrl,
-          redirectUrl,
-          setTransactionData,
-        }}
-      >
-        <div className={`wrapper ${theme}`}>
-          <Outlet />
-        </div>
-      </DataContext.Provider>
-    </ThemeContext.Provider>
+    <BanksProvider>
+      <ThemeContext.Provider value={theme}>
+        <DataContext.Provider
+          value={{
+            transactionData,
+            loading,
+            setRedirectUrl,
+            redirectUrl,
+            setTransactionData,
+          }}
+        >
+          <div className={`wrapper ${theme}`}>
+            <Outlet />
+          </div>
+        </DataContext.Provider>
+      </ThemeContext.Provider>
+    </BanksProvider>
   );
 }

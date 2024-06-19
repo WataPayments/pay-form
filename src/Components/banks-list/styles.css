@@ -1,0 +1,90 @@
+.banks-list {
+  padding: 40px 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400 !important;
+  margin-bottom: 30px;
+}
+
+.light .header {
+  color: #211f22;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.search-input {
+  width: 100%;
+  height: 56px;
+  padding: 20px 20px 20px 54px;
+  border-radius: 10px;
+  border: 1px solid var(--Border-Default);
+  background: #211f22;
+  color: var(--Text-Primary);
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.light .search-input {
+  background-color: #fafafa;
+  border-color: rgba(33, 31, 34, 0.1);
+  color: rgba(33, 31, 34, 1);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--Border-Active);
+}
+
+.banks-list .divider {
+  margin: 0 -20px;
+  width: 100vw;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light .banks-list .divider {
+  border-color: rgba(33, 31, 34, 0.1);
+}
+
+.list {
+  overflow: scroll;
+}
+
+.bank-item {
+  display: flex;
+  padding: 10px;
+  background-color: #262328;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+  gap: 10px;
+  align-items: center;
+}
+
+.light .bank-item {
+  background-color: rgba(255, 255, 255, 1);
+  border-color: rgba(33, 31, 34, 0.1);
+  color: rgba(33, 31, 34, 1);
+}
+
+.bank-item > img {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+}

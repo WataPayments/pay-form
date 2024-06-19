@@ -1,22 +1,17 @@
-import React, {
-  useState,
-  useRef,
-  useContext,
-  useMemo,
-  useCallback,
-} from "react";
+import React, { useState, useRef, useContext, useCallback } from "react";
 import axios from "axios";
 import SBP from "../Images/Vector.svg";
 import eyeVisibleIcon from "../Images/Visibility_off.svg";
 import eyeHiddenIcon from "../Images/Visibility.svg";
 import MIR from "../Images/Logo=Mir.svg";
-import Overlay from "./Overlay";
+import Offer from "./Offer";
 import { useNavigate } from "react-router-dom";
 import Loader from "./Loader";
 import isMobile from "is-mobile";
 import "../Styles/PaymentFormStyle.css";
 import { ThemeContext } from "../App";
 import { sendGaEvent } from "../utils/ga";
+import { BanksList } from "./banks-list/BanksList";
 
 const PaymentForm = (props) => {
   const navigate = useNavigate();
@@ -31,19 +26,20 @@ const PaymentForm = (props) => {
   const [cardType, setCardType] = useState("");
   const expiryDateRef = useRef(null);
   const cvvRef = useRef(null);
-  const [showOverlay, setShowOverlay] = useState(false);
+  const [showOffer, setShowOffer] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showBanksList, setShowBanksList] = useState(false);
   const theme = useContext(ThemeContext);
 
-  const handleOverlayToggle = useCallback(() => {
-    if (!showOverlay) {
+  const handleOfferToggle = useCallback(() => {
+    if (!showOffer) {
       sendGaEvent("OfertaView_PaymentPage", {
         transaction_id: props.transaction.uuid,
         payment_method: props.transaction.methods,
       });
     }
-    setShowOverlay(!showOverlay);
-  }, [showOverlay]);
+    setShowOffer(!showOffer);
+  }, [showOffer]);
 
   const detectCardType = (inputCardNumber) => {
     setCardType(inputCardNumber.startsWith("2") ? "mir" : "");
@@ -206,7 +202,8 @@ const PaymentForm = (props) => {
   const sbp_payment = async () => {
     sendGaEvent("PaymentStart_SBP", { transaction_id: props.transaction.uuid });
     if (isMobile()) {
-      window.open(props.transaction.sbp_url, "_blank");
+      // window.open(props.transaction.sbp_url, "_blank");
+      setShowBanksList(true);
     } else {
       navigate(`/sbp-pay/${props.uuid}`);
       return;
@@ -306,14 +303,18 @@ const PaymentForm = (props) => {
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              handleOverlayToggle();
+              handleOfferToggle();
             }}
           >
             оферты
           </a>
         </p>
       </div>
-      {showOverlay && <Overlay onClose={handleOverlayToggle} />}
+      {showOffer && <Offer onClose={handleOfferToggle} />}
+      <BanksList
+        isOpen={showBanksList}
+        onClose={() => setShowBanksList(false)}
+      />
     </div>
   );
 };

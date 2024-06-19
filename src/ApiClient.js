@@ -21,22 +21,15 @@ class ApiClient {
     }
   }
 
-  async sendPaymentData(uuid, data) {
+  async fetchBanksList() {
     try {
-      const response = await axios.post(
-        "https://acquiring.foreignpay.ru/front/card_into",
-        { ...data, uuid }
+      const response = await axios.get(
+        "https://qr.nspk.ru/proxyapp/c2bmembers.json"
       );
-      return response.data;
+
+      return response.data.dictionary;
     } catch (error) {
-      console.error("Error sending payment data:", error);
-      if (error.response) {
-        if (error.response.status === 500) {
-          window.location.href = "/500";
-        } else if (error.response.status === 404) {
-          window.location.href = "/404";
-        }
-      }
+      console.error("Can't fetch banks list");
       throw error;
     }
   }

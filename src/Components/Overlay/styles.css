@@ -1,0 +1,48 @@
+.overlay-wrapepr {
+  position: relative;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-appear {
+  opacity: 0;
+}
+
+.fade-appear-active {
+  opacity: 1;
+  transition: opacity 300ms linear;
+}
+
+.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-exit-active {
+  transition: opacity 300ms linear;
+}

@@ -1,0 +1,54 @@
+.sheet-wrapper {
+  background-color: #262328;
+  width: 100vw;
+  height: calc(100vh - 40px);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.light .sheet-wrapper {
+  background-color: white;
+}
+
+.close-btn {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+}
+
+.drag-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+}
+
+.drag-line {
+  width: 67px;
+  height: 3px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.light .drag-line {
+  background-color: rgba(33, 31, 34, 0.75);
+}
+
+.slide-enter {
+  transform: translateY(100%);
+}
+.slide-enter-active {
+  transform: translateY(0%);
+  transition: transform 300ms linear;
+}
+.slide-exit {
+  transform: translateY(0%);
+}
+.slide-exit-active {
+  transform: translateY(100%);
+  transition: transform 300ms linear;
+}

@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from "react";
-import "../Styles/OverlayStyle.css";
+import "../Styles/OfferStyle.css";
 import Close from "../Images/Close.svg";
 import CloseLight from "../Images/CloseLight.svg";
 
@@ -10,7 +10,7 @@ const offerToNameMap = {
   FYLS: "Finvoka Yazilim Limited Şirketi",
 };
 
-export default function Overlay({ onClose }) {
+export default function Offer({ onClose }) {
   const theme = useContext(ThemeContext);
   const { transactionData } = useContext(DataContext);
 
@@ -19,8 +19,8 @@ export default function Overlay({ onClose }) {
   }, [transactionData]);
 
   return (
-    <div className={`overlay ${theme}`}>
-      <div className={`overlay-content ${theme}`}>
+    <div className={`offer ${theme}`}>
+      <div className={`offer-content ${theme}`}>
         <img
           src={theme === "dark" ? Close : CloseLight}
           alt="Close"

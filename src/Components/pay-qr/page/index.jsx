@@ -6,7 +6,7 @@ import useWebSocket, { ReadyState } from "react-use-websocket";
 import { useNavigate } from "react-router-dom";
 import { DataContext } from "../../../App";
 import { TransactionInfo } from "../../TransactionInfo/TransactionInfo";
-import Overlay from "../../Overlay";
+import Offer from "../../Offer";
 import isMobile from "is-mobile";
 import { ThemeContext } from "../../../App";
 import logoDark from "../../../Images/Logo.svg";
@@ -114,7 +114,7 @@ const PayQrPage = () => {
             <input id="submitButton" type="submit" value="Отменить" />
           </span>
         </div>
-        {showOverlay && <Overlay onClose={handleOverlayToggle} />}
+        {showOverlay && <Offer onClose={handleOverlayToggle} />}
       </div>
       <div className="logo">
         <img src={theme === "dark" ? logoDark : logoLight} alt="WATA" />

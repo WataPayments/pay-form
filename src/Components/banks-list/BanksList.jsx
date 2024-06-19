@@ -54,34 +54,32 @@ export const BanksList = ({ isOpen, onClose }) => {
           />
           <div className="title">Выберите банк для подверждения оплаты</div>
         </div>
-        <div className="banks-list-content">
-          <div className="search-container">
-            <img
-              className="search-icon"
-              src={theme === "dark" ? SearchIconDark : SearchIconLight}
-              alt="Поиск"
-            />
-            <input
-              className="search-input"
-              value={searchFilter}
-              onChange={(e) => setSearchFilter(e.target.value)}
-              placeholder="Найти свой банк"
-            />
-          </div>
+        <div className="search-container">
+          <img
+            className="search-icon"
+            src={theme === "dark" ? SearchIconDark : SearchIconLight}
+            alt="Поиск"
+          />
+          <input
+            className="search-input"
+            value={searchFilter}
+            onChange={(e) => setSearchFilter(e.target.value)}
+            placeholder="Найти свой банк"
+          />
+        </div>
 
-          {showDivider && <div className="divider"></div>}
-          <div className="list" ref={list}>
-            {filteredBanks.map((bank, index) => (
-              <div
-                className="bank-item"
-                key={index + bank.bankName}
-                onClick={() => onBankClick(bank)}
-              >
-                <img src={bank.logoURL} alt="" />
-                <div>{bank.bankName}</div>
-              </div>
-            ))}
-          </div>
+        {showDivider && <div className="divider"></div>}
+        <div className="list" ref={list}>
+          {filteredBanks.map((bank, index) => (
+            <div
+              className="bank-item"
+              key={index + bank.bankName}
+              onClick={() => onBankClick(bank)}
+            >
+              <img src={bank.logoURL} alt="" />
+              <div>{bank.bankName}</div>
+            </div>
+          ))}
         </div>
       </div>
     </BottomSheet>

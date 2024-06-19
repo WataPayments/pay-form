@@ -15,25 +15,19 @@
   padding: 40px 20px 0 20px;
 }
 
-.banks-list-content {
-  display: flex;
-  flex-direction: column;
-  padding: 0 20px;
-  height: 100%;
-}
-
 .light .header {
   color: #211f22;
 }
 
 .search-container {
   position: relative;
+  padding: 0 20px;
 }
 
 .search-icon {
   position: absolute;
   top: 16px;
-  left: 16px;
+  left: 36px;
 }
 
 .search-input {
@@ -60,7 +54,6 @@
 }
 
 .banks-list .divider {
-  margin: 0 -20px;
   width: 100vw;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -71,6 +64,7 @@
 
 .list {
   overflow: scroll;
+  padding: 0 20px;
 }
 
 .bank-item {

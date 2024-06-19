@@ -1,5 +1,4 @@
 .banks-list {
-  padding: 40px 20px 0 20px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -13,6 +12,14 @@
   line-height: 24px;
   font-weight: 400 !important;
   margin-bottom: 30px;
+  padding: 40px 20px 0 20px;
+}
+
+.banks-list-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  height: 100%;
 }
 
 .light .header {

@@ -1,7 +1,7 @@
 .sheet-wrapper {
   background-color: #262328;
   width: 100vw;
-  height: calc(100vh - 100px);
+  height: calc(100svh - 40px);
   position: absolute;
   bottom: 0;
   left: 0;

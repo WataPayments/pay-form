@@ -212,11 +212,13 @@ const PaymentForm = (props) => {
 
   return (
     <div className={`order-add-cart-block ${theme}`}>
-      {props.transaction && props.transaction.methods.includes("sbp") && (
-        <a className={"sbp-bg"} onClick={sbp_payment}>
-          <img src={SBP} className="big-image" alt="SBP" />
-        </a>
-      )}
+      {props.transaction &&
+        props.transaction.methods.includes("sbp") &&
+        props.transaction.sbp_url && (
+          <a className={"sbp-bg"} onClick={sbp_payment}>
+            <img src={SBP} className="big-image" alt="SBP" />
+          </a>
+        )}
 
       {props.transaction && props.transaction.methods.includes("card") && (
         <form onSubmit={handleSubmit}>

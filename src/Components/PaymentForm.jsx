@@ -12,6 +12,8 @@ import "../Styles/PaymentFormStyle.css";
 import { ThemeContext } from "../App";
 import { sendGaEvent } from "../utils/ga";
 import { BanksList } from "./banks-list/BanksList";
+import { OfferMobile } from "./offer-mobile/OfferMobile";
+import { OfferDesktop } from "./offer-desktop/OfferDesktop";
 
 const PaymentForm = (props) => {
   const navigate = useNavigate();
@@ -26,20 +28,24 @@ const PaymentForm = (props) => {
   const [cardType, setCardType] = useState("");
   const expiryDateRef = useRef(null);
   const cvvRef = useRef(null);
-  const [showOffer, setShowOffer] = useState(false);
+  const [showOfferMobile, setShowOfferMobile] = useState(false);
+  const [showOfferDesktop, setShowOfferDesktop] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showBanksList, setShowBanksList] = useState(false);
   const theme = useContext(ThemeContext);
 
-  const handleOfferToggle = useCallback(() => {
-    if (!showOffer) {
-      sendGaEvent("OfertaView_PaymentPage", {
-        transaction_id: props.transaction.uuid,
-        payment_method: props.transaction.methods,
-      });
+  const handleOpenOfferClick = () => {
+    sendGaEvent("OfertaView_PaymentPage", {
+      transaction_id: props.transaction.uuid,
+      payment_method: props.transaction.methods,
+    });
+
+    if (isMobile()) {
+      setShowOfferMobile(true);
+    } else {
+      setShowOfferDesktop(true);
     }
-    setShowOffer(!showOffer);
-  }, [showOffer]);
+  };
 
   const detectCardType = (inputCardNumber) => {
     setCardType(inputCardNumber.startsWith("2") ? "mir" : "");
@@ -305,14 +311,21 @@ const PaymentForm = (props) => {
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              handleOfferToggle();
+              handleOpenOfferClick();
             }}
           >
             оферты
           </a>
         </p>
       </div>
-      {showOffer && <Offer onClose={handleOfferToggle} />}
+      <OfferMobile
+        isOpen={showOfferMobile}
+        onClose={() => setShowOfferMobile(false)}
+      />
+      <OfferDesktop
+        isOpen={showOfferDesktop}
+        onClose={() => setShowOfferDesktop(false)}
+      />
       <BanksList
         isOpen={showBanksList}
         onClose={() => setShowBanksList(false)}

@@ -1,17 +1,14 @@
 import React, { useContext, useMemo } from "react";
 import "../Styles/OfferStyle.css";
-import Close from "../Images/Close.svg";
-import CloseLight from "../Images/CloseLight.svg";
 
-import { DataContext, ThemeContext } from "../App";
+import { DataContext } from "../App";
 
 const offerToNameMap = {
   Wata: "WATA Group Limited",
   FYLS: "Finvoka Yazilim Limited Şirketi",
 };
 
-export default function Offer({ onClose }) {
-  const theme = useContext(ThemeContext);
+export default function Offer({ isModal }) {
   const { transactionData } = useContext(DataContext);
 
   const companyName = useMemo(() => {
@@ -19,15 +16,9 @@ export default function Offer({ onClose }) {
   }, [transactionData]);
 
   return (
-    <div className={`offer ${theme}`}>
-      <div className={`offer-content ${theme}`}>
-        <img
-          src={theme === "dark" ? Close : CloseLight}
-          alt="Close"
-          className="close-btn"
-          onClick={onClose}
-        />
-        <h2>Публичная оферта</h2>
+    <div className={`offer ${isModal ? "modal" : ""}`}>
+      <div className="offer-content">
+        <div className="title">Публичная оферта</div>
         <div className="block">
           <p className="p2">
             Компания {companyName}, именуемая в дальнейшем "Поставщик",
@@ -43,13 +34,13 @@ export default function Offer({ onClose }) {
           </p>
         </div>
         <div className="block">
-          <p className={"p2"}>2. Условия использования</p>
-          <p className={"p2"}>
+          <p className="p2">2. Условия использования</p>
+          <p className="p2">
             2.1. Клиенты, желающие воспользоваться услугами Поставщика, должны
             быть законными представителями юридических лиц или физическими
             лицами, достигшими совершеннолетия.
           </p>
-          <p className={"p2"}>
+          <p className="p2">
             2.2. Клиенты обязуются предоставить достоверную информацию о себе и
             своих платежных данных.
           </p>

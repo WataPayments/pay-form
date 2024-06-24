@@ -12,6 +12,7 @@ import { ThemeContext } from "../../../App";
 import logoDark from "../../../Images/Logo.svg";
 import logoLight from "../../../Images/LogoLight.svg";
 import { sendGaEvent } from "../../../utils/ga";
+import { OfferDesktop } from "../../offer-desktop/OfferDesktop";
 const WS_URL = "wss://acquiring.foreignpay.ru/ws/";
 
 const PayQrPage = () => {
@@ -19,18 +20,18 @@ const PayQrPage = () => {
   const { transactionData, loading, setTransactionData } =
     useContext(DataContext);
   const { sendJsonMessage, lastJsonMessage, readyState } = useWebSocket(WS_URL);
-  const [showOverlay, setShowOverlay] = useState(false);
+  const [showOfferDesktop, setShowOfferDesktop] = useState(false);
   const theme = useContext(ThemeContext);
 
   const handleOverlayToggle = useCallback(() => {
-    if (!showOverlay) {
+    if (!showOfferDesktop) {
       sendGaEvent("OfertaView_SBP", {
         transaction_id: transactionData.uuid,
         payment_method: transactionData.methods,
       });
     }
-    setShowOverlay(!showOverlay);
-  }, [showOverlay, transactionData]);
+    setShowOfferDesktop(!showOfferDesktop);
+  }, [showOfferDesktop, transactionData]);
 
   useEffect(() => {
     if (readyState === ReadyState.OPEN && transactionData) {
@@ -114,7 +115,10 @@ const PayQrPage = () => {
             <input id="submitButton" type="submit" value="Отменить" />
           </span>
         </div>
-        {showOverlay && <Offer onClose={handleOverlayToggle} />}
+        <OfferDesktop
+          isOpen={showOfferDesktop}
+          onClose={() => setShowOfferDesktop(false)}
+        />
       </div>
       <div className="logo">
         <img src={theme === "dark" ? logoDark : logoLight} alt="WATA" />

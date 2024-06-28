@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pay-form/static/css/main.96bd4d95.css",
-    "main.js": "/pay-form/static/js/main.1dbaeb60.js",
+    "main.js": "/pay-form/static/js/main.364d5c52.js",
     "static/css/394.b1d80992.chunk.css": "/pay-form/static/css/394.b1d80992.chunk.css",
     "static/js/394.3c2f47c0.chunk.js": "/pay-form/static/js/394.3c2f47c0.chunk.js",
     "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
@@ -42,6 +42,6 @@
   },
   "entrypoints": [
     "static/css/main.96bd4d95.css",
-    "static/js/main.1dbaeb60.js"
+    "static/js/main.364d5c52.js"
   ]
 }

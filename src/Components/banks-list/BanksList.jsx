@@ -52,7 +52,7 @@ export const BanksList = ({ isOpen, onClose }) => {
             src={theme === "dark" ? SbpLogoDark : SbpLogoLight}
             alt="Логотип СБП"
           />
-          <div>Выберите банк для подверждения оплаты</div>
+          <div>Выберите банк для подтверждения оплаты</div>
         </div>
         <div className="search-container">
           <img

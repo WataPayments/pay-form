@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/pay-form/static/css/main.1b24e397.css",
+    "main.css": "/pay-form/static/css/main.619dfdc2.css",
     "main.js": "/pay-form/static/js/main.1dbaeb60.js",
     "static/css/394.b1d80992.chunk.css": "/pay-form/static/css/394.b1d80992.chunk.css",
     "static/js/394.3c2f47c0.chunk.js": "/pay-form/static/js/394.3c2f47c0.chunk.js",
@@ -41,7 +41,7 @@
     "index.html": "/pay-form/index.html"
   },
   "entrypoints": [
-    "static/css/main.1b24e397.css",
+    "static/css/main.619dfdc2.css",
     "static/js/main.1dbaeb60.js"
   ]
 }

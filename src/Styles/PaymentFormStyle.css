@@ -22,7 +22,7 @@
   font-family: "TTFirsNeue Regular";
   font-style: normal;
   font-weight: 400;
-  padding: 20px 20px 10px 20px;
+  padding: 20px;
 }
 
 .order-add-cart-block.light {
@@ -44,6 +44,7 @@ form {
   padding: 0;
   background-color: black;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 form > a > img {
@@ -62,7 +63,6 @@ form > a > img {
   text-align: center;
   height: 28px;
   margin-bottom: 10px;
-  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -188,7 +188,7 @@ input[type="submit"]:hover {
 .submit-button {
   width: 100%;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   margin-top: 20px;
   position: relative;
 }

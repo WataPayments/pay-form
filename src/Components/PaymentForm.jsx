@@ -1,10 +1,9 @@
-import React, { useState, useRef, useContext, useCallback } from "react";
+import React, { useState, useRef, useContext } from "react";
 import axios from "axios";
 import SBP from "../Images/Vector.svg";
 import eyeVisibleIcon from "../Images/Visibility_off.svg";
 import eyeHiddenIcon from "../Images/Visibility.svg";
 import MIR from "../Images/Logo=Mir.svg";
-import Offer from "./Offer";
 import { useNavigate } from "react-router-dom";
 import Loader from "./Loader";
 import isMobile from "is-mobile";

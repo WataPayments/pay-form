@@ -7,10 +7,31 @@
 }
 
 .offer-content {
-  overflow-y: scroll;
+  height: 100%;
   text-align: start;
-  padding: 0 20px;
   margin-top: 40px;
+  scrollbar-color: #100d11 transparent;
+  scrollbar-width: thin;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 22px;
+}
+
+.offer-content .title {
+  padding: 32px 32px 0 32px;
+}
+
+.offer-blocks {
+  padding: 0 32px;
+  overflow-y: scroll;
+}
+
+.light .offer-content {
+  scrollbar-color: #b8b8b8 transparent;
+}
+
+.mobile .offer-content {
+  scrollbar-color: #6b6a6b transparent !important;
 }
 
 .modal .offer-content {
@@ -40,7 +61,7 @@
   margin-bottom: 0;
 }
 
-.block {
+.block:not(:last-child) {
   margin-bottom: 20px;
 }
 

@@ -7,6 +7,9 @@ import PendingPay from "../../Images/PendingPay.svg";
 import RefundedPay from "../../Images/RefundedPay.svg";
 import FailPay from "../../Images/FailPay.svg";
 import { useTranslation } from "react-i18next";
+import ApiClient from "../../ApiClient";
+import { isAxiosError } from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { ThemeContext, DataContext } from "../../App";
 
@@ -47,9 +50,15 @@ const pageInfo = (t) => {
 export const ResultPage = () => {
   const theme = useContext(ThemeContext);
   const [showTooltip, toggleTooltip] = useState(false);
-  const { transactionData, loading } = useContext(DataContext);
+  const { transactionData, loading, setTransactionData, setRedirectUrl } =
+    useContext(DataContext);
   const [countdownValue, setCountdownValue] = useState(5);
   const [intervalId, setIntervalId] = useState(null);
+
+  const { uuid } = useParams();
+  const navigate = useNavigate();
+
+  const [pendingRequests, setPendingRequests] = useState(false);
 
   const { t } = useTranslation();
 
@@ -135,6 +144,51 @@ export const ResultPage = () => {
     return t("result_page-second3");
   }, [countdownValue, t]);
 
+  useEffect(() => {
+    if (
+      transactionData &&
+      transactionData.status === "Pending" &&
+      !pendingRequests
+    ) {
+      let intId = null;
+
+      setPendingRequests(true);
+
+      const fetchTransaction = async () => {
+        console.log("request");
+        try {
+          const { transactionData: data, redirectUrl } =
+            await ApiClient.fetchTransactionData(uuid);
+
+          setTransactionData(data);
+          setRedirectUrl(redirectUrl);
+
+          if (data.status !== "Pending") {
+            setPendingRequests(false);
+            clearInterval(intId);
+          }
+        } catch (error) {
+          console.error("Error fetching transaction data:", error);
+          if (isAxiosError(error) && error.request) {
+            if (error.request.status === 404) {
+              navigate("/404");
+              return;
+            }
+
+            if (error.request.status === 500) {
+              navigate("/500");
+              return;
+            }
+          }
+        }
+      };
+
+      intId = setInterval(() => {
+        fetchTransaction();
+      }, 5000);
+    }
+  }, [transactionData, pendingRequests]);
+
   if (loading) {
     return (
       <div className={`loader-block ${theme}`}>
@@ -150,7 +204,13 @@ export const ResultPage = () => {
     >
       <div className={`result-block ${theme}`}>
         <div className="page-title">
-          <img src={pageLogo} alt="Result-pay" />
+          {transactionData && transactionData.status === "Pending" ? (
+            <div className="pending-block">
+              <span className="loader-pending"></span>
+            </div>
+          ) : (
+            <img src={pageLogo} alt="Result-pay" />
+          )}
           <p>{pageTitle}</p>
         </div>
         {transactionData && transactionData.status === "Pending" && (

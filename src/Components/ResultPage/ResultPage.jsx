@@ -155,7 +155,6 @@ export const ResultPage = () => {
       setPendingRequests(true);
 
       const fetchTransaction = async () => {
-        console.log("request");
         try {
           const { transactionData: data, redirectUrl } =
             await ApiClient.fetchTransactionData(uuid);

@@ -39,10 +39,12 @@ export default function MainPage() {
       const handleMessage = (event) => {
         if (event.origin === new URL(redirectUrl).origin) {
           console.log("Received message from iframe:", event.data);
-          const { url } = event.data;
-          if (url) {
-            console.log("Navigating to:", url);
-            window.location.replace(url);
+          const { redirect_url } = event.data.transaction;
+          if (redirect_url) {
+            console.log(redirect_url);
+            console.log("Navigating to:", redirect_url);
+            // window.location.replace(redirect_url);
+            window.location.reload();
           }
         }
       };

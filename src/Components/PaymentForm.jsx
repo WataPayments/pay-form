@@ -16,7 +16,7 @@ import { BanksList } from "./banks-list/BanksList";
 import { OfferMobile } from "./offer-mobile/OfferMobile";
 import { OfferDesktop } from "./offer-desktop/OfferDesktop";
 import { useTranslation } from "react-i18next";
-import { getCurrency } from "../utils";
+import { getCurrency, lunaCheck } from "../utils";
 
 function checkIsMastercard(input) {
   for (let i = 51; i <= 55; i++) {
@@ -167,91 +167,96 @@ const PaymentForm = (props) => {
     setCvvVisible(!cvvVisible);
   };
 
-  const handleSubmit = async (event) => {
-    sendGaEvent("PaymentStart_CC", { transaction_id: props.transaction.uuid });
-
-    event.preventDefault();
-    setIsLoading(true);
-
-    let isValid = true;
-
-    if (!/^2\d{15}$/.test(cardNumber.replace(/\s/g, ""))) {
-      setCardNumberError(true);
-      setIsErrorActive(true);
-      isValid = false;
-    } else {
-      setCardNumberError(false);
-    }
-
-    if (!expiryDate) {
-      setExpiryDateError(true);
-      setIsErrorActive(true);
-      isValid = false;
-    } else {
-      setExpiryDateError(false);
-    }
-
-    if (!cvv) {
-      setCvvError(true);
-      setIsErrorActive(true);
-      isValid = false;
-    } else {
-      setCvvError(false);
-    }
-
-    const currentYear = new Date().getFullYear().toString().slice(0, 2);
-    const formattedYear = currentYear + expiryDate.slice(3);
-
-    if (isValid) {
-      try {
-        const deviceData = {
-          browserLanguage: navigator.language,
-          browserJavaEnabled: navigator.javaEnabled,
-          browserJavaScriptEnabled: true,
-          browserColorDepth: window.screen.colorDepth,
-          browserScreenHeight: window.innerHeight,
-          browserScreenWidth: window.innerWidth,
-          browserTZ: new Date().getTimezoneOffset(),
-          browserTZName: Intl.DateTimeFormat().resolvedOptions().timeZone,
-          challengeWindowHeight: window.innerHeight,
-          challengeWindowWidth: window.innerWidth,
-        };
-
-        const response = await axios.post(
-          "https://acquiring.foreignpay.ru/webhook/front/card_info",
-          {
-            uuid: props.uuid,
-            card_number: parseInt(cardNumber.replace(/\s/g, ""), 10),
-            month: expiryDate.slice(0, 2),
-            year: formattedYear,
-            cvc: cvv,
-            email: "stub@stub.com",
-            name: "STUB STUB",
-            deviceData,
-          }
-        );
-
-        if (!response.data) {
-          navigate(`error-pay/${props.uuid}`);
-        }
-
-        if (response.data.url_redirect) {
-          props.setUrlRedirect(response.data.url_redirect);
-        } else {
-          navigate(`/result-pay/${props.uuid}`);
-        }
-      } catch (error) {
-        navigate(`/result-pay/${props.uuid}`);
-      }
-
-      setIsLoading(false);
-    } else {
-      sendGaEvent("PaymentValidationFail", {
+  const handleSubmit = useCallback(
+    async (event) => {
+      sendGaEvent("PaymentStart_CC", {
         transaction_id: props.transaction.uuid,
       });
-      setIsLoading(false);
-    }
-  };
+
+      event.preventDefault();
+      setIsLoading(true);
+
+      let isValid = true;
+
+      if (!lunaCheck(cardNumber.replaceAll(" ", ""))) {
+        setCardNumberError(true);
+        setIsErrorActive(true);
+        isValid = false;
+      } else {
+        setCardNumberError(false);
+      }
+
+      if (!expiryDate) {
+        setExpiryDateError(true);
+        setIsErrorActive(true);
+        isValid = false;
+      } else {
+        setExpiryDateError(false);
+      }
+
+      if (!cvv) {
+        setCvvError(true);
+        setIsErrorActive(true);
+        isValid = false;
+      } else {
+        setCvvError(false);
+      }
+
+      const currentYear = new Date().getFullYear().toString().slice(0, 2);
+      const formattedYear = currentYear + expiryDate.slice(3);
+
+      if (isValid) {
+        try {
+          const deviceData = {
+            browserLanguage: navigator.language,
+            browserJavaEnabled: navigator.javaEnabled,
+            browserJavaScriptEnabled: true,
+            browserColorDepth: window.screen.colorDepth,
+            browserScreenHeight: window.innerHeight,
+            browserScreenWidth: window.innerWidth,
+            browserTZ: new Date().getTimezoneOffset(),
+            browserTZName: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            challengeWindowHeight: window.innerHeight,
+            challengeWindowWidth: window.innerWidth,
+          };
+
+          const response = await axios.post(
+            "https://acquiring.foreignpay.ru/webhook/front/card_info",
+            {
+              uuid: props.uuid,
+              card_number: parseInt(cardNumber.replace(/\s/g, ""), 10),
+              month: expiryDate.slice(0, 2),
+              year: formattedYear,
+              cvc: cvv,
+              email: "stub@stub.com",
+              name: "STUB STUB",
+              deviceData,
+            }
+          );
+
+          if (!response.data) {
+            navigate(`error-pay/${props.uuid}`);
+          }
+
+          if (response.data.url_redirect) {
+            props.setUrlRedirect(response.data.url_redirect);
+          } else {
+            navigate(`/result-pay/${props.uuid}`);
+          }
+        } catch (error) {
+          navigate(`/result-pay/${props.uuid}`);
+        }
+
+        setIsLoading(false);
+      } else {
+        sendGaEvent("PaymentValidationFail", {
+          transaction_id: props.transaction.uuid,
+        });
+        setIsLoading(false);
+      }
+    },
+    [cardNumber]
+  );
 
   const sbp_payment = async () => {
     sendGaEvent("PaymentStart_SBP", { transaction_id: props.transaction.uuid });

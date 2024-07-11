@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/pay-form/static/css/main.96bd4d95.css",
-    "main.js": "/pay-form/static/js/main.d378ce15.js",
-    "static/css/394.b1d80992.chunk.css": "/pay-form/static/css/394.b1d80992.chunk.css",
-    "static/js/394.3c2f47c0.chunk.js": "/pay-form/static/js/394.3c2f47c0.chunk.js",
+    "main.js": "/pay-form/static/js/main.71013c15.js",
+    "static/css/394.02aa35d2.chunk.css": "/pay-form/static/css/394.02aa35d2.chunk.css",
+    "static/js/394.02839aa8.chunk.js": "/pay-form/static/js/394.02839aa8.chunk.js",
     "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
     "static/media/TTFirsNeue-DemiBoldItalic.ttf": "/pay-form/static/media/TTFirsNeue-DemiBoldItalic.d96287c6cf4cd2f5d330.ttf",
     "static/media/TTFirsNeue-BlackItalic.ttf": "/pay-form/static/media/TTFirsNeue-BlackItalic.20e6d72dbbf5628241f0.ttf",
@@ -25,12 +25,14 @@
     "static/media/Vector.svg": "/pay-form/static/media/Vector.dd27a137ef819fc1853e59d76dde9232.svg",
     "static/media/sbp-logo-inline-dark.svg": "/pay-form/static/media/sbp-logo-inline-dark.25ce4c4a0d27fcad0f84be6b26031477.svg",
     "static/media/sbp-logo-inline-light.svg": "/pay-form/static/media/sbp-logo-inline-light.c731fdeed9a083e1245cdecf5ef514ae.svg",
+    "static/media/Logo=Visa.svg": "/pay-form/static/media/Logo=Visa.56f2fb3b758cfd89236f2dc47227a25e.svg",
     "static/media/Logo=Mir.svg": "/pay-form/static/media/Logo=Mir.8864cc9c76ce77a8b1037742ba99002f.svg",
     "static/media/PendingPay.svg": "/pay-form/static/media/PendingPay.632ab4ab4adc51ccfe344ee4461f497a.svg",
     "static/media/LogoLight.svg": "/pay-form/static/media/LogoLight.4d8e85fb8be196c3dad61d7a4a68e9ba.svg",
     "static/media/Logo.svg": "/pay-form/static/media/Logo.f46aa925597ed7f039230b9d01a03e6f.svg",
     "static/media/Visibility_off.svg": "/pay-form/static/media/Visibility_off.96f9067fef7c0ca2002f84051584c77f.svg",
     "static/media/FailPay.svg": "/pay-form/static/media/FailPay.cf576ead76500627fe070dbadae9f94e.svg",
+    "static/media/Logo=Mastercard.svg": "/pay-form/static/media/Logo=Mastercard.71e15a4761c0d0828b32a27e290ab4fd.svg",
     "static/media/Close.svg": "/pay-form/static/media/Close.35d6499ccaef1f6fcb3a9e0bd96f3f45.svg",
     "static/media/SuccessPay.svg": "/pay-form/static/media/SuccessPay.ee218e5a9cf521267a725d0ec11320a8.svg",
     "static/media/CloseLight.svg": "/pay-form/static/media/CloseLight.5131786014d18fa1d3a377086dcdf6e2.svg",
@@ -42,6 +44,6 @@
   },
   "entrypoints": [
     "static/css/main.96bd4d95.css",
-    "static/js/main.d378ce15.js"
+    "static/js/main.71013c15.js"
   ]
 }

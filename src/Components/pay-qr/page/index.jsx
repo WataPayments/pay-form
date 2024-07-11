@@ -40,7 +40,6 @@ const PayQrPage = () => {
   }, [readyState, transactionData, sendJsonMessage]);
 
   useEffect(() => {
-    console.log(lastJsonMessage);
     if (!lastJsonMessage || lastJsonMessage.status === "Paid") {
       return;
     }

@@ -126,7 +126,6 @@ li::marker {
 }
 
 .alert {
-  margin-top: 20px;
   background-color: rgba(237, 140, 32, 0.1);
   color: rgba(237, 140, 32, 1);
   border: 1px solid rgba(237, 140, 32, 0.1);

@@ -5,6 +5,7 @@ import "../Styles/Error500PageStyle.css";
 import { DataContext, ThemeContext } from "../App";
 import isMobile from "is-mobile";
 import { sendGaEvent } from "../utils/ga";
+import { useTranslation } from "react-i18next";
 
 export default function Error500Page() {
   const theme = useContext(ThemeContext);
@@ -13,6 +14,8 @@ export default function Error500Page() {
     e.preventDefault();
     window.location.href = "https://wata.pro/";
   };
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (transactionData) {
@@ -30,9 +33,13 @@ export default function Error500Page() {
     >
       <div className="error-block">
         <div className="error-title">500</div>
-        <div className="error-message">Ошибка сервера</div>
+        <div className="error-message">{t("error_page-500")}</div>
         <form action="">
-          <input type="submit" value="На главную" onClick={handleClick} />
+          <input
+            type="submit"
+            value={t("error_page-home")}
+            onClick={handleClick}
+          />
         </form>
       </div>
       <div className="logo">

@@ -1,9 +1,11 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef, useContext, useCallback } from "react";
 import axios from "axios";
 import SBP from "../Images/Vector.svg";
 import eyeVisibleIcon from "../Images/Visibility_off.svg";
 import eyeHiddenIcon from "../Images/Visibility.svg";
 import MIR from "../Images/Logo=Mir.svg";
+import Visa from "../Images/Logo=Visa.svg";
+import Mastercard from "../Images/Logo=Mastercard.svg";
 import { useNavigate } from "react-router-dom";
 import Loader from "./Loader";
 import isMobile from "is-mobile";
@@ -13,6 +15,24 @@ import { sendGaEvent } from "../utils/ga";
 import { BanksList } from "./banks-list/BanksList";
 import { OfferMobile } from "./offer-mobile/OfferMobile";
 import { OfferDesktop } from "./offer-desktop/OfferDesktop";
+import { useTranslation } from "react-i18next";
+import { getCurrency } from "../utils";
+
+function checkIsMastercard(input) {
+  for (let i = 51; i <= 55; i++) {
+    if (input.startsWith(i.toString())) {
+      return true;
+    }
+  }
+
+  for (let i = 23; i <= 27; i++) {
+    if (input.startsWith(i.toString())) {
+      return true;
+    }
+  }
+
+  return false;
+}
 
 const PaymentForm = (props) => {
   const navigate = useNavigate();
@@ -33,6 +53,8 @@ const PaymentForm = (props) => {
   const [showBanksList, setShowBanksList] = useState(false);
   const theme = useContext(ThemeContext);
 
+  const { t } = useTranslation();
+
   const handleOpenOfferClick = () => {
     sendGaEvent("OfertaView_PaymentPage", {
       transaction_id: props.transaction.uuid,
@@ -47,15 +69,43 @@ const PaymentForm = (props) => {
   };
 
   const detectCardType = (inputCardNumber) => {
-    setCardType(inputCardNumber.startsWith("2") ? "mir" : "");
+    let result = "";
+
+    if (inputCardNumber.startsWith("22") ? "mir" : "") {
+      result = "mir";
+    }
+
+    if (inputCardNumber.startsWith("4")) {
+      result = "visa";
+    }
+
+    if (checkIsMastercard(inputCardNumber)) {
+      result = "mastercard";
+    }
+
+    setCardType(result);
   };
+
+  const renderCard = useCallback(() => {
+    if (cardType) {
+      let card = "";
+
+      if (cardType === "mir") {
+        card = MIR;
+      } else if (cardType === "visa") {
+        card = Visa;
+      } else if (cardType === "mastercard") {
+        card = Mastercard;
+      }
+
+      return <img src={card} className="card-type-icon" alt="card" />;
+    }
+
+    return null;
+  }, [cardType]);
 
   const handleCardNumberChange = (event) => {
     let inputCardNumber = event.target.value.replace(/\D/g, "");
-
-    if (!inputCardNumber.startsWith("2")) {
-      inputCardNumber = "";
-    }
 
     detectCardType(inputCardNumber);
 
@@ -191,7 +241,6 @@ const PaymentForm = (props) => {
           navigate(`/result-pay/${props.uuid}`);
         }
       } catch (error) {
-        console.error("Ошибка при отправке данных:", error);
         navigate(`/result-pay/${props.uuid}`);
       }
 
@@ -218,6 +267,7 @@ const PaymentForm = (props) => {
   return (
     <div className={`order-add-cart-block ${theme}`}>
       {props.transaction &&
+        props.transaction.type === "Local" &&
         props.transaction.methods.includes("sbp") &&
         props.transaction.sbp_url && (
           <a className={"sbp-bg"} onClick={sbp_payment}>
@@ -228,24 +278,24 @@ const PaymentForm = (props) => {
       {props.transaction && props.transaction.methods.includes("card") && (
         <form onSubmit={handleSubmit}>
           <div className="add-cart-block">
-            <div className="label-text-payment">
-              <p>Оплата картой МИР</p>
-            </div>
+            {props.transaction.type === "Local" && (
+              <div className="label-text-payment">
+                <p>Оплата картой МИР</p>
+              </div>
+            )}
             <div className="card-number-container">
               <input
                 type="text"
                 id="cardNumber"
                 name="cardNumber"
-                placeholder="Введите номер карты МИР"
+                placeholder={t("pay_form-input-card-placeholder")}
                 inputMode="numeric"
                 value={cardNumber}
                 onChange={handleCardNumberChange}
                 maxLength={19}
                 className={`${cardNumberError ? "error" : ""}`}
               />
-              {cardType === "mir" && (
-                <img src={MIR} className="card-type-icon" alt="МИР" />
-              )}
+              {cardType && renderCard()}
             </div>
 
             <div className="cvv-container">
@@ -253,7 +303,7 @@ const PaymentForm = (props) => {
                 type="text"
                 id="expiryDate"
                 name="expiryDate"
-                placeholder="ММ/ГГ"
+                placeholder={t("pay_form-input-expiration")}
                 inputMode="numeric"
                 value={expiryDate}
                 onChange={handleExpiryDateChange}
@@ -297,7 +347,13 @@ const PaymentForm = (props) => {
             <input
               id="submitButton"
               type="submit"
-              value={isLoading ? "" : `Оплатить ${props.transaction.amount} ₽`}
+              value={
+                isLoading
+                  ? ""
+                  : `${t("pay_form-pay")} ${
+                      props.transaction.amount
+                    } ${getCurrency(props.transaction.currency)}`
+              }
               className={isLoading ? "submit-loading" : ""}
             />
           </div>
@@ -305,7 +361,7 @@ const PaymentForm = (props) => {
       )}
       <div className="accept-text">
         <p>
-          Оплачивая, вы соглашаетесь с договором{" "}
+          {t("pay_form-offer-disclamer")}{" "}
           <a
             href="#"
             onClick={(e) => {
@@ -313,7 +369,7 @@ const PaymentForm = (props) => {
               handleOpenOfferClick();
             }}
           >
-            оферты
+            {t("pay_form-offer-action")}
           </a>
         </p>
       </div>

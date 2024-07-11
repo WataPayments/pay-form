@@ -2,6 +2,7 @@ import React, { useState, useEffect, createContext } from "react";
 import { Outlet } from "react-router-dom";
 import ApiClient from "./ApiClient";
 import { useParams, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import "./index.css";
 import { isAxiosError } from "axios";
@@ -19,11 +20,16 @@ export default function App() {
   const { uuid } = useParams();
   const navigate = useNavigate();
 
+  const { i18n } = useTranslation();
+
   useEffect(() => {
     const fetchTransaction = async () => {
       try {
         const { transactionData, redirectUrl } =
           await ApiClient.fetchTransactionData(uuid);
+        if (transactionData.type === "International") {
+          i18n.changeLanguage("en");
+        }
         setTransactionData(transactionData);
         setRedirectUrl(redirectUrl);
         setLoading(false);

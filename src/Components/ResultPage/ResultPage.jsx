@@ -6,6 +6,7 @@ import SuccessPay from "../../Images/SuccessPay.svg";
 import PendingPay from "../../Images/PendingPay.svg";
 import RefundedPay from "../../Images/RefundedPay.svg";
 import FailPay from "../../Images/FailPay.svg";
+import { useTranslation } from "react-i18next";
 
 import { ThemeContext, DataContext } from "../../App";
 
@@ -14,31 +15,33 @@ import isMobile from "is-mobile";
 import { TransactionInfo } from "../TransactionInfo/TransactionInfo";
 import { sendGaEvent } from "../../utils/ga";
 
-const pageInfo = {
-  Paid: {
-    title: "Успешный платеж",
-    icon: SuccessPay,
-  },
-  Pending: {
-    title: "В обработке",
-    icon: PendingPay,
-  },
-  Expired: {
-    title: "Просроченная транзакция",
-    icon: PendingPay,
-  },
-  Refunded: {
-    title: "Возврат осуществлен",
-    icon: RefundedPay,
-  },
-  Failed: {
-    title: "Ошибка",
-    icon: FailPay,
-  },
-  Created: {
-    title: "",
-    icon: "",
-  },
+const pageInfo = (t) => {
+  return {
+    Paid: {
+      title: t("result_page-paid"),
+      icon: SuccessPay,
+    },
+    Pending: {
+      title: t("result_page-pending"),
+      icon: PendingPay,
+    },
+    Expired: {
+      title: t("result_page-expired"),
+      icon: PendingPay,
+    },
+    Refunded: {
+      title: t("result_page-refunded"),
+      icon: RefundedPay,
+    },
+    Failed: {
+      title: t("result_page-failed"),
+      icon: FailPay,
+    },
+    Created: {
+      title: "",
+      icon: "",
+    },
+  };
 };
 
 export const ResultPage = () => {
@@ -47,6 +50,8 @@ export const ResultPage = () => {
   const { transactionData, loading } = useContext(DataContext);
   const [countdownValue, setCountdownValue] = useState(5);
   const [intervalId, setIntervalId] = useState(null);
+
+  const { t } = useTranslation();
 
   const handleShare = () => {
     if (navigator.share) {
@@ -73,13 +78,13 @@ export const ResultPage = () => {
 
   const pageLogo = useMemo(() => {
     if (transactionData) {
-      return pageInfo[transactionData.status].icon;
+      return pageInfo(t)[transactionData.status].icon;
     }
   }, [transactionData]);
 
   const pageTitle = useMemo(() => {
     if (transactionData) {
-      return pageInfo[transactionData.status].title;
+      return pageInfo(t)[transactionData.status].title;
     }
   }, [transactionData]);
 
@@ -120,15 +125,15 @@ export const ResultPage = () => {
 
   const pluralazied = useMemo(() => {
     if (countdownValue === 0 || countdownValue === 5) {
-      return "секунд";
+      return t("result_page-second1");
     }
 
     if (countdownValue === 1) {
-      return "секунду";
+      return t("result_page-second2");
     }
 
-    return "секунды";
-  }, [countdownValue]);
+    return t("result_page-second3");
+  }, [countdownValue, t]);
 
   if (loading) {
     return (
@@ -150,17 +155,7 @@ export const ResultPage = () => {
         </div>
         {transactionData && transactionData.status === "Pending" && (
           <div className="pending-transaction">
-            <div className="pending-title">Возможные причины:</div>
-            <ul className="reasons">
-              <li>На карте недостаточно средств</li>
-              <li>Неправильно указаны реквизиты</li>
-              <li>Ошибка банка-эквайера</li>
-            </ul>
-
-            <div className="alert">
-              Если у вас списались средства с карты, значит все прошло успешно,
-              но банк не успел обработать транзакцию
-            </div>
+            <div className="alert">{t("result_page-pending-alert")}</div>
           </div>
         )}
         <div className="divider"></div>
@@ -168,16 +163,19 @@ export const ResultPage = () => {
         {transactionData && transactionData.status === "Paid" ? (
           transactionData.success_url ? (
             <div className="countdown">
-              Вы будете перенаправлены обратно в магазин через {countdownValue}{" "}
-              {pluralazied}...
+              {t("result_page-redirect")} {countdownValue} {pluralazied}...
             </div>
           ) : (
             <div className="button-container">
               <div className={`submit-button-result ${theme}`}>
-                <input type="button" value="Поделиться" onClick={handleShare} />
+                <input
+                  type="button"
+                  value={t("result_page-share")}
+                  onClick={handleShare}
+                />
               </div>
               {showTooltip && !isMobile() && (
-                <div className="tooltip">Ссылка скопирована</div>
+                <div className="tooltip">{t("result_page-link-copied")}</div>
               )}
             </div>
           )

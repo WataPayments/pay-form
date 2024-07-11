@@ -7,6 +7,8 @@ import Error500Page from "./Components/Error500Page";
 import PayQrPage from "./Components/pay-qr/page";
 import MainPage from "./Components/MainPage";
 
+import "./i18n";
+
 const router = createHashRouter([
   {
     path: "/",

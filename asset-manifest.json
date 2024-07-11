@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/pay-form/static/css/main.96bd4d95.css",
-    "main.js": "/pay-form/static/js/main.298155fa.js",
+    "main.js": "/pay-form/static/js/main.dbfc9f7a.js",
     "static/css/394.39299b2c.chunk.css": "/pay-form/static/css/394.39299b2c.chunk.css",
-    "static/js/394.40b9ac54.chunk.js": "/pay-form/static/js/394.40b9ac54.chunk.js",
+    "static/js/394.58414b03.chunk.js": "/pay-form/static/js/394.58414b03.chunk.js",
     "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
     "static/media/TTFirsNeue-DemiBoldItalic.ttf": "/pay-form/static/media/TTFirsNeue-DemiBoldItalic.d96287c6cf4cd2f5d330.ttf",
     "static/media/TTFirsNeue-BlackItalic.ttf": "/pay-form/static/media/TTFirsNeue-BlackItalic.20e6d72dbbf5628241f0.ttf",
@@ -44,6 +44,6 @@
   },
   "entrypoints": [
     "static/css/main.96bd4d95.css",
-    "static/js/main.298155fa.js"
+    "static/js/main.dbfc9f7a.js"
   ]
 }

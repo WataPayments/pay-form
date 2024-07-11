@@ -255,7 +255,7 @@ const PaymentForm = (props) => {
         setIsLoading(false);
       }
     },
-    [cardNumber]
+    [cardNumber, cvv, expiryDate]
   );
 
   const sbp_payment = async () => {

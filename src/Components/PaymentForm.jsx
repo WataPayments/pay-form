@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import Loader from "./Loader";
 import isMobile from "is-mobile";
 import "../Styles/PaymentFormStyle.css";
-import { ThemeContext } from "../App";
+import { DataContext, ThemeContext } from "../App";
 import { sendGaEvent } from "../utils/ga";
 import { BanksList } from "./banks-list/BanksList";
 import { OfferMobile } from "./offer-mobile/OfferMobile";
@@ -52,6 +52,8 @@ const PaymentForm = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [showBanksList, setShowBanksList] = useState(false);
   const theme = useContext(ThemeContext);
+
+  // const { setTransactionData } = useContext(DataContext);
 
   const { t } = useTranslation();
 
@@ -235,12 +237,14 @@ const PaymentForm = (props) => {
           );
 
           if (!response.data) {
+            console.log("No response data");
             navigate(`error-pay/${props.uuid}`);
           }
 
           if (response.data.url_redirect) {
             props.setUrlRedirect(response.data.url_redirect);
           } else {
+            // setTransactionData({ ...props.transaction, status: "Pending" });
             navigate(`/result-pay/${props.uuid}`);
           }
         } catch (error) {

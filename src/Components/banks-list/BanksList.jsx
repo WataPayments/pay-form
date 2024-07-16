@@ -33,7 +33,7 @@ export const BanksList = ({ isOpen, onClose }) => {
     } else {
       url = transactionData.sbp_url.replace("https", bank.schema);
     }
-    window.open(url, "_self");
+    window.open(url, "_blank");
   };
 
   useEffect(() => {

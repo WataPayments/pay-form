@@ -9,6 +9,7 @@ import { DataContext, ThemeContext } from "../App";
 import { TransactionInfo } from "./TransactionInfo/TransactionInfo";
 import isMobile from "is-mobile";
 import { sendGaEvent } from "../utils/ga";
+import { useTranslation } from "react-i18next";
 
 export default function MainPage() {
   const { uuid } = useParams();
@@ -17,6 +18,8 @@ export default function MainPage() {
   const theme = useContext(ThemeContext);
   const { transactionData, redirectUrl, setRedirectUrl, loading } =
     useContext(DataContext);
+
+  const { t } = useTranslation();
 
   const handleCardNumberChange = (e) => {
     const { value } = e.target;
@@ -107,11 +110,21 @@ export default function MainPage() {
             />
           </>
         ) : (
-          <iframe
-            id="payment-iframe"
-            src={redirectUrl}
-            title="Payment Redirect"
-          />
+          <div className="three-ds">
+            <div className="three-ds-pending">
+              <div className="pending-block">
+                <span className="loader-pending"></span>
+              </div>
+              <span>{t("result_page-pending")}</span>
+            </div>
+            <div className="iframe">
+              <iframe
+                id="payment-iframe"
+                src={redirectUrl}
+                title="Payment Redirect"
+              />
+            </div>
+          </div>
         )}
         <div className="logo">
           <img src={theme === "dark" ? logoDark : logoLight} alt="WATA" />

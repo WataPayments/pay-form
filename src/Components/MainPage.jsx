@@ -110,7 +110,10 @@ export default function MainPage() {
             />
           </>
         ) : (
-          <div className="three-ds">
+          <div
+            className="three-ds"
+            style={isMobile() ? { marginTop: "20px" } : {}}
+          >
             <div className="three-ds-pending">
               <div className="pending-block">
                 <span className="loader-pending"></span>

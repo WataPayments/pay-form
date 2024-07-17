@@ -39,7 +39,7 @@ export default function MainPage() {
   }, [transactionData]);
 
   useEffect(() => {
-    if (transactionData && transactionData.status !== "Createed") {
+    if (transactionData && transactionData.status !== "Created") {
       navigate(`/result-pay/${transactionData.uuid}`);
     }
   }, [transactionData]);

@@ -28,7 +28,7 @@ const PayQrPage = () => {
   const [showOfferDesktop, setShowOfferDesktop] = useState(false);
   const theme = useContext(ThemeContext);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isMobile() && transactionData) {
       navigate(`/${transactionData.uuid}`);
     }

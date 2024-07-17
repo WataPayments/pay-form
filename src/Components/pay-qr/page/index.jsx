@@ -1,12 +1,17 @@
 import "./styles.css";
 import sbpLogo from "../../../Images/sbp-logo.png";
 import { QRCode } from "react-qrcode-logo";
-import { useEffect, useState, useContext, useCallback } from "react";
+import {
+  useEffect,
+  useState,
+  useContext,
+  useCallback,
+  useLayoutEffect,
+} from "react";
 import useWebSocket, { ReadyState } from "react-use-websocket";
 import { useNavigate } from "react-router-dom";
 import { DataContext } from "../../../App";
 import { TransactionInfo } from "../../TransactionInfo/TransactionInfo";
-import Offer from "../../Offer";
 import isMobile from "is-mobile";
 import { ThemeContext } from "../../../App";
 import logoDark from "../../../Images/Logo.svg";
@@ -22,6 +27,12 @@ const PayQrPage = () => {
   const { sendJsonMessage, lastJsonMessage, readyState } = useWebSocket(WS_URL);
   const [showOfferDesktop, setShowOfferDesktop] = useState(false);
   const theme = useContext(ThemeContext);
+
+  useLayoutEffect(() => {
+    if (isMobile() && transactionData) {
+      navigate(`/${transactionData.uuid}`);
+    }
+  }, [transactionData]);
 
   const handleOverlayToggle = useCallback(() => {
     if (!showOfferDesktop) {

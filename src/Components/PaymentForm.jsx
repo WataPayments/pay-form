@@ -53,8 +53,6 @@ const PaymentForm = (props) => {
   const [showBanksList, setShowBanksList] = useState(false);
   const theme = useContext(ThemeContext);
 
-  // const { setTransactionData } = useContext(DataContext);
-
   const { t } = useTranslation();
 
   const handleOpenOfferClick = () => {

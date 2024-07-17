@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import logoDark from "../Images/Logo.svg";
 import logoLight from "../Images/LogoLight.svg";
 import PaymentForm from "../Components/PaymentForm";
@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 
 export default function MainPage() {
   const { uuid } = useParams();
+  const navigate = useNavigate();
   const [cardNumber, setCardNumber] = useState("");
   const [cardNumberValid, setCardNumberValid] = useState(false);
   const theme = useContext(ThemeContext);
@@ -34,6 +35,12 @@ export default function MainPage() {
   useEffect(() => {
     if (transactionData) {
       sendGaEvent("PaymentPageView", { transaction_id: transactionData.uuid });
+    }
+  }, [transactionData]);
+
+  useEffect(() => {
+    if (transactionData && transactionData.status !== "Createed") {
+      navigate(`/result-pay/${transactionData.uuid}`);
     }
   }, [transactionData]);
 

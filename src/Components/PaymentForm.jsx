@@ -236,7 +236,7 @@ const PaymentForm = (props) => {
 
           if (!response.data) {
             console.log("No response data");
-            navigate(`error-pay/${props.uuid}`);
+            navigate("/404");
           }
 
           if (response.data.url_redirect) {
@@ -246,7 +246,7 @@ const PaymentForm = (props) => {
             navigate(`/result-pay/${props.uuid}`);
           }
         } catch (error) {
-          navigate(`/result-pay/${props.uuid}`);
+          navigate("/404");
         }
 
         setIsLoading(false);

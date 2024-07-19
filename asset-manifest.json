@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pay-form/static/css/main.31d3447f.css",
-    "main.js": "/pay-form/static/js/main.11b4ec68.js",
+    "main.js": "/pay-form/static/js/main.ec8463a4.js",
     "static/css/915.ea8b4a73.chunk.css": "/pay-form/static/css/915.ea8b4a73.chunk.css",
     "static/js/915.52d2f25b.chunk.js": "/pay-form/static/js/915.52d2f25b.chunk.js",
     "static/media/TTFirsNeue-MediumItalic.ttf": "/pay-form/static/media/TTFirsNeue-MediumItalic.a8c67bc898b83b8aa4f3.ttf",
@@ -37,17 +37,17 @@
     "static/media/SuccessPay.svg": "/pay-form/static/media/SuccessPay.ee218e5a9cf521267a725d0ec11320a8.svg",
     "static/media/CloseLight.svg": "/pay-form/static/media/CloseLight.5131786014d18fa1d3a377086dcdf6e2.svg",
     "static/media/Visibility.svg": "/pay-form/static/media/Visibility.0e2110d8abed7ff9de7f81351f0bd60b.svg",
+    "index.html": "/pay-form/index.html",
     "static/media/search-icon-light.svg": "/pay-form/static/media/search-icon-light.9e8f3fe02fe7a2e389d1e7f7a2533431.svg",
     "static/media/search-icon-dark.svg": "/pay-form/static/media/search-icon-dark.3968908607e325aa433a71dfd4ac0590.svg",
     "static/media/RefundedPay.svg": "/pay-form/static/media/RefundedPay.599a52fefb146725ce6592b2f9dcda9d.svg",
-    "index.html": "/pay-form/index.html",
     "main.31d3447f.css.map": "/pay-form/static/css/main.31d3447f.css.map",
-    "main.11b4ec68.js.map": "/pay-form/static/js/main.11b4ec68.js.map",
+    "main.ec8463a4.js.map": "/pay-form/static/js/main.ec8463a4.js.map",
     "915.ea8b4a73.chunk.css.map": "/pay-form/static/css/915.ea8b4a73.chunk.css.map",
     "915.52d2f25b.chunk.js.map": "/pay-form/static/js/915.52d2f25b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.31d3447f.css",
-    "static/js/main.11b4ec68.js"
+    "static/js/main.ec8463a4.js"
   ]
 }

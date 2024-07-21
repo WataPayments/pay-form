@@ -186,6 +186,18 @@ const PaymentForm = (props) => {
         setCardNumberError(false);
       }
 
+      if (
+        (cardType === "mir" && props.transaction.type === "International") ||
+        ((cardType === "visa" || cardType === "mastercard") &&
+          props.transaction.type === "Local")
+      ) {
+        setCardNumberError(true);
+        setIsErrorActive(true);
+        isValid = false;
+      } else {
+        setCardNumberError(false);
+      }
+
       if (!expiryDate) {
         setExpiryDateError(true);
         setIsErrorActive(true);
@@ -257,7 +269,7 @@ const PaymentForm = (props) => {
         setIsLoading(false);
       }
     },
-    [cardNumber, cvv, expiryDate]
+    [cardNumber, cvv, expiryDate, cardType]
   );
 
   const sbp_payment = async () => {
